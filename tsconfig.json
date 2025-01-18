@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "target": "ES5",                     // Output target for older browsers
+    "lib": ["DOM", "DOM.Iterable", "ESNext"], // Libraries to include in the project
+    "allowJs": true,                    // Allow JavaScript files in the project
+    "skipLibCheck": true,               // Skip type checking of declaration files
+    "esModuleInterop": true,            // Enable interop between CommonJS and ESModules
+    "allowSyntheticDefaultImports": true, // Allow default imports from modules with no default export
+    "strict": true,                     // Enable strict type-checking
+    "forceConsistentCasingInFileNames": true, // Ensure consistent casing in module imports
+    "module": "ESNext",                 // Use ESNext module resolution
+    "moduleResolution": "Node",         // Resolve modules in Node.js style
+    "resolveJsonModule": true,          // Allow importing JSON files
+    "jsx": "react-jsx",                 // Enable React JSX transform
+    "outDir": "./build",                // Directory for compiled files
+    "baseUrl": "./",                    // Base directory for module resolution
+    "paths": {                          // Paths to simplify imports
+      "*": ["src/*"],
+      "*.js": ["src/*"],
+      "*.ts": ["src/*"],
+      "*.tsx": ["src/*"]
+    }
+  },
+  "include": ["src/**/*", "src/types/i18n.d.ts"],              // Include all files in the `src` directory
+  "exclude": ["node_modules", "build", "dist"] // Exclude build and dependency folders
+}
