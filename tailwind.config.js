@@ -6,6 +6,7 @@ module.exports = {
       colors: {
         "main-color": "var(--main-color)",
         "secondary-color": "var(--secondary-color)",
+        "grayish": "var(--grayish)",
       },
     },
   },

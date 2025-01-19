@@ -1,6 +1,6 @@
-import axios from '../utils/axios_v1';
+import { axiosV1 } from '../utils/axios';
 
 export const get = async (trackId: string | undefined) => {
-    const response = await axios.get(`/track/${trackId}`,);
+    const response = await axiosV1.get(`/track/${trackId}`,);
     return response.data;
 };

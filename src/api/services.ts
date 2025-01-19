@@ -1,6 +1,11 @@
-import axios from '../utils/axios_v2';
+import { axiosV2 } from "../utils/axios";
 
 export const get = async () => {
-  const response = await axios.get(`/work/view`,);
+  const response = await axiosV2.get(`/service/view`,);
+  return response.data;
+};
+
+export const getSingle = async (id: string) => {
+  const response = await axiosV2.get(`/service/view/${id}`,);
   return response.data;
 };

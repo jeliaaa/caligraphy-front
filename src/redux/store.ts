@@ -4,7 +4,7 @@ import renovationReducer from "./slices/renovationReducer"
 const store = configureStore({
     reducer: {
         services: serviceReducer,
-        renovation: renovationReducer
+        renovation: renovationReducer 
     },
 });
 

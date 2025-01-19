@@ -4,6 +4,8 @@ import { Route, Routes } from 'react-router-dom';
 import Main from './pages/Main';
 import Track from './pages/Track';
 import Services from './pages/Services';
+import ServcicesSingle from './pages/ServcicesSingle';
+import Footer from './components/Footer';
 
 const App = () => {
   return (
@@ -14,8 +16,10 @@ const App = () => {
           <Route index path='/' element={<Main />} />
           <Route path='/track/:id' element={<Track />} />
           <Route path='/services' element={<Services />} />
+          <Route path='/services/:id' element={<ServcicesSingle />} />
         </Routes>
       </div>
+      <Footer />
     </div>
   );
 }
