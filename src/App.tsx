@@ -6,6 +6,7 @@ import Track from './pages/Track';
 import Services from './pages/Services';
 import ServcicesSingle from './pages/ServcicesSingle';
 import Footer from './components/Footer';
+import Progress from './pages/Progress';
 
 const App = () => {
   return (

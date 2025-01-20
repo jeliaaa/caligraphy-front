@@ -1,20 +1,21 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { AppDispatch, RootState } from "../redux/store";
 import { fetchRenovation } from "../redux/thunks/renovationThunk";
 import banner from "../assets/banners/Green-Remodeling-in-Process.jpeg"
 import Progress from "./Progress";
+import { FaArrowUp, FaArrowDown } from "react-icons/fa";
 
 const Track = () => {
     const { id } = useParams();
     const [inputVal, setInputVal] = useState(id !== "0" ? id : ""); // Set initial value conditionally
-    const [currentPhoto, setCurrentPhoto] = useState<number | null>(null); // State to track current photo in the slider
     const navigate = useNavigate();
     const dispatch = useDispatch<AppDispatch>();
     const { data, status } = useSelector((state: RootState) => state.renovation)
     const isLoading = useMemo(() => status === 'loading' || status === 'idle', [status]);
+    const [details, setDetails] = useState(false)
     useEffect(() => {
         dispatch(fetchRenovation(id))
     }, [dispatch, id])
@@ -48,11 +49,7 @@ const Track = () => {
             onSearchClick();
         }
     };
-
-    const closeSlider = () => setCurrentPhoto(null);
-    const showPreviousPhoto = () => setCurrentPhoto((prev) => (prev !== null && prev > 0 ? prev - 1 : prev));
-    const showNextPhoto = () => setCurrentPhoto((prev) => (prev !== null && prev < renovationDetails.photos.length - 1 ? prev + 1 : prev));
-
+    
     return (
         <div className="w-full flex flex-col items-center gap-y-4">
             <div
@@ -95,34 +92,36 @@ const Track = () => {
                             <span className="font-bold">მისამართი:</span>
                             <span>{data?.address}</span>
                         </div>
-                        <div className="flex flex-col">
+                        <div className="flex flex-col gap-2">
                             <span className="font-bold">პროგრესი:</span>
-                            {/* <div className="w-full bg-gray-300 rounded-full h-8 mt-2 relative">
-                                <div
-                                    className={`h-8 rounded-full ${data?.progress! <= 33
-                                        ? "bg-red-500"
-                                        : data?.progress! <= 66
-                                            ? "bg-orange-500"
-                                            : "bg-green-500"
-                                        }`}
-                                    style={{ width: `${data?.progress}%` }}
-                                />
-
-                            </div> */}
-                            <Progress serviceId={data?.service.id!} progress={data?.progress!} />
-                        </div>
-                        <div>
-                            <span className="font-bold">ფოტოები:</span>
-                            <div className="grid grid-cols-3 gap-4 mt-2">
-                                {renovationDetails.photos.map((photo, index) => (
-                                    <img
-                                        key={index}
-                                        src={photo}
-                                        alt={`Renovation ${index + 1}`}
-                                        className="w-full h-[200px] object-cover rounded cursor-pointer"
-                                        onClick={() => setCurrentPhoto(index)}
-                                    />
-                                ))}
+                            <div className="w-full flex flex-col gap-2 justify-start items-start">            
+                                <div className="flex justify-between w-full">
+                                    <div className="h-full border-b-2 rounded-sm border-black gap-1 flex">
+                                        <p className="font-bold text-[#808080]">{data?.progress}%</p>
+                                    </div>
+                                    <div className="h-full border-b-2 rounded-sm border-black self-end gap-1 flex">
+                                        <p className="font-bold text-[#808080]">100%</p>
+                                    </div>
+                                </div>
+                                <div 
+                                  className={'w-full bg-gray-200 rounded-full py-0.5'}>
+                                    <div 
+                                        className="bg-blue-600 h-[20px] w-2/4 rounded-full"
+                                        style={{
+                                            width: `${data?.progress}%`
+                                        }}
+                                    ></div>
+                                </div>
+                                {details &&
+                                    <Progress serviceId={data?.service.id}/>
+                                }
+                                <button className="self-end flex gap-2 text-sm" onClick={() => setDetails(!details)}>
+                                    დეტალები
+                                    {details 
+                                        ? <FaArrowUp/> 
+                                        : <FaArrowDown/>
+                                    }
+                                </button>
                             </div>
                         </div>
                         <div className="flex justify-center mt-10">
@@ -136,35 +135,6 @@ const Track = () => {
                         </div>
                     </div>
                 </div>
-
-                {/* Gallery Slider */}
-                {currentPhoto !== null && (
-                    <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-75 flex items-center justify-center z-50">
-                        <button
-                            onClick={closeSlider}
-                            className="absolute top-5 right-5 text-white text-2xl font-bold"
-                        >
-                            ✕
-                        </button>
-                        <button
-                            onClick={showPreviousPhoto}
-                            className="absolute left-5 text-white text-3xl font-bold"
-                        >
-                            ‹
-                        </button>
-                        <img
-                            src={renovationDetails.photos[currentPhoto]}
-                            alt={`Slide ${currentPhoto + 1}`}
-                            className="w-[80%] h-auto max-h-[90%] object-contain rounded"
-                        />
-                        <button
-                            onClick={showNextPhoto}
-                            className="absolute right-5 text-white text-3xl font-bold"
-                        >
-                            ›
-                        </button>
-                    </div>
-                )}
             </>}
         </div>
     );
