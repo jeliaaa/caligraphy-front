@@ -10,7 +10,6 @@ import { useTranslation } from 'react-i18next';
 const Header: React.FC = () => {
     const [menuOpen, setMenuOpen] = useState(false);
     const toggleMenu = () => setMenuOpen(!menuOpen);
-    // @ts-ignore
     const { t } = useTranslation();
 
 
@@ -77,7 +76,6 @@ const Header: React.FC = () => {
                             key={_id}
                             className='relative flex h-full text-center md:py-5 px-3 border-b md:border-0 border-main-color group'
                         >
-                            {/* @ts-ignore */}
                             {t(nav.title)}  {/* `nav.title` is now properly typed */}
                             {/* Hover underline */}
                             <div className='hidden md:block absolute left-0 bottom-2 w-full h-[2px] bg-white scale-x-0 group-hover:scale-x-100 transition-transform duration-300' />

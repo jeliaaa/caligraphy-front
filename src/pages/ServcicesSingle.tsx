@@ -16,6 +16,8 @@ const ServcicesSingle = () => {
     useEffect(() => {
         id && dispatch(fetchServiceSingle(id))
     }, [dispatch, id])
+    if (isLoading) { console.log('a') }
+    
     return (
         <div className="w-full bg-grayish">
             <div className="h-[100px] flex items-center text-main-color justify-center">
@@ -70,7 +72,7 @@ const ServcicesSingle = () => {
                     Get Started
                 </button>
             </div>
-            <div className="w-full h-[100px]"/>
+            <div className="w-full h-[100px]" />
         </div>
     )
 }

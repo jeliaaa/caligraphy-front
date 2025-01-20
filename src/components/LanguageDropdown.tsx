@@ -4,7 +4,6 @@ import { useTranslation } from 'react-i18next';
 import { useLocation } from 'react-router-dom';
 
 const LanguageDropdown: React.FC = () => {
-    // @ts-ignore
     const { i18n } = useTranslation();
     const location = useLocation();
     const handleLanguageChange = (e: React.ChangeEvent<HTMLSelectElement>) => {

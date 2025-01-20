@@ -1,10 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { fetchServices, fetchServiceSingle } from '../thunks/serviceThunk';
-import { Work } from 'types/apiTypes/types';
+import { Service } from 'types/apiTypes/types';
 
 interface InitialState {
-  data: Work[]; // List of all services
-  singleData: Work | null; // Data for a single service
+  data: Service[]; // List of all services
+  singleData: Service | null; // Data for a single service
   status: 'idle' | 'loading' | 'succeeded' | 'failed'; // Status for all services
   singleStatus: 'idle' | 'loading' | 'succeeded' | 'failed'; // Status for single service
 }
@@ -49,7 +49,7 @@ const serviceSlice = createSlice({
 });
 
 
-export const { } = serviceSlice.actions;
+// export const { } = serviceSlice.actions;
 
 export default serviceSlice.reducer;
 

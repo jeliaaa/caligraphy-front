@@ -2,23 +2,22 @@ import React, { useEffect, useMemo, useState } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import { RootState } from "../redux/store";
+import { AppDispatch, RootState } from "../redux/store";
 import { fetchRenovation } from "../redux/thunks/renovationThunk";
+import banner from "../assets/banners/Green-Remodeling-in-Process.jpeg"
+import Progress from "./Progress";
 
 const Track = () => {
     const { id } = useParams();
     const [inputVal, setInputVal] = useState(id !== "0" ? id : ""); // Set initial value conditionally
     const [currentPhoto, setCurrentPhoto] = useState<number | null>(null); // State to track current photo in the slider
     const navigate = useNavigate();
-    const dispatch = useDispatch();
+    const dispatch = useDispatch<AppDispatch>();
     const { data, status } = useSelector((state: RootState) => state.renovation)
     const isLoading = useMemo(() => status === 'loading' || status === 'idle', [status]);
-
     useEffect(() => {
-        dispatch(fetchRenovation({ trackId: inputVal }) as any)
-    }, [dispatch, inputVal])
-    console.log(data);
-
+        dispatch(fetchRenovation(id))
+    }, [dispatch, id])
     // Sample renovation data
     const renovationDetails = {
         manager: "ჯონი ჯანდიერი",
@@ -36,6 +35,7 @@ const Track = () => {
     const onSearchClick = () => {
         if (inputVal?.trim() !== "") {
             navigate(`/track/${inputVal}`);
+            dispatch(fetchRenovation(inputVal))
         } else {
             navigate(`/track/0`);
         }
@@ -56,7 +56,7 @@ const Track = () => {
     return (
         <div className="w-full flex flex-col items-center gap-y-4">
             <div
-                style={{ backgroundImage: `url(https://picsum.photos/300/100)` }}
+                style={{ backgroundImage: `url(${banner})` }}
                 className="w-full flex items-center justify-center h-[200px] bg-center bg-cover"
             >
                 <h1 className="text-center font-bold mt-2 bg-white inline-block px-10 text-3xl py-5">
@@ -79,35 +79,37 @@ const Track = () => {
                 </button>
             </div>
 
-            {id !== '0' && <>
+            {isLoading ? 'Loading...' : status === 'failed' ? "No such renovation" : <>
                 <div className="w-full mt-10 px-5">
-                    <h2 className="text-2xl font-bold mb-4">ჩემი პროექტი</h2>
+                    <h2 className="text-2xl font-bold mb-4">{data?.track}</h2>
                     <div className="flex flex-col gap-4">
                         <div className="flex justify-between items-center">
                             <span className="font-bold">მმართველი:</span>
-                            <span>{renovationDetails.manager}</span>
+                            <span>{data?.supervisor.firstname} {data?.supervisor.lastname}</span>
                         </div>
                         <div className="flex justify-between items-center">
-                            <span className="font-bold">ეტაპი:</span>
-                            <span>{renovationDetails.stage}</span>
+                            <span className="font-bold">სერვისი:</span>
+                            <span>{data?.service.name}</span>
                         </div>
                         <div className="flex justify-between items-center">
-                            <span className="font-bold">ლოკაცია:</span>
-                            <span>{renovationDetails.location}</span>
+                            <span className="font-bold">მისამართი:</span>
+                            <span>{data?.address}</span>
                         </div>
-                        <div>
+                        <div className="flex flex-col">
                             <span className="font-bold">პროგრესი:</span>
-                            <div className="w-full bg-gray-300 rounded-full h-4 mt-2">
+                            {/* <div className="w-full bg-gray-300 rounded-full h-8 mt-2 relative">
                                 <div
-                                    className={`h-4 rounded-full ${renovationDetails.progress <= 33
+                                    className={`h-8 rounded-full ${data?.progress! <= 33
                                         ? "bg-red-500"
-                                        : renovationDetails.progress <= 66
+                                        : data?.progress! <= 66
                                             ? "bg-orange-500"
                                             : "bg-green-500"
                                         }`}
-                                    style={{ width: `${renovationDetails.progress}%` }}
+                                    style={{ width: `${data?.progress}%` }}
                                 />
-                            </div>
+
+                            </div> */}
+                            <Progress serviceId={data?.service.id!} progress={data?.progress!} />
                         </div>
                         <div>
                             <span className="font-bold">ფოტოები:</span>

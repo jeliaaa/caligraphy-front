@@ -45,6 +45,8 @@
     ]
   },
   "devDependencies": {
+    "@types/i18next": "^12.1.0",
+    "@types/i18next-browser-languagedetector": "^2.0.2",
     "@types/js-cookie": "^3.0.6",
     "@types/react": "^19.0.7",
     "autoprefixer": "^10.4.20",

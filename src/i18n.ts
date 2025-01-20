@@ -30,4 +30,14 @@ i18n
   });
 
 
+export const resources = {
+  en: {
+    translation: enTranslation,
+  },
+  ka: {
+    translation: kaTranslation,
+  },
+}
+export const defaultNS = enTranslation;
+
 export default i18n;

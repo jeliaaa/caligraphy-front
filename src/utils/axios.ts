@@ -4,7 +4,6 @@ import i18n from "i18next"; // Import your i18n instance
 
 // Factory function to create Axios instances for different versions
 const createAxiosInstance = (version: string) => {
-  console.log(`${process.env.REACT_APP_URL}/${i18n.language || "en"}/api/${version}`)
   const instance = axios.create({
     baseURL: `${process.env.REACT_APP_URL}/${i18n.language || "en"}/api/${version}`, // Include version dynamically
     withCredentials: true,

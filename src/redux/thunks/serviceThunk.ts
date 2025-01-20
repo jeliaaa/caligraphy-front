@@ -1,8 +1,8 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { get, getSingle } from "../../api/services";
-import { Work } from "types/apiTypes/types";
+import { Service } from "types/apiTypes/types";
 
-export const fetchServices = createAsyncThunk<Work[]>(
+export const fetchServices = createAsyncThunk<Service[]>(
     'services/fetchServices',
     async (_, { rejectWithValue }) => {
         try {
@@ -14,7 +14,7 @@ export const fetchServices = createAsyncThunk<Work[]>(
     }
 );
 
-export const fetchServiceSingle = createAsyncThunk<Work, string>(
+export const fetchServiceSingle = createAsyncThunk<Service, string>(
     'services/fetchServiceSingle',
     async (id, { rejectWithValue }) => {
         try {

@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaCheck } from 'react-icons/fa'; // Import the icon
 import logo from "../assets/logos/logo.png";
 import { useTranslation } from 'react-i18next';
 
@@ -14,7 +13,6 @@ const Footer = () => {
         { title: "contactUs", to: '' },
         { title: "info", to: '' },
     ] as const;
-    //@ts-ignore 
     const { t } = useTranslation();
     return (
         <footer className="bg-main-color text-white py-8">
@@ -30,27 +28,26 @@ const Footer = () => {
                                     className="w-24"
                                 />
                             </Link>
-                            {/* @ts-ignore */}
                             <p className="font-bold text-2xl">{t("name")}</p>
                         </div>
                         <div className="text-center md:text-left">
                             <p className="font-semibold">სოც ქსელები</p>
                             <div className="flex space-x-4 mt-2">
-                                <Link to="https://www.facebook.com/GROMKOM.LLC" target="_blank">
+                                <Link to="/" target="_blank">
                                     <img
                                         src="https://gromkom.com/wp-content/uploads/2022/11/facebook.png"
                                         alt="Facebook"
                                         className="w-6 h-6"
                                     />
                                 </Link>
-                                <Link to="https://www.instagram.com/GROMKOM.LLC/" target="_blank">
+                                <Link to="/" target="_blank">
                                     <img
                                         src="https://gromkom.com/wp-content/uploads/2022/11/instagram.png"
                                         alt="Instagram"
                                         className="w-6 h-6"
                                     />
                                 </Link>
-                                <Link to="https://vk.com/gromkom" target="_blank">
+                                <Link to="/" target="_blank">
                                     <img
                                         src="https://gromkom.com/wp-content/uploads/2022/11/vk.png"
                                         alt="VK"
@@ -83,7 +80,7 @@ const Footer = () => {
                                 <li>
                                     <Link
                                         className="text-gray-300 hover:text-white"
-                                        to="https://gromkom.com/services/Linkcceptance-new-apartment/"
+                                        to="/"
                                     >
                                         ახალი შენობების მიღება
                                     </Link>
@@ -91,33 +88,33 @@ const Footer = () => {
                                 <li>
                                     <Link
                                         className="text-gray-300 hover:text-white"
-                                        to="https://gromkom.com/services/renovation-new-buildings/"
+                                        to="/"
                                     >
                                         ახალი შენობების რემონტი
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link className="text-gray-300 hover:text-white" to="https://gromkom.com/services/Linkpartment-renovation/">
+                                    <Link className="text-gray-300 hover:text-white" to="/">
                                         ბინის რემონტი
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link className="text-gray-300 hover:text-white" to="https://gromkom.com/services/black-frame/">
+                                    <Link className="text-gray-300 hover:text-white" to="/">
                                         რემონტი | შავი კარკასი
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link className="text-gray-300 hover:text-white" to="https://gromkom.com/services/green-frame/">
+                                    <Link className="text-gray-300 hover:text-white" to="/">
                                         რემონტი | მწვანე კარკასი
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link className="text-gray-300 hover:text-white" to="https://gromkom.com/services/white-frame/">
+                                    <Link className="text-gray-300 hover:text-white" to="/">
                                         რემონტი | თეთრი კარკასი
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link className="text-gray-300 hover:text-white" to="https://gromkom.com/services/">
+                                    <Link className="text-gray-300 hover:text-white" to="/">
                                         ყველა მომსახურება
                                     </Link>
                                 </li>

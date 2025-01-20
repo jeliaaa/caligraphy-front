@@ -1,9 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { fetchRenovation } from '../thunks/renovationThunk';
+import { Renovation } from 'types/apiTypes/types';
 
 
 interface IniitalState {
-    data: any;
+    data: Renovation | null;
     status: 'idle' | 'loading' | 'succeeded' | 'failed';
 }
 
@@ -19,6 +20,7 @@ const renovationSlice = createSlice({
         builder
             .addCase(fetchRenovation.pending, (state) => {
                 state.status = 'loading';
+                state.data = null;
             })
             .addCase(fetchRenovation.fulfilled, (state, action) => {
                 state.status = 'succeeded';
@@ -26,11 +28,12 @@ const renovationSlice = createSlice({
             })
             .addCase(fetchRenovation.rejected, (state) => {
                 state.status = 'failed';
+                state.data = null;
             })
     }
 });
 
-export const { } = renovationSlice.actions;
+// export const { } = renovationSlice.actions;
 
 export default renovationSlice.reducer;
 
