@@ -20,7 +20,9 @@
       "*.js": ["src/*"],
       "*.ts": ["src/*"],
       "*.tsx": ["src/*"]
-    }
+    },
+    "typeRoots": ["node_modules/@types"],
+    "types": ["react", "node"]
   },
   "include": ["src/**/*", "src/", "types/**/*"], // Include all files in the `src` directory
   "exclude": ["node_modules", "build", "dist"] // Exclude build and dependency folders

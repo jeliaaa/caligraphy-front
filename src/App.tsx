@@ -6,7 +6,7 @@ import Track from './pages/Track';
 import Services from './pages/Services';
 import ServcicesSingle from './pages/ServcicesSingle';
 import Footer from './components/Footer';
-import Progress from './pages/Progress';
+import LoginForm from './pages/Login';
 
 const App = () => {
   return (
@@ -15,6 +15,7 @@ const App = () => {
       <div className='w-full min-h-[80dvh]'>
         <Routes>
           <Route index path='/' element={<Main />} />
+          <Route index path='/login' element={<LoginForm />} />
           <Route path='/track/:id' element={<Track />} />
           <Route path='/services' element={<Services />} />
           <Route path='/services/:id' element={<ServcicesSingle />} />
