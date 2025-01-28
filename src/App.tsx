@@ -7,6 +7,7 @@ import Services from './pages/Services';
 import ServcicesSingle from './pages/ServcicesSingle';
 import Footer from './components/Footer';
 import LoginForm from './pages/Login';
+import RegistrationForm from './pages/RegistrationForm';
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
         <Routes>
           <Route index path='/' element={<Main />} />
           <Route index path='/login' element={<LoginForm />} />
+          <Route index path='/register' element={<RegistrationForm />} />
           <Route path='/track/:id' element={<Track />} />
           <Route path='/services' element={<Services />} />
           <Route path='/services/:id' element={<ServcicesSingle />} />
