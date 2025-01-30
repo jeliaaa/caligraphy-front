@@ -34,6 +34,7 @@ const createAxiosInstance = (version: string) => {
 // Create Axios instances for v1 and v2
 export const axiosV1 = createAxiosInstance("v1");
 export const axiosV2 = createAxiosInstance("v2");
+export const axiosV3 = createAxiosInstance("v3");
 
 // Default export (optional, usually one of the versions)
 

@@ -8,8 +8,11 @@ import ServcicesSingle from './pages/ServcicesSingle';
 import Footer from './components/Footer';
 import LoginForm from './pages/Login';
 import RegistrationForm from './pages/RegistrationForm';
+import TeamPage from './pages/Team';
+import Gallery from './pages/Gallery';
 
 const App = () => {
+
   return (
     <div className="App">
       <Header />
@@ -21,6 +24,8 @@ const App = () => {
           <Route path='/track/:id' element={<Track />} />
           <Route path='/services' element={<Services />} />
           <Route path='/services/:id' element={<ServcicesSingle />} />
+          <Route path='/team' element={<TeamPage />} />
+          <Route path='/gallery' element={<Gallery />} />
         </Routes>
       </div>
       <Footer />

@@ -8,6 +8,10 @@
   --grayish: #daded8;
 }
 
+body{
+  background: var(--grayish);
+}
+
 /* 
 #2c3424
 #4c583e

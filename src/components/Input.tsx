@@ -2,7 +2,7 @@ import React, { forwardRef } from "react";
 
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
     label: string;
-    value: string;
+    value?: string;
 }
 
 const Input = forwardRef<HTMLInputElement, InputProps>(

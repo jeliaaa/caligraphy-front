@@ -1,71 +1,35 @@
+import { useAuth } from "../context/AuthContext";
 import Input from "../components/Input";
 import React, { useState } from "react";
-import { useForm, Controller } from "react-hook-form";
-import { Link } from "react-router-dom";
-// import Input from "./formComponents/Input";
-// import { useDispatch } from "react-redux";
-// import { fetchAdminAuth, fetchParticipantAuth } from "../../redux/thunks/authThunks";
-
+import { useForm, Controller, SubmitHandler } from "react-hook-form";
+import { Link, useNavigate } from "react-router-dom";
 
 const LoginForm = () => {
-    const { control, handleSubmit, formState: { errors } } = useForm();
+    // Provide ILoginForm as the generic type for useForm
+    const { control, handleSubmit, formState: { errors } } = useForm<ILoginForm>();
     const [loading, setLoading] = useState(false);
-    // const [error, setError] = useState('');
-    // const dispatch = useDispatch();
-    // const nav = useNavigate();
+    const navigate = useNavigate();
+    const { login } = useAuth();
     const forAdmin = false;
-    // const onSubmit = async (val) => {
-    //     // console.log(data); // Ensure values are logged correctly
 
-    //     // try {
-    //     //     setError('');
-    //     //     setLoading(true);
-    //     //     // Perform your authentication logic here
-    //     // } catch (error) {
-    //     //     setError('Failed to sign in'); // Handle error state
-    //     // } finally {
-    //     //     setLoading(false);
-    //     // }
-    //     if (forAdmin) {
-    //         const data = await dispatch(fetchAdminAuth({
-    //             email: val.email,
-    //             password: val.password,
-    //         }));
-    //         if (!data.payload) {
-    //             setLoading(false)
-    //         } else {
-    //             if ('token' in data.payload) {
-    //                 window.localStorage.setItem('token', data.payload.token);
-    //                 nav("/admin")
-    //             } else {
-
-    //             }
-    //             setLoading(false);
-    //         }
-    //     } else {
-    //         const data = await dispatch(fetchParticipantAuth({
-    //             email: val.email,
-    //             password: val.password,
-    //         }));
-    //         if (!data.payload) {
-    //             setLoading(false);
-    //             toast.error('დაფიქსირდა შეცდომა');
-    //         } else {
-    //             if ('token' in data.payload) {
-    //                 window.localStorage.setItem('token', data.payload.token);
-    //                 toast.success('კეთილი იყოს თქვენი მობრძანება');
-    //                 nav("/email/verify")
-    //             } else {
-    //                 toast.error('მომხმარებელი ვერ მოიძებნა');
-    //             }
-    //             setLoading(false);
-    //         }
-    //     }
-    // };
-
-    const onSubmit = () => {
-        console.log();
+    interface ILoginForm {
+        email: string;
+        password: string;
     }
+
+    // Explicitly use ILoginForm as the type for SubmitHandler
+    const onSubmit: SubmitHandler<ILoginForm> = async (data) => {
+        try {
+            setLoading(true);
+            await login(data.email, data.password);
+            navigate('/');
+        } catch (error) {
+            alert(error instanceof Error ? error.message : 'Login failed. Please try again.');
+        } finally {
+            setLoading(false);
+        }
+    };
+
     return (
         <div className="max-w-md min-h-[80dvh] m-auto md:mt-20">
             <form className='space-y-4 my-4' onSubmit={handleSubmit(onSubmit)}>
@@ -73,9 +37,9 @@ const LoginForm = () => {
                     name="email"
                     control={control}
                     rules={{ required: true }}
-                    render={({ field }: { field: any }) => (
+                    render={({ field }) => (
                         <Input
-                            {...field}
+                            {...field}  // Spread field to ensure onChange, value, onBlur are passed
                             label="ელ. ფოსტა"
                             placeholder="ელ. ფოსტა"
                         />
@@ -87,9 +51,9 @@ const LoginForm = () => {
                     name="password"
                     control={control}
                     rules={{ required: true }}
-                    render={({ field }: { field: any }) => (
+                    render={({ field }) => (
                         <Input
-                            {...field}
+                            {...field}  // Spread field to ensure onChange, value, onBlur are passed
                             label="პაროლი"
                             type="password"
                             placeholder="შეიყვანეთ პაროლი"
@@ -99,7 +63,7 @@ const LoginForm = () => {
                 {errors.password && <span className="text-red-700 text-sm mt-2">* აუცილებელი ველი</span>}
 
                 {!forAdmin && <div className="flex items-center justify-end">
-                    <Link to='/participant/reset-password' className="self-end hover:text-blue-800 hover:underline">დაგავიწყდათ პაროლი?</Link>
+                    <Link to='/participant/reset-password' className="self-end hover:text-blue-800 hover:underline">დაგავიწყდით პაროლი?</Link>
                 </div>}
 
                 <div>
@@ -108,7 +72,6 @@ const LoginForm = () => {
                         შესვლა
                     </button>
                 </div>
-                {/* {error && <span className="text-red-700 text-sm mt-2">{error}</span>} */}
             </form>
             {!forAdmin && <span className='mt-8'>{`არ გაქვს არგარიში`}?
                 <Link to="/register" className="text-blue-600 hover:text-blue-800 hover:underline"> რეგისტრაცია</Link>

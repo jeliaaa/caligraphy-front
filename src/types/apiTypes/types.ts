@@ -27,3 +27,10 @@ export type Stage = {
     name: string;
     is_completed: string; // ISO date string format
 };
+
+export type Customer = {
+    id: number;
+    firstname: string; // Assuming images is an array of strings (URLs or paths)
+    lastname: string;
+    email: string; // ISO date string format
+};

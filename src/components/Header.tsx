@@ -20,7 +20,7 @@ const Header: React.FC = () => {
         { title: "myProject", to: 'track/0' },
         { title: "blog", to: '' },
         { title: "contactUs", to: '' },
-        { title: "info", to: '' },
+        { title: "team", to: 'team' },
     ] as const;
 
 
@@ -32,7 +32,7 @@ const Header: React.FC = () => {
     ];
 
     return (
-        <header className='w-full flex flex-col sticky bg-white shadow-md z-50'> {/* Added z-50 */}
+        <header className='w-full flex flex-col sticky bg-grayish shadow-md z-50'> {/* Added z-50 */}
             <div className='w-full py-3 px-5 flex justify-between items-center'>
                 <Link to={'/'}>
                     <img src={logo} className='w-[70px] aspect-square' alt='...' />

@@ -22,7 +22,7 @@ const Services = () => {
         <div className='flex w-full items-center justify-evenly pt-10 flex-wrap gap-y-10'>
             {isLoading ? 'loading...' :
                 data.map((service: Service) => (
-                    <Link to={service.id.toString()} key={service.id} className='flex items-center gap-x-9 p-5 w-[300px]  lg:w-1/4 box-border bg-grayish hover:shadow-secondary-color hover:shadow-lg'>
+                    <Link to={service.id.toString()} key={service.id} className='flex items-center gap-x-9 p-5 w-[300px]  lg:w-1/4 box-border bg-white hover:shadow-secondary-color hover:shadow-lg'>
                         <img src={karkasi} alt='karkasis foto' className='w-[100px] aspect-square rounded-full' />
                         <h3 className='text-3xl text-main-color capitalize'>{service.name}</h3>
                     </Link>

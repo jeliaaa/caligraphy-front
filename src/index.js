@@ -7,13 +7,16 @@ import "./index.css";
 import { Provider } from "react-redux";
 import store from "./redux/store";
 import ModalContext from "./context/ModalContext.tsx";
+import { AuthProvider } from "./context/AuthContext.tsx";
 
 const RootComponent = () => {
   return (
     <BrowserRouter basename={`/${i18n.language}`}>
       <Provider store={store}>
-        <ModalContext/>
-        <App />
+        <AuthProvider>
+          <ModalContext />
+          <App />
+        </AuthProvider>
       </Provider>
     </BrowserRouter>
   );
