@@ -25,12 +25,20 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     const navigate = useNavigate();
     useEffect(() => {
         if (!user && status === 'idle' && !window.location.href.includes("token=")) {
-            const response = dispatch(fetchCustomerProfile());
-            response.then((data: any) => {
-                if (data.payload && !data.payload.email_verified && window.location.pathname !== "/verify-email") {
-                    navigate("/verify-email");
-                }
-            });
+            dispatch(fetchCustomerProfile())
+                .then((data: any) => {
+                    console.log("Fetched Profile Data:", data);
+
+                    if (data?.error?.message) {
+                        console.warn("Profile Fetch Error:", data.error.message);
+                        return; // Exit if there's an error
+                    }
+
+                    if (!data.payload?.email_verified && window.location.pathname !== "/verify-email") {
+                        navigate("/verify-email");
+                    }
+                })
+                .catch((error) => console.error("Profile Fetch Failed:", error));
         }
     }, [dispatch, user, status, navigate]);
 
