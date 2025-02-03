@@ -10,6 +10,7 @@ import LoginForm from './pages/Login';
 import RegistrationForm from './pages/RegistrationForm';
 import TeamPage from './pages/Team';
 import Gallery from './pages/Gallery';
+import VerifyEmail from './pages/Verify';
 
 const App = () => {
 
@@ -25,6 +26,7 @@ const App = () => {
           <Route path='/services' element={<Services />} />
           <Route path='/services/:id' element={<ServcicesSingle />} />
           <Route path='/team' element={<TeamPage />} />
+          <Route path='/verify-email' element={<VerifyEmail  />} />
           <Route path='/gallery' element={<Gallery />} />
         </Routes>
       </div>

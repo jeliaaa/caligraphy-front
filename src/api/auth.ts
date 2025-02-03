@@ -38,7 +38,7 @@ export const customerLogout = async () => {
 };
 
 export const verifyEmail = async (token: string) => {
-    const response = await axiosV3.post(`/customer/verify-email`, null, { params: { token } });
+    const response = await axiosV3.get(`/customer/verify-email/${token}`);
     return response.data;
 };
 

@@ -3,6 +3,8 @@ import React, { createContext, useContext, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCustomerProfile, fetchCustomerLogin, fetchCustomerLogout, fetchCustomerRegister } from '../redux/thunks/authThunks';
 import { RootState, AppDispatch } from '../redux/store';
+import { useNavigate } from 'react-router-dom';
+
 
 interface AuthContextType {
     login: (email: string, password: string) => Promise<void>;
@@ -20,13 +22,18 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     const user = useSelector((state: RootState) => state.auth.data);
     const status = useSelector((state: RootState) => state.auth.status);
     const isAuthenticated = !!user;
-
+    const navigate = useNavigate();
     useEffect(() => {
-        if (!user && status === 'idle') {
-            dispatch(fetchCustomerProfile());
-            console.log(user);
+        if (!user && status === 'idle' && !window.location.href.includes("token=")) {
+            const response = dispatch(fetchCustomerProfile());
+            response.then((data: any) => {
+                if (data.payload && !data.payload.email_verified && window.location.pathname !== "/verify-email") {
+                    navigate("/verify-email");
+                }
+            });
         }
-    }, [dispatch, user, status]);
+    }, [dispatch, user, status, navigate]);
+
 
     const login = async (login: string, password: string) => {
         await dispatch(fetchCustomerLogin({ login, password }));
