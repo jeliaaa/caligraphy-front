@@ -27,10 +27,10 @@ const PartnersSlide = () => {
                 }}
                 modules={[Pagination, Navigation]}
                 breakpoints={{
-                    640: {
+                    320: {
                         slidesPerView: 1,
                     },
-                    768: {
+                    640: {
                         slidesPerView: 2,
                     },
                     1024: {

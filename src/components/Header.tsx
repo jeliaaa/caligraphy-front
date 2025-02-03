@@ -38,7 +38,7 @@ const Header: React.FC = () => {
                     <img src={logo} className='w-[70px] aspect-square' alt='...' />
                 </Link>
                 <div className='hidden flex-col md:flex md:flex-row items-center gap-4 md:gap-6 px-5 md:px-0'>
-                    <div className='flex items-center text-white gap-x-2 bg-secondary-color rounded-3xl p-2'>
+                    {/* <div className='flex items-center text-white gap-x-2 bg-secondary-color rounded-3xl p-2'>
                         <BsPinFill size={20} />
                         <span>ქ.ბათუმი სელიმ ხიმშიაშვილის ქ.N1</span>
                     </div>
@@ -57,7 +57,7 @@ const Header: React.FC = () => {
                         <div className='w-full mt-2'>
                             ტელეფონი: <Link className='underline' to="tel:555555555">+995 555555555</Link>
                         </div>
-                    </div>
+                    </div> */}
                     <LanguageDropdown />
                 </div>
 
