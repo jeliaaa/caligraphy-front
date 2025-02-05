@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import React, { useState } from "react";
 import { BsFileExcel } from "react-icons/bs";
 import { FaRegFileExcel } from "react-icons/fa";
@@ -16,8 +17,11 @@ const Button = ({ onClick, children }: { onClick: () => void; children: React.Re
     </button>
 );
 
-const PriceCalculator: React.FC = () => {
-    const [step, setStep] = useState(0);
+interface calcProps {
+    page: boolean | null;
+}
+const PriceCalculator: React.FC<calcProps> = ({page}) => {
+    const [step, setStep] = useState(page ? 1 : 0);
     const [selectedService, setSelectedService] = useState(services[0]);
     const [quality, setQuality] = useState("Medium");
     const [size, setSize] = useState(50);
@@ -35,7 +39,7 @@ const PriceCalculator: React.FC = () => {
     };
 
     return (
-        <div className="w-full flex flex-col items-center p-6 bg-third-color mb-10 min-h-[20dvh]">
+        <div className={clsx("w-full flex flex-col items-center p-6 bg-third-color min-h-[20dvh]", page ? "mb-0 min-h-[80dvh]" : "mb-10")}>
             {step === 0 && (
                 <div className="text-center py-10 h-full">
                     <h2 className="text-xl font-bold mb-4 text-white">გსურთ გაიგოთ ჩვენი მომსახურების საფასური?</h2>

@@ -10,7 +10,7 @@ const Main: React.FC = () => {
       <MainSlider />
       <StatisticSection />
       <PartnersSlider />
-      <PriceCalculator />
+      <PriceCalculator page={false} />
     </>
   )
 }

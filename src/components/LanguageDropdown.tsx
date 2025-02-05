@@ -4,6 +4,8 @@ import { useTranslation } from 'react-i18next';
 import { useLocation } from 'react-router-dom';
 import enFlag from "../assets/flags/en.png"
 import kaFlag from "../assets/flags/ka.jpg"
+import ruFlag from "../assets/flags/ru.png"
+
 
 
 const LanguageDropdown: React.FC = () => {
@@ -31,12 +33,12 @@ const LanguageDropdown: React.FC = () => {
                 className="w-8 cursor-pointer"
                 onClick={() => handleLanguageChange('ka')}
             />
-            {/* <img
-                src="/path/to/flags/ru.png"
+            <img
+                src={ruFlag}
                 alt="RU"
-                className="w-8 h-8 cursor-pointer"
+                className="w-8 cursor-pointer"
                 onClick={() => handleLanguageChange('ru')}
-            /> */}
+            />
         </div>
     );
 };

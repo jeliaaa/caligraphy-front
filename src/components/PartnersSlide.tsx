@@ -1,6 +1,6 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-import { Navigation, Pagination } from 'swiper/modules';
+import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 import gorgia from "../assets/logos/gorgia.png"
 
 const PartnersSlide = () => {
@@ -20,12 +20,8 @@ const PartnersSlide = () => {
             <Swiper
                 spaceBetween={50}
                 slidesPerView={3}
-                loop={true}
-                autoplay={{
-                    delay: 2500,
-                    disableOnInteraction: false,
-                }}
-                modules={[Pagination, Navigation]}
+                autoplay={true}
+                modules={[Pagination, Navigation, Autoplay]}
                 breakpoints={{
                     320: {
                         slidesPerView: 1,

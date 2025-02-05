@@ -69,7 +69,7 @@ const Track = () => {
                     onKeyDown={(e) => keyDown(e)}
                 />
                 <button
-                    className="bg-blue-600 text-white font-bold h-full w-[20%] rounded-r-md"
+                    className="bg-main-color text-white font-bold h-full w-[20%] rounded-r-md"
                     onClick={() => onSearchClick()}
                 >
                     ძიება

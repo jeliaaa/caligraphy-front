@@ -89,5 +89,5 @@ circle:nth-child(2) {
 
 .swiper-button-prev::after,
 .swiper-button-next::after {
-  color: var(--main-color);
+  color: white;
 }
