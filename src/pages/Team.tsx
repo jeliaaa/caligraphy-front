@@ -35,7 +35,6 @@ const TeamSlider: React.FC<{ slider: boolean }> = ({ slider }) => {
             <h2 className="text-3xl text-center font-bold mb-8 text-main-color">ჩვენი გუნდი</h2>
             {slider ? <Swiper
                 spaceBetween={20}
-                autoplay={{ delay: 3000, disableOnInteraction: false }}
                 navigation={true}
                 pagination={{ clickable: true }}
                 modules={[Navigation, Autoplay]}
