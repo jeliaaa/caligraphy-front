@@ -15,7 +15,7 @@ const PartnersSlide = () => {
     ];
 
     return (
-        <div className="max-w-screen-xl mx-auto my-16">
+        <div className="max-w-screen-xl mx-auto my-16 px-2">
             <h2 className="text-3xl text-center font-bold mb-8">პარტნიორები</h2>
             <Swiper
                 spaceBetween={50}

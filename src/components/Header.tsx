@@ -1,112 +1,100 @@
-import React, { useState } from 'react';
-import { FaBars, FaFacebookMessenger, FaTelegram, FaWhatsapp } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { FaBars, FaPhone, FaWhatsapp } from 'react-icons/fa';
+import { Link, useLocation } from 'react-router-dom';
 import { HiX } from 'react-icons/hi';
-import { BsPinFill } from 'react-icons/bs';
 import LanguageDropdown from './LanguageDropdown';
 import logo from "../assets/logos/logo.png";
+import logoLight from "../assets/logos/logo-light.png"
 import { useTranslation } from 'react-i18next';
+import { BsTelegram } from 'react-icons/bs';
 
 const Header: React.FC = () => {
     const [menuOpen, setMenuOpen] = useState(false);
+    const [isScrolled, setIsScrolled] = useState(false);
     const toggleMenu = () => setMenuOpen(!menuOpen);
     const { t } = useTranslation();
+    const location = useLocation();  // Get the current route
 
+    useEffect(() => {
+        const handleScroll = () => {
+            setIsScrolled(window.scrollY > 50);
+        };
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
 
     const navigationList = [
         { title: "services", to: 'services' },
-        { title: "gallery", to: 'gallery' },
         { title: "calculate", to: 'calculate' },
         { title: "myProject", to: 'track/0' },
-        { title: "blog", to: '' },
-        { title: "contactUs", to: '' },
         { title: "team", to: 'team' },
-    ] as const;
-
-
-
-    const contacts = [
-        { color: "00FF00", icon: <FaWhatsapp size={30} color='#00FF00' />, title: "Whatsapp", link: "https://whatsapp.com" },
-        { color: "0000FF", icon: <FaFacebookMessenger size={30} color='#0000FF' />, title: "Messenger", link: "https://facebook.com" },
-        { color: "00115F", icon: <FaTelegram size={30} color='#00115F' />, title: "Phone", link: "tel:593933399" }
     ];
 
-    return (
-        <header className='w-full flex flex-col sticky bg-grayish shadow-md z-50'> {/* Added z-50 */}
-            <div className='w-full py-3 px-5 flex justify-between items-center'>
-                <Link to={'/'}>
-                    <img src={logo} className='w-[70px] aspect-square' alt='...' />
-                </Link>
-                <div className='hidden flex-col md:flex md:flex-row items-center gap-4 md:gap-6 px-5 md:px-0'>
-                    {/* <div className='flex items-center text-white gap-x-2 bg-secondary-color rounded-3xl p-2'>
-                        <BsPinFill size={20} />
-                        <span>ქ.ბათუმი სელიმ ხიმშიაშვილის ქ.N1</span>
-                    </div>
-                    <div className='flex-col items-start flex md:items-center'>
-                        <div className='flex gap-x-3'>
-                            {contacts.map((contact, _id) => (
-                                <Link to={contact.link} key={_id}>
-                                    <div
-                                        className="bg-gray-100 w-fit p-2 flex items-center justify-center aspect-square rounded-full hover:bg-slate-200"
-                                    >
-                                        {contact.icon}
-                                    </div>
-                                </Link>
-                            ))}
-                        </div>
-                        <div className='w-full mt-2'>
-                            ტელეფონი: <Link className='underline' to="tel:555555555">+995 555555555</Link>
-                        </div>
-                    </div> */}
-                    <LanguageDropdown />
-                </div>
+    const contacts = [
+        { icon: <FaWhatsapp size={25} />, link: "https://whatsapp.com" },
+        { icon: <BsTelegram size={25} />, link: "tel:593933399" }
+    ];
 
-                <button className='md:hidden p-2' onClick={toggleMenu}>
-                    {menuOpen ? <HiX size={30} color='#2c3424' /> : <FaBars color='#2c3424' size={30} />}
-                </button>
+    // Check if the user is on the homepage
+    const isHomePage = location.pathname === '/';
+
+    return (
+        <header className={`w-full flex items-center justify-between px-5 py-3 transition-all duration-300  
+            ${isHomePage ? (isScrolled ? 'sticky top-0 bg-main-color shadow-md text-grayish z-50' : 'absolute bg-gray-50 bg-opacity-65 text-main-color z-50')
+                : 'sticky top-0 bg-main-color shadow-md text-grayish z-50'}`}>
+
+            <nav className='hidden lg:flex space-x-6'>
+                {navigationList.map((nav, index) => (
+                    <Link to={nav.to} key={index} className='lg:text-2xl font-extrabold hover:underline'>
+                        {t(nav.title)}
+                    </Link>
+                ))}
+            </nav>
+
+            <Link to={'/'}>
+                <img src={isScrolled || !isHomePage ? logoLight : logo} className='w-[70px] aspect-square' alt='Logo' />
+            </Link>
+
+            <div className='hidden lg:flex items-center space-x-4'>
+                {contacts.map((contact, index) => (
+                    <Link to={contact.link} key={index} className='hover:text-2xl rounded-full'>
+                        {contact.icon}
+                    </Link>
+                ))}
+                <FaPhone /><Link to='tel:555555555' className='m-0 p-0'>+995 555-555555</Link>
+                <LanguageDropdown isScrolled={isScrolled} />
             </div>
 
-            <div
-                className={`flex flex-col w-full bg-white md:sticky absolute z-50 transition-all duration-700 ${menuOpen ? 'top-[90px]' : 'top-[-1000%]'} md:top-auto`}
-            >
-                <div className='flex flex-col py-5 md:flex-wrap w-full md:items-center md:flex-row md:justify-evenly gap-y-4 md:gap-y-0 md:gap-x-3 bg-main-color text-white px-5 md:px-0'>
-                    {navigationList.map((nav, _id) => (
-                        <Link
-                            to={nav.to}
-                            key={_id}
-                            className='relative flex h-full text-center md:py-5 px-3 border-b md:border-0 border-main-color group'
-                        >
-                            {t(nav.title)}  {/* `nav.title` is now properly typed */}
-                            {/* Hover underline */}
-                            <div className='hidden md:block absolute left-0 bottom-2 w-full h-[2px] bg-white scale-x-0 group-hover:scale-x-100 transition-transform duration-300' />
+            <button className='lg:hidden p-2' onClick={toggleMenu}>
+                {menuOpen ? <HiX size={30} className={isScrolled ? 'text-grayish' : 'text-main-color'} /> : <FaBars className={isScrolled ? 'text-grayish' : 'text-main-color'} size={30} />}
+            </button>
+
+            {menuOpen && (
+                <div className={`absolute left-0 w-full p-5 flex flex-col items-center space-y-4 transition-transform duration-300 ease-in-out 
+                    ${isScrolled || !isHomePage ? "bg-main-color text-grayish" : "bg-gray-50 bg-opacity-65 text-main-color"} 
+                    ${menuOpen ? "translate-y-[62%]" : "translate-y-[-100%]"}`}>
+
+                    {navigationList.map((nav, index) => (
+                        <Link to={nav.to} key={index} className='text-lg' onClick={() => setMenuOpen(false)}>
+                            {t(nav.title)}
                         </Link>
                     ))}
 
-                    <div className='flex flex-col gap-y-3 md:hidden '>
-                        <div className='flex items-center gap-x-2 bg-secondary-color  rounded-3xl p-2'>
-                            <BsPinFill color='white' size={20} />
-                            <span>ქ.ბათუმი სელიმ ხიმშიაშვილის ქ.N1</span>
-                        </div>
-                        <div className='flex-col items-start flex md:items-center'>
-                            <div className='flex gap-x-3'>
-                                {contacts.map((contact, _id) => (
-                                    <Link to={contact.link} key={_id}>
-                                        <div
-                                            className="bg-gray-100 w-fit p-2 flex items-center justify-center aspect-square rounded-full"
-                                        >
-                                            {contact.icon}
-                                        </div>
-                                    </Link>
-                                ))}
-                            </div>
-                            <div className='w-full mt-2'>
-                                ტელეფონი: <Link className='underline' to="tel:555555555">+995 555555555</Link>
-                            </div>
-                            <LanguageDropdown />
-                        </div>
+                    <div className='flex space-x-4'>
+                        {contacts.map((contact, index) => (
+                            <Link to={contact.link} key={index} className='p-2 rounded-full'>
+                                {contact.icon}
+                            </Link>
+                        ))}
                     </div>
+
+                    <div className='flex'>
+                        <FaPhone /><Link to='tel:555555555' className='m-0 p-0'>+995 555-555555</Link>
+                    </div>
+
+                    <LanguageDropdown isScrolled={isScrolled} />
                 </div>
-            </div>
+            )}
         </header>
     );
 };

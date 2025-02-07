@@ -26,10 +26,10 @@ const App = () => {
           <Route path='/track/:id' element={<Track />} />
           <Route path='/services' element={<Services />} />
           <Route path='/services/:id' element={<ServcicesSingle />} />
-          <Route path='/team' element={<TeamPage />} />
+          <Route path='/team' element={<TeamPage slider={false} />} />
           <Route path='/verify-email' element={<VerifyEmail />} />
           <Route path='/gallery' element={<Gallery />} />
-          <Route path='/calculate' element={<PriceCalculator page={true} />} />
+          <Route path='/calculate' element={<PriceCalculator />} />
 
         </Routes>
       </div>

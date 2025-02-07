@@ -29,11 +29,11 @@ const teamMembers = [
     { name: "ზვიად ბოლქვაძე", role: "იურისტი", imgUrl: zviad },
 
 ];
-const TeamSlider = () => {
+const TeamSlider: React.FC<{ slider: boolean }> = ({ slider }) => {
     return (
         <div className="max-w-screen-xl mx-auto my-2 p-5">
             <h2 className="text-3xl text-center font-bold mb-8 text-main-color">ჩვენი გუნდი</h2>
-            <Swiper
+            {slider ? <Swiper
                 spaceBetween={20}
                 autoplay={{ delay: 3000, disableOnInteraction: false }}
                 navigation={true}
@@ -60,13 +60,26 @@ const TeamSlider = () => {
                         </div>
                     </SwiperSlide>
                 ))}
-            </Swiper>
+            </Swiper> :
+                <div className="flex flex-wrap gap-6 justify-center">
+                    {teamMembers.map((member, index) => (
+                        <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg w-80 flex flex-col justify-between transition-shadow duration-300">
+                            <img src={member.imgUrl} alt={member.name} className="w-full h-60 object-cover object-top" />
+                            <div className="p-4 flex-1">
+                                <h3 className="text-xl font-semibold text-gray-800">{member.name}</h3>
+                                <p className="text-gray-600">{member.role}</p>
+                            </div>
+                            <div className="p-4 flex justify-center bg-main-color">
+                                <a href={`mailto:${member.name}@example.com`} className="text-white hover:text-blue-800">კონტაქტი</a>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            }
         </div>
     );
 };
 
 export default TeamSlider;
-
-
 
 

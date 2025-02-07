@@ -1,22 +1,30 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { Swiper, SwiperSlide } from "swiper/react";
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import { Navigation, Pagination } from "swiper/modules";
 
 const Gallery = () => {
     const [selectedImage, setSelectedImage] = useState<string | null>(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [currentIndex, setCurrentIndex] = useState<number>(0);
 
     const images = [
-        "/images/image1.jpg",
-        "/images/image2.jpg",
-        "/images/image3.jpg",
-        "/images/image4.jpg",
-        "/images/image5.jpg",
-        "/images/image6.jpg",
-        "/images/image7.jpg",
-        "/images/image8.jpg",
+        "https://picsum.photos/id/13/100/",
+        "https://picsum.photos/id/33/100/",
+        "https://picsum.photos/id/23/100/",
+        "https://picsum.photos/id/43/100/",
+        "https://picsum.photos/id/53/100/",
+        "https://picsum.photos/id/63/100/",
+        "https://picsum.photos/id/73/100/",
+        "https://picsum.photos/id/83/100/",
     ];
 
-    const openModal = (image: string) => {
+    const openModal = (image: string, index: number) => {
         setSelectedImage(image);
+        setCurrentIndex(index);
         setIsModalOpen(true);
     };
 
@@ -25,45 +33,80 @@ const Gallery = () => {
         setSelectedImage(null);
     };
 
+    const nextImage = () => {
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+        setSelectedImage(images[(currentIndex + 1) % images.length]);
+    };
+
+    const prevImage = () => {
+        setCurrentIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
+        setSelectedImage(images[(currentIndex - 1 + images.length) % images.length]);
+    };
+
     return (
         <div className="py-16 bg-gray-50">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">გალერეა</h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+
+                {/* Swiper Gallery */}
+                <Swiper
+                    spaceBetween={10}
+                    modules={[Pagination, Navigation]}
+                    pagination={{ clickable: true }}
+                    breakpoints={{
+                        640: {
+                            slidesPerView: 1,
+                        },
+                        768: {
+                            slidesPerView: 2,
+                        },
+                        1024: {
+                            slidesPerView: 4,
+                        },
+                    }}
+                    className="mb-6"
+                >
                     {images.map((image, index) => (
-                        <div
-                            key={index}
-                            className="relative group cursor-pointer"
-                            onClick={() => openModal(image)}
-                        >
-                            <img
-                                src="https://picsum.photos/200"
-                                alt={`gallery-item-${index}`}
-                                className="w-full h-full object-cover rounded-lg shadow-lg transform transition-all duration-300 group-hover:scale-105 group-hover:opacity-90"
-                            />
-                            <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-all duration-300 flex justify-center items-center">
-                                <span className="text-white text-lg font-semibold">ნახვა</span>
+                        <SwiperSlide className="mb-10" key={index}>
+                            <div
+                                className="relative group cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-xl"
+                                onClick={() => openModal(image, index)}
+                            >
+                                <img
+                                    src={image}
+                                    alt={`gallery-item-${index}`}
+                                    className="w-full h-full object-cover rounded-lg"
+                                />
+                                <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-all duration-300 flex justify-center items-center">
+                                    <span className="text-white text-lg font-semibold">ნახვა</span>
+                                </div>
                             </div>
-                        </div>
+                        </SwiperSlide>
                     ))}
-                </div>
+                </Swiper>
             </div>
 
             {/* Modal */}
             {isModalOpen && (
-                <div className="fixed inset-0 bg-black bg-opacity-75  flex justify-center items-center z-50">
-                    <div className="relative bg-white rounded-lg p-4 w-[70dvh] h-[70dvh]">
+                <div className="fixed inset-0 bg-black bg-opacity-75 flex justify-center items-center z-50">
+                    <div className="relative bg-white rounded-lg p-4 w-[70dvh] h-[70dvh] overflow-hidden">
                         <button
                             onClick={closeModal}
-                            className="absolute top-2 right-2 font-bold text-black text-3xl"
+                            className="absolute bg-grayish top-2 right-2 font-bold text-main-color w-[30px] h-[30px] rounded-md flex items-center justify-center text-3xl"
                         >
                             &times;
                         </button>
                         <img
-                            src="https://picsum.photos/200"
+                            src={selectedImage ? selectedImage : ''}
                             alt="Selected"
-                            className="w-full h-full rounded-lg"
+                            className="w-full h-full object-cover rounded-lg transition-all duration-500"
                         />
+                        <div className="absolute top-1/2 left-2 transform rounded-md -translate-y-1/2 p-4 bg-grayish cursor-pointer z-10" onClick={prevImage}>
+                            <FaChevronLeft className="text-main-color" />
+                        </div>
+                        <div className="absolute top-1/2 right-2 transform rounded-md -translate-y-1/2 p-4 bg-grayish cursor-pointer z-10" onClick={nextImage}>
+                            <FaChevronRight className="text-main-color" />
+                        </div>
                     </div>
                 </div>
             )}

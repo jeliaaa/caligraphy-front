@@ -1,9 +1,18 @@
-import clsx from "clsx";
-import React, { useState } from "react";
-import { BsFileExcel } from "react-icons/bs";
+import React, { useState, useRef, useEffect } from "react";
 import { FaRegFileExcel } from "react-icons/fa";
 
-const services = [
+interface Service {
+    name: string;
+    pricePerSqFt: number;
+    image: string;
+}
+
+interface ButtonProps {
+    onClick: () => void;
+    children: React.ReactNode;
+}
+
+const services: Service[] = [
     { name: "Painting", pricePerSqFt: 1.5, image: "/images/painting.jpg" },
     { name: "Flooring", pricePerSqFt: 3.2, image: "/images/flooring.jpg" },
     { name: "Roofing", pricePerSqFt: 5.0, image: "/images/roofing.jpg" },
@@ -11,25 +20,30 @@ const services = [
     { name: "Electrical Work", pricePerSqFt: 6.0, image: "/images/electrical.jpg" },
 ];
 
-const Button = ({ onClick, children }: { onClick: () => void; children: React.ReactNode }) => (
-    <button onClick={onClick} className="p-2 bg-main-color text-white hover:bg-white hover:text-main-color transition m-4">
+const Button: React.FC<ButtonProps> = ({ onClick, children }) => (
+    <button
+        onClick={onClick}
+        className="p-2 bg-main-color text-white hover:bg-white hover:text-main-color transition m-4"
+    >
         {children}
     </button>
 );
 
-interface calcProps {
-    page: boolean | null;
-}
-const PriceCalculator: React.FC<calcProps> = ({page}) => {
-    const [step, setStep] = useState(page ? 1 : 0);
-    const [selectedService, setSelectedService] = useState(services[0]);
-    const [quality, setQuality] = useState("Medium");
-    const [size, setSize] = useState(50);
-    const [timeLimit, setTimeLimit] = useState(30);
-    const [estimatedPrice, setEstimatedPrice] = useState(0);
+const PriceCalculator: React.FC = () => {
+    const [step, setStep] = useState<number>(0);
+    const [selectedService, setSelectedService] = useState<Service>(services[0]);
+    const [quality, setQuality] = useState<string>("Medium");
+    const [size, setSize] = useState<number>(50);
+    const timeLimit = 30;
+    const [estimatedPrice, setEstimatedPrice] = useState<number>(0);
+    const containerRef = useRef<HTMLDivElement | null>(null);
 
-    const nextStep = () => setStep(step + 1);
-    const prevStep = () => setStep(step - 1);
+    useEffect(() => {
+        if (containerRef.current) {
+            containerRef.current.scrollBy(0, containerRef.current.scrollHeight);
+        }
+    }, [step]);
+
 
     const calculatePrice = () => {
         const basePrice = size * selectedService.pricePerSqFt;
@@ -38,17 +52,20 @@ const PriceCalculator: React.FC<calcProps> = ({page}) => {
         setEstimatedPrice(basePrice * qualityMultiplier * timeMultiplier);
     };
 
+    const tryAgain = () => {
+        setStep(0);
+        window.location.href = 'calculate'
+    }
     return (
-        <div className={clsx("w-full flex flex-col items-center p-6 bg-third-color min-h-[20dvh]", page ? "mb-0 min-h-[80dvh]" : "mb-10")}>
-            {step === 0 && (
+        <div ref={containerRef} className="w-full flex flex-col items-center p-6 bg-third-color min-h-[80dvh] overflow-y-auto">
+            {step >= 0 && (
                 <div className="text-center py-10 h-full">
                     <h2 className="text-xl font-bold mb-4 text-white">გსურთ გაიგოთ ჩვენი მომსახურების საფასური?</h2>
-                    <Button onClick={nextStep}>კალკულციის დაწყება</Button>
+                    <Button onClick={() => setStep(1)}>კალკულციის დაწყება</Button>
                 </div>
             )}
-
-            {step === 1 && (
-                <div className="text-center">
+            {step >= 1 && (
+                <div className="text-center mt-10">
                     <h2 className="text-xl font-bold mb-4 text-white">რა ტიპის სერვისით ხართ დაინტერესებული?</h2>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
                         {services.map((service) => (
@@ -57,17 +74,16 @@ const PriceCalculator: React.FC<calcProps> = ({page}) => {
                                 className={`p-4 border-2 cursor-pointer bg-grayish ${selectedService.name === service.name ? "border-main-color" : "border-gray-300"}`}
                                 onClick={() => setSelectedService(service)}
                             >
-                                <img src={"https://picsum.photos/300"} alt={service.name} className="w-full h-64 object-cover rounded-md mb-2" />
+                                <img src='https://picsum.photos/200' alt={service.name} className="w-full h-64 object-cover rounded-md mb-2" />
                                 <p className="font-semibold">{service.name}</p>
                             </div>
                         ))}
                     </div>
-                    <Button onClick={nextStep}>შემდეგი</Button>
+                    <Button onClick={() => setStep(2)}>შემდეგი</Button>
                 </div>
             )}
-
-            {step === 2 && (
-                <div className="text-center">
+            {step >= 2 && (
+                <div className="text-center mt-10">
                     <h2 className="text-xl font-bold mb-4 text-white">აირჩიეთ რემონტის საფასო კატეგორია</h2>
                     <div className="flex flex-col gap-y-5">
                         {["დაბალი", "საშუალო", "პრემიუმი"].map((q, _index) => (
@@ -80,15 +96,11 @@ const PriceCalculator: React.FC<calcProps> = ({page}) => {
                             </div>
                         ))}
                     </div>
-                    <div className="flex space-x-4 mt-4">
-                        <Button onClick={prevStep}>უკან</Button>
-                        <Button onClick={nextStep}>შემდეგ</Button>
-                    </div>
+                    <Button onClick={() => setStep(3)}>შემდეგ</Button>
                 </div>
             )}
-
-            {step === 3 && (
-                <div className="text-center">
+            {step >= 3 && (
+                <div className="text-center mt-10">
                     <h2 className="text-xl font-bold mb-4 text-white">მიუთითეთ ფართის ზომა (კვ.მ)</h2>
                     <input
                         type="number"
@@ -96,15 +108,11 @@ const PriceCalculator: React.FC<calcProps> = ({page}) => {
                         onChange={(e) => setSize(Number(e.target.value))}
                         className="p-2 border w-32 text-center text-main-color"
                     />
-                    <div className="flex space-x-4 mt-4">
-                        <Button onClick={prevStep}>უკან</Button>
-                        <Button onClick={nextStep}>შემდეგ</Button>
-                    </div>
+                    <Button onClick={() => setStep(4)}>შემდეგი</Button>
                 </div>
             )}
-
-            {step === 4 && (
-                <div className="text-center">
+            {step >= 4 && (
+                <div className="text-center mt-10">
                     <h2 className="text-xl px-10 font-bold mb-4 text-white">რამდენი დრო გვაქვს?</h2>
                     <div className="flex flex-col gap-y-5">
                         {["3 თვე", "6 თვე", "9 თვე", "12 თვე", "18 თვე + "].map((q, _index) => (
@@ -117,22 +125,20 @@ const PriceCalculator: React.FC<calcProps> = ({page}) => {
                             </div>
                         ))}
                     </div>
-                    <div className="flex space-x-4 mt-4">
-                        <Button onClick={prevStep}>უკან</Button>
-                        <Button onClick={() => { calculatePrice(); nextStep(); }}>კალკულაცია</Button>
-                    </div>
+                    <Button onClick={() => { calculatePrice(); setStep(5); }}>კალკულაცია</Button>
                 </div>
             )}
-
-            {step === 5 && (
-                <div className="text-center">
+            {step >= 5 && (
+                <div className="text-center mt-10">
                     <h2 className="text-xl font-bold mb-4 text-white">საბოლოო ფასი</h2>
                     <p className="text-2xl font-semibold bg-grayish p-5 text-main-color">${estimatedPrice.toFixed(2)}</p>
                     <div className="p-5 flex flex-col items-center">
                         <p className="text-white flex items-center text-2xl">გსურთ ინვოისის ხილვა? </p>
-                        <span className="bg-white mt-4 p-4 flex items-center cursor-pointer text-xl hover:text-2xl hover:text-green-500"><FaRegFileExcel color="green" size={50} /> გადმოწერა</span>
+                        <span className="bg-white mt-4 p-4 flex items-center cursor-pointer text-xl hover:text-2xl hover:text-green-500">
+                            <FaRegFileExcel color="green" size={50} /> გადმოწერა
+                        </span>
                     </div>
-                    <Button onClick={() => setStep(0)}>თავიდან დაწყება</Button>
+                    <Button onClick={() => tryAgain()}>თავიდან დაწყება</Button>
                 </div>
             )}
         </div>
