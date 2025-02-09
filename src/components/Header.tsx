@@ -62,7 +62,7 @@ const Header: React.FC = () => {
                     </Link>
                 ))}
                 <FaPhone /><Link to='tel:555555555' className='m-0 p-0'>+995 555-555555</Link>
-                <LanguageDropdown isScrolled={isScrolled} />
+                <LanguageDropdown isScrolled={isScrolled} isHomePage={isHomePage} />
             </div>
 
             <button className='lg:hidden p-2' onClick={toggleMenu}>
@@ -92,7 +92,7 @@ const Header: React.FC = () => {
                         <FaPhone /><Link to='tel:555555555' className='m-0 p-0'>+995 555-555555</Link>
                     </div>
 
-                    <LanguageDropdown isScrolled={isScrolled} />
+                    <LanguageDropdown isScrolled={isScrolled} isHomePage={isHomePage} />
                 </div>
             )}
         </header>

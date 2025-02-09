@@ -7,8 +7,8 @@ import {
     verifyEmail,
     resetPassword,
     sendEmailVerify,
-    sendPasswordReset,
-    authGoogle
+    sendPasswordReset
+    // authGoogle
 } from "../../api/auth";
 import { Customer } from "types/apiTypes/types";
 

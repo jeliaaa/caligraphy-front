@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { AppDispatch, RootState } from "../redux/store";
 import { fetchRenovation } from "../redux/thunks/renovationThunk";
 import banner from "../assets/banners/Green-Remodeling-in-Process.jpeg"

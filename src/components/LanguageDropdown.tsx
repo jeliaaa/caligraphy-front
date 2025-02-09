@@ -6,7 +6,7 @@ import kaFlag from "../assets/flags/ka.jpg";
 import ruFlag from "../assets/flags/ru.png";
 import clsx from 'clsx';
 
-const LanguageDropdown: React.FC<{ isScrolled: boolean }> = ({ isScrolled }) => {
+const LanguageDropdown: React.FC<{ isScrolled: boolean, isHomePage : boolean }> = ({ isScrolled, isHomePage  }) => {
     const { i18n } = useTranslation();
     const location = useLocation();
 
@@ -32,7 +32,9 @@ const LanguageDropdown: React.FC<{ isScrolled: boolean }> = ({ isScrolled }) => 
                     className={clsx(
                         "w-8 cursor-pointer p-1 transition-all",
                         i18n.language === code ? "ring-2 rounded" : "opacity-80 hover:opacity-100",
-                        isScrolled ? "ring-grayish" : "ring-main-color"
+                        isScrolled && isHomePage && "ring-grayish",
+                        !isHomePage && "ring-grayish",
+                        !isScrolled && isHomePage && "ring-main-color" 
                     )}
                     onClick={() => handleLanguageChange(code)}
                 />
