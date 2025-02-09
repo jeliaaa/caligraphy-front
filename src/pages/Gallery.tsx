@@ -5,21 +5,24 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import { Navigation, Pagination } from "swiper/modules";
-
+import image from "../assets/photos/ფოტომასალაა/DSC_0007.jpg"
+import image2 from "../assets/photos/ფოტომასალაა/DSC_0017.jpg"
+import image3 from "../assets/photos/ფოტომასალაა/DSC_0025.jpg"
+import image4 from "../assets/photos/ფოტომასალაა/DSC_0054.jpg"
+import image5 from "../assets/photos/ფოტომასალაა/DSC_0078.jpg"
+import image6 from "../assets/photos/ფოტომასალაა/DSC_0084.jpg"
+import image7 from "../assets/photos/ფოტომასალაა/DSC_0105.jpg"
+import image8 from "../assets/photos/ფოტომასალაა/DSC_0120.jpg"
+import image9 from "../assets/photos/ფოტომასალაა/DSC_0124.jpg"
+import image10 from "../assets/photos/ფოტომასალაა/DSC_0135.jpg"
+import image11 from "../assets/photos/ფოტომასალაა/DSC_0138.jpg"
 const Gallery = () => {
     const [selectedImage, setSelectedImage] = useState<string | null>(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [currentIndex, setCurrentIndex] = useState<number>(0);
 
     const images = [
-        "https://picsum.photos/id/13/100/",
-        "https://picsum.photos/id/33/100/",
-        "https://picsum.photos/id/23/100/",
-        "https://picsum.photos/id/43/100/",
-        "https://picsum.photos/id/53/100/",
-        "https://picsum.photos/id/63/100/",
-        "https://picsum.photos/id/73/100/",
-        "https://picsum.photos/id/83/100/",
+        image, image2, image3, image4, image5, image6, image7, image8, image9, image10, image11
     ];
 
     const openModal = (image: string, index: number) => {

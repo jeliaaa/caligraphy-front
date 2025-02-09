@@ -19,7 +19,7 @@ const Services = () => {
 
 
     return (
-        <div className='flex w-full items-center justify-evenly pt-10 flex-wrap gap-y-10'>
+        <div className='flex w-full items-center justify-evenly py-10 flex-wrap gap-y-10'>
             {isLoading ? 'loading...' :
                 data.map((service: Service) => (
                     <Link to={service.id.toString()} key={service.id} className='relative flex items-center gap-x-9 p-5 w-[60dvw] sm:w-[30dvw] aspect-square box-border bg-white hover:shadow-secondary-color hover:shadow-lg'>

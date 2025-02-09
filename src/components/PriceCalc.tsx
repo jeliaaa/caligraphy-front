@@ -1,10 +1,16 @@
 import React, { useState, useRef, useEffect } from "react";
 import { FaRegFileExcel } from "react-icons/fa";
+import { animateScroll, Element } from "react-scroll";
 
 interface Service {
     name: string;
     pricePerSqFt: number;
     image: string;
+}
+
+interface timeType {
+    title: string;
+    amountInDays: number
 }
 
 interface ButtonProps {
@@ -20,6 +26,14 @@ const services: Service[] = [
     { name: "Electrical Work", pricePerSqFt: 6.0, image: "/images/electrical.jpg" },
 ];
 
+const timeLimit: timeType[] = [
+    { title: "1 თვე", amountInDays: 30 },
+    { title: "3 თვე", amountInDays: 90 },
+    { title: "6 თვე", amountInDays: 180 },
+    { title: "9 თვე", amountInDays: 270 },
+    { title: "12+ თვე", amountInDays: 360 }
+]
+
 const Button: React.FC<ButtonProps> = ({ onClick, children }) => (
     <button
         onClick={onClick}
@@ -32,23 +46,21 @@ const Button: React.FC<ButtonProps> = ({ onClick, children }) => (
 const PriceCalculator: React.FC = () => {
     const [step, setStep] = useState<number>(0);
     const [selectedService, setSelectedService] = useState<Service>(services[0]);
-    const [quality, setQuality] = useState<string>("Medium");
+    const [quality, setQuality] = useState<string>("დაბალი");
     const [size, setSize] = useState<number>(50);
-    const timeLimit = 30;
+    const [timeLimitState, setTimeLimit] = useState<number>(30);
     const [estimatedPrice, setEstimatedPrice] = useState<number>(0);
     const containerRef = useRef<HTMLDivElement | null>(null);
 
     useEffect(() => {
-        if (containerRef.current) {
-            containerRef.current.scrollBy(0, containerRef.current.scrollHeight);
-        }
+        animateScroll.scrollTo(step * 500)
     }, [step]);
 
 
     const calculatePrice = () => {
         const basePrice = size * selectedService.pricePerSqFt;
         let qualityMultiplier = quality === "Premium" ? 1.5 : quality === "Medium" ? 1.2 : 1;
-        let timeMultiplier = timeLimit < 15 ? 1.3 : timeLimit < 30 ? 1.1 : 1;
+        let timeMultiplier = timeLimitState < 45 ? 1.3 : timeLimitState < 120 ? 1.1 : 1;
         setEstimatedPrice(basePrice * qualityMultiplier * timeMultiplier);
     };
 
@@ -65,7 +77,7 @@ const PriceCalculator: React.FC = () => {
                 </div>
             )}
             {step >= 1 && (
-                <div className="text-center mt-10">
+                <Element name="1" className="text-center mt-10">
                     <h2 className="text-xl font-bold mb-4 text-white">რა ტიპის სერვისით ხართ დაინტერესებული?</h2>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
                         {services.map((service) => (
@@ -80,7 +92,7 @@ const PriceCalculator: React.FC = () => {
                         ))}
                     </div>
                     <Button onClick={() => setStep(2)}>შემდეგი</Button>
-                </div>
+                </Element>
             )}
             {step >= 2 && (
                 <div className="text-center mt-10">
@@ -115,13 +127,13 @@ const PriceCalculator: React.FC = () => {
                 <div className="text-center mt-10">
                     <h2 className="text-xl px-10 font-bold mb-4 text-white">რამდენი დრო გვაქვს?</h2>
                     <div className="flex flex-col gap-y-5">
-                        {["3 თვე", "6 თვე", "9 თვე", "12 თვე", "18 თვე + "].map((q, _index) => (
+                        {timeLimit.map((q, _index) => (
                             <div
-                                key={q}
-                                className={`p-4 border-2 cursor-pointer bg-grayish ${quality === q ? "border-main-color" : "border-gray-300"}`}
-                                onClick={() => setQuality(q)}
+                                key={_index}
+                                className={`p-4 border-2 cursor-pointer bg-grayish ${timeLimitState === q.amountInDays ? "border-main-color" : "border-gray-300"}`}
+                                onClick={() => setTimeLimit(q.amountInDays)}
                             >
-                                <p className="font-semibold text-main-color">{q}</p>
+                                <p className="font-semibold text-main-color">{q.title}</p>
                             </div>
                         ))}
                     </div>

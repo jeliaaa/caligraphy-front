@@ -39,19 +39,19 @@ const Header: React.FC = () => {
     const isHomePage = location.pathname === '/';
 
     return (
-        <header className={`w-full flex items-center justify-between px-5 py-3 transition-all duration-300  
-            ${isHomePage ? (isScrolled ? 'sticky top-0 bg-main-color shadow-md text-grayish z-50' : 'absolute bg-gray-50 bg-opacity-65 text-main-color z-50')
+        <header className={`h-[90px] w-full flex items-center justify-between px-5 py-3 transition-all duration-300  
+            ${isHomePage ? (isScrolled ? 'sticky top-0 bg-main-color shadow-md text-grayish z-50' : 'absolute bg-white bg-opacity-65 text-main-color z-50')
                 : 'sticky top-0 bg-main-color shadow-md text-grayish z-50'}`}>
 
             <nav className='hidden lg:flex space-x-6'>
                 {navigationList.map((nav, index) => (
-                    <Link to={nav.to} key={index} className='lg:text-2xl font-extrabold hover:underline'>
+                    <Link to={nav.to} key={index} className='lg:text-xl font-extrabold hover:underline'>
                         {t(nav.title)}
                     </Link>
                 ))}
             </nav>
 
-            <Link to={'/'}>
+            <Link to={'/'} className='absolute left-1/2 -translate-x-1/2' onClick={() => setMenuOpen(false)}>
                 <img src={isScrolled || !isHomePage ? logoLight : logo} className='w-[70px] aspect-square' alt='Logo' />
             </Link>
 
@@ -66,7 +66,7 @@ const Header: React.FC = () => {
             </div>
 
             <button className='lg:hidden p-2' onClick={toggleMenu}>
-                {menuOpen ? <HiX size={30} className={isScrolled ? 'text-grayish' : 'text-main-color'} /> : <FaBars className={isScrolled ? 'text-grayish' : 'text-main-color'} size={30} />}
+                {menuOpen ? <HiX size={30} className={!isHomePage ? 'text-grayish' : isHomePage && isScrolled ? 'text-grayish' : 'text-main-color'} /> : <FaBars className={!isHomePage ? 'text-grayish' : isHomePage && isScrolled ? 'text-grayish' : 'text-main-color'} size={30} />}
             </button>
 
             {menuOpen && (

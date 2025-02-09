@@ -8,7 +8,7 @@ import sofio from "../assets/photos/ფოტომასალაა/სოფ�
 import beso from "../assets/photos/ფოტომასალაა/ბესომახაჭაძე.jpg"
 import zviad from "../assets/photos/ფოტომასალაა/ზვიადბოლქვაძე.jpg"
 import nika from "../assets/photos/ფოტომასალაა/ნიკაჯიჯავაძე.jpg"
-import { Autoplay, Navigation, Pagination } from "swiper/modules"
+import { Autoplay, Navigation} from "swiper/modules"
 import { Swiper, SwiperSlide } from "swiper/react"
 
 
@@ -48,7 +48,7 @@ const TeamSlider: React.FC<{ slider: boolean }> = ({ slider }) => {
                 {teamMembers.map((member, index) => (
                     <SwiperSlide key={index}>
                         <div key={index} className="bg-white rounded-lg h-full shadow-md overflow-hidden hover:shadow-lg flex flex-col justify-between transition-shadow duration-300">
-                            <img src={member.imgUrl} alt={member.name} className="w-full h-[500px] object-cover object-top" />
+                            <img loading="lazy" src={member.imgUrl} alt={member.name} className="w-full h-[500px] object-cover object-top" />
                             <div className="p-4 h-[150px]">
                                 <h3 className="text-xl font-semibold text-gray-800">{member.name}</h3>
                                 <p className="text-gray-600">{member.role}</p>

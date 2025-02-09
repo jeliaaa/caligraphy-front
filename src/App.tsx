@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Header from './components/Header';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import Main from './pages/Main';
 import Track from './pages/Track';
 import Services from './pages/Services';
@@ -12,9 +12,13 @@ import TeamPage from './pages/Team';
 import Gallery from './pages/Gallery';
 import VerifyEmail from './pages/Verify';
 import PriceCalculator from './components/PriceCalc';
+import { animateScroll } from 'react-scroll';
 
 const App = () => {
-
+  const location = useLocation();
+  useEffect(() => {
+    animateScroll.scrollToTop();
+  }, [location])
   return (
     <div className="App">
       <Header />
