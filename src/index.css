@@ -3,14 +3,20 @@
 @tailwind utilities;
 
 :root {
-  --main-color: #2c3424;
+  --dark-color: #2c3424;
+  --main-color: #4c583e;
+  /* --main-color: #768064; */
   --secondary-color: #959581;
   --grayish: #daded8;
   --third-color: #768064;
 }
 
-body{
+body {
   background: var(--grayish);
+}
+
+button, .cursor-custom{
+  cursor: url('assets/icons/chotqi.png') 2 2, pointer;
 }
 
 /* 

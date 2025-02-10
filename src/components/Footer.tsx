@@ -34,7 +34,7 @@ const Footer = () => {
                 {/* Logo and Socials */}
                 <div className="flex flex-col items-center md:items-start space-y-4">
                     <Link to="/">
-                        <img src={logo} alt="Logo" className="w-24" />
+                        <img src={logo} alt="Logo" className="w-48" />
                     </Link>
                     <p className="font-bold text-2xl">{t("name")}</p>
                     <div className="flex space-x-4">

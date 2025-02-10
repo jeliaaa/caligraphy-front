@@ -16,17 +16,17 @@ import { Swiper, SwiperSlide } from "swiper/react"
 
 const teamMembers = [
     // { name: "თორნიკე ჭაღალიძე", role: "ფინანსური დირექტორი", imgUrl: tornike },
-    { name: "დათო ჭაღალიძე", role: "აღმასრულებელი დირექტორი", imgUrl: dato },
-    { name: "მირზა ჭაღალიძე", role: "გაყიდვების და საზოგადოებასთან ურთიერთობის დეპარტამენტის უფროსი", imgUrl: mirza },
-    { name: "დათო გოგიაშვილი", role: "ტექნიკური მენეჯერი და დამკვეთთან ურთიერთობის სპეციალისტი", imgUrl: dato2 },
-    { name: "ნათია თოიძე", role: "გაყიდვების მენეჯერი", imgUrl: natia },
-    { name: "ნათია ჩავლეიშვილი", role: "სოცმედიის მენეჯერი", imgUrl: natia2 },
-    { name: "სოფიო შილაძე", role: "ბუღალტერი", imgUrl: sofio },
+    { contact : true, name: "დათო ჭაღალიძე", role: "აღმასრულებელი დირექტორი", imgUrl: dato },
+    { contact : true, name: "მირზა ჭაღალიძე", role: "გაყიდვების და საზოგადოებასთან ურთიერთობის დეპარტამენტის უფროსი", imgUrl: mirza },
+    { contact : true, name: "დათო გოგიაშვილი", role: "ტექნიკური მენეჯერი და დამკვეთთან ურთიერთობის სპეციალისტი", imgUrl: dato2 },
+    { contact : true, name: "ნათია თოიძე", role: "გაყიდვების მენეჯერი", imgUrl: natia },
+    { contact : true, name: "ნათია ჩავლეიშვილი", role: "სოცმედიის მენეჯერი", imgUrl: natia2 },
+    { contact : false, name: "სოფიო შილაძე", role: "ბუღალტერი", imgUrl: sofio },
     // { name: "რუსლან ჭაღალიძე", role: "შესყიდვების მენეჯერი", imgUrl: "https://picsum.photos/100" },
     // { name: "ნინო აროშიძე", role: "ოფის მენეჯერი", imgUrl: "" },
-    { name: "ბესო მახაჭაძე", role: "ხარისხის კონტროლის მენეჯერი", imgUrl: beso },
-    { name: "ნიკა ჯიჯავაძე", role: "შესყიდვების მენეჯერი", imgUrl: nika },
-    { name: "ზვიად ბოლქვაძე", role: "იურისტი", imgUrl: zviad },
+    { contact : false, name: "ბესო მახაჭაძე", role: "ხარისხის კონტროლის მენეჯერი", imgUrl: beso },
+    { contact : false, name: "ნიკა ჯიჯავაძე", role: "შესყიდვების მენეჯერი", imgUrl: nika },
+    { contact : false, name: "ზვიად ბოლქვაძე", role: "იურისტი", imgUrl: zviad },
 
 ];
 const TeamSlider: React.FC<{ slider: boolean }> = ({ slider }) => {
@@ -54,7 +54,7 @@ const TeamSlider: React.FC<{ slider: boolean }> = ({ slider }) => {
                                 <p className="text-gray-600">{member.role}</p>
                             </div>
                             <div className="p-4 flex justify-center bg-main-color">
-                                <a href={`mailto:${member.name}@example.com`} className="text-white hover:text-blue-800">კონტაქტი</a>
+                                {member.contact && <a href={`mailto:${member.name}@example.com`} className="text-white">კონტაქტი</a>}
                             </div>
                         </div>
                     </SwiperSlide>
@@ -69,7 +69,7 @@ const TeamSlider: React.FC<{ slider: boolean }> = ({ slider }) => {
                                 <p className="text-gray-600">{member.role}</p>
                             </div>
                             <div className="p-4 flex justify-center bg-main-color">
-                                <a href={`mailto:${member.name}@example.com`} className="text-white hover:text-blue-800">კონტაქტი</a>
+                                {member.contact && <a href={`mailto:${member.name}@example.com`} className="text-white">კონტაქტი</a>}
                             </div>
                         </div>
                     ))}

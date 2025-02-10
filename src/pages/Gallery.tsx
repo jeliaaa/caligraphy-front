@@ -59,6 +59,7 @@ const Gallery = () => {
                 <Swiper
                     spaceBetween={10}
                     modules={[Pagination, Navigation]}
+                    navigation ={true}
                     pagination={{ clickable: true }}
                     breakpoints={{
                         640: {
