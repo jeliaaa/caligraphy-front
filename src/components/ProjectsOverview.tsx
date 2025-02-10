@@ -57,7 +57,7 @@ export default function ProjectsTable() {
                             .map((project) => (
                                 <tr
                                     key={project.year}
-                                    className="cursor-pointer hover:bg-gray-100 transition text-center"
+                                    className="cursor-custom hover:bg-gray-100 transition text-center"
                                     onClick={() => setSelectedProject(project)}
                                 >
                                     <td className="border border-gray-300 px-4 py-2">{project.year}</td>
