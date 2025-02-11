@@ -34,74 +34,56 @@ const projectData: Project[] = [
 ];
 
 export default function ProjectsTable() {
-    const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+    const [selectedYear, setSelectedYear] = useState<number>(projectData[1].year);
+
+    const filteredProject = projectData.find(project => project.year === selectedYear);
 
     return (
         <div className="p-6 w-full mx-auto bg-dark-color text-grayish">
-            <h2 className="text-2xl font-bold text-center mb-4">სტატისტიკა</h2>
+            <h2 className="text-3xl font-bold text-center mb-6">სტატისტიკა</h2>
 
-            {/* Responsive Table */}
-            <div className="overflow-x-auto bg-white rounded-lg shadow-md text-dark-color">
-                <table className="w-full border-collapse border border-gray-300">
-                    <thead className="bg-gray-200 text-gray-900">
-                        <tr>
-                            <th className="border border-gray-300 px-4 py-2">წელი</th>
-                            <th className="border border-gray-300 px-4 py-2">შესრულებული</th>
-                            <th className="border border-gray-300 px-4 py-2">მიმდინარე</th>
-                            <th className="border border-gray-300 px-4 py-2">ფართობი (m²)</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {projectData
-                            .sort((a, b) => b.year - a.year) // Sort by year descending
-                            .map((project) => (
-                                <tr
-                                    key={project.year}
-                                    className="cursor-custom hover:bg-gray-100 transition text-center"
-                                    onClick={() => setSelectedProject(project)}
-                                >
-                                    <td className="border border-gray-300 px-4 py-2">{project.year}</td>
-                                    <td className="border border-gray-300 px-4 py-2">{project.completed}</td>
-                                    <td className="border border-gray-300 px-4 py-2">{project.ongoing}</td>
-                                    <td className="border border-gray-300 px-4 py-2">{project.totalArea}</td>
-                                </tr>
-                            ))}
-                    </tbody>
-                </table>
+            {/* Year Filter */}
+            <div className="flex justify-start mb-6">
+                <select
+                    className="w-[100px] px-4 py-2 border rounded-lg text-dark-color bg-grayish shadow-md"
+                    onChange={(e) => setSelectedYear(Number(e.target.value))}
+                    value={selectedYear}
+                >
+                    {projectData.map(project => (
+                        <option key={project.year} value={project.year}>{project.year}</option>
+                    ))}
+                </select>
             </div>
 
-            {/* Modal */}
-            {selectedProject && (
-                <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-                    <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
-                        <h3 className="text-xl font-semibold mb-4 text-center text-dark-color">მასალები {selectedProject.year}-ში</h3>
-
-                        {/* Materials Table */}
-                        <div className="overflow-x-auto">
-                            <table className="w-full border-collapse border border-gray-300">
-                                <thead className="bg-gray-200 text-gray-900">
-                                    <tr>
-                                        <th className="border border-gray-300 px-4 py-2">მასალა</th>
-                                        <th className="border border-gray-300 px-4 py-2">რაოდენობა</th>
+            {/* Display Project Details */}
+            {filteredProject && (
+                <div className="p-6 rounded-lg shadow-lg text-grayish">
+                    <h3 className="text-xl font-semibold text-center mb-4">პროექტის დეტალები - {filteredProject.year}</h3>
+                    
+                    <div className="grid grid-cols-2 gap-4 text-lg">
+                        <p><strong>შესრულებული:</strong> {filteredProject.completed}</p>
+                        <p><strong>მიმდინარე:</strong> {filteredProject.ongoing}</p>
+                        <p><strong>ფართობი (m²):</strong> {filteredProject.totalArea}</p>
+                    </div>
+                    
+                    <h4 className="text-lg font-semibold mt-6 mb-3">მასალები</h4>
+                    <div className="overflow-x-auto">
+                        <table className="w-full border-collapse">
+                            <thead className="text-grayish border-b-2 border-gray-400">
+                                <tr>
+                                    <th className="px-4 py-2">მასალა</th>
+                                    <th className="px-4 py-2">რაოდენობა</th>
+                                </tr>
+                            </thead>
+                            <tbody className="text-grayish">
+                                {filteredProject.materials.map((material, index) => (
+                                    <tr key={index} className="text-center border-b border-gray-300 last:border-none">
+                                        <td className="px-4 py-2">{material.name}</td>
+                                        <td className="px-4 py-2">{material.amount}</td>
                                     </tr>
-                                </thead>
-                                <tbody className="text-dark-color">
-                                    {selectedProject.materials.map((material, index) => (
-                                        <tr key={index} className="text-center">
-                                            <td className="border border-gray-300 px-4 py-2">{material.name}</td>
-                                            <td className="border border-gray-300 px-4 py-2">{material.amount}</td>
-                                        </tr>
-                                    ))}
-                                </tbody>
-                            </table>
-                        </div>
-
-                        <button
-                            className="mt-4 w-full px-4 py-2 bg-main-color text-grayish rounded transition"
-                            onClick={() => setSelectedProject(null)}
-                        >
-                            დახურვა
-                        </button>
+                                ))}
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             )}
