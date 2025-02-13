@@ -31,18 +31,29 @@ const Footer = () => {
     return (
         <footer className="bg-main-color text-white py-8">
             <div className="container gap-y-20 mx-auto px-4 flex flex-col lg:flex-row justify-between items-center space-y-8 md:space-y-0 lg:space-x-10">
-                {/* Logo and Socials */}
-                <div className="flex flex-col items-center md:items-start space-y-4">
-                    <Link to="/">
-                        <img src={logo} alt="Logo" className="w-48" />
-                    </Link>
-                    {/* <p className="font-bold text-2xl">{t("name")}</p> */}
-                    <div className="flex space-x-4">
-                        {contacts.map((contact) => (
-                            <Link to={contact.link}>{contact.icon}</Link>
-                        ))}
+                <div className="flex flex-col lg:w-1/3 md:flex-row justify-around mt-5 w-full space-y-5 lg:space-y-0 md:space-x-10">
+                    {/* Navigation */}
+
+                    <div>
+                        <div className="font-bold text-lg mb-4">მენიუ</div>
+                        <ul className="space-y-2">
+                            {navigationList.map((item, index) => (
+                                <li key={index}>
+                                    <Link className="text-gray-300 hover:text-white" to={`/${item.to}`}>{t(item.title)}</Link>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                    <div>
+                        <div className="font-bold text-lg mb-4">მომსახურება</div>
+                        <ul className="space-y-2">
+                            <li><Link className="text-gray-300 hover:text-white" to="/">ახალი შენობების მიღება</Link></li>
+                            <li><Link className="text-gray-300 hover:text-white" to="/">ახალი შენობების რემონტი</Link></li>
+                            <li><Link className="text-gray-300 hover:text-white" to="/">ბინის რემონტი</Link></li>
+                        </ul>
                     </div>
                 </div>
+
 
                 {/* Feedback Section */}
                 <div className="flex flex-col items-center w-full m-0 lg:w-1/3 text-center">
@@ -63,27 +74,19 @@ const Footer = () => {
                     </button>
                 </div>
 
-                {/* Navigation */}
-                <div className="flex flex-col lg:w-1/3 md:flex-row justify-around mt-5 w-full space-y-5 lg:space-y-0 md:space-x-10">
-                    <div>
-                        <div className="font-bold text-lg mb-4">მენიუ</div>
-                        <ul className="space-y-2">
-                            {navigationList.map((item, index) => (
-                                <li key={index}>
-                                    <Link className="text-gray-300 hover:text-white" to={`/${item.to}`}>{t(item.title)}</Link>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-                    <div>
-                        <div className="font-bold text-lg mb-4">მომსახურება</div>
-                        <ul className="space-y-2">
-                            <li><Link className="text-gray-300 hover:text-white" to="/">ახალი შენობების მიღება</Link></li>
-                            <li><Link className="text-gray-300 hover:text-white" to="/">ახალი შენობების რემონტი</Link></li>
-                            <li><Link className="text-gray-300 hover:text-white" to="/">ბინის რემონტი</Link></li>
-                        </ul>
+                {/* Logo and Socials */}
+                <div className="flex flex-col items-center md:items-start space-y-4">
+                    <Link to="/">
+                        <img src={logo} alt="Logo" className="w-48" />
+                    </Link>
+                    {/* <p className="font-bold text-2xl">{t("name")}</p> */}
+                    <div className="flex space-x-4">
+                        {contacts.map((contact) => (
+                            <Link to={contact.link}>{contact.icon}</Link>
+                        ))}
                     </div>
                 </div>
+
             </div>
         </footer>
     );

@@ -15,6 +15,7 @@ const RootComponent = () => {
       <Provider store={store}>
         <AuthProvider>
           <ModalContext />
+          
           <App />
         </AuthProvider>
       </Provider>

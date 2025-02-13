@@ -53,9 +53,9 @@ const TeamSlider: React.FC<{ slider: boolean }> = ({ slider }) => {
                                 <h3 className="text-xl font-semibold text-gray-800">{member.name}</h3>
                                 <p className="text-gray-600">{member.role}</p>
                             </div>
-                            <div className="p-4 flex justify-center bg-main-color">
+                            {/* <div className="p-4 flex justify-center bg-main-color">
                                 {member.contact && <a href={`mailto:${member.name}@example.com`} className="text-white">კონტაქტი</a>}
-                            </div>
+                            </div> */}
                         </div>
                     </SwiperSlide>
                 ))}
@@ -68,9 +68,9 @@ const TeamSlider: React.FC<{ slider: boolean }> = ({ slider }) => {
                                 <h3 className="text-xl font-semibold text-gray-800">{member.name}</h3>
                                 <p className="text-gray-600">{member.role}</p>
                             </div>
-                            <div className="p-4 flex justify-center bg-main-color">
+                            {/* <div className="p-4 flex justify-center bg-main-color">
                                 {member.contact && <a href={`mailto:${member.name}@example.com`} className="text-white">კონტაქტი</a>}
-                            </div>
+                            </div> */}
                         </div>
                     ))}
                 </div>

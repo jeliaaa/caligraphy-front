@@ -26,10 +26,10 @@ const Main: React.FC = () => {
       <StatisticSection />
       <PartnersSlider />
       <Gallery />
-      <div className="text-center py-28 flex flex-col items-center space-y-5 h-full bg-third-color mb-3">
+      {/* <div className="text-center py-28 flex flex-col items-center space-y-5 h-full bg-third-color mb-3">
         <h2 className="text-xl font-bold mb-4 text-white">გსურთ გაიგოთ ჩვენი მომსახურების საფასური?</h2>
         <Link className='bg-main-color rounded-full z-10 text-grayish border-4 border-main-color py-5 px-20 hover:border-grayish text-2xl' to={'/calculate'}>კალკულციის დაწყება</Link>
-      </div>
+      </div> */}
       <TeamSlider slider />
       {/* <PriceCalculator page={false} /> */}
     </>

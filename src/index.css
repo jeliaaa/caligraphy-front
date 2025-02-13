@@ -15,7 +15,10 @@ body {
   background: var(--grayish);
 }
 
-button, .cursor-custom{
+a, button{
+  cursor: pointer;
+}
+*{
   cursor: url('assets/icons/chotqi.png') 2 2, pointer;
 }
 
