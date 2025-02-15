@@ -1,7 +1,5 @@
 import React, { Dispatch, SetStateAction } from 'react'
 import karkasi from "../../assets/photos/karkasi.jpeg"
-import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
-import { LatLngExpression } from 'leaflet';
 interface Props {
     setIsModalOpen: Dispatch<SetStateAction<boolean>>;
 }
