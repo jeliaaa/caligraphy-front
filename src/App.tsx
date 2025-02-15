@@ -9,11 +9,12 @@ import Footer from './components/Footer';
 import LoginForm from './pages/Login';
 import RegistrationForm from './pages/RegistrationForm';
 import TeamPage from './pages/Team';
-import Gallery from './pages/Gallery';
+import Gallery from './components/Gallery';
 import VerifyEmail from './pages/Verify';
 import PriceCalculator from './components/PriceCalc';
 import { animateScroll } from 'react-scroll';
 import { MdMessage } from 'react-icons/md';
+import ContactModal from './components/Modal/ContactModal';
 
 const App = () => {
   const location = useLocation();
@@ -51,40 +52,7 @@ const App = () => {
 
       {/* Contact Form Modal */}
       {isModalOpen && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-          <div className="bg-white rounded-lg p-6 w-[90%] max-w-md shadow-lg relative">
-            <button
-              onClick={() => setIsModalOpen(false)}
-              className="absolute top-2 right-2 w-[15px] h-[15px] text-gray-500 hover:text-gray-700"
-            >
-              ✖
-            </button>
-            <h2 className="text-xl font-bold text-main-color mb-4">Contact Us</h2>
-            <form className="flex flex-col space-y-3">
-              <input
-                type="text"
-                placeholder="Your Name"
-                className="border p-2 rounded focus:outline-main-color"
-              />
-              <input
-                type="email"
-                placeholder="Your Email"
-                className="border p-2 rounded focus:outline-main-color"
-              />
-              <textarea
-                rows={4}
-                placeholder="Your Message"
-                className="border p-2 rounded focus:outline-main-color"
-              />
-              <button
-                type="submit"
-                className="bg-main-color text-white py-2 rounded hover:bg-opacity-90 transition-all"
-              >
-                Send Message
-              </button>
-            </form>
-          </div>
-        </div>
+        <ContactModal setIsModalOpen={setIsModalOpen} />
       )}
 
       <Footer />

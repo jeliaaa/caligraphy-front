@@ -2,8 +2,10 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 import gorgia from "../assets/logos/gorgia.png"
+import { useTranslation } from 'react-i18next';
 
 const PartnersSlide = () => {
+    const { t } = useTranslation()
     const partners = [
         "შპს გორგია",
         "შპს მოდუსი",
@@ -16,7 +18,7 @@ const PartnersSlide = () => {
 
     return (
         <div className="max-w-screen-xl mx-auto my-16 px-2">
-            <h2 className="text-3xl text-center font-bold mb-8">პარტნიორები</h2>
+            <h2 className="text-3xl text-center font-bold mb-8">{t('partners')}</h2>
             <Swiper
                 spaceBetween={50}
                 slidesPerView={3}

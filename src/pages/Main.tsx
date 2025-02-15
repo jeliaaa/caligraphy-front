@@ -6,7 +6,7 @@ import PartnersSlider from '../components/PartnersSlide'
 import mainBanner from "../assets/banners/main_banner.jpg"
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
-import Gallery from './Gallery'
+import Gallery from '../components/Gallery'
 import TeamSlider from './Team'
 import ServicesSection from '../components/ServicesSection'
 import '../index.css'

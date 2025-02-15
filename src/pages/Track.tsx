@@ -49,21 +49,16 @@ const Track = () => {
             onSearchClick();
         }
     };
-    
+
     return (
-        <div className="w-full flex flex-col items-center gap-y-4">
-            <div
-                style={{ backgroundImage: `url(${banner})` }}
-                className="w-full flex items-center justify-center h-[200px] bg-center bg-cover"
-            >
-                <h1 className="text-center font-bold mt-2 bg-white inline-block px-10 text-3xl py-5">
-                    ჩემი პროექტი {id !== "0" && `: ${id}`}
-                </h1>
-            </div>
+        <div style={{ backgroundImage: `url(${banner})` }} className="w-full p-5 min-h-[80dvh] flex flex-col items-center gap-y-4">
+            <h1 className="text-center font-bold mt-2 bg-white inline-block px-10 text-3xl py-5">
+                ჩემი პროექტი {id !== "0" && `: ${id}`}
+            </h1>
             <div className="flex justify-center items-center h-[50px] w-[70%]">
                 <input
                     type="text"
-                    className="border-4 rounded-l-md h-full w-[80%] outline-none focus:border-b-blue-400 border-r-0"
+                    className="border-4 rounded-l-md h-full w-[80%] outline-none pl-3 focus:border-b-main-color border-r-0"
                     value={inputVal}
                     onChange={(e) => setInputVal(e.target.value)}
                     onKeyDown={(e) => keyDown(e)}
@@ -77,10 +72,10 @@ const Track = () => {
             </div>
 
             {isLoading ? 'Loading...' : status === 'failed' ? "No such renovation" : <>
-                <div className="w-full mt-10 px-5">
+                <div className="w-full mt-10 p-5 bg-white rounded-2xl">
                     <h2 className="text-2xl font-bold mb-4">{data?.track}</h2>
                     <div className="flex flex-col gap-4">
-                        <div className="flex justify-between items-center">
+                        {/* <div className="flex justify-between items-center">
                             <span className="font-bold">მმართველი:</span>
                             <span>{data?.supervisor.firstname} {data?.supervisor.lastname}</span>
                         </div>
@@ -91,40 +86,41 @@ const Track = () => {
                         <div className="flex justify-between items-center">
                             <span className="font-bold">მისამართი:</span>
                             <span>{data?.address}</span>
-                        </div>
+                        </div> */}
                         <div className="flex flex-col gap-2">
                             <span className="font-bold">პროგრესი:</span>
-                            <div className="w-full flex flex-col gap-2 justify-start items-start">            
+                            <div className="w-full flex flex-col gap-2 justify-start items-start">
                                 <div className="flex justify-between w-full">
                                     <div className="h-full border-b-2 rounded-sm border-black gap-1 flex">
-                                        <p className="font-bold text-[#808080]">{data?.progress}%</p>
+                                        <p className="font-bold text-main-color">{data?.progress}%</p>
                                     </div>
                                     <div className="h-full border-b-2 rounded-sm border-black self-end gap-1 flex">
-                                        <p className="font-bold text-[#808080]">100%</p>
+                                        <p className="font-bold text-main-color">100%</p>
                                     </div>
                                 </div>
-                                <div 
-                                  className={'w-full bg-gray-200 rounded-full py-0.5'}>
-                                    <div 
-                                        className="bg-blue-600 h-[20px] w-2/4 rounded-full"
+                                <div
+                                    className={'w-full bg-grayish rounded-full py-0.5'}>
+                                    <div
+                                        className="bg-main-color h-[20px] w-2/4 rounded-full"
                                         style={{
                                             width: `${data?.progress}%`
                                         }}
                                     ></div>
                                 </div>
                                 {details &&
-                                    <Progress serviceId={data?.service.id}/>
+                                    <Progress serviceId={data?.service.id} />
                                 }
-                                <button className="self-end flex gap-2 text-sm" onClick={() => setDetails(!details)}>
+                                <button className="self-end flex gap-2 text-lg text-main-color" onClick={() => setDetails(!details)}>
                                     დეტალები
-                                    {details 
-                                        ? <FaArrowUp/> 
-                                        : <FaArrowDown/>
+                                    {details
+                                        ? <FaArrowUp />
+                                        : <FaArrowDown />
                                     }
                                 </button>
+                                <p className="text-red-700">დეტალების სანახავად გაიარეთ რეგისტრაცია.</p>
                             </div>
                         </div>
-                        <div className="flex justify-center mt-10">
+                        {/* <div className="flex justify-center mt-10">
                             <a
                                 href={renovationDetails.invoiceUrl}
                                 download
@@ -132,7 +128,7 @@ const Track = () => {
                             >
                                 ინვოისის ჩამოტვირთვა
                             </a>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </>}

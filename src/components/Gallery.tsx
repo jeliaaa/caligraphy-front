@@ -19,12 +19,13 @@ import image13 from "../assets/photos/ფოტომასალაა/DSC_0149
 import image14 from "../assets/photos/ფოტომასალაა/DSC_0151.jpg"
 import image15 from "../assets/photos/ფოტომასალაა/DSC_0156.jpg"
 import image16 from "../assets/photos/ფოტომასალაა/DSC_0163.jpg"
+import { useTranslation } from "react-i18next";
 
 const Gallery = () => {
     const [selectedImage, setSelectedImage] = useState<string | null>(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [currentIndex, setCurrentIndex] = useState<number>(0);
-
+    const {t} = useTranslation();
     const images = [
         image3, image4, image5, image6, image7, image8, image9, image10, image11, image12, image13, image14, image15, image16
     ];
@@ -53,7 +54,7 @@ const Gallery = () => {
     return (
         <div className="py-16 bg-gray-50">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">გალერეა</h2>
+                <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">{t('gallery')}</h2>
 
                 {/* Swiper Gallery */}
                 <Swiper

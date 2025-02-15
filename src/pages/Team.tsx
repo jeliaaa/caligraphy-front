@@ -10,6 +10,7 @@ import zviad from "../assets/photos/ზვიადბოლქვაძე.jpg"
 import nika from "../assets/photos/ნიკაჯიჯავაძე.jpg"
 import { Autoplay, Navigation} from "swiper/modules"
 import { Swiper, SwiperSlide } from "swiper/react"
+import { useTranslation } from "react-i18next"
 
 
 
@@ -30,9 +31,10 @@ const teamMembers = [
 
 ];
 const TeamSlider: React.FC<{ slider: boolean }> = ({ slider }) => {
+    const {t} = useTranslation();
     return (
-        <div className="max-w-screen-xl mx-auto my-2 p-5">
-            <h2 className="text-3xl text-center font-bold mb-8 text-main-color">ჩვენი გუნდი</h2>
+        <div className="w-full mx-auto my-2 p-8">
+            <h2 className="text-3xl text-center font-bold mb-8 text-main-color">{t("team")}</h2>
             {slider ? <Swiper
                 spaceBetween={20}
                 navigation={true}
@@ -42,7 +44,7 @@ const TeamSlider: React.FC<{ slider: boolean }> = ({ slider }) => {
                     320: { slidesPerView: 1 },
                     640: { slidesPerView: 2 },
                     768: { slidesPerView: 3 },
-                    1024: { slidesPerView: 4 },
+                    1024: { slidesPerView: 5 },
                 }}
             >
                 {teamMembers.map((member, index) => (

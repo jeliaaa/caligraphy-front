@@ -1,10 +1,12 @@
 {
-    "name" : "Calligraphy Design",
-    "services" : "Services",
-    "gallery" : "Gallery",
-    "calculate" : "Calculate",
-    "myProject" : "My Project",
-    "blog" : "Blog",
-    "contactUs" : "Contact Us",
-    "team" : "Team"
+    "name": "Calligraphy Design",
+    "services": "Services",
+    "gallery": "Gallery",
+    "calculate": "Calculate",
+    "myProject": "My Project",
+    "blog": "Blog",
+    "contactUs": "Contact Us",
+    "team": "Team",
+    "projects": "Completed Projects",
+    "partners": "Partners"
 }
