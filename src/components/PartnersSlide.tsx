@@ -17,7 +17,8 @@ const PartnersSlide = () => {
     ];
 
     return (
-        <div className="max-w-screen-xl mx-auto my-16 px-2">
+        <div className="w-full px-10 mx-auto my-16">
+            {/* <div className='absolute bg-third-color w-[100px] aspect-square -left-16 rounded-full'></div> */}
             <h2 className="text-3xl text-center font-bold mb-8">{t('partners')}</h2>
             <Swiper
                 spaceBetween={50}

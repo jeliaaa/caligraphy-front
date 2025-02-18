@@ -20,7 +20,7 @@ const Services = () => {
     const images = [karkasi, karkasi2, karkasi];
 
     return (
-        <div className='flex max-w-full justify-between py-2 md:h-[80dvh]'>
+        <div className='flex max-w-full flex-col md:flex-row justify-between py-2 md:h-[80dvh]'>
             {isLoading ? 'loading...' :
                 data.map((service: Service, index: number) => (
                     <Link
