@@ -78,34 +78,44 @@ const projectData: Project[] = [
             { name: "Insulation", amount: "100 rolls" }
         ]
     },
-    
+
 
 ];
 
 export default function ProjectsGallery() {
     const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-    const {t} = useTranslation();
+    const { t } = useTranslation();
     return (
-        <div className="py-10 w-full mx-auto bg-dark-color text-grayish">
+        <div className="py-10 w-full mx-auto bg-secondary-color text-grayish">
             <h2 className="text-3xl font-bold text-center mb-6">{t('projects')}</h2>
 
             <div className="flex w-full justify-around gap-6 flex-wrap">
                 {projectData.map((project) => (
                     <div
                         key={project.year}
-                        className="relative w-60 h-60 rounded-full overflow-hidden cursor-pointer group hover:-translate-y-10 transition-all delay-150"
+                        className="relative w-64 h-80 rounded-xl shadow-lg overflow-hidden cursor-pointer group transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-2xl"
                         onClick={() => setSelectedProject(project)}
                     >
+                        {/* Background Image */}
                         <img
                             src={project.images[0]}
                             alt={`Project ${project.year}`}
-                            className="w-full h-full object-cover group-hover:opacity-40 transition-opacity"
+                            className="w-full h-full object-cover transition-all duration-300"
                         />
-                        <div className="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-white bg-opacity-50 text-main-color p-4 text-center">
-                            <p className="font-bold text-lg">{project.year}</p>
-                            <p className="text-sm">{project.type}</p>
+
+                        {/* Always Visible Title */}
+                        <p className="absolute inset-x-0 block top-4 text-center text-lg font-bold text-main-color group-hover:hidden z-10">
+                            {project.year}
+                        </p>
+
+                        {/* Dark Overlay & Information (Visible on Hover) */}
+                        <div className="absolute inset-0 flex flex-col items-center justify-center bg-white bg-opacity-60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-main-color p-6 text-center rounded-xl">
+                            <p className="font-bold text-xl">{project.year}</p>
+                            <p className="text-sm mt-2">{project.type}</p>
                         </div>
                     </div>
+
+
                 ))}
             </div>
 

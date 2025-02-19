@@ -3,7 +3,7 @@ import React from 'react'
 import StatisticSection from '../components/MainStats'
 import PartnersSlider from '../components/PartnersSlide'
 // import PriceCalculator from '../components/PriceCalc'
-import mainBanner from "../assets/banners/musha.png"
+import mainBanner from "../assets/banners/WhatsApp Image 2025-02-19 at 14.54.54_07d65300.jpg"
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import Gallery from '../components/Gallery'
