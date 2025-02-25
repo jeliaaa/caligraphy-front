@@ -57,15 +57,15 @@ const Footer = () => {
 
                 {/* Feedback Section */}
                 <div className="flex flex-col items-center w-full m-0 lg:w-1/3 text-center">
-                    <h3 className="font-bold text-xl mb-4">დატოვე შენი ელ.ფოსტა და უკუკავშირი!</h3>
+                    <h3 className="font-bold text-xl mb-4">შეიყვანე შენი ელფოსტა და დაგვიტოვე კომენტარი.</h3>
                     <input
                         type="email"
-                        placeholder="შეიყვანეთ ელ.ფოსტა"
+                        placeholder="ელ.ფოსტა"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         className="w-full p-2 rounded-md text-black"
                     />
-                    <textarea className="w-full mt-3 p-2 rounded-md text-black" placeholder='დაგვიტოვეთ უკუკავშირი'></textarea>
+                    <textarea className="w-full mt-3 p-2 rounded-md text-black" placeholder='კომენტარი'></textarea>
                     <button
                         onClick={handleSubscribe}
                         className="mt-3 bg-grayish px-4 py-2 text-main-color hover:bg-gray-300"

@@ -14,48 +14,40 @@ const FaqAccordion = () => {
 
     const faqData = [
         {
-            question: 'Are you selling real or virtual plots of land with trees?',
-            answer: 'We sell plots of land with trees in the real world. <br />The trees we sell are tokenized, that is, the rights to make a profit on them are converted into tokens and entered into the blockchain.',
+            question: 'რა ღირს შავი კარკასის რემონტი?',
+            answer: 'არ ვიცი - დეველოპერი.',
         },
         {
-            question: 'What protection and guarantees are there for users?',
-            answer: 'We provide protection through transparent blockchain technology and user agreements ensuring your investment rights.',
+            question: 'რა ღირს თეთრი კარკასის რემონტი?',
+            answer: 'არ ვიცი - დეველოპერი',
         },
         {
-            question: 'Tell us at the level of a simple user, what is NftForest?',
-            answer: 'NftForest allows you to invest in real-world plots of land through a decentralized tokenized platform.',
+            question: 'რა დროში ასრულებთ სარემონტო სამუშაოებს?',
+            answer: 'არ ვიცი - დეველოპერი',
         },
         {
-            question: 'How can you confirm that the site belongs to you?',
-            answer: 'The site ownership is verified through a transparent decentralized system, linking users to the blockchain.',
+            question: 'როგორ უნდა გადავიხადო რემონტის თანხა?',
+            answer: 'თანხის გადახდა შესაძლებელია თქვენზე მორგებული გრაფიკით.',
         },
         {
-            question: 'Why did you choose Paulownia?',
-            answer: 'Paulownia is one of the fastest-growing tree species, making it an ideal choice for long-term investment with high yields and low environmental impact.',
+            question: 'როგორ შეგითანხმოთ ჩემი სივრცის დიზაინ პროექტი?',
+            answer: `დიზაინის შეთანხმება შესაძლებელია ინდივიდუალურად, არის რამდენიმე ვარიანტი: <br />
+            1 - თქვენ გვაწვდით თვენს მიერ მოწონებულ, შერჩეულ ფოტო მასალას(რეფერენს ფაილებს)რასაც მოვარგებთ თქვენს ბინას <br />
+            2 - თქვენ უკვე გაქვთ გამზადებული დიზაინ პროექტი <br />
+            3 - თქვენ მოგწონთ ჩვენს მიერ უკვე გაკეთებული დიზაინი <br />
+            4 - თქვენ გვიკვეთავთ და ჩვენ გიმზადებთ დიზაინ პროექტს`
         },
         {
-            question: 'The user\'s profit is derived from where?',
-            answer: 'The user\'s profit comes from the sale of timber, which is tokenized and tracked through the blockchain, ensuring transparency and real-time profit distribution.',
+            question: 'რატომ უნდა ავირჩიო თქვენი სერვისი? ',
+            answer: 'აქ ყველა სერვისს ერთობლივად მიიღებ, დაზოგავ თანხას და ჩაიბარებ  ვადაში შესრულებულ პროექტს. ასევე ჩვენი საქმიანობა მოიცავს რემონტისთვის მოსამზადებელ სამუშაოებს(ტიხრების დემონტაჟი, ძველი საფარის მოხსნა და ა.შ.), რემონტის შემდეგ დარჩენილი ნაგვის გატანას'
         },
         {
-            question: 'The W3E profit is derived from where?',
-            answer: 'W3E profit is generated through the appreciation of the value of tokenized assets, primarily from land and timber sales.',
+            question: 'რა გარანტიები გაქვთ სამუშაოებთან დაკავშირებით?',
+            answer: 'ჩვენი ხელშეკრულება ითვალისწინებს სამუშაოს შემსრულებლის ფინანსურ პასუხისმგებლობას.',
         },
         {
-            question: 'Why are tokenized assets better than the rest of crypto and traditional investments?',
-            answer: 'Tokenized assets offer more transparency, security, and liquidity compared to traditional investments, and they are fully backed by tangible real-world assets.',
-        },
-        {
-            question: 'Why did you choose such a difficult business?',
-            answer: 'We chose this difficult business because it aligns with our mission to promote sustainability and build an investment ecosystem that is both profitable and environmentally responsible.',
-        },
-        {
-            question: 'Who is responsible for selling timber?',
-            answer: 'Timber is sold through our certified partners, ensuring compliance with environmental regulations and providing the highest quality products to buyers.',
-        },
-        {
-            question: 'Is it worth becoming a user in Nftforest if you don’t understand blockchain technologies at all?',
-            answer: 'Yes, Nftforest is designed to be user-friendly, with easy-to-understand interfaces and support, making it accessible to both blockchain novices and experts.',
+            question: 'რა სირთულის სამუშაოებს მოიცავს თქვენი სერვისი?',
+            answer: 'ჩვენი სარემონტო სერვისი მოიცავს ნებისმიერი სირთულის სამუშაოს: დაწყებული მცირე განახლებებიდან, დასრულებული სივრცის სრული ტრანსფორმაციით.',
         }
     ];
 

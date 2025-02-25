@@ -1,6 +1,7 @@
 export type Service = {
     id: number,
-    name: string
+    name: string,
+    description: string
 }
 
 export type Supervisor = {

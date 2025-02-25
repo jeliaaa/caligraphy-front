@@ -28,6 +28,7 @@ const Header: React.FC = () => {
         // { title: "calculate", to: 'calculate' },
         { title: "myProject", to: 'track/0' },
         { title: "team", to: 'team' },
+        { title: "advantages", to: 'advantages' },
     ];
 
     const contacts = [

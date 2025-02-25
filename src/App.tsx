@@ -15,6 +15,7 @@ import PriceCalculator from './components/PriceCalc';
 import { animateScroll } from 'react-scroll';
 import { MdMessage } from 'react-icons/md';
 import ContactModal from './components/Modal/ContactModal';
+import ServiceBenefits from './pages/ServiceBenefits';
 
 const App = () => {
   const location = useLocation();
@@ -36,6 +37,7 @@ const App = () => {
           <Route path='/services' element={<Services />} />
           <Route path='/services/:id' element={<ServcicesSingle />} />
           <Route path='/team' element={<TeamPage slider={false} />} />
+          <Route path='/advantages' element={<ServiceBenefits />} />
           <Route path='/verify-email' element={<VerifyEmail />} />
           <Route path='/gallery' element={<Gallery />} />
           <Route path='/calculate' element={<PriceCalculator />} />
