@@ -17,7 +17,7 @@ const Footer = () => {
     const navigationList = [
         { title: "services", to: 'services' },
         // { title: "calculate", to: 'calculate' },
-        { title: "myProfile", to: 'track/0' },
+        { title: "track", to: 'track/0' },
         { title: "team", to: 'team' },
         { title: "advantages", to: 'advantages' },
     ];
@@ -87,7 +87,6 @@ const Footer = () => {
                         ))}
                     </div>
                 </div>
-
             </div>
         </footer>
     );

@@ -26,11 +26,8 @@ const RegistrationForm = () => {
         console.log(response);
         // Check if the action was fulfilled
         if (fetchCustomerRegister.fulfilled.match(response)) {
-            if (response.payload.token) {
-                window.localStorage.setItem('token', response.payload.token); // Save token
-                alert('თქვენ წარმატებით დარეგისტრირდით'); // "You have successfully registered"
-                nav("/"); // Navigate to home
-            }
+            alert('თქვენ წარმატებით დარეგისტრირდით'); // "You have successfully registered"
+            nav("/"); // Navigate to home
         } else if (fetchCustomerRegister.rejected.match(response)) {
             alert('დაფიქსირდა შეცდომა'); // "An error occurred" in Georgian
         } else {

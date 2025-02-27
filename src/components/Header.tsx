@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { FaBars, FaPhone, FaWhatsapp } from 'react-icons/fa';
-import { Link, useLocation } from 'react-router-dom';
+import { FaBars, FaPhone, FaUser, FaWhatsapp } from 'react-icons/fa';
+import { Link, Links, useLocation } from 'react-router-dom';
 import { HiX } from 'react-icons/hi';
 import LanguageDropdown from './LanguageDropdown';
 import logo from "../assets/logos/logo.png";
 import logoLight from "../assets/logos/logo-light.png"
 import { useTranslation } from 'react-i18next';
 import { BsTelegram } from 'react-icons/bs';
+import { useAuth } from '../context/AuthContext';
 
 const Header: React.FC = () => {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -14,7 +15,7 @@ const Header: React.FC = () => {
     const toggleMenu = () => setMenuOpen(!menuOpen);
     const { t } = useTranslation();
     const location = useLocation();  // Get the current route
-
+    const { isAuthenticated } = useAuth();
     useEffect(() => {
         const handleScroll = () => {
             setIsScrolled(window.scrollY > 50);
@@ -26,7 +27,7 @@ const Header: React.FC = () => {
     const navigationList = [
         { title: "services", to: 'services' },
         // { title: "calculate", to: 'calculate' },
-        { title: "myProfile", to: 'track/0' },
+        { title: "track", to: 'track/0' },
         { title: "team", to: 'team' },
         { title: "advantages", to: 'advantages' },
     ];
@@ -52,7 +53,7 @@ const Header: React.FC = () => {
                 ))}
             </nav>
 
-            <Link to={'/'} className='absolute left-1/2 -translate-x-1/2' onClick={() => setMenuOpen(false)}>
+            <Link to={'/'} className='absolute lg:static xl:absolute left-1/2 -translate-x-1/2' onClick={() => setMenuOpen(false)}>
                 <img src={isScrolled || !isHomePage ? logoLight : logo} className='w-[70px] aspect-square' alt='Logo' />
             </Link>
 
@@ -63,6 +64,7 @@ const Header: React.FC = () => {
                     </Link>
                 ))}
                 <FaPhone /><Link to='tel:555555555' className='m-0 p-0'>+995 555-555555</Link>
+                {!isAuthenticated ? <Link to={'/login'}>{t('login')}</Link> : <Link to={'/profile'}><FaUser /></Link>}
                 <LanguageDropdown isScrolled={isScrolled} isHomePage={isHomePage} />
             </div>
 
@@ -92,7 +94,7 @@ const Header: React.FC = () => {
                     <div className='flex'>
                         <FaPhone /><Link to='tel:555555555' className='m-0 p-0'>+995 555-555555</Link>
                     </div>
-
+                    {!isAuthenticated ? <Link to={'/login'}>{t('login')}</Link> : <Link to={'/profile'}><FaUser /></Link>}
                     <LanguageDropdown isScrolled={isScrolled} isHomePage={isHomePage} />
                 </div>
             )}

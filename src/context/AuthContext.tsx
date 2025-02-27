@@ -27,8 +27,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         if (!user && status === 'idle' && !window.location.href.includes("token=")) {
             dispatch(fetchCustomerProfile())
                 .then((data: any) => {
-                    console.log("Fetched Profile Data:", data);
-
+                    // console.log("Fetched Profile Data:", data);
                     if (data?.error?.message) {
                         console.warn("Profile Fetch Error:", data.error.message);
                         return; // Exit if there's an error

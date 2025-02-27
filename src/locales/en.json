@@ -4,6 +4,7 @@
     "gallery": "Gallery",
     "advantages": "Advantages",
     "calculate": "Calculate",
+    "track": "Track Progress",
     "myProject": "My Project",
     "blog": "Blog",
     "contactUs": "Contact Us",
@@ -12,5 +13,6 @@
     "partners": "Partners",
     "myProjects": "My Projects",
     "myProfile" : "My Profile",
-    "photosAndRenders": "Photos and renders"
+    "photosAndRenders": "Photos and renders",
+    "login": "Log in"
 }

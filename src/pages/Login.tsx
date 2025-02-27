@@ -22,7 +22,6 @@ const LoginForm = () => {
         try {
             setLoading(true);
             await login(data.email, data.password);
-            navigate('/');
         } catch (error) {
             alert(error instanceof Error ? error.message : 'Login failed. Please try again.');
         } finally {

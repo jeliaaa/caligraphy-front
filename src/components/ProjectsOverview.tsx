@@ -90,9 +90,9 @@ export default function ProjectsGallery() {
             <h2 className="text-3xl font-bold text-center mb-6">{t('projects')}</h2>
 
             <div className="flex w-full justify-around gap-6 flex-wrap">
-                {projectData.map((project) => (
+                {projectData.map((project, _id) => (
                     <div
-                        key={project.year}
+                        key={_id}
                         className="relative w-64 h-80 rounded-xl shadow-lg overflow-hidden cursor-pointer group transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-2xl"
                         onClick={() => setSelectedProject(project)}
                     >

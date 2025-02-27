@@ -5,6 +5,7 @@
     "advantages": "უპირატესობები",
     "calculate" : "ფასის გამოთვლა",
     "myProject" : "ჩემი პროექტი",
+    "track": "პროგრესი",
     "blog" : "სტატიები",
     "contactUs" : "კონტაქტი",
     "team" : "გუნდი",
@@ -12,5 +13,6 @@
     "partners": "პარტნიორები",
     "myProjects": "ჩემი პროექტები" ,
     "myProfile" : "ჩემი კაბინეტი",
-    "photosAndRenders": "ფოტოები და რენდერები"
+    "photosAndRenders": "ფოტოები და რენდერები",
+    "login": "შესვლა"
 }

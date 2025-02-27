@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "../redux/store";
 import { fetchVerifyEmail, fetchSendEmailVerify } from "../redux/thunks/authThunks";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { FaEnvelope } from "react-icons/fa";
 
@@ -13,6 +13,7 @@ const VerifyEmail = () => {
     const [status, setStatus] = useState(token ? "pending" : "idle");
     const { user } = useAuth();
     const [timer, setTimer] = useState(0);
+    const navigate = useNavigate();
 
     useEffect(() => {
         console.log(token);
@@ -38,6 +39,14 @@ const VerifyEmail = () => {
         dispatch(fetchSendEmailVerify(user?.email));
         setTimer(300);
     };
+
+    useEffect(() => {
+        if (status === "success") {
+            setTimeout(() => {
+                navigate("/login");
+            }, 3000); // Navigate after 3 seconds
+        }
+    }, [status, navigate]);
 
     return (
         <div className="flex flex-col items-center justify-center mt-10 p-10">

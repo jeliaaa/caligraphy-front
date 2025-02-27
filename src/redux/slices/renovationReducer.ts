@@ -1,15 +1,17 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchRenovation } from '../thunks/renovationThunk';
+import { fetchRenovation, fetchRenovations } from '../thunks/renovationThunk';
 import { Renovation } from 'types/apiTypes/types';
 
 
 interface IniitalState {
-    data: Renovation | null;
+    singleData: Renovation | null;
+    data: Renovation[];
     status: 'idle' | 'loading' | 'succeeded' | 'failed';
 }
 
 const initialState: IniitalState = {
-    data: null,
+    singleData: null,
+    data: [],
     status: 'idle',
 }
 const renovationSlice = createSlice({
@@ -20,15 +22,27 @@ const renovationSlice = createSlice({
         builder
             .addCase(fetchRenovation.pending, (state) => {
                 state.status = 'loading';
-                state.data = null;
+                state.singleData = null;
             })
             .addCase(fetchRenovation.fulfilled, (state, action) => {
                 state.status = 'succeeded';
-                state.data = action.payload;
+                state.singleData = action.payload;
             })
             .addCase(fetchRenovation.rejected, (state) => {
                 state.status = 'failed';
-                state.data = null;
+                state.singleData = null;
+            })
+            .addCase(fetchRenovations.pending, (state) => {
+                state.status = 'loading';
+                state.data = [];
+            })
+            .addCase(fetchRenovations.fulfilled, (state, action) => {
+                state.status = 'succeeded';
+                state.data = action.payload;
+            })
+            .addCase(fetchRenovations.rejected, (state) => {
+                state.status = 'failed';
+                state.data = [];
             })
     }
 });

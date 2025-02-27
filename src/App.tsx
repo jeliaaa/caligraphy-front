@@ -22,7 +22,6 @@ import ProjectSingle from './pages/ProjectSingle';
 const App = () => {
   const location = useLocation();
   const [isModalOpen, setIsModalOpen] = useState(false);
-
   useEffect(() => {
     animateScroll.scrollToTop();
   }, [location]);

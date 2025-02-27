@@ -16,7 +16,7 @@ const ContactModal: React.FC<Props> = ({ setIsModalOpen }) => {
                 </button>
                 <h2 className="text-xl font-bold text-main-color mb-4">Contact Us</h2>
                 <div className='flex gap-5'>
-                    <form className="flex flex-col space-y-3 md:w-1/2 h-full">
+                    <form className="flex flex-col space-y-3 w-full md:w-1/2 h-full">
                         <input
                             type="text"
                             placeholder="Your Name"

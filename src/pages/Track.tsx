@@ -1,21 +1,20 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { AppDispatch, RootState } from "../redux/store";
 import { fetchRenovation } from "../redux/thunks/renovationThunk";
 import banner from "../assets/banners/Green-Remodeling-in-Process.jpeg"
-import Progress from "./Progress";
-import { FaArrowUp, FaArrowDown } from "react-icons/fa";
+import { FaArrowDown } from "react-icons/fa";
+import { useAuth } from "../context/AuthContext";
 
 const Track = () => {
     const { id } = useParams();
     const [inputVal, setInputVal] = useState(id !== "0" ? id : ""); // Set initial value conditionally
     const navigate = useNavigate();
     const dispatch = useDispatch<AppDispatch>();
-    const { data, status } = useSelector((state: RootState) => state.renovation)
+    const { singleData : data, status } = useSelector((state: RootState) => state.renovation)
     const isLoading = useMemo(() => status === 'loading' || status === 'idle', [status]);
-    const [details, setDetails] = useState(false)
     useEffect(() => {
         dispatch(fetchRenovation(id))
     }, [dispatch, id])
@@ -49,6 +48,7 @@ const Track = () => {
             onSearchClick();
         }
     };
+    const { isAuthenticated } = useAuth()
 
     return (
         <div style={{ backgroundImage: `url(${banner})` }} className="w-full p-5 min-h-[80dvh] flex flex-col items-center gap-y-4">
@@ -108,17 +108,14 @@ const Track = () => {
                                         }}
                                     ></div>
                                 </div>
-                                {details &&
+                                {/* {details &&
                                     <Progress serviceId={data?.service.id} />
-                                }
-                                <button className="self-end flex gap-2 text-lg text-main-color" onClick={() => setDetails(!details)}>
+                                } */}
+                                {isAuthenticated && <Link to={'/profile'} className="self-end flex gap-2 text-lg text-main-color">
                                     დეტალები
-                                    {details
-                                        ? <FaArrowUp />
-                                        : <FaArrowDown />
-                                    }
-                                </button>
-                                <p className="text-red-700">დეტალების სანახავად გაიარეთ რეგისტრაცია.</p>
+                                    <FaArrowDown />
+                                </Link>}
+                                {!isAuthenticated && <p className="text-red-700">დეტალების სანახავად <Link to={'/login'} className="underline">შედით სისტემაში.</Link></p>}
                             </div>
                         </div>
                         {/* <div className="flex justify-center mt-10">
@@ -133,7 +130,7 @@ const Track = () => {
                     </div>
                 </div>
             </>}
-        </div>
+        </div >
     );
 };
 
