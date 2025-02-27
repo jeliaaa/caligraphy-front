@@ -18,10 +18,15 @@ const Main: React.FC = () => {
   return (
     <div className='relative'>
       {/* <MainSlider /> */}
-      <div className='w-full h-[80dvh] relative flex justify-center'>
+      <div className='w-full h-[80dvh] relative flex justify-center items-center'>
         <img className='object-cover absolute left-0 top-0 h-full w-full' src={mainBanner} alt='Us' />
-        <div  className='saa bg-main-color rounded-full z-10 text-grayish border-4 border-main-color py-5 px-20 hover:border-grayish text-2xl absolute bottom-[-30px]'>რემონტი გინდა?...</div>
+        <div className='flex z-10 justify-center items-center text-main-color w-fit h-fit bg-grayish rounded-md text-3xl font-bold text-center p-5'>
+          რემონტს აპირებ? <br /> დაგვიკავშირდი და მიიღე კომფორტი, რომელსაც იმსახურებ
+        </div>
       </div>
+
+      {/* <div className='saa bg-main-color rounded-full z-10 text-grayish border-4 border-main-color py-5 px-20 hover:border-grayish text-2xl absolute bottom-[-30px]'>რემონტი გინდა?...</div> */}
+
       <ServicesSection />
       <ProjectsOverview />
       <StatisticSection />
