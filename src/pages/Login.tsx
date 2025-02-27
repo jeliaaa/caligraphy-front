@@ -2,14 +2,12 @@ import { useAuth } from "../context/AuthContext";
 import Input from "../components/Input";
 import React, { useState } from "react";
 import { useForm, Controller, SubmitHandler } from "react-hook-form";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 
 const LoginForm = () => {
     const { control, handleSubmit, formState: { errors } } = useForm<ILoginForm>();
     const [loading, setLoading] = useState(false);
     const { login, isAuthenticated } = useAuth();
-    const forAdmin = false;
-
     interface ILoginForm {
         email: string;
         password: string;
@@ -26,7 +24,7 @@ const LoginForm = () => {
         }
     };
 
-    if(isAuthenticated){
+    if (isAuthenticated) {
         return <Navigate to={'/profile'} />
     }
 
@@ -62,9 +60,9 @@ const LoginForm = () => {
                 />
                 {errors.password && <span className="text-red-700 text-sm mt-2">* აუცილებელი ველი</span>}
 
-                {!forAdmin && <div className="flex items-center justify-end">
+                {/* {!forAdmin && <div className="flex items-center justify-end">
                     <Link to='/participant/reset-password' className="self-end hover:text-blue-800 hover:underline">დაგავიწყდით პაროლი?</Link>
-                </div>}
+                </div>} */}
 
                 <div>
                     <button className="bg-main-color text-grayish p-5 w-full" type='submit'>
@@ -73,9 +71,9 @@ const LoginForm = () => {
                     </button>
                 </div>
             </form>
-            {!forAdmin && <span className='mt-8'>{`არ გაქვს არგარიში`}?
-                <Link to="/register" className="text-blue-600 hover:text-blue-800 hover:underline">რეგისტრაცია</Link>
-            </span>}
+            <span className='mt-8'>{`არ გაქვს არგარიში`}?
+                <Link to="/register" className="text-main-color underline ml-2">რეგისტრაცია</Link>
+            </span>
         </div>
     );
 };

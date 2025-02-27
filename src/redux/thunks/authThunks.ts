@@ -48,7 +48,6 @@ import { Customer } from "types/apiTypes/types";
 export const fetchCustomerLogin = createAsyncThunk<Customer, { email: string; password: string }>(
     'customer/fetchCustomerLogin',
     async ({ email, password }, { rejectWithValue }) => {
-        console.log(email, password)
         try {
             const response = await customerLogin(email, password);
             return response;
@@ -74,7 +73,6 @@ export const fetchCustomerRegister = createAsyncThunk<Customer, { email: string;
     'customer/fetchCustomerRegister',
     async (data, { rejectWithValue }) => {
         try {
-            console.log(data);
             return await customerRegister({ email: data.email, password: data.password, firstname: data.firstname, lastname: data.lastname });
         } catch (error) {
             return rejectWithValue(error);

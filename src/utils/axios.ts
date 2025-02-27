@@ -9,12 +9,13 @@ const createAxiosInstance = (version: string) => {
     withCredentials: true,
     headers: {
       "Content-Type": "application/json",
+      "X-CSRFToken" : Cookies.get('csrftoken')
     },
   });
 
   instance.interceptors.request.use(
     (config) => {
-      // Add CSRF token to headers if available
+     // Add CSRF token to headers if available
       const csrftoken = Cookies.get("csrftoken");
       if (csrftoken) {
         config.headers["X-CSRFToken"] = csrftoken;
@@ -23,7 +24,7 @@ const createAxiosInstance = (version: string) => {
       // Update baseURL dynamically based on language and version
       config.baseURL = `${process.env.REACT_APP_URL}/${i18n.language || "en"}/api/${version}`;
 
-      return config;
+      return config; 
     },
     (error) => Promise.reject(error)
   );

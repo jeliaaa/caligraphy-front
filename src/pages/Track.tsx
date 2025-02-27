@@ -19,18 +19,18 @@ const Track = () => {
         dispatch(fetchRenovation(id))
     }, [dispatch, id])
     // Sample renovation data
-    const renovationDetails = {
-        manager: "ჯონი ჯანდიერი",
-        stage: "ფითხით დამუშავება და შეღებვა",
-        progress: 60, // Percentage completion for the progress bar
-        location: "123 ქუჩა, ბათუმი.",
-        photos: [
-            "https://picsum.photos/800/600?random=1",
-            "https://picsum.photos/800/600?random=2",
-            "https://picsum.photos/800/600?random=3",
-        ],
-        invoiceUrl: "https://example.com/invoice.pdf",
-    };
+    // const renovationDetails = {
+    //     manager: "ჯონი ჯანდიერი",
+    //     stage: "ფითხით დამუშავება და შეღებვა",
+    //     progress: 60, // Percentage completion for the progress bar
+    //     location: "123 ქუჩა, ბათუმი.",
+    //     photos: [
+    //         "https://picsum.photos/800/600?random=1",
+    //         "https://picsum.photos/800/600?random=2",
+    //         "https://picsum.photos/800/600?random=3",
+    //     ],
+    //     invoiceUrl: "https://example.com/invoice.pdf",
+    // };
 
     const onSearchClick = () => {
         if (inputVal?.trim() !== "") {

@@ -4,8 +4,7 @@ import StatisticSection from '../components/MainStats'
 import PartnersSlider from '../components/PartnersSlide'
 // import PriceCalculator from '../components/PriceCalc'
 import mainBanner from "../assets/banners/WhatsApp Image 2025-02-19 at 14.54.54_07d65300.jpg"
-import { useTranslation } from 'react-i18next'
-import { Link } from 'react-router-dom'
+// import { useTranslation } from 'react-i18next'
 import Gallery from '../components/Gallery'
 import TeamSlider from './Team'
 import ServicesSection from '../components/ServicesSection'
@@ -15,7 +14,7 @@ import FaqAccordion from '../components/FAQ'
 import RendersAndPictures from '../components/RendersAndPhotos'
 
 const Main: React.FC = () => {
-  const { t } = useTranslation();
+  // const { t } = useTranslation();
   return (
     <div className='relative'>
       {/* <MainSlider /> */}

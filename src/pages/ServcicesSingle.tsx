@@ -1,18 +1,11 @@
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Element, scroller } from "react-scroll"; // Import Element and scroller from react-scroll
-import { useDispatch, useSelector } from "react-redux";
-import { AppDispatch, RootState } from "redux/store";
-import { fetchServiceSingle } from "../redux/thunks/serviceThunk";
 import karkasi from "../assets/photos/karkasi.jpeg";
 
 const ServcicesSingle = () => {
     const { id } = useParams();
-    const dispatch = useDispatch<AppDispatch>();
-    const data = useSelector((state: RootState) => state.services.singleData);
-    const status = useSelector((state: RootState) => state.services.singleStatus);
-    const isLoading = status === "loading" || status === "idle";
-
+    
     useEffect(() => {
         if (id) {
             // Scroll to the section if the id exists in the URL
@@ -23,10 +16,6 @@ const ServcicesSingle = () => {
             });
         }
     }, [id]);
-
-    if (isLoading) {
-        console.log("Loading...");
-    }
 
     return (
         <div className="w-full bg-grayish">

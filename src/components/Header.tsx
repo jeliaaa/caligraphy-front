@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FaBars, FaPhone, FaUser, FaWhatsapp } from 'react-icons/fa';
-import { Link, Links, useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { HiX } from 'react-icons/hi';
 import LanguageDropdown from './LanguageDropdown';
 import logo from "../assets/logos/logo.png";

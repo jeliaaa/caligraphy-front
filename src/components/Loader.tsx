@@ -5,7 +5,7 @@ export default function Loader() {
     <div className='w-full h-dvh flex justify-center items-center'>
        <BounceLoader 
             size={60}
-            color='#6e00ff'
+            color='#4c583e'
        />
     </div>
   )
