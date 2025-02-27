@@ -11,12 +11,11 @@ const VerifyEmail = () => {
     const [searchParams] = useSearchParams();
     const token = searchParams.get("token");
     const [status, setStatus] = useState(token ? "pending" : "idle");
-    const { user } = useAuth();
+    const { user, isAuthenticated } = useAuth();
     const [timer, setTimer] = useState(0);
     const navigate = useNavigate();
 
     useEffect(() => {
-        console.log(token);
         if (token) {
             dispatch(fetchVerifyEmail(token))
                 .unwrap()
@@ -44,10 +43,16 @@ const VerifyEmail = () => {
         if (status === "success") {
             setTimeout(() => {
                 navigate("/login");
-            }, 3000); // Navigate after 3 seconds
+            }, 3000);
         }
     }, [status, navigate]);
 
+    useEffect(() => {
+        if(!isAuthenticated){
+            navigate("/login");
+        }
+    }, [isAuthenticated, navigate]);
+    
     return (
         <div className="flex flex-col items-center justify-center mt-10 p-10">
             <div className="bg-white flex flex-col items-center shadow-lg rounded-lg p-6 w-full max-w-md text-center">

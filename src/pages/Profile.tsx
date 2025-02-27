@@ -52,7 +52,7 @@ const Profile = () => {
                 ))}
             </div>
             <div>
-                {/* <p className="underline text-2xl text-main-color mt-10" onClick={() => logout()}>თქვენი პროფილიდან გასასვლელად დააჭირეთ აქ.</p> */}
+                <p className="underline text-2xl text-main-color mt-10" onClick={() => logout()}>თქვენი პროფილიდან გასასვლელად დააჭირეთ აქ.</p>
             </div>
         </div>
     );

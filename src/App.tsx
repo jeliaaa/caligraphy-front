@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import Header from './components/Header';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import Main from './pages/Main';
@@ -18,6 +18,9 @@ import ContactModal from './components/Modal/ContactModal';
 import ServiceBenefits from './pages/ServiceBenefits';
 import Profile from './pages/Profile';
 import ProjectSingle from './pages/ProjectSingle';
+import { useAuth } from './context/AuthContext';
+import ClientOnly from './components/ClientOnly';
+import Loader from './components/Loader';
 
 const App = () => {
   const location = useLocation();
@@ -25,6 +28,14 @@ const App = () => {
   useEffect(() => {
     animateScroll.scrollToTop();
   }, [location]);
+  
+  const { status } = useAuth();
+
+  const isLoading = useMemo(() => status === 'loading', [status]);
+
+  if (isLoading) {
+    return <Loader />;
+  }
 
   return (
     <div className="App">
@@ -42,8 +53,8 @@ const App = () => {
           <Route path='/verify-email' element={<VerifyEmail />} />
           <Route path='/gallery' element={<Gallery />} />
           <Route path='/calculate' element={<PriceCalculator />} />
-          <Route path='/profile' element={<Profile />} />
-          <Route path='/profile/:id' element={<ProjectSingle />} />
+          <Route path='/profile' element={<ClientOnly><Profile /></ClientOnly>} />
+          <Route path='/profile/:id' element={<ClientOnly><ProjectSingle /></ClientOnly>} />
         </Routes>
       </div>
 

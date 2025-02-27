@@ -15,8 +15,8 @@ import { axiosV3 } from '../utils/axios';
 //     return response.data;
 // };
 
-export const customerLogin = async (login: string, password: string) => {
-    const response = await axiosV3.post(`/customer/login`, { login, password });
+export const customerLogin = async (email: string, password: string) => {
+    const response = await axiosV3.post(`/customer/login`, { email, password });
     return response.data;
 };
 

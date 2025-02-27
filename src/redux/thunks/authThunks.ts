@@ -45,16 +45,19 @@ import { Customer } from "types/apiTypes/types";
 //     }
 // );
 
-export const fetchCustomerLogin = createAsyncThunk<Customer, { login: string; password: string }>(
+export const fetchCustomerLogin = createAsyncThunk<Customer, { email: string; password: string }>(
     'customer/fetchCustomerLogin',
-    async (credentials, { rejectWithValue }) => {
+    async ({ email, password }, { rejectWithValue }) => {
+        console.log(email, password)
         try {
-            return await customerLogin(credentials.login, credentials.password);
+            const response = await customerLogin(email, password);
+            return response;
         } catch (error) {
             return rejectWithValue(error);
         }
     }
 );
+
 
 export const fetchCustomerProfile = createAsyncThunk<Customer>(
     'customer/fetchCustomerProfile',

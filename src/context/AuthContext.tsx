@@ -42,8 +42,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     }, [dispatch, user, status, navigate]);
 
 
-    const login = async (login: string, password: string) => {
-        await dispatch(fetchCustomerLogin({ login, password }));
+    const login = async (email: string, password: string) => {
+        await dispatch(fetchCustomerLogin({ email, password }));
     };
 
     const register = async (email: string, password: string, firstname: string, lastname: string) => {
