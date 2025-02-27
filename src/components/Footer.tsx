@@ -17,7 +17,7 @@ const Footer = () => {
     const navigationList = [
         { title: "services", to: 'services' },
         // { title: "calculate", to: 'calculate' },
-        { title: "myProject", to: 'track/0' },
+        { title: "myProfile", to: 'track/0' },
         { title: "team", to: 'team' },
         { title: "advantages", to: 'advantages' },
     ];
@@ -48,7 +48,7 @@ const Footer = () => {
                     <div>
                         <div className="font-bold text-lg mb-4">მომსახურება</div>
                         <ul className="space-y-2">
-                            <li><Link className="text-gray-300 hover:text-white" to="/">სრული რემონტი</Link></li>
+                            <li><Link className="text-gray-300 hover:text-white" to="/">სარემონტო სამუშაოები</Link></li>
                             <li><Link className="text-gray-300 hover:text-white" to="/">ტექნიკითა და ავეჯით აღჭჭურვა</Link></li>
                             <li><Link className="text-gray-300 hover:text-white" to="/">შენზე მორგებული რემონტი</Link></li>
                         </ul>

@@ -64,11 +64,17 @@ const Gallery = () => {
         }, 500);
     }, []);
     return (
-        <div className="py-16 bg-gray-50">
-            <div className="w-full relative mx-auto sm:px-6 lg:px-8">
-                <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
-                    {t("gallery")}
-                </h2>
+        <div className="py-16 flex flex-col items-center bg-gray-50">
+            <div className="bg-main-color rounded-full z-10 text-grayish border-4 border-main-color py-5 px-20 mb-10 text-2xl">
+                {t("gallery")}
+            </div>
+            <div className="w-full relative mx-auto sm:px-6 lg:px-8 ">
+
+
+                {/* <div className="bg-main-color w-fit p-2 rounded-full mb-5 flex items-center justify-center">
+                    <h2 className="text-3xl font-bold text-grayish">
+                    </h2>
+                </div> */}
                 <div className="absolute hidden md:flex z-50 gap-x-3 -bottom-5 left-8">
                     <button className="w-[60px] aspect-square rounded-full bg-main-color text-grayish button-prev flex items-center justify-center"><BsArrowLeft /></button>
                     <button className="w-[60px] aspect-square rounded-full bg-main-color text-grayish button-next flex items-center justify-center"><BsArrowRight /></button>

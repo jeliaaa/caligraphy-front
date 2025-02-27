@@ -26,7 +26,7 @@ const Header: React.FC = () => {
     const navigationList = [
         { title: "services", to: 'services' },
         // { title: "calculate", to: 'calculate' },
-        { title: "myProject", to: 'track/0' },
+        { title: "myProfile", to: 'track/0' },
         { title: "team", to: 'team' },
         { title: "advantages", to: 'advantages' },
     ];

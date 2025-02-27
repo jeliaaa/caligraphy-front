@@ -17,9 +17,12 @@ const PartnersSlide = () => {
     ];
 
     return (
-        <div className="w-full px-10 mx-auto my-16">
+        <div className="w-full flex flex-col items-center px-10 mx-auto my-16">
             {/* <div className='absolute bg-third-color w-[100px] aspect-square -left-16 rounded-full'></div> */}
-            <h2 className="text-3xl text-center font-bold mb-8">{t('partners')}</h2>
+            <div className="bg-main-color rounded-full z-10 text-grayish border-4 border-main-color py-5 px-20 mb-10 text-2xl">
+                {t("partners")}
+            </div>
+            {/* <h2 className="text-3xl text-center font-bold mb-8">{t('partners')}</h2> */}
             <Swiper
                 spaceBetween={50}
                 slidesPerView={3}
@@ -36,6 +39,7 @@ const PartnersSlide = () => {
                         slidesPerView: 3,
                     },
                 }}
+                className='w-full'
             >
                 {partners.map((partner, index) => (
                     <SwiperSlide key={index}>

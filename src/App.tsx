@@ -47,9 +47,9 @@ const App = () => {
       {/* Contact Button */}
       <button
         onClick={() => setIsModalOpen(true)}
-        className="fixed rounded-full hover:-translate-y-2 hover:border-2 delay-75 transition-all bottom-2 right-2 z-50 w-[50px] h-[50px] bg-white flex items-center justify-center shadow-lg"
+        className="fixed rounded-full hover:-translate-y-2 hover:border-2 delay-75 transition-all bottom-2 right-2 z-50 w-[100px] h-[100px] bg-white flex items-center justify-center shadow-lg"
       >
-        <MdMessage size={30} className='text-main-color z-50' />
+        <MdMessage size={60} className='text-main-color z-50' />
       </button>
 
       {/* Contact Form Modal */}

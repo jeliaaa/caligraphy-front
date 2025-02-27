@@ -14,9 +14,9 @@ const StatisticSection: React.FC = () => {
 
     // Mock API data
     const mockApiData = useMemo(() => [
-        { title: 'შესრულებული რემონტი', value: 150, total: 120 },
-        { title: 'ახალი მომხმარებელი', value: 210, total: 150 },
-        { title: 'ახალი დასაქმებული', value: 1000, total: 200 },
+        { title: 'შესრულებული პროექტი', value: 150, total: 120 },
+        { title: 'მიმდინარე პროექტი', value: 210, total: 150 },
+        { title: 'დაგეგმილი პროექტი', value: 1000, total: 200 },
     ], []);
 
     // Using useCallback to fetch the statistics
@@ -54,8 +54,8 @@ const StatisticSection: React.FC = () => {
     }, [statistics]);
 
     return (
-        <section className="py-16 px-4 bg-gray-50 text-center">
-            <h2 className="text-3xl font-bold mb-8">ბოლო წლებში:</h2>
+        <section className="py-16 px-32 bg-main-color text-center">
+            <h2 className="text-3xl font-bold text-grayish mb-8">სტატისტიკა</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
                 {statistics.map((stat, index) => (
                     <div className="stat-card" key={index}>
@@ -76,11 +76,11 @@ const StatisticSection: React.FC = () => {
                                     }}
                                 />
                             </svg>
-                            <span className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 text-2xl font-bold text-main-color">
+                            <span className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 text-2xl font-bold text-grayish">
                                 {stat.value} +
                             </span>
                         </div>
-                        <p className="mt-4 text-xl font-semibold">{stat.title}</p>
+                        <p className="mt-4 text-xl font-semibold text-grayish">{stat.title}</p>
                     </div>
                 ))}
             </div>
