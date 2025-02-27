@@ -74,7 +74,7 @@ const Track = () => {
 
             {isLoading ? 'Loading...' : status === 'failed' ? "No such renovation" : <>
                 <div className="w-full mt-10 p-5 bg-white rounded-2xl">
-                    <h2 className="text-2xl font-bold mb-4">{data?.track}</h2>
+                    <h2 className="text-2xl font-bold mb-4">aaa</h2>
                     <div className="flex flex-col gap-4">
                         {/* <div className="flex justify-between items-center">
                             <span className="font-bold">მმართველი:</span>

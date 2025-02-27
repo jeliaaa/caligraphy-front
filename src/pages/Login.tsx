@@ -73,7 +73,7 @@ const LoginForm = () => {
                 </div>
             </form>
             {!forAdmin && <span className='mt-8'>{`არ გაქვს არგარიში`}?
-                <Link to="/register" className="text-blue-600 hover:text-blue-800 hover:underline"> რეგისტრაცია</Link>
+                <Link to="/register" className="text-blue-600 hover:text-blue-800 hover:underline">რეგისტრაცია</Link>
             </span>}
         </div>
     );

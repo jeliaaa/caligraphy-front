@@ -12,7 +12,7 @@ const ProjectSingle = () => {
     const [details, setDetails] = useState(false);
     const dispatch = useDispatch<AppDispatch>();
 
-    const { data, status } = useSelector((state: RootState) => state.renovation);
+    const { singleData:data, status } = useSelector((state: RootState) => state.renovation);
     const isLoading = useMemo(() => status === "loading" || status === "idle", [status]);
 
     useEffect(() => {
