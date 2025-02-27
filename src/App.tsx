@@ -16,6 +16,8 @@ import { animateScroll } from 'react-scroll';
 import { MdMessage } from 'react-icons/md';
 import ContactModal from './components/Modal/ContactModal';
 import ServiceBenefits from './pages/ServiceBenefits';
+import Profile from './pages/Profile';
+import ProjectSingle from './pages/ProjectSingle';
 
 const App = () => {
   const location = useLocation();
@@ -41,13 +43,15 @@ const App = () => {
           <Route path='/verify-email' element={<VerifyEmail />} />
           <Route path='/gallery' element={<Gallery />} />
           <Route path='/calculate' element={<PriceCalculator />} />
+          <Route path='/profile' element={<Profile />} />
+          <Route path='/profile/:id' element={<ProjectSingle />} />
         </Routes>
       </div>
 
       {/* Contact Button */}
       <button
         onClick={() => setIsModalOpen(true)}
-        className="fixed rounded-full hover:-translate-y-2 hover:border-2 delay-75 transition-all bottom-2 right-2 z-50 w-[100px] h-[100px] bg-white flex items-center justify-center shadow-lg"
+        className="fixed rounded-full hover:-translate-y-2 hover:border-2 delay-75 transition-all bottom-2 right-2 z-50 w-[100px] h-[100px] bg-white flex items-center justify-center shadow-2xl shadow-main-color"
       >
         <MdMessage size={60} className='text-main-color z-50' />
       </button>

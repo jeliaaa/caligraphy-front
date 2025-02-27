@@ -13,8 +13,6 @@ const ServicesSection = (props: Props) => {
     const status = useSelector((state: RootState) => state.services.status);
     const isLoading = useMemo(() => status === 'loading' || status === 'idle', [status]);
 
-    const [hoveredService, setHoveredService] = useState<number | null>(null);
-
     useEffect(() => {
         dispatch(fetchServices());
     }, [dispatch]);
@@ -41,15 +39,8 @@ const ServicesSection = (props: Props) => {
                             to={`/services/${service.id}`}
                             key={service.id}
                             style={{ backgroundImage: `url(${serviceImg})` }}
-                            onMouseEnter={() => setHoveredService(service.id)}
-                            onMouseLeave={() => setHoveredService(null)}
                         >
                             <span className='bg-grayish text-main-color p-2 text-2xl'>{service.name}</span>
-                            {hoveredService === service.id && (
-                                <div className='absolute bottom-[110%] left-1/2 transform -translate-x-1/2 bg-grayish text-main-color p-3 rounded-lg w-64 text-center shadow-lg'>
-                                    {service.description}
-                                </div>
-                            )}
                         </Link>
                     ))}
                 </div>

@@ -62,6 +62,7 @@ const Track = () => {
                     value={inputVal}
                     onChange={(e) => setInputVal(e.target.value)}
                     onKeyDown={(e) => keyDown(e)}
+                    placeholder="შეიყვანეთ პროექტის აიდი"
                 />
                 <button
                     className="bg-main-color text-white font-bold h-full w-[20%] rounded-r-md"

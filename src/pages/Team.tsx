@@ -33,8 +33,10 @@ const teamMembers = [
 const TeamSlider: React.FC<{ slider: boolean }> = ({ slider }) => {
     const { t } = useTranslation();
     return (
-        <div className="w-full mx-auto my-2 p-8">
-            <h2 className="text-3xl text-center font-bold mb-8 text-main-color">{t("team")}</h2>
+        <div className="w-full flex flex-col items-center mx-auto my-2 p-8">
+            <div className="bg-main-color rounded-full z-10 text-grayish border-4 border-main-color py-5 px-20 mb-10 text-2xl">
+                {t("team")}
+            </div>
             {slider ? <Swiper
                 spaceBetween={20}
                 navigation={true}
@@ -46,6 +48,7 @@ const TeamSlider: React.FC<{ slider: boolean }> = ({ slider }) => {
                     768: { slidesPerView: 3 },
                     1024: { slidesPerView: 5 },
                 }}
+                className="w-full"
             >
                 {teamMembers.map((member, index) => (
                     <SwiperSlide key={index}>

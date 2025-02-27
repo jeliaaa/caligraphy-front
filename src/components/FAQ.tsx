@@ -64,10 +64,10 @@ const FaqAccordion = () => {
                         onClick={() => toggleAccordion(index)} // Toggle on click
                     >
                         <div className="flex justify-between items-center py-4 px-6 cursor-pointer">
-                            <h3 className="text-gray-500 text-lg font-semibold w-[90%]" >
+                            <h3 className="text-main-color text-lg font-semibold w-[90%]" >
                                 {faq.question}
                             </h3>
-                            <span className="text-secondary-color transition-all transform duration-300 flex items-center w-[10%]" >
+                            <span className="text-main-color transition-all transform duration-300 flex items-center w-[10%]" >
                                 {openIndex === index ? (
                                     <FaTimes size={24} />
                                 ) : (
@@ -84,7 +84,7 @@ const FaqAccordion = () => {
                             <div className="flex items-center px-6">
                                 <span className="w-2 h-2 bg-secondary-color rounded-full"></span>
                                 <p
-                                    className="text-gray-500 ml-2"
+                                    className="text-main-color ml-2"
                                     dangerouslySetInnerHTML={{ __html: faq.answer }}
                                 />
                             </div>

@@ -30,7 +30,7 @@ const ContactModal: React.FC<Props> = ({ setIsModalOpen }) => {
                         <textarea
                             rows={4}
                             placeholder="Your Message"
-                            className="border p-2 rounded focus:outline-main-color"
+                            className="resize-none border p-2 rounded focus:outline-main-color"
                         />
                         <button
                             type="submit"
