@@ -5,6 +5,7 @@ import { fetchCustomerRegister } from "../redux/thunks/authThunks";
 import { Link, useNavigate } from "react-router-dom";
 import Input from "../components/Input";
 import { AppDispatch, RootState } from "../redux/store";
+import { useTranslation } from "react-i18next";
 
 const RegistrationForm = () => {
     const { control, handleSubmit, formState: { errors } } = useForm();
@@ -12,6 +13,7 @@ const RegistrationForm = () => {
     const { status } = useSelector((state: RootState) => state.auth);
     const isLoading = useMemo(() => status === 'loading', [status]);
     const nav = useNavigate();
+    const { t } = useTranslation();
 
     interface CustomerRegisterResponse {
         token?: string;
@@ -69,7 +71,7 @@ const RegistrationForm = () => {
 
     return (
         <div className="max-w-md min-h-[80dvh] m-auto md:mt-20">
-            {isLoading && <h1 className="text-center animate-pulse text-3xl">Loading...</h1>}
+            {isLoading && <h1 className="text-center animate-pulse text-3xl">{t("loading")}</h1>}
             <form className='space-y-4 my-4 p-5 md:p-0' onSubmit={handleSubmit(onSubmit)}>
                 <Controller
                     name="firstname"
@@ -78,8 +80,8 @@ const RegistrationForm = () => {
                     render={({ field }) => (
                         <Input
                             {...field}
-                            label="სახელი"
-                            placeholder="შეიყვანეთ სახელი"
+                            label={t("name")}
+                            placeholder={t("enterName")}
                         />
                     )}
                 />
@@ -92,8 +94,8 @@ const RegistrationForm = () => {
                     render={({ field }) => (
                         <Input
                             {...field}
-                            label="გვარი"
-                            placeholder="შეიყვანეთ გვარი"
+                            label={t("lastName")}
+                            placeholder={t("enterLastName")}
                         />
                     )}
                 />
@@ -106,8 +108,8 @@ const RegistrationForm = () => {
                     render={({ field }) => (
                         <Input
                             {...field}
-                            label="ელ. ფოსტა"
-                            placeholder="ელ. ფოსტა"
+                            label={t("email")}
+                            placeholder={t("enterEmail")}
                         />
                     )}
                 />
@@ -120,9 +122,9 @@ const RegistrationForm = () => {
                     render={({ field }) => (
                         <Input
                             {...field}
-                            label="პაროლი"
+                            label={t("password")}
                             type="password"
-                            placeholder="შეიყვანეთ პაროლი"
+                            placeholder={t("enterPassword")}
                         />
                     )}
                 />
@@ -130,12 +132,12 @@ const RegistrationForm = () => {
 
                 <div>
                     <button className="bg-main-color text-grayish p-5 w-full" type='submit'>
-                        რეგისტრაცია
+                        {t("register")}
                     </button>
                 </div>
             </form>
-            <span className='mt-8'>უკვე გაქვთ ანგარიში?
-                <Link to="/login" className="text-blue-600 hover:text-blue-800 hover:underline"> შესვლა</Link>
+            <span className='mt-8'>{t("alreadyHaveAccount")}
+                <Link to="/login" className="text-blue-600 hover:text-blue-800 hover:underline"> {t("login")}</Link>
             </span>
         </div>
     );

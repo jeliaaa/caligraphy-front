@@ -4,6 +4,7 @@ import { AppDispatch, RootState } from "redux/store";
 import { fetchStage } from "../redux/thunks/stagesThunk";
 import clsx from "clsx";
 import useStageModal from "../hooks/useStageModal";
+import { useTranslation } from "react-i18next";
 
 const Progress = ({
     serviceId
@@ -13,6 +14,7 @@ const Progress = ({
     const dispatch = useDispatch<AppDispatch>();
     const { data, status } = useSelector((state: RootState) => state.stages);
     const { setData, onOpen } = useStageModal()
+    const { t } = useTranslation();
     const isLoading = useMemo(
         () => status === "loading" || status === "idle",
         [status]
@@ -27,7 +29,7 @@ const Progress = ({
     const stageCount = data.length;
     return (
         <div className="w-full flex flex-col gap-1 justify-start items-start">
-            {isLoading && <h2 className="self-center">Loading...</h2>}
+            {isLoading && <h2 className="self-center">{t("loading")}</h2>}
             <div
                 className={clsx(
                     'grid w-full py-0.5 grid-cols-4 md:grid-cols-6 lg:grid-cols-8',
@@ -63,7 +65,7 @@ const Progress = ({
                                             stage.is_completed ? "bg-main-color text-grayish" : "bg-grayish text-main-color"
                                         )}
                                     >
-                                        {stage.name}
+                                        {stage.name} <span>({stage.is_completed ? `${t("completed")}` : `${t("notCompleted")}`})</span>
                                     </div>
                                     <div
                                         className={clsx("w-[10px] border-b-2 h-[5px]  rounded-b-full",

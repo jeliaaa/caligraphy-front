@@ -24,6 +24,7 @@ const Main: React.FC = () => {
         <div className='flex z-10 justify-center items-center text-white w-full sm:w-[40%] ml-10 h-fit1 rounded-md text-[40px] drop-shadow-lg shadow-grayish font-bold text-left p-5'>
           რემონტს აპირებ? <br /> დაგვიკავშირდი და მიიღე <br/> კომფორტი, რომელსაც იმსახურებ
         </div>
+        {/* // "contactUsComfort": "რემონტს აპირებ? \nდაგვიკავშირდი და მიიღე \nკომფორტი, რომელსაც იმსახურებ" */}
       </div>
       {/* <div className='saa bg-main-color rounded-full z-10 text-grayish border-4 border-main-color py-5 px-20 hover:border-grayish text-2xl absolute bottom-[-30px]'>რემონტი გინდა?...</div> */}
 

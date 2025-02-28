@@ -3,6 +3,7 @@ import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import enTranslation from './locales/en.json';
 import kaTranslation from './locales/ka.json';
+import ruTranslation from './locales/ru.json';
 
 // Configure i18n
 i18n
@@ -15,6 +16,9 @@ i18n
       },
       ka: {
         translation: kaTranslation,
+      },
+      ru: {
+        translation: ruTranslation,
       },
     },
     fallbackLng: 'en', // Default language
@@ -36,6 +40,9 @@ export const resources = {
   },
   ka: {
     translation: kaTranslation,
+  },
+  ru: {
+    translation: ruTranslation,
   },
 }
 export const defaultNS = enTranslation;

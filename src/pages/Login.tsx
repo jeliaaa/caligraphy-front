@@ -3,11 +3,13 @@ import Input from "../components/Input";
 import React, { useState } from "react";
 import { useForm, Controller, SubmitHandler } from "react-hook-form";
 import { Link, Navigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const LoginForm = () => {
     const { control, handleSubmit, formState: { errors } } = useForm<ILoginForm>();
     const [loading, setLoading] = useState(false);
     const { login, isAuthenticated } = useAuth();
+    const { t } = useTranslation()
     interface ILoginForm {
         email: string;
         password: string;
@@ -38,12 +40,12 @@ const LoginForm = () => {
                     render={({ field }) => (
                         <Input
                             {...field}  // Spread field to ensure onChange, value, onBlur are passed
-                            label="ელ. ფოსტა"
-                            placeholder="ელ. ფოსტა"
+                            label={t("email")}
+                            placeholder={t("enterEmail")}
                         />
                     )}
                 />
-                {errors.email && <span className="text-red-700 text-sm mt-2">* აუცილებელი ველი</span>}
+                {errors.email && <span className="text-red-700 text-sm mt-2">* {t("importantField")}</span>}
 
                 <Controller
                     name="password"
@@ -52,27 +54,27 @@ const LoginForm = () => {
                     render={({ field }) => (
                         <Input
                             {...field}  // Spread field to ensure onChange, value, onBlur are passed
-                            label="პაროლი"
+                            label={t("password")}
                             type="password"
-                            placeholder="შეიყვანეთ პაროლი"
+                            placeholder={t("enterPassword")}
                         />
                     )}
                 />
-                {errors.password && <span className="text-red-700 text-sm mt-2">* აუცილებელი ველი</span>}
+                {errors.password && <span className="text-red-700 text-sm mt-2">* {t("importantField")}</span>}
 
                 {/* {!forAdmin && <div className="flex items-center justify-end">
-                    <Link to='/participant/reset-password' className="self-end hover:text-blue-800 hover:underline">დაგავიწყდით პაროლი?</Link>
+                    <Link to='/participant/reset-password' className="self-end hover:text-blue-800 hover:underline">{t("forgotPassword")}?</Link>
                 </div>} */}
 
                 <div>
                     <button className="bg-main-color text-grayish p-5 w-full" type='submit'>
                         {loading && <span className="loading loading-spinner"></span>}
-                        შესვლა
+                        {t("login")}
                     </button>
                 </div>
             </form>
             <span className='mt-8'>{`არ გაქვს არგარიში`}?
-                <Link to="/register" className="text-main-color underline ml-2">რეგისტრაცია</Link>
+                <Link to="/register" className="text-main-color underline ml-2">{t("registration")}</Link>
             </span>
         </div>
     );

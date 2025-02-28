@@ -52,8 +52,8 @@ const Profile = () => {
                     <Link to={`${project.track}`} key={project.id} className="block border rounded-lg shadow-lg hover:shadow-xl transition">
                         <img src={karkasi} alt="..." className="w-full aspect-video bg-gray-300" />
                         <div className="w-full bg-white p-4">
-                            <h3 className="text-lg font-semibold">Title</h3>
-                            <p className="text-sm text-gray-600">Desc</p>
+                            <h3 className="text-lg font-semibold">{project?.track}</h3>
+                            <p className="text-sm text-gray-600">{project.address}</p>
                         </div>
                     </Link>
                 ))}

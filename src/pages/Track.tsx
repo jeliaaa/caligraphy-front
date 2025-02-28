@@ -7,11 +7,13 @@ import { fetchRenovation } from "../redux/thunks/renovationThunk";
 import banner from "../assets/banners/Green-Remodeling-in-Process.jpeg"
 import { FaArrowDown } from "react-icons/fa";
 import { useAuth } from "../context/AuthContext";
+import { useTranslation } from "react-i18next";
 
 const Track = () => {
     const { id } = useParams();
     const [inputVal, setInputVal] = useState(id !== "0" ? id : ""); // Set initial value conditionally
     const navigate = useNavigate();
+    const { t } = useTranslation()
     const dispatch = useDispatch<AppDispatch>();
     const { singleData : data, status } = useSelector((state: RootState) => state.renovation)
     const isLoading = useMemo(() => status === 'loading' || status === 'idle', [status]);
@@ -53,7 +55,7 @@ const Track = () => {
     return (
         <div style={{ backgroundImage: `url(${banner})` }} className="w-full p-5 min-h-[80dvh] flex flex-col items-center gap-y-4">
             <h1 className="text-center font-bold mt-2 bg-white inline-block px-10 text-3xl py-5">
-                ჩემი პროექტი {id !== "0" && `: ${id}`}
+                {t("myProject")} {id !== "0" && `: ${id}`}
             </h1>
             <div className="flex justify-center items-center h-[50px] w-[70%]">
                 <input
@@ -62,7 +64,7 @@ const Track = () => {
                     value={inputVal}
                     onChange={(e) => setInputVal(e.target.value)}
                     onKeyDown={(e) => keyDown(e)}
-                    placeholder="შეიყვანეთ პროექტის აიდი"
+                    placeholder={t("enterProjectId")}
                 />
                 <button
                     className="bg-main-color text-white font-bold h-full w-[20%] rounded-r-md"
@@ -72,7 +74,7 @@ const Track = () => {
                 </button>
             </div>
 
-            {isLoading ? 'Loading...' : status === 'failed' ? "No such renovation" : <>
+            {isLoading ? t("loading") : status === 'failed' ? t("noSuchRenovationFound") : <>
                 <div className="w-full mt-10 p-5 bg-white rounded-2xl">
                     <h2 className="text-2xl font-bold mb-4">aaa</h2>
                     <div className="flex flex-col gap-4">
@@ -89,7 +91,7 @@ const Track = () => {
                             <span>{data?.address}</span>
                         </div> */}
                         <div className="flex flex-col gap-2">
-                            <span className="font-bold">პროგრესი:</span>
+                            <span className="font-bold">{t("progress")}:</span>
                             <div className="w-full flex flex-col gap-2 justify-start items-start">
                                 <div className="flex justify-between w-full">
                                     <div className="h-full border-b-2 rounded-sm border-black gap-1 flex">
@@ -112,7 +114,7 @@ const Track = () => {
                                     <Progress serviceId={data?.service.id} />
                                 } */}
                                 {isAuthenticated && <Link to={'/profile'} className="self-end flex gap-2 text-lg text-main-color">
-                                    დეტალები
+                                    {t("details")}
                                     <FaArrowDown />
                                 </Link>}
                                 {!isAuthenticated && <p className="text-red-700">დეტალების სანახავად <Link to={'/login'} className="underline">შედით სისტემაში.</Link></p>}

@@ -80,7 +80,7 @@ const Footer = () => {
                     <Link to="/">
                         <img src={logo} alt="Logo" className="w-48" />
                     </Link>
-                    {/* <p className="font-bold text-2xl">{t("name")}</p> */}
+                    {/* <p className="font-bold text-2xl">{t("websiteName")}</p> */}
                     <div className="flex space-x-4">
                         {contacts.map((contact) => (
                             <Link to={contact.link}>{contact.icon}</Link>
