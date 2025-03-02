@@ -1,19 +1,28 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import { Autoplay, Navigation, Pagination } from 'swiper/modules';
-import gorgia from "../assets/logos/gorgia.png"
+import gorgia from "../assets/partners/WhatsApp Image 2025-02-28 at 17.11.31_48f5575f.jpg"
+import axalinateba from "../assets/partners/WhatsApp Image 2025-02-28 at 17.11.31_c9c292c2.jpg"
+import nova from "../assets/partners/WhatsApp Image 2025-02-28 at 17.11.32_1adbdab9.jpg"
+import ideal from "../assets/partners/WhatsApp Image 2025-02-28 at 17.11.32_cd6db0c0.jpg"
+import modusi from "../assets/partners/WhatsApp Image 2025-02-28 at 17.11.32_d8a6cafc.jpg"
+import jaoken from "../assets/partners/WhatsApp Image 2025-02-28 at 17.11.33_fb791d1d.jpg"
+import luso from "../assets/partners/WhatsApp Image 2025-02-28 at 18.39.27_f92482ae.jpg"
+import grata from "../assets/partners/WhatsApp Image 2025-02-28 at 18.39.36_97d3ff3b.jpg"
+
 import { useTranslation } from 'react-i18next';
 
 const PartnersSlide = () => {
     const { t } = useTranslation()
     const partners = [
-        "შპს გორგია",
-        "შპს მოდუსი",
-        "შპს იდეალი",
-        "შპს ნიკა",
-        "გრატა სტუდიო",
-        "შპს „თქვენ“",
-        "ავეჯის სახლი ლუსო"
+        { name: "შპს გორგია", image: gorgia },
+        { name: "შპს მოდუსი", image: modusi },
+        { name: "შპს ნოვა", image: nova },
+        { name: "შპს იდეალი", image: ideal },
+        { name: "შპს ჯაოკენი", image: jaoken },
+        { name: "გრატა სტუდიო", image: grata },
+        { name: "ახალი ნათება", image: axalinateba },
+        { name: "ავეჯის სახლი ლუსო", image: luso }
     ];
 
     return (
@@ -44,8 +53,8 @@ const PartnersSlide = () => {
                 {partners.map((partner, index) => (
                     <SwiperSlide key={index}>
                         <div className="bg-gray-100 flex-col p-4 rounded-lg shadow-lg flex justify-center items-center">
-                            <img src={gorgia} alt={partner} className="h-16" />
-                            <span>{partner}</span>
+                            <img src={partner.image} alt={partner.name} className="h-16" />
+                            <span>{partner.name}</span>
                         </div>
                     </SwiperSlide>
                 ))}
