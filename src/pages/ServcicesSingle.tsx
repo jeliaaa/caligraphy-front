@@ -5,7 +5,7 @@ import karkasi from "../assets/photos/karkasi.jpeg";
 
 const ServcicesSingle = () => {
     const { id } = useParams();
-    
+
     useEffect(() => {
         if (id) {
             // Scroll to the section if the id exists in the URL
@@ -29,8 +29,8 @@ const ServcicesSingle = () => {
                             className="w-full h-full object-cover shadow-lg"
                         />
                     </div>
-                    <div className="w-full md:w-1/2 flex flex-col justify-center px-10">
-                        <h2 className="text-4xl font-semibold text-main-color mb-4">სრული რემონტი</h2>
+                    <div className="w-full md:w-1/2 flex flex-col justify-center px-10 py-5">
+                        <div className="bg-main-color rounded-full z-10 text-grayish border-4 border-main-color py-5 px-20 mb-10 text-2xl text-center">სარემონტო სამუშაოები</div>
                         <p className="text-xl text-main-color mb-6">
                             ობიექტის საექსპერტო დასკვნა. <br />
                             შემოწმდება: კედლის და კუთხეების სისწორე, მოჭიმული იატაკის დაგების ხარისხი და სისწორე, სავენტილაციო და საკანალიზაციო არხები, შემოსასვლელი კარის და ვიტრაჟების მონტაჟის ხარისხი. <br />
@@ -45,8 +45,8 @@ const ServcicesSingle = () => {
                             </ul>
                             <br />
                             <span className="underline">სარემონტო სამუშაოები შავი კარკასიდან თეთრი კარკასის კონდიაცმდე:</span> <br />
-                            კედლების ამოშენება, ელექტრო სავენტილაციო და სანტექნიკური წერტილების მოწყობა, კონდინცირების არხის გაყვანა, მოჭიმული იატაკის მოწყობა, სანკვანძის ჰიდროიზოლაცია, კედლების ბათქაში.
-                            ფიქსირებული ფასი- 1მ2 100$
+                            {/* კედლების ამოშენება, ელექტრო სავენტილაციო და სანტექნიკური წერტილების მოწყობა, კონდინცირების არხის გაყვანა, მოჭიმული იატაკის მოწყობა, სანკვანძის ჰიდროიზოლაცია, კედლების ბათქაში.
+                            ფიქსირებული ფასი- 1მ2 100$ */}
                         </p>
                     </div>
                 </div>
@@ -56,8 +56,9 @@ const ServcicesSingle = () => {
             <Element name="1">
                 <div className="flex mt-5 gap-y-10 md:mt-0 md:flex-row flex-col items-center justify-between">
                     <div className="w-full md:w-1/2 flex flex-col justify-center px-10">
-                        <h2 className="text-4xl font-semibold text-gray-800 mb-4">სარემონტო სამუშაოები თეთრი კარკასიდან მწვანე კარკასის კონდიციამდე</h2>
-                        <p className="text-xl text-gray-700 mb-6">
+                        <div className="bg-main-color rounded-full z-10 text-grayish border-4 border-main-color py-5 px-20 mb-10 text-2xl text-center">სარემონტო სამუშაოები თეთრი კარკასიდან მწვანე კარკასის კონდიციამდე</div>
+
+                        <p className="text-xl text-main-color mb-6">
                             კედლების მომზადება შესაღებად, აბაზანის კერამიკული ფილებით მოწყობა, კედლების შეღებვა, ლამინირებული იატაკის მოწყობა, დასაჭიმი ჭერის მონტაჟი, აბაზანაში უნიტაზის, საშხაპე კაბინის, ხელსაბანის და აქსესუარების მონტაჟი, ელექტრო ფურნიტურის  მონტაჟი.
                             ფასი- 1მ2 370$ დან
                         </p>
@@ -83,9 +84,7 @@ const ServcicesSingle = () => {
                         />
                     </div>
                     <div className="w-full md:w-1/2 flex flex-col justify-center px-10">
-                        <h2 className="text-4xl font-semibold text-main-color mb-4">
-                            სამუშაოები მწვანე კარკასიდან სრულ კონდიციამდე
-                        </h2>
+                        <div className="bg-main-color rounded-full z-10 text-grayish border-4 border-main-color py-5 mt-5 md:mt-0 px-20 mb-10 text-2xl text-center">სამუშაოები მწვანე კარკასიდან სრულ კონდიციამდე</div>
                         <p className="text-xl text-main-color mb-6">
                             ბინის ავეჯით და ტექნიკით მოწყობა.
                             ფასი 1მ2 180$ დან

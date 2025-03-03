@@ -26,9 +26,13 @@ const App = () => {
   const location = useLocation();
   const [isModalOpen, setIsModalOpen] = useState(false);
   useEffect(() => {
-    animateScroll.scrollToTop();
+    const pathSegments = location.pathname.split('/');
+
+    if (!(pathSegments[1] === 'services' && pathSegments.length >= 3)) {
+      animateScroll.scrollToTop();
+    }
   }, [location]);
-  
+
   const { status } = useAuth();
 
   const isLoading = useMemo(() => status === 'loading', [status]);

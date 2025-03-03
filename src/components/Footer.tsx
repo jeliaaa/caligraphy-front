@@ -49,7 +49,7 @@ const Footer = () => {
                         <div className="font-bold text-lg mb-4">მომსახურება</div>
                         <ul className="space-y-2">
                             <li><Link className="text-gray-300 hover:text-white" to="/">სარემონტო სამუშაოები</Link></li>
-                            <li><Link className="text-gray-300 hover:text-white" to="/">ტექნიკითა და ავეჯით აღჭჭურვა</Link></li>
+                            <li><Link className="text-gray-300 hover:text-white" to="/">ტექნიკითა და ავეჯით აღჭურვა</Link></li>
                             <li><Link className="text-gray-300 hover:text-white" to="/">შენზე მორგებული რემონტი</Link></li>
                         </ul>
                     </div>
