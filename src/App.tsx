@@ -65,10 +65,15 @@ const App = () => {
       {/* Contact Button */}
       <button
         onClick={() => setIsModalOpen(true)}
-        className="fixed rounded-full hover:-translate-y-2 hover:border-2 delay-75 transition-all bottom-2 right-2 z-50 w-[100px] h-[100px] bg-white flex items-center justify-center shadow-2xl shadow-main-color"
+        className="fixed rounded-full hover:-translate-y-2 hover:border-2 delay-75 transition-all bottom-2 right-2 z-50 
+  w-[80px] h-[80px] md:w-[100px] md:h-[100px] bg-white flex items-center justify-center shadow-2xl shadow-main-color"
       >
-        <MdMessage size={60} className='text-main-color z-50' />
+        <MdMessage
+          size={40}  /* Default size for smaller screens */
+          className="text-main-color z-50 md:size-16"
+        />
       </button>
+
 
       {/* Contact Form Modal */}
       {isModalOpen && (
