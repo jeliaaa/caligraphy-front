@@ -28,9 +28,9 @@ const ServcicesSingle = () => {
             {/* First Section */}
             <Element name="0">
                 <div className="h-[100px] flex mt-5 items-center text-main-color justify-center">
-                    <h1 className="uppercase m-0 mb-4 text-3xl text-center">{t("Services")}</h1>
+                    <h1 className="uppercase m-0 mb-4 text-3xl text-center">{t("services")}</h1>
                 </div>
-                <div className="flex gap-y-10 md:flex-row flex-col-reverse items-center justify-between">
+                <div className="flex gap-y-10 md:flex-row flex-col-reverse justify-between">
                     <Swiper
                         slidesPerView={1}
                         spaceBetween={20}
@@ -96,7 +96,7 @@ const ServcicesSingle = () => {
 
             {/* Second Section */}
             <Element name="1">
-                <div className="flex mt-5 gap-y-10 md:mt-0 md:flex-row flex-col items-center justify-between">
+                <div className="flex mt-5 gap-y-10 md:mt-0 md:flex-row flex-col justify-between">
                     <div className="w-full md:w-1/2 flex flex-col justify-center px-10">
                         <div className="md:bg-main-color md:rounded-full md:z-10 text-main-color md:text-grayish border-4 border-main-color py-5 px-5 md:px-20 mb-10 md:text-2xl text-center">{t("service_1")}</div>
                         <p className="text-main-color mb-6">
@@ -155,7 +155,7 @@ const ServcicesSingle = () => {
             </Element>
 
             {/* Pricing Section */}
-            <Element name="2">
+            <Element name="2" className="mt-5">
                 <div className="flex gap-y-10 md:flex-row flex-col-reverse items-center justify-between">
                     <Swiper
                         slidesPerView={1}
