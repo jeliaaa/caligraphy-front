@@ -36,7 +36,7 @@ const ContactModal: React.FC<Props> = ({ setIsModalOpen }) => {
                         />
                         <button
                             type="submit"
-                            className="bg-main-color text-white py-2 rounded hover:bg-opacity-90 transition-all"
+                            className="bg-main-color uppercase text-white py-2 rounded hover:bg-opacity-90 transition-all"
                         >
                             {t("sendMessage")}
                         </button>

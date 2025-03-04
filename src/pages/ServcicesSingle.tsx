@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { animateScroll, Element, scroller } from "react-scroll"; // Import Element and scroller from react-scroll
-import karkasi from "../assets/photos/karkasi.jpeg";
 import { useTranslation } from "react-i18next";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
@@ -100,9 +99,9 @@ const ServcicesSingle = () => {
                 <div className="flex mt-5 gap-y-10 md:mt-0 md:flex-row flex-col items-center justify-between">
                     <div className="w-full md:w-1/2 flex flex-col justify-center px-10">
                         <div className="md:bg-main-color md:rounded-full md:z-10 text-main-color md:text-grayish border-4 border-main-color py-5 px-5 md:px-20 mb-10 md:text-2xl text-center">{t("service_1")}</div>
-                        <h2 className="text-xl text-main-color mb-6">
+                        <p className="text-main-color mb-6">
                             {t("service_1_h2")}
-                        </h2>
+                        </p>
                         <ol className="list-decimal gap-5 flex flex-col pl-5">
                             <li className="list-inside text-main-color">
                                 {t("service_1_option_0")}
@@ -183,7 +182,7 @@ const ServcicesSingle = () => {
                     </Swiper>
                     <div className="w-full md:w-1/2 flex flex-col justify-center px-10 mt-5 md:mt-0">
                         <div className="md:bg-main-color md:rounded-full md:z-10 text-main-color md:text-grayish border-4 border-main-color py-5 px-5 md:px-20 mb-10 md:text-2xl text-center">{t("service_3")}</div>
-                        <p className="text-xl text-main-color mb-6">
+                        <p className="text-main-color mb-6">
                             {t("service_3_p")}
                         </p>
                     </div>

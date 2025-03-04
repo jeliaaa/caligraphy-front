@@ -22,7 +22,7 @@ const ServicesSection = (props: Props) => {
                         key={service.id}
                         style={{ backgroundImage: `url(${serviceImg})`, backgroundColor: 'rgba(0, 0, 0, 0.5)' }}
                     >
-                        <span className='text-grayish p-2 text-2xl'>{service.name}</span>
+                        <span className='text-grayish p-2 text-center text-2xl'>{service.name}</span>
                     </Link>
 
                 ))}

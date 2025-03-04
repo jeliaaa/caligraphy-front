@@ -48,9 +48,9 @@ const Footer = () => {
                     <div>
                         <div className="font-bold text-lg mb-4">{t('services')}</div>
                         <ul className="space-y-2">
-                            <li><Link className="text-gray-300 hover:text-white" to="/">{t('service1')}</Link></li>
-                            <li><Link className="text-gray-300 hover:text-white" to="/">{t('service2')}</Link></li>
-                            <li><Link className="text-gray-300 hover:text-white" to="/">{t('service3')}</Link></li>
+                            <li><Link className="text-gray-300 hover:text-white" to="/services/0">{t('service1')}</Link></li>
+                            <li><Link className="text-gray-300 hover:text-white" to="/services/1">{t('service2')}</Link></li>
+                            <li><Link className="text-gray-300 hover:text-white" to="/services/2">{t('service3')}</Link></li>
                         </ul>
                     </div>
                 </div>
@@ -69,7 +69,7 @@ const Footer = () => {
                     <textarea className="w-full mt-3 p-2 rounded-md text-black" placeholder={t("comment")}></textarea>
                     <button
                         onClick={handleSubscribe}
-                        className="mt-3 bg-grayish px-4 py-2 text-main-color hover:bg-gray-300"
+                        className="mt-3 bg-grayish px-4 py-2 text-main-color uppercase hover:bg-gray-300"
                     >
                         {t("send")}
                     </button>
