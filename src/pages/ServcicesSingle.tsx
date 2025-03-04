@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom";
 import { Element, scroller } from "react-scroll"; // Import Element and scroller from react-scroll
 import karkasi from "../assets/photos/karkasi.jpeg";
 import { useTranslation } from "react-i18next";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination } from "swiper/modules";
 
 const ServcicesSingle = () => {
     const { id } = useParams();
@@ -27,34 +29,65 @@ const ServcicesSingle = () => {
             {/* First Section */}
             <Element name="0">
                 <div className="flex gap-y-10 md:flex-row flex-col-reverse items-center justify-between">
-                    <div className="w-full md:w-1/2">
-                        <img
-                            src={karkasi}
-                            alt="Before remodeling"
-                            className="w-full h-full object-cover shadow-lg"
-                        />
-                    </div>
-                    <div className="w-full md:w-1/2 flex flex-col justify-center px-10 py-5">
-                        <div className="md:bg-main-color md:rounded-full md:z-10 text-main-color md:text-grayish border-4 border-main-color py-5 px-5 md:px-20 mb-10 md:text-2xl text-center">{t('service1')}</div>
-
-                        <p className="text-xl text-main-color mb-6">
-                            {t('service1Desc')}
-                            {/* ობიექტის საექსპერტო დასკვნა. <br />
-                            შემოწმდება: კედლის და კუთხეების სისწორე, მოჭიმული იატაკის დაგების ხარისხი და სისწორე, სავენტილაციო და საკანალიზაციო არხები, შემოსასვლელი კარის და ვიტრაჟების მონტაჟის ხარისხი. <br />
-                            <ul>
-                                <li>ფიქსირებული ფასი- 1მ2 3$</li>
-                                <li>აზომვითი სამუშაოები და 2D  პროექტირება:
-                                    საცხოვრებელი ფართის გეგმარება, ელექტრო , სანტექნიკური, სავენტილაციო წერტილების და ავეჯის განლაგების გეგმა,
-                                    ფიქსირებული ფასი- 1მ2 10$</li>
-                                <li>3D პროექტირება:
-                                    შეთანხმებული 2D პროექტის ვიზუალიზაცია.
-                                    ფიქსირებული ფასი- 1მ2 20$</li>
-                            </ul>
-                            <br />
-                            <span className="underline">სარემონტო სამუშაოები შავი კარკასიდან თეთრი კარკასის კონდიაცმდე:</span> <br /> */}
-                            {/* კედლების ამოშენება, ელექტრო სავენტილაციო და სანტექნიკური წერტილების მოწყობა, კონდინცირების არხის გაყვანა, მოჭიმული იატაკის მოწყობა, სანკვანძის ჰიდროიზოლაცია, კედლების ბათქაში.
-                            ფიქსირებული ფასი- 1მ2 100$ */}
-                        </p>
+                <Swiper
+                    slidesPerView={1}
+                    spaceBetween={20}
+                    pagination={{ clickable: true }}
+                    modules={[Pagination, Navigation]}
+                    navigation
+                    className="w-full md:w-1/2 h-full"
+                >
+                        <SwiperSlide className="flex !w-full !h-full items-center justify-center bg-red-300">
+                            <img
+                                src={"https://th.bing.com/th/id/OIP.L6Gj2zo8hGGDZmRLQYmvKwHaEo?w=1000&h=625&rs=1&pid=ImgDetMain"}
+                                alt="Before remodeling"
+                                className="w-full h-full object-cover shadow-lg"
+                            />
+                        </SwiperSlide>
+                        <SwiperSlide className="flex !w-full !h-full items-center justify-center bg-red-300">
+                            <img
+                                src={"https://th.bing.com/th/id/OIP.QUFRcnVm_2eu4JD7oqDcDAHaEo?rs=1&pid=ImgDetMain"}
+                                alt="Before remodeling"
+                                className="w-full h-full object-cover shadow-lg"
+                            />
+                        </SwiperSlide>
+                    </Swiper>
+                    <div className="w-full gap-2 md:w-1/2 flex flex-col justify-start px-10 py-5">
+                        <div className="md:bg-main-color md:rounded-full md:z-10 text-main-color md:text-grayish border-4 border-main-color py-5 px-5 md:px-20 mb-10 md:text-2xl text-center">
+                            {t("service_0")}
+                        </div>
+                        <h2 className="text-main-color">{t("service_0_option_0")}</h2>
+                        <ol className="list-decimal pl-5">
+                            <li className="list-inside text-main-color">{t("service_0_option_0_option_0")}</li>
+                            <li className="list-inside text-main-color">{t("service_0_option_0_option_1")}</li>
+                            <li className="list-inside text-main-color">{t("service_0_option_0_option_2")}</li>
+                            <li className="list-inside text-main-color">{t("service_0_option_0_option_3")}</li>
+                            <li className="list-inside text-main-color">{t("service_0_option_0_option_4")}</li>
+                            <li className="list-inside text-main-color">{t("service_0_option_0_option_5")}</li>
+                        </ol>
+                        <h2 className="text-main-color">{t("service_0_option_1")}</h2>
+                        <ol className="list-decimal pl-5">
+                            <li className="list-inside text-main-color">{t("service_0_option_1_option_0")}</li>
+                            <li className="list-inside text-main-color">{t("service_0_option_1_option_1")}</li>
+                            <li className="list-inside text-main-color">
+                                {t("service_0_option_1_option_2")}
+                                <ol className="pl-5 list-disc">
+                                    <li className="list-inside text-main-color">{t("service_0_option_1_option_2_option_0")}</li>
+                                    <li className="list-inside text-main-color">{t("service_0_option_1_option_2_option_1")}</li>
+                                    <li className="list-inside text-main-color">{t("service_0_option_1_option_2_option_2")}</li>
+                                </ol>
+                            </li>
+                            <li className="list-inside text-main-color">{t("service_0_option_1_option_3")}</li>
+                            <li className="list-inside text-main-color">{t("service_0_option_1_option_4")}</li>
+                            <li className="list-inside text-main-color">{t("service_0_option_1_option_5")}</li>
+                            <li className="list-inside text-main-color">{t("service_0_option_1_option_6")}</li>
+                            <li className="list-inside text-main-color">{t("service_0_option_1_option_7")}</li>
+                            <li className="list-inside text-main-color">
+                                {t("service_0_option_1_option_8")}
+                            </li>
+                            <li className="list-inside text-main-color">{t("service_0_option_1_option_9")}</li>
+                            <li className="list-inside text-main-color">{t("service_0_option_1_option_10")}</li>
+                        </ol>
                     </div>
                 </div>
             </Element>
@@ -63,42 +96,92 @@ const ServcicesSingle = () => {
             <Element name="1">
                 <div className="flex mt-5 gap-y-10 md:mt-0 md:flex-row flex-col items-center justify-between">
                     <div className="w-full md:w-1/2 flex flex-col justify-center px-10">
-                        <div className="md:bg-main-color md:rounded-full md:z-10 text-main-color md:text-grayish border-4 border-main-color py-5 px-5 md:px-20 mb-10 md:text-2xl text-center">{t('service2')}</div>
-
-
-                        <p className="text-xl text-main-color mb-6">
-                            კედლების მომზადება შესაღებად, აბაზანის კერამიკული ფილებით მოწყობა, კედლების შეღებვა, ლამინირებული იატაკის მოწყობა, დასაჭიმი ჭერის მონტაჟი, აბაზანაში უნიტაზის, საშხაპე კაბინის, ხელსაბანის და აქსესუარების მონტაჟი, ელექტრო ფურნიტურის  მონტაჟი.
-                            ფასი- 1მ2 370$ დან
-                        </p>
+                        <div className="md:bg-main-color md:rounded-full md:z-10 text-main-color md:text-grayish border-4 border-main-color py-5 px-5 md:px-20 mb-10 md:text-2xl text-center">{t("service_1")}</div>
+                        <h2 className="text-xl text-main-color mb-6">
+                            {t("service_1_h2")}
+                        </h2>
+                        <ol className="list-decimal gap-5 flex flex-col pl-5">
+                            <li className="list-inside text-main-color">
+                                {t("service_1_option_0")}
+                                <ol className="pl-5 list-disc">
+                                    <li className="list-inside text-main-color">{t("service_1_option_0_option_0")}</li>
+                                    <li className="list-inside text-main-color">{t("service_1_option_0_option_1")}</li>
+                                    <li className="list-inside text-main-color">{t("service_1_option_0_option_2")}</li>
+                                    <li className="list-inside text-main-color">{t("service_1_option_0_option_3")}</li>
+                                    <li className="list-inside text-main-color">{t("service_1_option_0_option_4")}</li>
+                                    <li className="list-inside text-main-color">{t("service_1_option_0_option_5")}</li>
+                                </ol>
+                            </li>
+                            <li className="list-inside text-main-color">
+                                {t("service_1_option_1")}
+                                <ol className="pl-5 list-disc">
+                                    <li className="list-inside text-main-color">{t("service_1_option_1_option_0")}</li>
+                                    <li className="list-inside text-main-color">{t("service_1_option_1_option_1")}</li>
+                                    <li className="list-inside text-main-color">{t("service_1_option_1_option_2")}</li>
+                                    <li className="list-inside text-main-color">{t("service_1_option_1_option_3")}</li>
+                                    <li className="list-inside text-main-color">{t("service_1_option_1_option_4")}</li>
+                                    <li className="list-inside text-main-color">{t("service_1_option_1_option_5")}</li>
+                                    <li className="list-inside text-main-color">{t("service_1_option_1_option_6")}</li>
+                                </ol>
+                            </li>
+                        </ol>
                     </div>
-                    <div className="w-full md:w-1/2">
-                        <img
-                            src={karkasi}
-                            alt="After remodeling"
-                            className="w-full h-full object-cover shadow-lg"
-                        />
-                    </div>
+                    <Swiper
+                    slidesPerView={1}
+                    spaceBetween={20}
+                    pagination={{ clickable: true }}
+                    modules={[Pagination, Navigation]}
+                    navigation
+                    className="w-full md:w-1/2 h-full"
+                >
+                        <SwiperSlide className="flex !w-full !h-full items-center justify-center bg-red-300">
+                            <img
+                                src={"https://th.bing.com/th/id/OIP.L6Gj2zo8hGGDZmRLQYmvKwHaEo?w=1000&h=625&rs=1&pid=ImgDetMain"}
+                                alt="Before remodeling"
+                                className="w-full h-full object-cover shadow-lg"
+                            />
+                        </SwiperSlide>
+                        <SwiperSlide className="flex !w-full !h-full items-center justify-center bg-red-300">
+                            <img
+                                src={"https://th.bing.com/th/id/OIP.QUFRcnVm_2eu4JD7oqDcDAHaEo?rs=1&pid=ImgDetMain"}
+                                alt="Before remodeling"
+                                className="w-full h-full object-cover shadow-lg"
+                            />
+                        </SwiperSlide>
+                    </Swiper>
                 </div>
             </Element>
 
             {/* Pricing Section */}
             <Element name="2">
                 <div className="flex gap-y-10 md:flex-row flex-col-reverse items-center justify-between">
-                    <div className="w-full md:w-1/2">
-                        <img
-                            src={karkasi}
-                            alt="Before remodeling"
-                            className="w-full h-full object-cover shadow-lg"
-                        />
-                    </div>
+                    <Swiper
+                        slidesPerView={1}
+                        spaceBetween={20}
+                        pagination={{ clickable: true }}
+                        modules={[Pagination, Navigation]}
+                        navigation
+                        className="w-full md:w-1/2 h-full"
+                    >
+                        <SwiperSlide className="flex !w-full !h-full items-center justify-center bg-red-300">
+                            <img
+                                src={"https://th.bing.com/th/id/OIP.L6Gj2zo8hGGDZmRLQYmvKwHaEo?w=1000&h=625&rs=1&pid=ImgDetMain"}
+                                alt="Before remodeling"
+                                className="w-full h-full object-cover shadow-lg"
+                            />
+                        </SwiperSlide>
+                        <SwiperSlide className="flex !w-full !h-full items-center justify-center bg-red-300">
+                            <img
+                                src={"https://th.bing.com/th/id/OIP.QUFRcnVm_2eu4JD7oqDcDAHaEo?rs=1&pid=ImgDetMain"}
+                                alt="Before remodeling"
+                                className="w-full h-full object-cover shadow-lg"
+                            />
+                        </SwiperSlide>
+                    </Swiper>
                     <div className="w-full md:w-1/2 flex flex-col justify-center px-10">
-                    <div className="md:bg-main-color md:rounded-full md:z-10 text-main-color md:text-grayish border-4 border-main-color py-5 px-5 md:px-20 mb-10 md:text-2xl text-center">{t('service3')}</div>
+                    <div className="md:bg-main-color md:rounded-full md:z-10 text-main-color md:text-grayish border-4 border-main-color py-5 px-5 md:px-20 mb-10 md:text-2xl text-center">{t("service_3")}</div>
                         <p className="text-xl text-main-color mb-6">
-                            ბინის ავეჯით და ტექნიკით მოწყობა.
-                            ფასი 1მ2 180$ დან
-                            ფასები მითითებულია  სამუშაო ფართის მიხედვით
-                            სარემონტო სამუშაოების სრული პაკეტი დასრულებულია.
-
+                            {t("service_3_p")}
                         </p>
                     </div>
                 </div>

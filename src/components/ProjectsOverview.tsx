@@ -3,6 +3,7 @@ import karkasi from "../assets/photos/karkasi.jpeg"
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 import { useTranslation } from "react-i18next";
+
 interface Project {
     year: number;
     type: string;
