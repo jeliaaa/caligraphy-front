@@ -42,8 +42,14 @@ const PartnersSlide = () => {
                 <Swiper
                     spaceBetween={20}
                     slidesPerView={4}
+                    breakpoints={{
+                        320: { slidesPerView: 1 },
+                        640: { slidesPerView: 2 },
+                        768: { slidesPerView: 3 },
+                        1024: { slidesPerView: 4 },
+                    }}
                     autoplay={{ delay: 3000 }}
-                    pagination={{clickable: true}}
+                    pagination={{ clickable: true }}
                     modules={[Pagination, Autoplay]}
                     className='w-full pb-10'
                 >

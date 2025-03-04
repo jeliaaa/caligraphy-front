@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Element, scroller } from "react-scroll"; // Import Element and scroller from react-scroll
 import karkasi from "../assets/photos/karkasi.jpeg";
+import { useTranslation } from "react-i18next";
 
 const ServcicesSingle = () => {
     const { id } = useParams();
@@ -16,6 +17,7 @@ const ServcicesSingle = () => {
             });
         }
     }, [id]);
+    const { t } = useTranslation()
 
     return (
         <div className="w-full bg-grayish">
@@ -33,9 +35,11 @@ const ServcicesSingle = () => {
                         />
                     </div>
                     <div className="w-full md:w-1/2 flex flex-col justify-center px-10 py-5">
-                        <div className="bg-main-color rounded-full z-10 text-grayish border-4 border-main-color py-5 px-20 mb-10 text-2xl text-center">სარემონტო სამუშაოები</div>
+                        <div className="md:bg-main-color md:rounded-full md:z-10 text-main-color md:text-grayish border-4 border-main-color py-5 px-5 md:px-20 mb-10 md:text-2xl text-center">{t('service1')}</div>
+
                         <p className="text-xl text-main-color mb-6">
-                            ობიექტის საექსპერტო დასკვნა. <br />
+                            {t('service1Desc')}
+                            {/* ობიექტის საექსპერტო დასკვნა. <br />
                             შემოწმდება: კედლის და კუთხეების სისწორე, მოჭიმული იატაკის დაგების ხარისხი და სისწორე, სავენტილაციო და საკანალიზაციო არხები, შემოსასვლელი კარის და ვიტრაჟების მონტაჟის ხარისხი. <br />
                             <ul>
                                 <li>ფიქსირებული ფასი- 1მ2 3$</li>
@@ -47,7 +51,7 @@ const ServcicesSingle = () => {
                                     ფიქსირებული ფასი- 1მ2 20$</li>
                             </ul>
                             <br />
-                            <span className="underline">სარემონტო სამუშაოები შავი კარკასიდან თეთრი კარკასის კონდიაცმდე:</span> <br />
+                            <span className="underline">სარემონტო სამუშაოები შავი კარკასიდან თეთრი კარკასის კონდიაცმდე:</span> <br /> */}
                             {/* კედლების ამოშენება, ელექტრო სავენტილაციო და სანტექნიკური წერტილების მოწყობა, კონდინცირების არხის გაყვანა, მოჭიმული იატაკის მოწყობა, სანკვანძის ჰიდროიზოლაცია, კედლების ბათქაში.
                             ფიქსირებული ფასი- 1მ2 100$ */}
                         </p>
@@ -59,7 +63,8 @@ const ServcicesSingle = () => {
             <Element name="1">
                 <div className="flex mt-5 gap-y-10 md:mt-0 md:flex-row flex-col items-center justify-between">
                     <div className="w-full md:w-1/2 flex flex-col justify-center px-10">
-                        <div className="bg-main-color rounded-full z-10 text-grayish border-4 border-main-color py-5 px-20 mb-10 text-2xl text-center">სარემონტო სამუშაოები თეთრი კარკასიდან მწვანე კარკასის კონდიციამდე</div>
+                        <div className="md:bg-main-color md:rounded-full md:z-10 text-main-color md:text-grayish border-4 border-main-color py-5 px-5 md:px-20 mb-10 md:text-2xl text-center">{t('service2')}</div>
+
 
                         <p className="text-xl text-main-color mb-6">
                             კედლების მომზადება შესაღებად, აბაზანის კერამიკული ფილებით მოწყობა, კედლების შეღებვა, ლამინირებული იატაკის მოწყობა, დასაჭიმი ჭერის მონტაჟი, აბაზანაში უნიტაზის, საშხაპე კაბინის, ხელსაბანის და აქსესუარების მონტაჟი, ელექტრო ფურნიტურის  მონტაჟი.
@@ -87,7 +92,7 @@ const ServcicesSingle = () => {
                         />
                     </div>
                     <div className="w-full md:w-1/2 flex flex-col justify-center px-10">
-                        <div className="bg-main-color rounded-full z-10 text-grayish border-4 border-main-color py-5 mt-5 md:mt-0 px-20 mb-10 text-2xl text-center">სამუშაოები მწვანე კარკასიდან სრულ კონდიციამდე</div>
+                    <div className="md:bg-main-color md:rounded-full md:z-10 text-main-color md:text-grayish border-4 border-main-color py-5 px-5 md:px-20 mb-10 md:text-2xl text-center">{t('service3')}</div>
                         <p className="text-xl text-main-color mb-6">
                             ბინის ავეჯით და ტექნიკით მოწყობა.
                             ფასი 1მ2 180$ დან

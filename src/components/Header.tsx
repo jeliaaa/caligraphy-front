@@ -57,12 +57,12 @@ const Header: React.FC = () => {
 
             <div className='hidden xl:flex items-center space-x-4'>
                 {contacts.map((contact, index) => (
-                    <Link to={contact.link} key={index} className='hover:text-2xl rounded-full'>
+                    <Link to={contact.link} key={index} className='hover:text-2xl text-3xl rounded-full'>
                         {contact.icon}
                     </Link>
                 ))}
-                <FaPhone /><Link to='tel:555555555' className='m-0 p-0'>+995 555-555555</Link>
-                {!isAuthenticated ? <Link to={'/login'}>{t('login')}</Link> : <Link to={'/profile'}><FaUser /></Link>}
+                <FaPhone /><Link to='tel:555555555' className='m-0 p-0 text-xl'>+995 555-555555</Link>
+                {!isAuthenticated ? <Link to={'/login'} className='text-xl'>{t('login')}</Link> : <Link to={'/profile'}><FaUser /></Link>}
                 <LanguageDropdown isScrolled={isScrolled} isHomePage={isHomePage} />
             </div>
 
@@ -91,7 +91,7 @@ const Header: React.FC = () => {
                     <div className='flex'>
                         <FaPhone /><Link to='tel:555555555' className='m-0 p-0'>+995 555-555555</Link>
                     </div>
-                    {!isAuthenticated ? <Link to={'/login'}>{t('login')}</Link> : <Link to={'/profile'}><FaUser /></Link>}
+                    {!isAuthenticated ? <Link to={'/login'} className='uppercase'>{t('login')}</Link> : <Link to={'/profile'}><FaUser /></Link>}
                     <LanguageDropdown isScrolled={isScrolled} isHomePage={isHomePage} />
                 </div>
             )}

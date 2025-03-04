@@ -20,7 +20,7 @@
     "notCompleted": "Not Completed",
     "partners": "Partners",
     "myProjects": "My Projects",
-    "myProfile" : "My Profile",
+    "myProfile": "My Profile",
     "Renders": "Renders",
     "login": "Log in",
     "email": "Email",
@@ -46,6 +46,8 @@
     "clickToSendVerificationEmail": "Click below to send a verification email.",
     "enterProjectId": "Enter project ID",
     "loading": "Loading...",
-    "faqs" : "asnwers to the frequently asked questions"
+    "faqs": "asnwers to the frequently asked questions",
+    "service1": "Renovation without furniture and appliances",
+    "service2": "Renovation with furniture and appliances",
+    "service3": "Exclusive renovation"
 }
-

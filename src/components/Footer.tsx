@@ -46,11 +46,11 @@ const Footer = () => {
                         </ul>
                     </div>
                     <div>
-                        <div className="font-bold text-lg mb-4">მომსახურებები</div>
+                        <div className="font-bold text-lg mb-4">{t('services')}</div>
                         <ul className="space-y-2">
-                            <li><Link className="text-gray-300 hover:text-white" to="/">სარემონტო სამუშაოები</Link></li>
-                            <li><Link className="text-gray-300 hover:text-white" to="/">ტექნიკითა და ავეჯით აღჭურვა</Link></li>
-                            <li><Link className="text-gray-300 hover:text-white" to="/">შენზე მორგებული რემონტი</Link></li>
+                            <li><Link className="text-gray-300 hover:text-white" to="/">{t('service1')}</Link></li>
+                            <li><Link className="text-gray-300 hover:text-white" to="/">{t('service2')}</Link></li>
+                            <li><Link className="text-gray-300 hover:text-white" to="/">{t('service3')}</Link></li>
                         </ul>
                     </div>
                 </div>
@@ -78,7 +78,7 @@ const Footer = () => {
                 {/* Logo and Socials */}
                 <div className="flex flex-col items-center md:items-start space-y-4">
                     <Link to="/">
-                        <img src={logo} alt="Logo" className="w-52"/>
+                        <img src={logo} alt="Logo" className="w-52" />
                     </Link>
                     {/* <p className="font-bold text-2xl">{t("websiteName")}</p> */}
                     <div className="flex space-x-4">

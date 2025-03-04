@@ -15,11 +15,9 @@ body {
   background: var(--grayish);
 }
 
-a, button{
-  cursor: pointer;
-}
+
 *{
-  cursor: url('assets/icons/chotqi.png') 2 2, pointer;
+  text-transform: uppercase;
 }
 
 /* 

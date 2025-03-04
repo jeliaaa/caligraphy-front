@@ -91,7 +91,7 @@ const ServiceBenefits = () => {
                     <img src={image1} alt="ყველა სერვისი ერთ სივრცეში" className="w-full h-full object-cover shadow-lg" />
                 </div>
                 <div className="w-full md:w-1/2 flex flex-col justify-center px-10">
-                    <div className="bg-main-color rounded-full z-10 text-grayish border-4 border-main-color py-5 px-20 mb-10 text-2xl text-center">ყველა სერვისი ერთ სივრცეში</div>
+                    <div className="md:bg-main-color md:rounded-full md:z-10 text-main-color md:text-grayish border-4 border-main-color py-5 px-5 md:px-20 mb-10 md:text-2xl text-center">ყველა სერვისი ერთ სივრცეში</div>
                     <p className="text-xl text-main-color mb-6">
                         თქვენ არ დაგჭირდებათ სხვადასხვა კომპანიასთან ან სპეციალისტთან დაკავშირება, ჩვენი გუნდი ყველა საჭირო სერვისს მოგაწვდით: პროექტირებით დაწყებული, სრული რემონტით დამთავრებული, რემონტის მსვლელობის ეტაპობრივი მონიტორინგი (ფოტო, ვიდეო ანგარიში) საშუალებაა მშვიდად, დისტანციურად, ადევნოთ თვალყური რემონტის მიმდინარეობას
                     </p>
@@ -101,7 +101,8 @@ const ServiceBenefits = () => {
             {/* Second Section */}
             <div className="flex mt-5 gap-y-10 md:mt-0 md:flex-row flex-col items-center justify-between">
                 <div className="w-full md:w-1/2 flex flex-col justify-center px-10">
-                    <div className="bg-main-color rounded-full z-10 text-grayish border-4 border-main-color py-5 px-20 mb-10 text-2xl text-center">ხელმისაწვდომი ფასები</div>
+                    <div className="md:bg-main-color md:rounded-full md:z-10 text-main-color md:text-grayish border-4 border-main-color py-5 px-5 md:px-20 mb-10 md:text-2xl text-center">ხელმისაწვდომი ფასები</div>
+
                     <p className="text-xl text-main-color mb-6">
                         ერთიანი სერვისით სარგებლობისას, შენ ზოგავ თანხას, ვიდრე ცალკეულ კომპანიასა თუ სპეციალისტთან დაკავშირებისას.
                     </p>
@@ -117,7 +118,8 @@ const ServiceBenefits = () => {
                     <img src={image3} alt="სამუშაოს ვადაში შესრულება" className="w-full h-full object-cover shadow-lg" />
                 </div>
                 <div className="w-full md:w-1/2 flex flex-col justify-center px-10">
-                    <div className="bg-main-color rounded-full z-10 text-grayish border-4 border-main-color py-5 px-20 mb-10 text-2xl text-center">სამუშაოს ვადაში შესრულება</div>
+                    <div className="md:bg-main-color md:rounded-full md:z-10 text-main-color md:text-grayish border-4 border-main-color py-5 px-5 md:px-20 mb-10 md:text-2xl text-center">სამუშაოს ვადაში შესრულება</div>
+
                     <p className="text-xl text-main-color mb-6">
                         თითოეულ სამუშაოს ასრულებს სპეციალისტებით დაკომპლექტებული ერთიანი გუნდი, ამას კი ბევრად ნაკლები დრო სჭირდება, ვიდრე თითოეული სერვისის ცალ-ცალკე შეკვეთას.
                     </p>
@@ -127,7 +129,8 @@ const ServiceBenefits = () => {
             {/* Fourth Section */}
             <div className="flex mt-5 gap-y-10 md:mt-0 md:flex-row flex-col items-center justify-between">
                 <div className="w-full md:w-1/2 flex flex-col justify-center px-10">
-                    <div className="bg-main-color rounded-full z-10 text-grayish border-4 border-main-color py-5 px-20 mb-10 text-2xl text-center">დამატებითი სარგებელი</div>
+                    <div className="md:bg-main-color md:rounded-full md:z-10 text-main-color md:text-grayish border-4 border-main-color py-5 px-5 md:px-20 mb-10 md:text-2xl text-center">დამატებითი სარგებელი</div>
+
                     <p className="text-xl text-main-color mb-6">
                         ●	საჭიროების შემთხვევაში სამუშაოებში შედის ტიხრების დემონტაჟი, ძველი საფარის მოხსნა და სხვა სახის მოსამზადებელი სამუშაოები. <br />
                         ●	ჩვენი სერვისი ასევე მოიცავს რემონტის შემდეგ დარჩენილი ნაგვის გატანას. სამუშაოების ბოლოს, ბინა საცხოვრებლად გამზადებული იქნება. <br />
