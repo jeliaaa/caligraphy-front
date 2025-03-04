@@ -7,9 +7,9 @@ type Props = {};
 const ServicesSection = (props: Props) => {
     const { t } = useTranslation()
     const mockUpData = [
-        { id: 0, description: t("home_renovation_description"), name: t("home_renovation") },
-        { id: 1, description: t("furniture_and_appliance_provision_description"), name: t("furniture_and_appliance_provision") },
-        { id: 2, description: t('customized_renovation_description'), name: t("customized_renovation") }
+        { id: 0, description: t("home_renovation_description"), name: t("service1") },
+        { id: 1, description: t("furniture_and_appliance_provision_description"), name: t("service2") },
+        { id: 2, description: t('customized_renovation_description'), name: t("service3") }
     ];
 
     return (
