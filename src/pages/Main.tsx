@@ -24,7 +24,7 @@ const Main: React.FC = () => {
         <div className='absolute w-full h-full bg-black bg-opacity-50'></div>
         <div className='flex z-10 justify-center items-center text-white w-full sm:w-[40%] ml-1 md:ml-10 h-fit1 rounded-md text-[30px] md:text-[40px] drop-shadow-lg shadow-grayish font-bold text-left p-5'>
           {/* რემონტს აპირებ? <br /> დაგვიკავშირდი და მიიღე <br/> კომფორტი, რომელსაც იმსახურებ */}
-          {t("slogan")}
+          {t("slogan1")}<br/>{t("slogan2")}
         </div>
         {/* // "contactUsComfort": "რემონტს აპირებ? \nდაგვიკავშირდი და მიიღე \nკომფორტი, რომელსაც იმსახურებ" */}
       </div>

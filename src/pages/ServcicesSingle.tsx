@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { Element, scroller } from "react-scroll"; // Import Element and scroller from react-scroll
+import { animateScroll, Element, scroller } from "react-scroll"; // Import Element and scroller from react-scroll
 import karkasi from "../assets/photos/karkasi.jpeg";
 import { useTranslation } from "react-i18next";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -10,24 +10,27 @@ const ServcicesSingle = () => {
     const { id } = useParams();
 
     useEffect(() => {
-        if (id) {
+        if (id && id !== '0') {
             // Scroll to the section if the id exists in the URL
             scroller.scrollTo(id, {
                 smooth: true,
                 offset: -50, // Optional: adjust offset for better alignment
                 duration: 500, // Optional: smooth scroll duration
             });
+        } else{
+            animateScroll.scrollToTop();
         }
+        
     }, [id]);
     const { t } = useTranslation()
 
     return (
         <div className="w-full bg-grayish">
-            <div className="h-[100px] flex mt-5 items-center text-main-color justify-center">
-                <h1 className="uppercase m-0 mb-4 text-3xl text-center">{t("advantages_title")}</h1>
-            </div>
             {/* First Section */}
             <Element name="0">
+                <div className="h-[100px] flex mt-5 items-center text-main-color justify-center">
+                    <h1 className="uppercase m-0 mb-4 text-3xl text-center">{t("Services")}</h1>
+                </div>
                 <div className="flex gap-y-10 md:flex-row flex-col-reverse items-center justify-between">
                     <Swiper
                         slidesPerView={1}
