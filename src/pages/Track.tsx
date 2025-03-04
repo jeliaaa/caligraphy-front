@@ -75,7 +75,7 @@ const Track = () => {
                     className="bg-main-color text-grayish font-bold h-full w-[20%] rounded-r-md"
                     onClick={() => onSearchClick()}
                 >
-                    ძიება
+                    {t("search")}
                 </button>
             </div>
 

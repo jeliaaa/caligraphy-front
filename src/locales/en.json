@@ -133,6 +133,11 @@
     "service_1_option_1_option_5": "Washing machine",
     "service_1_option_1_option_6": "Television",
     "service_3": "Exclusive renovation",
-    "service_3_p": "The specificity of exclusive renovation is that we follow the client's views and tastes. Before the start of the renovation works, a 2D and 3D design project is prepared, and only after that do the renovation works begin, according to the agreed design project. The main benefit of exclusive renovation is that the renovated living space perfectly matches your desires. You imagine it – we turn it into reality."
-
+    "service_3_p": "The specificity of exclusive renovation is that we follow the client's views and tastes. Before the start of the renovation works, a 2D and 3D design project is prepared, and only after that do the renovation works begin, according to the agreed design project. The main benefit of exclusive renovation is that the renovated living space perfectly matches your desires. You imagine it – we turn it into reality.",
+    "statistic": "Statistic",
+    "completed_projects": "Completed Projects",
+    "ongoing_projects": "Ongoing Projects",
+    "planned_projects": "Planned Projects",
+    "view": "View",
+    "search": "Search"
 }

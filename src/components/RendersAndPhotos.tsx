@@ -104,7 +104,7 @@ const RendersAndPictures = () => {
                                     className="w-full h-full object-cover"
                                 />
                                 <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-all duration-300 flex justify-center items-center">
-                                    <span className="text-white text-lg font-semibold">ნახვა</span>
+                                    <span className="text-white text-lg font-semibold">{t("view")}</span>
                                 </div>
                             </div>
                         </SwiperSlide>

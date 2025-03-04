@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 interface StatisticData {
     title: string;
@@ -9,15 +10,15 @@ interface StatisticData {
 const StatisticSection: React.FC = () => {
     const [statistics, setStatistics] = useState<StatisticData[]>([]);
     const [progress, setProgress] = useState<number[]>([0, 0, 0]);
-
+    const { t } = useTranslation()
     const gap = 20; // This is the space you want to leave in the circle, in percentage.
 
     // Mock API data
     const mockApiData = useMemo(() => [
-        { title: 'შესრულებული პროექტი', value: 150, total: 120 },
-        { title: 'მიმდინარე პროექტი', value: 210, total: 150 },
-        { title: 'დაგეგმილი პროექტი', value: 1000, total: 200 },
-    ], []);
+        { title: t("completed_projects"), value: 150, total: 120 },
+        { title: t("ongoing_projects"), value: 210, total: 150 },
+        { title: t("planned_projects"), value: 1000, total: 200 },
+    ], [t]);
 
     // Using useCallback to fetch the statistics
     const fetchStatistics = useCallback(() => {
@@ -55,7 +56,7 @@ const StatisticSection: React.FC = () => {
 
     return (
         <section className="py-16 px-32 bg-main-color text-center">
-            <h2 className="text-3xl font-bold text-grayish mb-8">სტატისტიკა</h2>
+            <h2 className="text-3xl font-bold text-grayish mb-8">{t("statistic")}</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
                 {statistics.map((stat, index) => (
                     <div className="stat-card" key={index}>
