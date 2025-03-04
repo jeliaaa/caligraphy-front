@@ -54,7 +54,7 @@ const FaqAccordion = () => {
 
     return (
         <section className="w-full h-full py-12 px-1 md:px-20">
-            <h2 className="text-3xl font-bold text-center capitalize text-main-color mb-6">
+            <h2 className="text-3xl font-bold text-center text-main-color mb-6">
                 {t('faqs')}
             </h2>
             <div className="max-w-full mx-auto space-y-4">
