@@ -22,7 +22,7 @@ const ServcicesSingle = () => {
     return (
         <div className="w-full bg-grayish">
             <div className="h-[100px] flex mt-5 items-center text-main-color justify-center">
-                <h1 className="uppercase m-0 mb-4 text-3xl text-center">რატომ უნდა აირჩიოთ ჩვენი სერვისი?</h1>
+                <h1 className="uppercase m-0 mb-4 text-3xl text-center">{t("advantages_title")}</h1>
             </div>
             {/* First Section */}
             <Element name="0">

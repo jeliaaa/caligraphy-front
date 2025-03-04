@@ -72,28 +72,29 @@
 // };
 
 // export default ServiceBenefits;
+import { useTranslation } from "react-i18next";
 import image1 from "../assets/photos/bathroom-kitchen-remodel-plano-texas-dfw-improved0009.jpg";
 import image2 from "../assets/photos/home_remodeling_myths.jpg";
 import image3 from "../assets/photos/images.jpg";
 import image4 from "../assets/photos/karkasi.jpeg";
 
 const ServiceBenefits = () => {
-
+    const { t } = useTranslation()
     return (
         <div className="w-full bg-grayish py-5">
             <div className="h-[100px] flex items-center text-main-color justify-center">
-                <h1 className="uppercase m-0 mb-4 text-3xl text-center">რატომ უნდა აირჩიოთ ჩვენი სერვისი?</h1>
+                <h1 className="uppercase m-0 mb-4 text-3xl text-center">{t("advantages_title")}</h1>
             </div>
 
             {/* First Section */}
             <div className="flex gap-y-10 md:flex-row flex-col-reverse items-center justify-between">
                 <div className="w-full md:w-1/2">
-                    <img src={image1} alt="ყველა სერვისი ერთ სივრცეში" className="w-full h-full object-cover shadow-lg" />
+                    <img src={image1} alt={t("all_services_in_one_place")} className="w-full h-full object-cover shadow-lg" />
                 </div>
                 <div className="w-full md:w-1/2 flex flex-col justify-center px-10">
-                    <div className="md:bg-main-color md:rounded-full md:z-10 text-main-color md:text-grayish border-4 border-main-color py-5 px-5 md:px-20 mb-10 md:text-2xl text-center">ყველა სერვისი ერთ სივრცეში</div>
+                    <div className="md:bg-main-color md:rounded-full md:z-10 text-main-color md:text-grayish border-4 border-main-color py-5 px-5 md:px-20 mb-10 md:text-2xl text-center">{t("all_services_in_one_place")}</div>
                     <p className="text-xl text-main-color mb-6">
-                        თქვენ არ დაგჭირდებათ სხვადასხვა კომპანიასთან ან სპეციალისტთან დაკავშირება, ჩვენი გუნდი ყველა საჭირო სერვისს მოგაწვდით: პროექტირებით დაწყებული, სრული რემონტით დამთავრებული, რემონტის მსვლელობის ეტაპობრივი მონიტორინგი (ფოტო, ვიდეო ანგარიში) საშუალებაა მშვიდად, დისტანციურად, ადევნოთ თვალყური რემონტის მიმდინარეობას
+                        {t("all_services_in_one_place_description")}
                     </p>
                 </div>
             </div>
@@ -101,27 +102,27 @@ const ServiceBenefits = () => {
             {/* Second Section */}
             <div className="flex mt-5 gap-y-10 md:mt-0 md:flex-row flex-col items-center justify-between">
                 <div className="w-full md:w-1/2 flex flex-col justify-center px-10">
-                    <div className="md:bg-main-color md:rounded-full md:z-10 text-main-color md:text-grayish border-4 border-main-color py-5 px-5 md:px-20 mb-10 md:text-2xl text-center">ხელმისაწვდომი ფასები</div>
+                    <div className="md:bg-main-color md:rounded-full md:z-10 text-main-color md:text-grayish border-4 border-main-color py-5 px-5 md:px-20 mb-10 md:text-2xl text-center">{t("affordable_prices")}</div>
 
                     <p className="text-xl text-main-color mb-6">
-                        ერთიანი სერვისით სარგებლობისას, შენ ზოგავ თანხას, ვიდრე ცალკეულ კომპანიასა თუ სპეციალისტთან დაკავშირებისას.
+                        {t("affordable_prices_description")}
                     </p>
                 </div>
                 <div className="w-full md:w-1/2">
-                    <img src={image2} alt="ხელმისაწვდომი ფასები" className="w-full h-full object-cover shadow-lg" />
+                    <img src={image2} alt={t("affordable_prices")} className="w-full h-full object-cover shadow-lg" />
                 </div>
             </div>
 
             {/* Third Section */}
             <div className="flex mt-5 gap-y-10 md:mt-0 md:flex-row flex-col-reverse items-center justify-between">
                 <div className="w-full md:w-1/2">
-                    <img src={image3} alt="სამუშაოს ვადაში შესრულება" className="w-full h-full object-cover shadow-lg" />
+                    <img src={image3} alt={t("fast_and_efficient_work")} className="w-full h-full object-cover shadow-lg" />
                 </div>
                 <div className="w-full md:w-1/2 flex flex-col justify-center px-10">
-                    <div className="md:bg-main-color md:rounded-full md:z-10 text-main-color md:text-grayish border-4 border-main-color py-5 px-5 md:px-20 mb-10 md:text-2xl text-center">სამუშაოს ვადაში შესრულება</div>
+                    <div className="md:bg-main-color md:rounded-full md:z-10 text-main-color md:text-grayish border-4 border-main-color py-5 px-5 md:px-20 mb-10 md:text-2xl text-center">{t("fast_and_efficient_work")}</div>
 
                     <p className="text-xl text-main-color mb-6">
-                        თითოეულ სამუშაოს ასრულებს სპეციალისტებით დაკომპლექტებული ერთიანი გუნდი, ამას კი ბევრად ნაკლები დრო სჭირდება, ვიდრე თითოეული სერვისის ცალ-ცალკე შეკვეთას.
+                        {t("fast_and_efficient_work_description")}
                     </p>
                 </div>
             </div>
@@ -129,12 +130,12 @@ const ServiceBenefits = () => {
             {/* Fourth Section */}
             <div className="flex mt-5 gap-y-10 md:mt-0 md:flex-row flex-col items-center justify-between">
                 <div className="w-full md:w-1/2 flex flex-col justify-center px-10">
-                    <div className="md:bg-main-color md:rounded-full md:z-10 text-main-color md:text-grayish border-4 border-main-color py-5 px-5 md:px-20 mb-10 md:text-2xl text-center">დამატებითი სარგებელი</div>
+                    <div className="md:bg-main-color md:rounded-full md:z-10 text-main-color md:text-grayish border-4 border-main-color py-5 px-5 md:px-20 mb-10 md:text-2xl text-center">{t("addictional_benefits")}</div>
 
                     <p className="text-xl text-main-color mb-6">
-                        ●	საჭიროების შემთხვევაში სამუშაოებში შედის ტიხრების დემონტაჟი, ძველი საფარის მოხსნა და სხვა სახის მოსამზადებელი სამუშაოები. <br />
-                        ●	ჩვენი სერვისი ასევე მოიცავს რემონტის შემდეგ დარჩენილი ნაგვის გატანას. სამუშაოების ბოლოს, ბინა საცხოვრებლად გამზადებული იქნება. <br />
-                        ●	რემონტის დაგეგმვისას ვითვალისწინებთ მფლობელის ყველა სურვილს და ოჯახის წევრების საჭიროებებს. მომხმარებელი იღებს ზედმიწევნით შესრულებულ პროექტს. <br />
+                        ●	{t("addictional_benefits_0")} <br />
+                        ●	{t("addictional_benefits_1")} <br />
+                        ●	{t("addictional_benefits_2")} <br />
                     </p>
                 </div>
                 <div className="w-full md:w-1/2">

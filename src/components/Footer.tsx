@@ -36,7 +36,7 @@ const Footer = () => {
                 <div className="flex flex-col lg:w-1/3 md:flex-row justify-around mt-5 w-full space-y-5 lg:space-y-0 md:space-x-10">
                     {/* Navigation */}
                     <div>
-                        <div className="font-bold text-lg mb-4">მენიუ</div>
+                        <div className="font-bold text-lg mb-4">{t("menu")}</div>
                         <ul className="space-y-2">
                             {navigationList.map((item, index) => (
                                 <li key={index}>
@@ -58,20 +58,20 @@ const Footer = () => {
 
                 {/* Feedback Section */}
                 <div className="flex flex-col items-center w-full m-0 lg:w-1/3 text-center">
-                    <h3 className="font-bold text-xl mb-4">შეიყვანე შენი ელფოსტა და დაგვიტოვე კომენტარი.</h3>
+                    <h3 className="font-bold text-xl mb-4">{t("enter_your_email")}</h3>
                     <input
                         type="email"
-                        placeholder="ელ.ფოსტა"
+                        placeholder={t("email")}
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         className="w-full p-2 rounded-md text-black"
                     />
-                    <textarea className="w-full mt-3 p-2 rounded-md text-black" placeholder='კომენტარი'></textarea>
+                    <textarea className="w-full mt-3 p-2 rounded-md text-black" placeholder={t("comment")}></textarea>
                     <button
                         onClick={handleSubscribe}
                         className="mt-3 bg-grayish px-4 py-2 text-main-color hover:bg-gray-300"
                     >
-                        გაგზავნა
+                        {t("send")}
                     </button>
                 </div>
 

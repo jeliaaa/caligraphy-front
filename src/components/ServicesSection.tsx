@@ -1,13 +1,15 @@
 import { Link } from 'react-router-dom';
 import serviceImg from '../assets/photos/karkasi.jpeg';
+import { useTranslation } from 'react-i18next';
 
 type Props = {};
 
 const ServicesSection = (props: Props) => {
+    const { t } = useTranslation()
     const mockUpData = [
-        { id: 0, description: 'ჩვენი სარემონტო სერვისი მოიცავს ნებისმიერი მასშტაბის სამუშაოს: დაწყებული მცირე განახლებებიდან, დასრულებული სივრცის სრული ტრანსფორმაციით.', name: 'სარემონტო სამუშაოები' },
-        { id: 1, description: 'გარდა სარემონტო სამუშაოებისა, ჩვენ გთავაზობთ სივრცის მოწყობას თანამედროვე ავეჯითა და ტექნიკით.', name: 'ავეჯითა და ტექნიკით უზრუნველყოფა' },
-        { id: 2, description: 'გაგვიზიარე შენს სტილსა და კომფორტზე მორგებული საჭიროებები და ჩვენი პროფესიონალების გუნდი, სივრცის განსაახლებლად ინდივიდუალურ სერვის შემოგთავაზებს.', name: 'შენზე მორგებული რემონტი' }
+        { id: 0, description: t("home_renovation_description"), name: t("home_renovation") },
+        { id: 1, description: t("furniture_and_appliance_provision_description"), name: t("furniture_and_appliance_provision") },
+        { id: 2, description: t('customized_renovation_description'), name: t("customized_renovation") }
     ];
 
     return (

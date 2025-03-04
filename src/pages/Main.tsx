@@ -12,9 +12,10 @@ import '../index.css'
 import ProjectsOverview from '../components/ProjectsOverview'
 import FaqAccordion from '../components/FAQ'
 import RendersAndPictures from '../components/RendersAndPhotos'
+import { useTranslation } from 'react-i18next'
 
 const Main: React.FC = () => {
-  // const { t } = useTranslation();
+  const { t } = useTranslation();
   return (
     <div className='relative'>
       {/* <MainSlider /> */}
@@ -22,7 +23,8 @@ const Main: React.FC = () => {
         <img className='object-cover absolute left-0 top-0 h-full w-full' src={mainBanner} alt='Us' />
         <div className='absolute w-full h-full bg-black bg-opacity-50'></div>
         <div className='flex z-10 justify-center items-center text-white w-full sm:w-[40%] ml-10 h-fit1 rounded-md text-[40px] drop-shadow-lg shadow-grayish font-bold text-left p-5'>
-          რემონტს აპირებ? <br /> დაგვიკავშირდი და მიიღე <br/> კომფორტი, რომელსაც იმსახურებ
+          {/* რემონტს აპირებ? <br /> დაგვიკავშირდი და მიიღე <br/> კომფორტი, რომელსაც იმსახურებ */}
+          {t("slogan")}
         </div>
         {/* // "contactUsComfort": "რემონტს აპირებ? \nდაგვიკავშირდი და მიიღე \nკომფორტი, რომელსაც იმსახურებ" */}
       </div>
