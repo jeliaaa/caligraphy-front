@@ -3,8 +3,8 @@ import { FaBars, FaPhone, FaUser, FaWhatsapp } from 'react-icons/fa';
 import { Link, useLocation } from 'react-router-dom';
 import { HiX } from 'react-icons/hi';
 import LanguageDropdown from './LanguageDropdown';
-import logo from "../assets/logos/logo.png";
-import logoLight from "../assets/logos/logo-light.png"
+// import logo from "../assets/logos/logo.png";
+import logoLight from "../assets/logos/tetri.png"
 import { useTranslation } from 'react-i18next';
 import { BsTelegram } from 'react-icons/bs';
 import { useAuth } from '../context/AuthContext';
@@ -25,9 +25,10 @@ const Header: React.FC = () => {
     }, []);
 
     const navigationList = [
+        { title: "main", to: '/' },
         { title: "services", to: 'services' },
         // { title: "calculate", to: 'calculate' },
-        { title: "track", to: 'track/0' },
+        { title: "myProject", to: 'track/0' },
         { title: "team", to: 'team' },
         { title: "advantages", to: 'advantages' },
     ];
@@ -41,23 +42,20 @@ const Header: React.FC = () => {
     const isHomePage = location.pathname === '/';
 
     return (
-        <header className={`h-[90px] w-full flex items-center justify-between px-5 py-3 transition-all duration-300  
-            ${isHomePage ? (isScrolled ? 'sticky top-0 bg-main-color shadow-md text-grayish z-50' : 'absolute bg-white bg-opacity-65 text-main-color z-50')
-                : 'sticky top-0 bg-main-color shadow-md text-grayish z-50'}`}>
-
-            <nav className='hidden lg:flex space-x-6'>
+        <header className={`h-[120px] w-full sticky top-0 bg-main-color shadow-md text-grayish z-50 flex items-center justify-between px-5 py-3 transition-all duration-300`}>
+            <nav className='hidden  xl:flex space-x-6'>
                 {navigationList.map((nav, index) => (
-                    <Link to={nav.to} key={index} className='lg:text-xl font-extrabold hover:underline'>
+                    <Link to={nav.to} key={index} className='xl:text-xl uppercase font-extrabold!'>
                         {t(nav.title)}
                     </Link>
                 ))}
             </nav>
 
-            <Link to={'/'} className='absolute lg:static xl:absolute left-1/2 -translate-x-1/2' onClick={() => setMenuOpen(false)}>
-                <img src={isScrolled || !isHomePage ? logoLight : logo} className='w-[70px] aspect-square' alt='Logo' />
+            <Link to={'/'} className='absolute xl:static 2xl:absolute left-1/2 -translate-x-1/2' onClick={() => setMenuOpen(false)}>
+                <img src={logoLight} className='w-[150px]' alt='Logo' />
             </Link>
 
-            <div className='hidden lg:flex items-center space-x-4'>
+            <div className='hidden xl:flex items-center space-x-4'>
                 {contacts.map((contact, index) => (
                     <Link to={contact.link} key={index} className='hover:text-2xl rounded-full'>
                         {contact.icon}
@@ -68,13 +66,12 @@ const Header: React.FC = () => {
                 <LanguageDropdown isScrolled={isScrolled} isHomePage={isHomePage} />
             </div>
 
-            <button className='lg:hidden p-2' onClick={toggleMenu}>
-                {menuOpen ? <HiX size={30} className={!isHomePage ? 'text-grayish' : isHomePage && isScrolled ? 'text-grayish' : 'text-main-color'} /> : <FaBars className={!isHomePage ? 'text-grayish' : isHomePage && isScrolled ? 'text-grayish' : 'text-main-color'} size={30} />}
+            <button className='xl:hidden p-2' onClick={toggleMenu}>
+                {menuOpen ? <HiX size={30} className={'text-grayish'} /> : <FaBars className={'text-grayish'} size={30} />}
             </button>
 
             {menuOpen && (
-                <div className={`absolute left-0 w-full p-5 flex flex-col items-center space-y-4 transition-transform duration-300 ease-in-out 
-                    ${isScrolled || !isHomePage ? "bg-main-color text-grayish" : "bg-gray-50 bg-opacity-65 text-main-color"} 
+                <div className={`absolute left-0 bg-main-color text-grayish w-full p-5 flex flex-col items-center space-y-4 transition-transform duration-300 ease-in-out 
                     ${menuOpen ? "translate-y-[62%]" : "translate-y-[-100%]"}`}>
 
                     {navigationList.map((nav, index) => (

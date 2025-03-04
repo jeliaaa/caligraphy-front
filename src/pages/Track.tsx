@@ -15,7 +15,7 @@ const Track = () => {
     const navigate = useNavigate();
     const { t } = useTranslation()
     const dispatch = useDispatch<AppDispatch>();
-    const { singleData : data, status } = useSelector((state: RootState) => state.renovation)
+    const { singleData: data, status } = useSelector((state: RootState) => state.renovation)
     const isLoading = useMemo(() => status === 'loading' || status === 'idle', [status]);
     useEffect(() => {
         dispatch(fetchRenovation(id))
@@ -53,28 +53,33 @@ const Track = () => {
     const { isAuthenticated } = useAuth()
 
     return (
-        <div style={{ backgroundImage: `url(${banner})` }} className="w-full p-5 min-h-[80dvh] flex flex-col items-center gap-y-4">
-            <h1 className="text-center font-bold mt-2 bg-white inline-block px-10 text-3xl py-5">
+        <div
+            style={{ backgroundImage: `url(${banner})` }}
+            className="w-full p-5 min-h-[80dvh] flex flex-col items-center gap-y-4 relative bg-cover bg-center"
+        >
+            {/* Overlay for background opacity */}
+            <div className="absolute inset-0 bg-black/30"></div>
+            <h1 className="text-center font-bold mt-2 text-white z-10 inline-block px-10 text-4xl py-5">
                 {t("myProject")} {id !== "0" && `: ${id}`}
             </h1>
-            <div className="flex justify-center items-center h-[50px] w-[70%]">
+            <div className="flex justify-center items-center z-10 h-[50px] w-[70%]">
                 <input
                     type="text"
-                    className="border-4 rounded-l-md h-full w-[80%] outline-none pl-3 focus:border-b-main-color border-r-0"
+                    className="border-4 rounded-l-md bg-grayish text-main-color placeholder-main-color border-grayish h-full w-[80%] outline-none pl-3 focus:border-b-main-color border-r-0"
                     value={inputVal}
                     onChange={(e) => setInputVal(e.target.value)}
                     onKeyDown={(e) => keyDown(e)}
                     placeholder={t("enterProjectId")}
                 />
                 <button
-                    className="bg-main-color text-white font-bold h-full w-[20%] rounded-r-md"
+                    className="bg-main-color text-grayish font-bold h-full w-[20%] rounded-r-md"
                     onClick={() => onSearchClick()}
                 >
                     ძიება
                 </button>
             </div>
 
-            {isLoading ? t("loading") : status === 'failed' ? t("noSuchRenovationFound") : <>
+            {isLoading ? <span className="text-white">{t("loading")}</span> : status === 'failed' ? t("") : <>
                 <div className="w-full mt-10 p-5 bg-white rounded-2xl">
                     <h2 className="text-2xl font-bold mb-4">aaa</h2>
                     <div className="flex flex-col gap-4">

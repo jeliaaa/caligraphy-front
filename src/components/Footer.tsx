@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import logo from "../assets/logos/logo-light.png";
+import logo from "../assets/logos/tetri.png";
 import { useTranslation } from 'react-i18next';
 import { FaWhatsapp } from 'react-icons/fa';
 import { BsTelegram } from 'react-icons/bs';
@@ -15,9 +15,10 @@ const Footer = () => {
     };
 
     const navigationList = [
+        { title: "main", to: '/' },
         { title: "services", to: 'services' },
         // { title: "calculate", to: 'calculate' },
-        { title: "track", to: 'track/0' },
+        { title: "myProject", to: 'track/0' },
         { title: "team", to: 'team' },
         { title: "advantages", to: 'advantages' },
     ];
@@ -34,7 +35,6 @@ const Footer = () => {
             <div className="container gap-y-20 mx-auto px-4 flex flex-col lg:flex-row justify-between items-center space-y-8 md:space-y-0 lg:space-x-10">
                 <div className="flex flex-col lg:w-1/3 md:flex-row justify-around mt-5 w-full space-y-5 lg:space-y-0 md:space-x-10">
                     {/* Navigation */}
-
                     <div>
                         <div className="font-bold text-lg mb-4">მენიუ</div>
                         <ul className="space-y-2">
@@ -46,7 +46,7 @@ const Footer = () => {
                         </ul>
                     </div>
                     <div>
-                        <div className="font-bold text-lg mb-4">მომსახურება</div>
+                        <div className="font-bold text-lg mb-4">მომსახურებები</div>
                         <ul className="space-y-2">
                             <li><Link className="text-gray-300 hover:text-white" to="/">სარემონტო სამუშაოები</Link></li>
                             <li><Link className="text-gray-300 hover:text-white" to="/">ტექნიკითა და ავეჯით აღჭურვა</Link></li>
@@ -78,7 +78,7 @@ const Footer = () => {
                 {/* Logo and Socials */}
                 <div className="flex flex-col items-center md:items-start space-y-4">
                     <Link to="/">
-                        <img src={logo} alt="Logo" className="w-48" />
+                        <img src={logo} alt="Logo" className="w-52"/>
                     </Link>
                     {/* <p className="font-bold text-2xl">{t("websiteName")}</p> */}
                     <div className="flex space-x-4">

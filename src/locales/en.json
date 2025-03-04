@@ -2,9 +2,10 @@
     "websiteName": "Calligraphy Design",
     "services": "Services",
     "gallery": "Gallery",
+    "main": "Main",
     "advantages": "Advantages",
     "calculate": "Calculate",
-    "track": "Track Progress",
+    "track": "My Project",
     "progress": "Progress",
     "address": "Address",
     "supervisor": "Supervisor",
@@ -20,7 +21,7 @@
     "partners": "Partners",
     "myProjects": "My Projects",
     "myProfile" : "My Profile",
-    "photosAndRenders": "Photos and renders",
+    "Renders": "Renders",
     "login": "Log in",
     "email": "Email",
     "enterEmail": "Enter email",
@@ -44,6 +45,7 @@
     "tryAgain": "Try again",
     "clickToSendVerificationEmail": "Click below to send a verification email.",
     "enterProjectId": "Enter project ID",
-    "loading": "Loading..."
+    "loading": "Loading...",
+    "faqs" : "asnwers to the frequently asked questions"
 }
 

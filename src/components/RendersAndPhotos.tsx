@@ -68,7 +68,7 @@ const RendersAndPictures = () => {
     return (
         <div className="py-16 flex flex-col items-center bg-gray-50">
             <div className="bg-main-color rounded-full z-10 text-grayish border-4 border-main-color py-5 px-20 mb-10 text-2xl">
-                {t("photosAndRenders")}
+                {t("Renders")}
             </div>
             <div className="w-full relative mx-auto sm:px-6 lg:px-8 ">
                 <div className="absolute hidden md:flex z-50 gap-x-3 -bottom-5 left-8">

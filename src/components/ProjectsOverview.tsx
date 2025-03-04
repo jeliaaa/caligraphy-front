@@ -1,7 +1,7 @@
 import { useState } from "react";
 import karkasi from "../assets/photos/karkasi.jpeg"
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper/modules";
+import { Navigation, Pagination } from "swiper/modules";
 import { useTranslation } from "react-i18next";
 interface Project {
     year: number;
@@ -86,39 +86,47 @@ export default function ProjectsGallery() {
     const [selectedProject, setSelectedProject] = useState<Project | null>(null);
     const { t } = useTranslation();
     return (
-        <div className="py-10 w-full mx-auto bg-secondary-color text-grayish">
+        <div className="py-10 px-5 w-full mx-auto bg-secondary-color text-grayish">
             <h2 className="text-3xl font-bold text-center mb-6">{t('projects')}</h2>
+            <Swiper
+                slidesPerView={1}
+                spaceBetween={20}
+                breakpoints={{
+                    640: { slidesPerView: 4 },
+                    1024: { slidesPerView: 5 },
+                }}
+                pagination={{ clickable: true }}
+                modules={[Pagination, Navigation]}
+                navigation
+                className="w-full"
+            >
+                {projectData.map((project, index) => (
+                    <SwiperSlide key={index} className="flex items-center justify-center">
+                        <div
+                            className="relative flex items-center justify-center w-64 h-80 rounded-xl shadow-lg overflow-hidden cursor-pointer group transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-2xl"
+                            onClick={() => setSelectedProject(project)}
+                        >
+                            {/* Background Image */}
+                            <img
+                                src={project.images[0]}
+                                alt={`Project ${project.year}`}
+                                className="w-full h-full object-cover transition-all duration-300"
+                            />
 
-            <div className="flex w-full justify-around gap-6 flex-wrap p-5">
-                {projectData.map((project, _id) => (
-                    <div
-                        key={_id}
-                        className="relative w-64 h-80 rounded-xl shadow-lg overflow-hidden cursor-pointer group transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-2xl"
-                        onClick={() => setSelectedProject(project)}
-                    >
-                        {/* Background Image */}
-                        <img
-                            src={project.images[0]}
-                            alt={`Project ${project.year}`}
-                            className="w-full h-full object-cover transition-all duration-300"
-                        />
+                            {/* Always Visible Title */}
+                            <p className="absolute inset-x-0 block top-4 text-center text-lg font-bold text-main-color group-hover:hidden z-10">
+                                {project.year}
+                            </p>
 
-                        {/* Always Visible Title */}
-                        <p className="absolute inset-x-0 block top-4 text-center text-lg font-bold text-main-color group-hover:hidden z-10">
-                            {project.year}
-                        </p>
-
-                        {/* Dark Overlay & Information (Visible on Hover) */}
-                        <div className="absolute inset-0 flex flex-col items-center justify-center bg-white bg-opacity-60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-main-color p-6 text-center rounded-xl">
-                            <p className="font-bold text-xl">{project.year}</p>
-                            <p className="text-sm mt-2">{project.type}</p>
+                            {/* Dark Overlay & Information (Visible on Hover) */}
+                            <div className="absolute inset-0 flex flex-col items-center justify-center bg-white bg-opacity-60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-main-color p-6 text-center rounded-xl">
+                                <p className="font-bold text-xl">{project.year}</p>
+                                <p className="text-sm mt-2">{project.type}</p>
+                            </div>
                         </div>
-                    </div>
-
-
+                    </SwiperSlide>
                 ))}
-            </div>
-
+            </Swiper>
             {/* Modal */}
             {selectedProject && (
                 <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50 text-main-color">
