@@ -31,7 +31,7 @@ body {
 @font-face {
   font-family: 'Main';
   src: url('./fonts/bpg_nino_mtavruli_bold.ttf') format('truetype');
-  font-weight: bold;
+  font-weight: bold !important;
   /* Optional: Define weight */
   font-style: normal;
   /* Optional: Define style */

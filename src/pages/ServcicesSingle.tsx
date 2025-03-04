@@ -29,22 +29,22 @@ const ServcicesSingle = () => {
             {/* First Section */}
             <Element name="0">
                 <div className="flex gap-y-10 md:flex-row flex-col-reverse items-center justify-between">
-                <Swiper
-                    slidesPerView={1}
-                    spaceBetween={20}
-                    pagination={{ clickable: true }}
-                    modules={[Pagination, Navigation]}
-                    navigation
-                    className="w-full md:w-1/2 h-full"
-                >
-                        <SwiperSlide className="flex !w-full !h-full items-center justify-center bg-red-300">
+                    <Swiper
+                        slidesPerView={1}
+                        spaceBetween={20}
+                        pagination={{ clickable: true }}
+                        modules={[Pagination, Navigation]}
+                        navigation
+                        className="w-full md:w-1/2 h-full"
+                    >
+                        <SwiperSlide className="flex !w-full !h-full items-center justify-center">
                             <img
                                 src={"https://th.bing.com/th/id/OIP.L6Gj2zo8hGGDZmRLQYmvKwHaEo?w=1000&h=625&rs=1&pid=ImgDetMain"}
                                 alt="Before remodeling"
                                 className="w-full h-full object-cover shadow-lg"
                             />
                         </SwiperSlide>
-                        <SwiperSlide className="flex !w-full !h-full items-center justify-center bg-red-300">
+                        <SwiperSlide className="flex !w-full !h-full items-center justify-center">
                             <img
                                 src={"https://th.bing.com/th/id/OIP.QUFRcnVm_2eu4JD7oqDcDAHaEo?rs=1&pid=ImgDetMain"}
                                 alt="Before remodeling"
@@ -127,21 +127,21 @@ const ServcicesSingle = () => {
                         </ol>
                     </div>
                     <Swiper
-                    slidesPerView={1}
-                    spaceBetween={20}
-                    pagination={{ clickable: true }}
-                    modules={[Pagination, Navigation]}
-                    navigation
-                    className="w-full md:w-1/2 h-full"
-                >
-                        <SwiperSlide className="flex !w-full !h-full items-center justify-center bg-red-300">
+                        slidesPerView={1}
+                        spaceBetween={20}
+                        pagination={{ clickable: true }}
+                        modules={[Pagination, Navigation]}
+                        navigation
+                        className="w-full md:w-1/2 h-full"
+                    >
+                        <SwiperSlide className="flex !w-full !h-full items-center justify-center">
                             <img
                                 src={"https://th.bing.com/th/id/OIP.L6Gj2zo8hGGDZmRLQYmvKwHaEo?w=1000&h=625&rs=1&pid=ImgDetMain"}
                                 alt="Before remodeling"
                                 className="w-full h-full object-cover shadow-lg"
                             />
                         </SwiperSlide>
-                        <SwiperSlide className="flex !w-full !h-full items-center justify-center bg-red-300">
+                        <SwiperSlide className="flex !w-full !h-full items-center justify-center ">
                             <img
                                 src={"https://th.bing.com/th/id/OIP.QUFRcnVm_2eu4JD7oqDcDAHaEo?rs=1&pid=ImgDetMain"}
                                 alt="Before remodeling"
@@ -163,14 +163,14 @@ const ServcicesSingle = () => {
                         navigation
                         className="w-full md:w-1/2 h-full"
                     >
-                        <SwiperSlide className="flex !w-full !h-full items-center justify-center bg-red-300">
+                        <SwiperSlide className="flex !w-full !h-full items-center justify-center">
                             <img
                                 src={"https://th.bing.com/th/id/OIP.L6Gj2zo8hGGDZmRLQYmvKwHaEo?w=1000&h=625&rs=1&pid=ImgDetMain"}
                                 alt="Before remodeling"
                                 className="w-full h-full object-cover shadow-lg"
                             />
                         </SwiperSlide>
-                        <SwiperSlide className="flex !w-full !h-full items-center justify-center bg-red-300">
+                        <SwiperSlide className="flex !w-full !h-full items-center justify-center">
                             <img
                                 src={"https://th.bing.com/th/id/OIP.QUFRcnVm_2eu4JD7oqDcDAHaEo?rs=1&pid=ImgDetMain"}
                                 alt="Before remodeling"
@@ -178,8 +178,8 @@ const ServcicesSingle = () => {
                             />
                         </SwiperSlide>
                     </Swiper>
-                    <div className="w-full md:w-1/2 flex flex-col justify-center px-10">
-                    <div className="md:bg-main-color md:rounded-full md:z-10 text-main-color md:text-grayish border-4 border-main-color py-5 px-5 md:px-20 mb-10 md:text-2xl text-center">{t("service_3")}</div>
+                    <div className="w-full md:w-1/2 flex flex-col justify-center px-10 mt-5 md:mt-0">
+                        <div className="md:bg-main-color md:rounded-full md:z-10 text-main-color md:text-grayish border-4 border-main-color py-5 px-5 md:px-20 mb-10 md:text-2xl text-center">{t("service_3")}</div>
                         <p className="text-xl text-main-color mb-6">
                             {t("service_3_p")}
                         </p>

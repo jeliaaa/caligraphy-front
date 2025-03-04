@@ -1,10 +1,12 @@
 import React, { Dispatch, SetStateAction } from 'react'
 import karkasi from "../../assets/photos/karkasi.jpeg"
+import { useTranslation } from 'react-i18next';
 interface Props {
     setIsModalOpen: Dispatch<SetStateAction<boolean>>;
 }
 
 const ContactModal: React.FC<Props> = ({ setIsModalOpen }) => {
+    const { t } = useTranslation()
     return (
         <div className="fixed inset-0 flex items-center w-full h-full justify-center bg-black bg-opacity-50 z-50">
             <div className="bg-white rounded-lg p-6 w-[90%] max-w-[60%] shadow-lg relative">
@@ -14,29 +16,29 @@ const ContactModal: React.FC<Props> = ({ setIsModalOpen }) => {
                 >
                     ✖
                 </button>
-                <h2 className="text-xl font-bold text-main-color mb-4">Contact Us</h2>
+                <h2 className="text-xl font-bold text-main-color mb-4">{t("contactUs")}</h2>
                 <div className='flex gap-5'>
                     <form className="flex flex-col space-y-3 w-full md:w-1/2 h-full">
                         <input
                             type="text"
-                            placeholder="Your Name"
+                            placeholder={t("namePlaceholder")}
                             className="border p-2 rounded focus:outline-main-color"
                         />
                         <input
                             type="email"
-                            placeholder="Your Email"
+                            placeholder={t("emailPlaceholder")}
                             className="border p-2 rounded focus:outline-main-color"
                         />
                         <textarea
                             rows={4}
-                            placeholder="Your Message"
+                            placeholder={t("messagePlaceholder")}
                             className="resize-none border p-2 rounded focus:outline-main-color"
                         />
                         <button
                             type="submit"
                             className="bg-main-color text-white py-2 rounded hover:bg-opacity-90 transition-all"
                         >
-                            Send Message
+                            {t("sendMessage")}
                         </button>
                     </form>
                     <img className='hidden md:block w-1/2' src={karkasi} alt='...' />

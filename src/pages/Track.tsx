@@ -55,14 +55,14 @@ const Track = () => {
     return (
         <div
             style={{ backgroundImage: `url(${banner})` }}
-            className="w-full p-5 min-h-[80dvh] flex flex-col items-center gap-y-4 relative bg-cover bg-center"
+            className="w-full p-3 md:p-5 min-h-[80dvh] flex flex-col items-center gap-y-4 relative bg-cover bg-center"
         >
             {/* Overlay for background opacity */}
             <div className="absolute inset-0 bg-black/30"></div>
             <h1 className="text-center font-bold mt-2 text-white z-10 inline-block px-10 text-4xl py-5">
                 {t("myProject")} {id !== "0" && `: ${id}`}
             </h1>
-            <div className="flex justify-center items-center z-10 h-[50px] w-[70%]">
+            <div className="flex justify-center items-center z-10 h-[50px] w-full md:w-[70%]">
                 <input
                     type="text"
                     className="border-4 rounded-l-md bg-grayish text-main-color placeholder-main-color border-grayish h-full w-[80%] outline-none pl-3 focus:border-b-main-color border-r-0"

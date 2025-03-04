@@ -15,14 +15,14 @@ import { useTranslation } from 'react-i18next';
 const PartnersSlide = () => {
     const { t } = useTranslation();
     const partners = [
-        { name: "შპს გორგია", image: gorgia },
-        { name: "შპს მოდუსი", image: modusi },
-        { name: "შპს ნოვა", image: nova },
-        { name: "შპს იდეალი", image: ideal },
-        { name: "შპს ჯაოკენი", image: jaoken },
-        { name: "გრატა სტუდიო", image: grata },
-        { name: "ახალი ნათება", image: axalinateba },
-        { name: "ავეჯის სახლი ლუსო", image: luso }
+        { name: "partner1", image: gorgia },
+        { name: "partner2", image: modusi },
+        { name: "partner3", image: nova },
+        { name: "partner4", image: ideal },
+        { name: "partner5", image: jaoken },
+        { name: "partner6", image: grata },
+        { name: "partner7", image: axalinateba },
+        { name: "partner8", image: luso }
     ];
 
     return (
@@ -34,7 +34,7 @@ const PartnersSlide = () => {
                 {partners.map((partner, index) => (
                     <div key={index} className="mt-8 flex-col p-4 rounded-xl flex items-center">
                         <img src={partner.image} alt={partner.name} className="h-16" />
-                        <span className='text-main-color mt-5'>{partner.name}</span>
+                        <span className='text-main-color mt-5'>{t(partner.name)}</span>
                     </div>
                 ))}
             </div>
@@ -57,7 +57,7 @@ const PartnersSlide = () => {
                         <SwiperSlide key={index}>
                             <div className="flex-col p-4 rounded-lg shadow-lg flex justify-center items-center">
                                 <img src={partner.image} alt={partner.name} className="h-16" />
-                                <span className='text-main-color mt-5'>{partner.name}</span>
+                                <span className='text-main-color mt-5'>{t(partner.name)}</span>
                             </div>
                         </SwiperSlide>
                     ))}
