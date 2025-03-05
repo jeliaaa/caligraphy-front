@@ -17,14 +17,13 @@ const ServicesSection = (props: Props) => {
             <div className='flex flex-wrap md:flex-row flex-col gap-y-5 items-center justify-around w-full'>
                 {mockUpData.map((service) => (
                     <Link
-                        className='relative cursor-custom flex items-center bg-blend-multiply justify-center rounded-lg border-2 border-grayish h-[250px] bg-center bg-cover bg-no-repeat w-[70%] md:w-[30%] hover:border-main-color hover:-translate-y-2 transition-all delay-75'
+                        className='relative cursor-custom px-14 flex items-center bg-blend-multiply justify-center rounded-lg border-2 border-grayish h-[250px] bg-center bg-cover bg-no-repeat w-[70%] md:w-[30%] hover:border-main-color hover:-translate-y-2 transition-all delay-75'
                         to={`/services/${service.id}`}
                         key={service.id}
                         style={{ backgroundImage: `url(${serviceImg})`, backgroundColor: 'rgba(0, 0, 0, 0.5)' }}
                     >
-                        <span className='text-grayish p-2 text-center text-2xl'>{service.name}</span>
+                        <span className='text-grayish p-2 w-full text-center text-2xl'>{service.name}</span>
                     </Link>
-
                 ))}
             </div>
         </div>

@@ -16,10 +16,10 @@ const ServcicesSingle = () => {
                 offset: -50, // Optional: adjust offset for better alignment
                 duration: 500, // Optional: smooth scroll duration
             });
-        } else{
+        } else {
             animateScroll.scrollToTop();
         }
-        
+
     }, [id]);
     const { t } = useTranslation()
 
@@ -58,7 +58,7 @@ const ServcicesSingle = () => {
                         <div className="md:bg-main-color md:rounded-full md:z-10 text-main-color md:text-grayish border-4 border-main-color py-5 px-5 md:px-20 mb-10 md:text-2xl text-center">
                             {t("service_0")}
                         </div>
-                        <h2 className="text-main-color">{t("service_0_option_0")}</h2>
+                        <h2 className="text-main-color text-2xl">{t("service_0_option_0")}</h2>
                         <ol className="list-decimal pl-5">
                             <li className="list-inside text-main-color">{t("service_0_option_0_option_0")}</li>
                             <li className="list-inside text-main-color">{t("service_0_option_0_option_1")}</li>
@@ -67,7 +67,7 @@ const ServcicesSingle = () => {
                             <li className="list-inside text-main-color">{t("service_0_option_0_option_4")}</li>
                             <li className="list-inside text-main-color">{t("service_0_option_0_option_5")}</li>
                         </ol>
-                        <h2 className="text-main-color">{t("service_0_option_1")}</h2>
+                        <h2 className="text-main-color text-2xl">{t("service_0_option_1")}</h2>
                         <ol className="list-decimal pl-5">
                             <li className="list-inside text-main-color">{t("service_0_option_1_option_0")}</li>
                             <li className="list-inside text-main-color">{t("service_0_option_1_option_1")}</li>
@@ -99,13 +99,13 @@ const ServcicesSingle = () => {
                 <div className="flex mt-5 gap-y-10 md:mt-0 md:flex-row flex-col justify-between">
                     <div className="w-full md:w-1/2 flex flex-col justify-center px-10">
                         <div className="md:bg-main-color md:rounded-full md:z-10 text-main-color md:text-grayish border-4 border-main-color py-5 px-5 md:px-20 mb-10 md:text-2xl text-center">{t("service_1")}</div>
-                        <p className="text-main-color mb-6">
+                        <p className="text-main-color text-2xl mb-6">
                             {t("service_1_h2")}
                         </p>
-                        <ol className="list-decimal gap-5 flex flex-col pl-5">
+                        <ol className="list-decimal text-xl gap-5 flex flex-col pl-5">
                             <li className="list-inside text-main-color">
-                                {t("service_1_option_0")}
-                                <ol className="pl-5 list-disc">
+                                <span className="text-main-color text-xl">{t("service_1_option_0")}</span>
+                                <ol className="pl-5 list-disc text-base">
                                     <li className="list-inside text-main-color">{t("service_1_option_0_option_0")}</li>
                                     <li className="list-inside text-main-color">{t("service_1_option_0_option_1")}</li>
                                     <li className="list-inside text-main-color">{t("service_1_option_0_option_2")}</li>
@@ -115,8 +115,9 @@ const ServcicesSingle = () => {
                                 </ol>
                             </li>
                             <li className="list-inside text-main-color">
-                                {t("service_1_option_1")}
-                                <ol className="pl-5 list-disc">
+                                <span className="text-main-color text-xl">{t("service_1_option_1")}</span>
+
+                                <ol className="pl-5 list-disc text-base">
                                     <li className="list-inside text-main-color">{t("service_1_option_1_option_0")}</li>
                                     <li className="list-inside text-main-color">{t("service_1_option_1_option_1")}</li>
                                     <li className="list-inside text-main-color">{t("service_1_option_1_option_2")}</li>
@@ -183,7 +184,7 @@ const ServcicesSingle = () => {
                     <div className="w-full md:w-1/2 flex flex-col justify-center px-10 mt-5 md:mt-0">
                         <div className="md:bg-main-color md:rounded-full md:z-10 text-main-color md:text-grayish border-4 border-main-color py-5 px-5 md:px-20 mb-10 md:text-2xl text-center">{t("service_3")}</div>
                         <p className="text-main-color mb-6">
-                            {t("service_3_p")}
+                            {t("service_3_p_1")} <br /> {t("service_3_p_2")}
                         </p>
                     </div>
                 </div>

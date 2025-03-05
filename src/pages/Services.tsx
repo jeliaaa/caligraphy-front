@@ -9,9 +9,9 @@ const Services = () => {
     const { t } = useTranslation()
     const images = [karkasi, karkasi2, karkasi];
     const mockUpData = [
-        { id: 0, description: t("home_renovation_description"), name: t("home_renovation") },
-        { id: 1, description: t("furniture_and_appliance_provision_description"), name: t("furniture_and_appliance_provision") },
-        { id: 2, description: t('customized_renovation_description'), name: t("customized_renovation") }
+        { id: 0, description: t("home_renovation_description"), name: t("service1") },
+        { id: 1, description: t("furniture_and_appliance_provision_description"), name: t("service2") },
+        { id: 2, description: t('customized_renovation_description'), name: t("service3") }
     ];
 
     return (
@@ -41,7 +41,7 @@ const Services = () => {
                         key={service.id}
                         style={{ backgroundImage: `url(${serviceImg})`, backgroundColor: 'rgba(0, 0, 0, 0.5)' }}
                     >
-                        <span className='text-grayish p-2 text-2xl'>{service.name}</span>
+                        <span className='text-grayish p-2 text-2xl text-center'>{service.name}</span>
                     </Link>
                 </>
             ))}
