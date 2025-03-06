@@ -15,10 +15,6 @@ const FaqAccordion = () => {
 
     const faqData = [
         {
-            question: t("faqs_0"),
-            answer: t("faqs_0_answer"),
-        },
-        {
             question: t("faqs_1"),
             answer: t("faqs_1_answer"),
         },
