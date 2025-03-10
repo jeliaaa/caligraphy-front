@@ -73,7 +73,7 @@ const LoginForm = () => {
                     </button>
                 </div>
             </form>
-            <span className='mt-8'>{`არ გაქვს არგარიში`}?
+            <span className='mt-8'>{t("noAccYet")}?
                 <Link to="/register" className="text-main-color underline ml-2">{t("registration")}</Link>
             </span>
         </div>
