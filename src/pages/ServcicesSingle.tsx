@@ -63,9 +63,6 @@ const ServcicesSingle = () => {
                             <li className="list-inside text-main-color">{t("service_0_option_0_option_0")}</li>
                             <li className="list-inside text-main-color">{t("service_0_option_0_option_1")}</li>
                             <li className="list-inside text-main-color">{t("service_0_option_0_option_2")}</li>
-                            <li className="list-inside text-main-color">{t("service_0_option_0_option_3")}</li>
-                            <li className="list-inside text-main-color">{t("service_0_option_0_option_4")}</li>
-                            <li className="list-inside text-main-color">{t("service_0_option_0_option_5")}</li>
                         </ol>
                         <h2 className="text-main-color text-2xl">{t("service_0_option_1")}</h2>
                         <ol className="list-decimal pl-5">
@@ -87,8 +84,6 @@ const ServcicesSingle = () => {
                             <li className="list-inside text-main-color">
                                 {t("service_0_option_1_option_8")}
                             </li>
-                            <li className="list-inside text-main-color">{t("service_0_option_1_option_9")}</li>
-                            <li className="list-inside text-main-color">{t("service_0_option_1_option_10")}</li>
                         </ol>
                     </div>
                 </div>
