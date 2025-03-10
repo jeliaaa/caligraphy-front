@@ -30,7 +30,7 @@ const Services = () => {
                         />
                         <div className='absolute flex items-end inset-0 bg-black bg-opacity-50 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-all duration-300'>
                             <div className='md:bg-white z-10 p-5 max-w-full'>
-                                <h3 className='text-3xl text-white md:text-main-color capitalize'>{service.name}</h3>
+                                <h3 className='text-3xl text-white md:text-main-color'>{service.name}</h3>
                                 <p className='text-lg text-main-color hidden md:block'>{service.description}</p>
                             </div>
                         </div>
