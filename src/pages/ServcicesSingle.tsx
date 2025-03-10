@@ -63,26 +63,28 @@ const ServcicesSingle = () => {
                             <li className="list-inside text-main-color">{t("service_0_option_0_option_0")}</li>
                             <li className="list-inside text-main-color">{t("service_0_option_0_option_1")}</li>
                             <li className="list-inside text-main-color">{t("service_0_option_0_option_2")}</li>
+                            <li className="list-inside text-main-color">{t("service_0_option_0_option_3")}</li>
+                            <li className="list-inside text-main-color">{t("service_0_option_0_option_4")}</li>
                         </ol>
                         <h2 className="text-main-color text-2xl">{t("service_0_option_1")}</h2>
                         <ol className="list-decimal pl-5">
                             <li className="list-inside text-main-color">{t("service_0_option_1_option_0")}</li>
-                            <li className="list-inside text-main-color">{t("service_0_option_1_option_1")}</li>
                             <li className="list-inside text-main-color">
-                                {t("service_0_option_1_option_2")}
+                                {t("service_0_option_1_option_1")}
                                 <ol className="pl-5 list-disc">
-                                    <li className="list-inside text-main-color">{t("service_0_option_1_option_2_option_0")}</li>
-                                    <li className="list-inside text-main-color">{t("service_0_option_1_option_2_option_1")}</li>
-                                    <li className="list-inside text-main-color">{t("service_0_option_1_option_2_option_2")}</li>
+                                    <li className="list-inside text-main-color">{t("service_0_option_1_option_1_option_0")}</li>
+                                    <li className="list-inside text-main-color">{t("service_0_option_1_option_1_option_1")}</li>
+                                    <li className="list-inside text-main-color">{t("service_0_option_1_option_1_option_2")}</li>
+                                    <li className="list-inside text-main-color">{t("service_0_option_1_option_1_option_3")}</li>
                                 </ol>
                             </li>
+                            <li className="list-inside text-main-color">{t("service_0_option_1_option_2")}</li>
                             <li className="list-inside text-main-color">{t("service_0_option_1_option_3")}</li>
                             <li className="list-inside text-main-color">{t("service_0_option_1_option_4")}</li>
                             <li className="list-inside text-main-color">{t("service_0_option_1_option_5")}</li>
                             <li className="list-inside text-main-color">{t("service_0_option_1_option_6")}</li>
-                            <li className="list-inside text-main-color">{t("service_0_option_1_option_7")}</li>
                             <li className="list-inside text-main-color">
-                                {t("service_0_option_1_option_8")}
+                                {t("service_0_option_1_option_7")}
                             </li>
                         </ol>
                     </div>
