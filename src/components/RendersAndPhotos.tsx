@@ -71,7 +71,7 @@ const RendersAndPictures = () => {
                 {t("Renders")}
             </div>
             <div className="w-full relative mx-auto sm:px-6 lg:px-8 ">
-                <div className="absolute hidden md:flex z-50 gap-x-3 -bottom-5 left-8">
+                <div className="absolute hidden md:flex z-40 gap-x-3 -bottom-5 left-8">
                     <button className="w-[60px] aspect-square rounded-full bg-main-color text-grayish button-prev flex items-center justify-center"><BsArrowLeft /></button>
                     <button className="w-[60px] aspect-square rounded-full bg-main-color text-grayish button-next flex items-center justify-center"><BsArrowRight /></button>
                 </div>
