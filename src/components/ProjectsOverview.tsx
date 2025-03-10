@@ -87,8 +87,8 @@ export default function ProjectsGallery() {
     const [selectedProject, setSelectedProject] = useState<Project | null>(null);
     const { t } = useTranslation();
     return (
-        <div className="py-10 px-5 w-full mx-auto bg-secondary-color text-grayish">
-            <h2 className="text-3xl font-bold text-center mb-6">{t('projects')}</h2>
+        <div className="p-0 md:py-10 md:px-5 w-full mx-auto bg-secondary-color text-grayish">
+            <h2 className="text-3xl font-bold text-center mb-6 w-full">{t('projects')}</h2>
             <Swiper
                 slidesPerView={1}
                 spaceBetween={20}

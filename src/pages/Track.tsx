@@ -72,7 +72,7 @@ const Track = () => {
                     placeholder={t("enterProjectId")}
                 />
                 <button
-                    className="bg-main-color text-grayish font-bold h-full w-[20%] rounded-r-md"
+                    className="bg-main-color uppercase text-grayish font-bold h-full w-[20%] rounded-r-md"
                     onClick={() => onSearchClick()}
                 >
                     {t("search")}
