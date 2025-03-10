@@ -55,8 +55,8 @@ const StatisticSection: React.FC = () => {
     }, [statistics]);
 
     return (
-        <section className="py-16 px-32 bg-main-color text-center">
-            <h2 className="text-3xl font-bold text-grayish mb-8">{t("statistic")}</h2>
+        <section className="py-16 md:px-32 bg-main-color text-center">
+            <h2 className="text-3xl font-bold text-grayish text-center mb-8">{t("statistic")}</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
                 {statistics.map((stat, index) => (
                     <div className="stat-card" key={index}>
