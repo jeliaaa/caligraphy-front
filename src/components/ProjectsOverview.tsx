@@ -1,13 +1,62 @@
 import { useState } from "react";
-import karkasi from "../assets/photos/karkasi.jpeg"
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 import { useTranslation } from "react-i18next";
+import bina1f1 from "../assets/renovations/bina1/IMG_8635.jpg"
+import bina1f2 from "../assets/renovations/bina1/IMG_8639.jpg"
+import bina1f3 from "../assets/renovations/bina1/IMG_8643.jpg"
+import bina1f4 from "../assets/renovations/bina1/IMG_8644.jpg"
+import bina1f5 from "../assets/renovations/bina1/IMG_8645.jpg"
+import bina1f6 from "../assets/renovations/bina1/IMG_8646.jpg"
+import bina1f7 from "../assets/renovations/bina1/IMG_8647.jpg"
+import bina1f8 from "../assets/renovations/bina1/IMG_8649.jpg"
+import bina1f9 from "../assets/renovations/bina1/IMG_8650.jpg"
+import bina1f10 from "../assets/renovations/bina1/IMG_8651.jpg"
+import bina2f1 from "../assets/renovations/bina2/IMG_8737.jpg"
+import bina2f2 from "../assets/renovations/bina2/IMG_8738.jpg"
+import bina2f3 from "../assets/renovations/bina2/IMG_8740.jpg"
+import bina2f4 from "../assets/renovations/bina2/IMG_8742.jpg"
+import bina2f5 from "../assets/renovations/bina2/IMG_8744.jpg"
+import bina2f6 from "../assets/renovations/bina2/IMG_8747.jpg"
+import bina2f7 from "../assets/renovations/bina2/IMG_8750.jpg"
+import bina2f8 from "../assets/renovations/bina2/IMG_8752.jpg"
+import bina2f9 from "../assets/renovations/bina2/IMG_8753.jpg"
+import bina2f10 from "../assets/renovations/bina2/IMG_8755.jpg"
+import bina3f1 from "../assets/renovations/bina3/IMG_8696.jpg"
+import bina3f2 from "../assets/renovations/bina3/IMG_8697.jpg"
+import bina3f3 from "../assets/renovations/bina3/IMG_8698.jpg"
+import bina3f4 from "../assets/renovations/bina3/IMG_8699.jpg"
+import bina3f5 from "../assets/renovations/bina3/IMG_8700.jpg"
+import bina3f6 from "../assets/renovations/bina3/IMG_8701.jpg"
+import bina3f7 from "../assets/renovations/bina3/IMG_8703.jpg"
+import bina3f8 from "../assets/renovations/bina3/IMG_8704.jpg"
+import bina3f9 from "../assets/renovations/bina3/IMG_8706.jpg"
+import bina3f10 from "../assets/renovations/bina3/IMG_8709.jpg"
+import bina4f1 from "../assets/renovations/bina4/IMG_8715.jpg"
+import bina4f2 from "../assets/renovations/bina4/IMG_8716.jpg"
+import bina4f3 from "../assets/renovations/bina4/IMG_8717.jpg"
+import bina4f4 from "../assets/renovations/bina4/IMG_8718.jpg"
+import bina4f5 from "../assets/renovations/bina4/IMG_8719.jpg"
+import bina4f6 from "../assets/renovations/bina4/IMG_8721.jpg"
+import bina4f7 from "../assets/renovations/bina4/IMG_8722.jpg"
+import bina4f8 from "../assets/renovations/bina4/IMG_8724.jpg"
+import bina4f9 from "../assets/renovations/bina4/IMG_8726.jpg"
+import bina4f10 from "../assets/renovations/bina4/IMG_8727.jpg"
+import bina5f1 from "../assets/renovations/bina5/DSC_0105.jpg"
+import bina5f2 from "../assets/renovations/bina5/DSC_0135.jpg"
+import bina5f3 from "../assets/renovations/bina5/DSC_0138.jpg"
+import bina5f4 from "../assets/renovations/bina5/DSC_0143.jpg"
+import bina5f5 from "../assets/renovations/bina5/DSC_0149.jpg"
+import bina5f6 from "../assets/renovations/bina5/DSC_0151.jpg"
+import bina5f7 from "../assets/renovations/bina5/DSC_0156.jpg"
+import bina5f8 from "../assets/renovations/bina5/DSC_0163.jpg"
+import bina5f9 from "../assets/renovations/bina5/DSC_0170.jpg"
+
+
 
 interface Project {
     year: number;
     type: string;
-    description: string;
     images: string[];
     materials: { name: string; amount: string }[];
 }
@@ -15,9 +64,8 @@ interface Project {
 const projectData: Project[] = [
     {
         year: 2024,
-        type: "Residential Remodeling",
-        description: "A complete transformation of an old residential building with modern architecture.",
-        images: [karkasi, karkasi, karkasi],
+        type: "ბინის რემონტი",
+        images: [bina1f1, bina1f2, bina1f3, bina1f4, bina1f5, bina1f6, bina1f7, bina1f8, bina1f9, bina1f10],
         materials: [
             { name: "Concrete", amount: "1200m³" },
             { name: "Steel", amount: "800kg" },
@@ -25,10 +73,9 @@ const projectData: Project[] = [
         ]
     },
     {
-        year: 2025,
-        type: "Commercial Renovation",
-        description: "Upgrading office spaces with energy-efficient solutions and modern interiors.",
-        images: [karkasi, karkasi, karkasi],
+        year: 2024,
+        type: "ბინის რემონტი",
+        images: [bina2f1, bina2f2, bina2f3, bina2f4, bina2f5, bina2f6, bina2f7, bina2f8, bina2f9, bina2f10],
         materials: [
             { name: "Wood", amount: "300m³" },
             { name: "Bricks", amount: "15000 pcs" },
@@ -36,10 +83,9 @@ const projectData: Project[] = [
         ]
     },
     {
-        year: 2025,
-        type: "Commercial Renovation",
-        description: "Upgrading office spaces with energy-efficient solutions and modern interiors.",
-        images: [karkasi, karkasi, karkasi],
+        year: 2024,
+        type: "ბინის რემონტი",
+        images: [bina3f1, bina3f2, bina3f3, bina3f4, bina3f5, bina3f6, bina3f7, bina3f8, bina3f9, bina3f10],
         materials: [
             { name: "Wood", amount: "300m³" },
             { name: "Bricks", amount: "15000 pcs" },
@@ -47,10 +93,9 @@ const projectData: Project[] = [
         ]
     },
     {
-        year: 2025,
-        type: "Commercial Renovation",
-        description: "Upgrading office spaces with energy-efficient solutions and modern interiors.",
-        images: [karkasi, karkasi, karkasi],
+        year: 2024,
+        type: "ბინის რემონტი",
+        images: [bina4f1, bina4f2, bina4f3, bina4f4, bina4f5, bina4f6, bina4f7, bina4f8, bina4f9, bina4f10],
         materials: [
             { name: "Wood", amount: "300m³" },
             { name: "Bricks", amount: "15000 pcs" },
@@ -58,28 +103,15 @@ const projectData: Project[] = [
         ]
     },
     {
-        year: 2025,
-        type: "Commercial Renovation",
-        description: "Upgrading office spaces with energy-efficient solutions and modern interiors.",
-        images: [karkasi, karkasi, karkasi],
+        year: 2024,
+        type: "ბინის რემონტი",
+        images: [bina5f1, bina5f2, bina5f3, bina5f4, bina5f5, bina5f6, bina5f7, bina5f8, bina5f9],
         materials: [
             { name: "Wood", amount: "300m³" },
             { name: "Bricks", amount: "15000 pcs" },
             { name: "Insulation", amount: "100 rolls" }
         ]
-    },
-    {
-        year: 2025,
-        type: "Commercial Renovation",
-        description: "Upgrading office spaces with energy-efficient solutions and modern interiors.",
-        images: [karkasi, karkasi, karkasi],
-        materials: [
-            { name: "Wood", amount: "300m³" },
-            { name: "Bricks", amount: "15000 pcs" },
-            { name: "Insulation", amount: "100 rolls" }
-        ]
-    },
-
+    }
 
 ];
 
@@ -134,20 +166,19 @@ export default function ProjectsGallery() {
                     <div className="bg-white p-6 rounded-lg shadow-lg max-w-lg w-full relative">
                         <button className="absolute top-2 right-2 text-xl" onClick={() => setSelectedProject(null)}>&times;</button>
                         <h3 className="text-2xl font-bold mb-3">{selectedProject.year} - {selectedProject.type}</h3>
-                        <Swiper navigation modules={[Navigation]} className="mb-3">
+                        <Swiper navigation modules={[Navigation]} className="mb-3 h-[300px]">
                             {selectedProject.images.map((image, index) => (
                                 <SwiperSlide key={index}>
                                     <img src={image} alt={`${selectedProject.type} ${index + 1}`} className="w-full rounded-lg" />
                                 </SwiperSlide>
                             ))}
                         </Swiper>
-                        <p className="mb-4">{selectedProject.description}</p>
-                        <h4 className="text-lg font-semibold mb-2">Materials Used</h4>
+                        {/* <h4 className="text-lg font-semibold mb-2">Materials Used</h4>
                         <ul className="list-disc pl-5">
                             {selectedProject.materials.map((material, index) => (
                                 <li key={index}>{material.name}: {material.amount}</li>
                             ))}
-                        </ul>
+                        </ul> */}
                     </div>
                 </div>
             )}
