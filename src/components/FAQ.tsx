@@ -32,19 +32,11 @@ const FaqAccordion = () => {
         },
         {
             question: t("faqs_5"),
-            answer: `${t("faqs_5_answer")} <br />
-            1 - ${t("faqs_5_answer_option_0")} <br />
-            2 - ${t("faqs_5_answer_option_1")} <br />
-            3 - ${t("faqs_5_answer_option_2")} <br />
-            4 - ${t("faqs_5_answer_option_3")}`
+            answer: t("faqs_5_answer")
         },
         {
             question: t("faqs_6"),
             answer: t("faqs_6_answer")
-        },
-        {
-            question: t("faqs_7"),
-            answer: t("faqs_7_answer")
         },
     ];
 
