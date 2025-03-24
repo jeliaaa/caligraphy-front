@@ -19,6 +19,19 @@ import image13 from "../assets/photos/ფოტომასალაა/DSC_0149
 import image14 from "../assets/photos/ფოტომასალაა/DSC_0151.jpg";
 import image15 from "../assets/photos/ფოტომასალაა/DSC_0156.jpg";
 import image16 from "../assets/photos/ფოტომასალაა/DSC_0163.jpg";
+import image17 from "../assets/renovations/bina5/DSC_0151.jpg"
+import image18 from "../assets/renovations/bina5/DSC_0156.jpg"
+import image19 from "../assets/renovations/bina4/IMG_8722.jpg"
+import image20 from "../assets/renovations/bina4/IMG_8721.jpg"
+import image21 from "../assets/renovations/bina4/IMG_8719.jpg"
+import image22 from "../assets/renovations/bina4/IMG_8718.jpg"
+import image23 from "../assets/renovations/bina4/IMG_8716.jpg"
+// import image24 from "../assets/renovations/bina3/IMG_8709.jpg"
+import image25 from "../assets/renovations/bina3/IMG_8697.jpg"
+import image26 from "../assets/renovations/bina1/IMG_8649.jpg"
+// import image27 from "../assets/renovations/bina1/IMG_8651.jpg"
+import image28 from "../assets/renovations/bina1/IMG_8650.jpg"
+
 import { useTranslation } from "react-i18next";
 import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
 
@@ -29,7 +42,9 @@ const Gallery = () => {
     const { t } = useTranslation();
     const images = [
         image3, image4, image5, image6, image7, image8, image9, image10,
-        image11, image12, image13, image14, image15, image16,
+        image11, image12, image13, image14, image15, image16, image17, image18,
+        image19, image20, image21, image22, image23, image25, image26,
+        image28
     ];
 
     const openModal = (image: string, index: number) => {

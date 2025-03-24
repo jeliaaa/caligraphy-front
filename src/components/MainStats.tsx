@@ -15,9 +15,9 @@ const StatisticSection: React.FC = () => {
 
     // Mock API data
     const mockApiData = useMemo(() => [
-        { title: t("completed_projects"), value: 150, total: 120 },
-        { title: t("ongoing_projects"), value: 210, total: 150 },
-        { title: t("planned_projects"), value: 1000, total: 200 },
+        { title: t("completed_projects"), value: 52, total: 120 },
+        { title: t("ongoing_projects"), value: 37, total: 150 },
+        { title: t("planned_projects"), value: 8, total: 200 },
     ], [t]);
 
     // Using useCallback to fetch the statistics
@@ -78,7 +78,7 @@ const StatisticSection: React.FC = () => {
                                 />
                             </svg>
                             <span className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 text-2xl font-bold text-grayish">
-                                {stat.value} +
+                                {stat.value}
                             </span>
                         </div>
                         <p className="mt-4 text-xl font-semibold text-grayish">{stat.title}</p>

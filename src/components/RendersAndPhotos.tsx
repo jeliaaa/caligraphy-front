@@ -7,6 +7,26 @@ import "swiper/css/navigation";
 import { Navigation, Pagination } from "swiper/modules";
 import { useTranslation } from "react-i18next";
 import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
+import render1 from "../assets/renders/design 1/1,,.jpg"
+import render2 from "../assets/renders/design 1/2.jpg"
+import render3 from "../assets/renders/design 1/3.jpg"
+import render4 from "../assets/renders/design 1/4...jpg"
+import render5 from "../assets/renders/design 1/5.jpg"
+import render6 from "../assets/renders/design 1/6...jpg"
+// import render7 from "../assets/renders/design 1/იატაკის სანათის გარეშე.jpg"
+// import render8 from "../assets/renders/design 1/კარადა ჩვეილებრივი.jpg"
+import render9 from "../assets/renders/design 1/ჩასწორებული 2 .jpg"
+import render11 from "../assets/renders/design 2/0b6ac679-1b74-4636-89cc-e20883190abb.jpg"
+import render12 from "../assets/renders/design 2/14f84845-fa6d-43bb-b706-166a318d05e5.jpg"
+import render13 from "../assets/renders/design 2/3855198a-d84a-4746-9d77-9deac36828ae.jpg"
+import render14 from "../assets/renders/design 2/4d1a32ba-88a7-41a3-bb2f-8612e48a573c.jpg"
+import render15 from "../assets/renders/design 2/76125c3d-20c8-45d0-8f85-3df00f3b6410.jpg"
+import render16 from "../assets/renders/design 2/766e3fb2-69ad-4038-8ea5-d252f5474a94.jpg"
+// import render17 from "../assets/renders/design 2/7c846115-3c72-423a-b73d-f3a2cb38f2b3.jpg"
+import render18 from "../assets/renders/design 2/8fbb7abe-3260-4dbe-930c-5bd317db12dd.jpg"
+import render19 from "../assets/renders/design 2/9389830a-69ae-44fc-9ed0-09ee13ae608f.jpg"
+
+
 
 const RendersAndPictures = () => {
     const [selectedImage, setSelectedImage] = useState<string | null>(null);
@@ -14,22 +34,8 @@ const RendersAndPictures = () => {
     const [currentIndex, setCurrentIndex] = useState<number>(0);
     const { t } = useTranslation();
     const images = [
-        "https://picsum.photos/150",
-        "https://picsum.photos/150",
-        "https://picsum.photos/150",
-        "https://picsum.photos/150",
-        "https://picsum.photos/150",
-        "https://picsum.photos/150",
-        "https://picsum.photos/150",
-        "https://picsum.photos/150",
-        "https://picsum.photos/150",
-        "https://picsum.photos/150",
-        "https://picsum.photos/150",
-        "https://picsum.photos/150",
-        "https://picsum.photos/150",
-        "https://picsum.photos/150",
-        "https://picsum.photos/150",
-        "https://picsum.photos/150"
+        render1, render2, render3, render4, render5, render6, render9, render11,
+        render12, render13, render14, render15, render16, render18, render19
     ];
 
     const openModal = (image: string, index: number) => {
