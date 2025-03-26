@@ -55,7 +55,7 @@ import bina5f9 from "../assets/renovations/bina5/DSC_0170.jpg"
 
 
 interface Project {
-    year: number;
+    area: number;
     type: string;
     images: string[];
     materials: { name: string; amount: string }[];
@@ -63,7 +63,7 @@ interface Project {
 
 const projectData: Project[] = [
     {
-        year: 2024,
+        area: 30,
         type: "ბინის რემონტი",
         images: [bina1f1, bina1f2, bina1f3, bina1f4, bina1f5, bina1f6, bina1f7, bina1f8, bina1f9, bina1f10],
         materials: [
@@ -73,7 +73,7 @@ const projectData: Project[] = [
         ]
     },
     {
-        year: 2024,
+        area: 57,
         type: "ბინის რემონტი",
         images: [bina2f1, bina2f2, bina2f3, bina2f4, bina2f5, bina2f6, bina2f7, bina2f8, bina2f9, bina2f10],
         materials: [
@@ -83,7 +83,7 @@ const projectData: Project[] = [
         ]
     },
     {
-        year: 2024,
+        area: 30,
         type: "ბინის რემონტი",
         images: [bina3f1, bina3f2, bina3f3, bina3f4, bina3f5, bina3f6, bina3f7, bina3f8, bina3f9, bina3f10],
         materials: [
@@ -93,7 +93,7 @@ const projectData: Project[] = [
         ]
     },
     {
-        year: 2024,
+        area: 29.7,
         type: "ბინის რემონტი",
         images: [bina4f1, bina4f2, bina4f3, bina4f4, bina4f5, bina4f6, bina4f7, bina4f8, bina4f9, bina4f10],
         materials: [
@@ -103,9 +103,9 @@ const projectData: Project[] = [
         ]
     },
     {
-        year: 2024,
+        area: 31,
         type: "ბინის რემონტი",
-        images: [bina5f1, bina5f2, bina5f3, bina5f4, bina5f5, bina5f6, bina5f7, bina5f8, bina5f9],
+        images: [bina5f4, bina5f2, bina5f3, bina5f1, bina5f5, bina5f6, bina5f7, bina5f8, bina5f9],
         materials: [
             { name: "Wood", amount: "300m³" },
             { name: "Bricks", amount: "15000 pcs" },
@@ -142,18 +142,18 @@ export default function ProjectsGallery() {
                             {/* Background Image */}
                             <img
                                 src={project.images[0]}
-                                alt={`Project ${project.year}`}
+                                alt={`Project ${project.area}`}
                                 className="w-full h-full object-cover transition-all duration-300"
                             />
 
                             {/* Always Visible Title */}
                             <p className="absolute inset-x-0 block top-4 text-center text-lg font-bold text-main-color group-hover:hidden z-10">
-                                {project.year}
+                                {project.area} m^2
                             </p>
 
                             {/* Dark Overlay & Information (Visible on Hover) */}
                             <div className="absolute inset-0 flex flex-col items-center justify-center bg-white bg-opacity-60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-main-color p-6 text-center rounded-xl">
-                                <p className="font-bold text-xl">{project.year}</p>
+                                <p className="font-bold text-xl">{project.area} m^2</p>
                                 <p className="text-sm mt-2">{project.type}</p>
                             </div>
                         </div>
@@ -165,7 +165,7 @@ export default function ProjectsGallery() {
                 <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50 text-main-color">
                     <div className="bg-white p-6 rounded-lg shadow-lg max-w-lg w-full relative">
                         <button className="absolute top-2 right-2 text-xl" onClick={() => setSelectedProject(null)}>&times;</button>
-                        <h3 className="text-2xl font-bold mb-3">{selectedProject.year} - {selectedProject.type}</h3>
+                        <h3 className="text-2xl font-bold mb-3">{selectedProject.area} m^2 - {selectedProject.type}</h3>
                         <Swiper navigation modules={[Navigation]} className="mb-3 h-[300px]">
                             {selectedProject.images.map((image, index) => (
                                 <SwiperSlide key={index}>
