@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import useStageModal from '../../hooks/useStageModal';
 import Modal from '../Modal';
-import { MdArrowBackIosNew, MdArrowForwardIos } from "react-icons/md";
 
 const photos = [
   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmCy16nhIbV3pI1qLYHMJKwbH2458oiC9EmA&s",
@@ -32,7 +31,7 @@ const StageModal = () => {
     <div className='flex flex-col justify-center gap-1'>
           <span className="font-bold self-center">სურათები</span>
           <div className='flex gap-2'>
-            <button className='w-[40px]' onClick={onPrev}><MdArrowBackIosNew size={25}/></button>
+            <button className='w-[40px]' onClick={onPrev}><svg className="w-[30px] rotate-180 h-[30px] fill-black" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/></svg></button>
             <div className="w-full h-full">
                 {photos.map((photo, index) => (
                     <img
@@ -47,7 +46,7 @@ const StageModal = () => {
                     />
                 ))}
             </div>
-            <button className='w-[40px]' onClick={onNext}><MdArrowForwardIos size={25}/></button>
+            <button className='w-[40px]' onClick={onNext}><svg className="w-[30px] h-[30px] fill-black" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/></svg></button>
           </div>
           <div className='px-[40px] w-full'>
             <div className='w-full bg-white flex flex-wrap'>

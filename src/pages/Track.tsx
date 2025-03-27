@@ -5,7 +5,6 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import { AppDispatch, RootState } from "../redux/store";
 import { fetchRenovation } from "../redux/thunks/renovationThunk";
 import banner from "../assets/banners/Green-Remodeling-in-Process.jpeg"
-import { FaArrowDown } from "react-icons/fa";
 import { useAuth } from "../context/AuthContext";
 import { useTranslation } from "react-i18next";
 
@@ -120,7 +119,7 @@ const Track = () => {
                                 } */}
                                 {isAuthenticated && <Link to={'/profile'} className="self-end flex gap-2 text-lg text-main-color">
                                     {t("details")}
-                                    <FaArrowDown />
+                                    <svg className="fill-main-color rotate-90" width={20} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l128-128z"/></svg>
                                 </Link>}
                                 {!isAuthenticated && <p className="text-red-700">დეტალების სანახავად <Link to={'/login'} className="underline">შედით სისტემაში.</Link></p>}
                             </div>

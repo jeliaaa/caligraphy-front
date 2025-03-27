@@ -1,12 +1,10 @@
 import { useEffect, useState } from "react";
-import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Navigation, Pagination } from "swiper/modules";
 import { useTranslation } from "react-i18next";
-import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
 import render1 from "../assets/renders/design 1/1,,.jpg"
 import render2 from "../assets/renders/design 1/2.jpg"
 import render3 from "../assets/renders/design 1/3.jpg"
@@ -78,8 +76,12 @@ const RendersAndPictures = () => {
             </div>
             <div className="w-full relative mx-auto sm:px-6 lg:px-8 ">
                 <div className="absolute hidden md:flex z-40 gap-x-3 -bottom-5 left-8">
-                    <button className="w-[60px] aspect-square rounded-full bg-main-color text-grayish button-prev flex items-center justify-center"><BsArrowLeft /></button>
-                    <button className="w-[60px] aspect-square rounded-full bg-main-color text-grayish button-next flex items-center justify-center"><BsArrowRight /></button>
+                    <button className="w-[60px] aspect-square rounded-full bg-main-color text-grayish button-prev flex items-center justify-center">
+                        <svg className="fill-white rotate-180" width={20} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l128-128z"/></svg>
+                    </button>
+                    <button className="w-[60px] aspect-square rounded-full bg-main-color text-grayish button-next flex items-center justify-center">
+                        <svg className="fill-white" width={20} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l128-128z"/></svg>
+                    </button>
                 </div>
 
                 {/* Swiper Gallery */}
@@ -135,16 +137,16 @@ const RendersAndPictures = () => {
                         />
                         {/* Custom Arrows */}
                         <button
-                            className="absolute top-1/2 left-4 transform -translate-y-1/2 p-3 bg-gray-700 bg-opacity-50 text-white rounded-full hover:bg-opacity-100 transition-all z-10"
+                            className="absolute top-1/2 left-6 transform -translate-y-1/2 p-3 bg-gray-700 bg-opacity-50 text-white rounded-full hover:bg-opacity-100 transition-all z-10"
                             onClick={prevImage}
                         >
-                            <FaChevronLeft className="text-3xl" />
+                            <svg className="w-[30px] rotate-180 h-[30px] fill-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/></svg>
                         </button>
                         <button
-                            className="absolute top-1/2 right-4 transform -translate-y-1/2 p-3 bg-gray-700 bg-opacity-50 text-white rounded-full hover:bg-opacity-100 transition-all z-10"
+                            className="absolute top-1/2 right-6 transform -translate-y-1/2 p-3 bg-gray-700 bg-opacity-50 text-white rounded-full hover:bg-opacity-100 transition-all z-10"
                             onClick={nextImage}
                         >
-                            <FaChevronRight className="text-3xl" />
+                            <svg className="w-[30px] h-[30px] fill-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/></svg>
                         </button>
                     </div>
                 </div>

@@ -5,7 +5,6 @@ import { AppDispatch, RootState } from "../redux/store";
 import { fetchRenovation } from "../redux/thunks/renovationThunk";
 import banner from "../assets/banners/Green-Remodeling-in-Process.jpeg";
 import Progress from "./Progress";
-import { FaArrowUp, FaArrowDown, FaChevronLeft } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
 
 const ProjectSingle = () => {
@@ -29,7 +28,7 @@ const ProjectSingle = () => {
             className="w-full relative p-5 min-h-[80dvh] flex flex-col items-center gap-y-4 bg-cover bg-center"
         >
             <div className="flex w-full flex-col md:flex-row items-center md:justify-between">
-                <Link to={'/profile'} className="bg-main-color text-white flex gap-x-3 p-5 items-center rounded-md"><FaChevronLeft /> <span className="text-lg m-0">უკან</span></Link>
+                <Link to={'/profile'} className="bg-main-color text-white flex gap-x-3 p-5 items-center rounded-md"><svg className="w-[30px] h-[30px] rotate-180 fill-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/></svg> <span className="text-lg m-0">უკან</span></Link>
                 <h1 className="text-center font-bold mt-2 bg-white px-10 text-3xl py-5 rounded-md shadow-md">
                     {t("myProject")} {id !== "0" && `: ${id}`}
                 </h1>
@@ -76,7 +75,7 @@ const ProjectSingle = () => {
                                     className="self-end flex items-center gap-2 text-lg text-main-color"
                                     onClick={() => setDetails(!details)}
                                 >
-                                    {t("details")} {details ? <FaArrowUp /> : <FaArrowDown />}
+                                    {t("details")} {details ? <svg className="fill-main-color rotate-270" width={20} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l128-128z"/></svg> : <svg className="fill-main-color rotate-90" width={20} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l128-128z"/></svg>}
                                 </button>
                             </div>
                         </div>
