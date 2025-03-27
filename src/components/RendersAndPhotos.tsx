@@ -15,7 +15,6 @@ import render5 from "../assets/renders/design 1/5.jpg"
 import render6 from "../assets/renders/design 1/6...jpg"
 // import render7 from "../assets/renders/design 1/იატაკის სანათის გარეშე.jpg"
 // import render8 from "../assets/renders/design 1/კარადა ჩვეილებრივი.jpg"
-import render9 from "../assets/renders/design 1/ჩასწორებული 2 .jpg"
 import render11 from "../assets/renders/design 2/0b6ac679-1b74-4636-89cc-e20883190abb.jpg"
 import render12 from "../assets/renders/design 2/14f84845-fa6d-43bb-b706-166a318d05e5.jpg"
 import render13 from "../assets/renders/design 2/3855198a-d84a-4746-9d77-9deac36828ae.jpg"
@@ -34,8 +33,8 @@ const RendersAndPictures = () => {
     const [currentIndex, setCurrentIndex] = useState<number>(0);
     const { t } = useTranslation();
     const images = [
-        render1, render2, render3, render4, render5, render6, render9, render11,
-        render12, render13, render14, render15, render16, render18, render19
+        render4, render5, render6, render11,
+        render12, render13, render14, render1, render2, render3, render15, render16, render18, render19
     ];
 
     const openModal = (image: string, index: number) => {
