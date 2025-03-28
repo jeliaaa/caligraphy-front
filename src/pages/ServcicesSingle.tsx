@@ -2,8 +2,10 @@ import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { animateScroll, Element, scroller } from "react-scroll"; // Import Element and scroller from react-scroll
 import { useTranslation } from "react-i18next";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination } from "swiper/modules";
+// import { Swiper, SwiperSlide } from "swiper/react";
+// import { Navigation, Pagination } from "swiper/modules";
+import services1 from "../assets/renders/services1.jpg"
+import services2 from "../assets/renders/services2.jpg"
 
 const ServcicesSingle = () => {
     const { id } = useParams();
@@ -31,7 +33,7 @@ const ServcicesSingle = () => {
                     <h1 className="uppercase m-0 mb-4 text-3xl text-center">{t("services")}</h1>
                 </div>
                 <div className="flex gap-y-10 md:flex-row flex-col-reverse justify-between">
-                    <Swiper
+                    {/* <Swiper
                         slidesPerView={1}
                         spaceBetween={20}
                         pagination={{ clickable: true }}
@@ -53,7 +55,8 @@ const ServcicesSingle = () => {
                                 className="w-full h-full object-cover shadow-lg"
                             />
                         </SwiperSlide>
-                    </Swiper>
+                    </Swiper> */}
+                    <img src={services1} className="w-full md:w-1/2 h-full" alt="..." />
                     <div className="w-full gap-2 md:w-1/2 flex flex-col justify-start px-10 py-5">
                         <div className="md:bg-main-color md:rounded-full md:z-10 text-main-color md:text-grayish border-4 border-main-color py-5 px-5 md:px-20 mb-10 md:text-2xl text-center">
                             {t("service_0")}
@@ -126,7 +129,7 @@ const ServcicesSingle = () => {
                             </li>
                         </ol>
                     </div>
-                    <Swiper
+                    {/* <Swiper
                         slidesPerView={1}
                         spaceBetween={20}
                         pagination={{ clickable: true }}
@@ -148,14 +151,18 @@ const ServcicesSingle = () => {
                                 className="w-full h-full object-cover shadow-lg"
                             />
                         </SwiperSlide>
-                    </Swiper>
+                    </Swiper> */}
+                    <img src={services2} className="w-full md:w-1/2 h-full" alt="..." />
                 </div>
             </Element>
 
             {/* Pricing Section */}
             <Element name="2" className="mt-5">
                 <div className="flex gap-y-10 md:flex-row flex-col-reverse items-center justify-between">
-                    <Swiper
+                    <div className="bg-main-color flex items-center justify-center w-full md:w-1/2 h-[300px] md:h-[500px] text-white text-2xl">
+                        {t('photosWillAppearSoon')}
+                    </div>
+                    {/* <Swiper
                         slidesPerView={1}
                         spaceBetween={20}
                         pagination={{ clickable: true }}
@@ -177,7 +184,7 @@ const ServcicesSingle = () => {
                                 className="w-full h-full object-cover shadow-lg"
                             />
                         </SwiperSlide>
-                    </Swiper>
+                    </Swiper> */}
                     <div className="w-full md:w-1/2 flex flex-col justify-center px-10 mt-5 md:mt-0">
                         <div className="md:bg-main-color md:rounded-full md:z-10 text-main-color md:text-grayish border-4 border-main-color py-5 px-5 md:px-20 mb-10 md:text-2xl text-center">{t("service_3")}</div>
                         <p className="text-main-color mb-6">
