@@ -3,7 +3,7 @@ import React from 'react'
 import StatisticSection from '../components/MainStats'
 import PartnersSlider from '../components/PartnersSlide'
 // import PriceCalculator from '../components/PriceCalc'
-import mainBanner from "../assets/banners/main_banner_test.jpg"
+import mainBanner from "../assets/banners/new_new.jpg"
 // import { useTranslation } from 'react-i18next'
 import Gallery from '../components/Gallery'
 import TeamSlider from './Team'
