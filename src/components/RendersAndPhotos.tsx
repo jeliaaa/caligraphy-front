@@ -120,7 +120,7 @@ const RendersAndPictures = () => {
             {/* Modal */}
             {isModalOpen && (
                 <div className="fixed inset-0 bg-black bg-opacity-75 flex justify-center items-center z-50">
-                    <div className="relative bg-white rounded-lg p-4 w-[70dvh] h-[70dvh] overflow-hidden">
+                    <div className="relative bg-white rounded-lg p-4 h-[70dvh] overflow-hidden w-full md:w-[50dvw] aspect-square md:aspect-auto md:h-[80dvh]">
                         <button
                             onClick={closeModal}
                             className="absolute top-2 right-2 bg-gray-700 text-white w-[30px] h-[30px] rounded-md flex items-center justify-center text-2xl hover:bg-gray-900 transition-all"
