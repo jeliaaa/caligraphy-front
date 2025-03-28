@@ -9,7 +9,7 @@ const ContactModal: React.FC<Props> = ({ setIsModalOpen }) => {
     const { t } = useTranslation()
     return (
         <div className="fixed inset-0 flex items-center w-full h-full justify-center bg-black bg-opacity-50 z-50">
-            <div className="bg-white rounded-lg p-6 w-[90%] max-w-[60%] shadow-lg relative">
+            <div className="bg-white rounded-lg p-6 w-[90%] md:max-w-[60%] shadow-lg relative">
                 <button
                     onClick={() => setIsModalOpen(false)}
                     className="absolute top-2 right-2 w-[15px] h-[15px] text-gray-500 hover:text-gray-700"
