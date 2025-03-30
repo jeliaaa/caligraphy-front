@@ -58,8 +58,8 @@ const RendersAndPictures = () => {
 
     useEffect(() => {
         setTimeout(() => {
-            const prevButton = document.querySelector(".button-prev");
-            const nextButton = document.querySelector(".button-next");
+            const prevButton = document.querySelector(".button-prev_renders");
+            const nextButton = document.querySelector(".button-next_renders");
 
             if (prevButton && nextButton) {
                 prevButton.classList.remove("swiper-button-disabled");
@@ -75,11 +75,15 @@ const RendersAndPictures = () => {
             </div>
             <div className="w-full relative mx-auto sm:px-6 lg:px-8 ">
                 <div className="absolute hidden md:flex z-40 gap-x-3 -bottom-5 left-8">
-                    <button className="w-[60px] aspect-square rounded-full bg-main-color text-grayish button-prev flex items-center justify-center">
-                        <svg className="fill-white rotate-180" width={20} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l128-128z"/></svg>
+                    <button className="w-[60px] aspect-square rounded-full bg-main-color text-grayish button-prev_renders flex items-center justify-center">
+                        <svg className="fill-white rotate-180" width={20} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                            <path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l128-128z" />
+                        </svg>
                     </button>
-                    <button className="w-[60px] aspect-square rounded-full bg-main-color text-grayish button-next flex items-center justify-center">
-                        <svg className="fill-white" width={20} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l128-128z"/></svg>
+                    <button className="w-[60px] aspect-square rounded-full bg-main-color text-grayish button-next_renders flex items-center justify-center">
+                        <svg className="fill-white" width={20} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                            <path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l128-128z" />
+                        </svg>
                     </button>
                 </div>
 
@@ -87,8 +91,8 @@ const RendersAndPictures = () => {
                 <Swiper
                     modules={[Pagination, Navigation]}
                     navigation={{
-                        nextEl: '.button-next',
-                        prevEl: '.button-prev'
+                        nextEl: '.button-next_renders',
+                        prevEl: '.button-prev_renders'
                     }}
                     pagination={{ clickable: true }}
                     breakpoints={{
@@ -139,13 +143,13 @@ const RendersAndPictures = () => {
                             className="absolute top-1/2 left-6 transform -translate-y-1/2 p-3 bg-gray-700 bg-opacity-50 text-white rounded-full hover:bg-opacity-100 transition-all z-10"
                             onClick={prevImage}
                         >
-                            <svg className="w-[30px] rotate-180 h-[30px] fill-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/></svg>
+                            <svg className="w-[30px] rotate-180 h-[30px] fill-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z" /></svg>
                         </button>
                         <button
                             className="absolute top-1/2 right-6 transform -translate-y-1/2 p-3 bg-gray-700 bg-opacity-50 text-white rounded-full hover:bg-opacity-100 transition-all z-10"
                             onClick={nextImage}
                         >
-                            <svg className="w-[30px] h-[30px] fill-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/></svg>
+                            <svg className="w-[30px] h-[30px] fill-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z" /></svg>
                         </button>
                     </div>
                 </div>
