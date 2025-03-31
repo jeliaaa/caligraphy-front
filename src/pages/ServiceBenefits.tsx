@@ -75,7 +75,7 @@
 import { useTranslation } from "react-i18next";
 import image1 from "../assets/photos/bathroom-kitchen-remodel-plano-texas-dfw-improved0009.jpg";
 import image2 from "../assets/photos/home_remodeling_myths.jpg";
-import image3 from "../assets/photos/images.jpg";
+import image3 from "../assets/photos/images3.jpg";
 import image4 from "../assets/photos/karkasi.jpeg";
 
 const ServiceBenefits = () => {
