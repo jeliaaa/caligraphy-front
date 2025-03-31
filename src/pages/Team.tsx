@@ -33,8 +33,9 @@ const teamMembers = [
 const TeamSlider: React.FC<{ slider: boolean }> = ({ slider }) => {
     const { t } = useTranslation();
     return (
-        <div className="w-full flex flex-col items-center mx-auto my-2 p-8">
-            <div className="bg-main-color rounded-full z-10 text-grayish border-4 border-main-color py-5 px-20 mb-10 text-2xl">
+        // bg-gray-50 
+        <div className="flex flex-col items-center">
+            <div className="bg-main-color rounded-full z-10 text-grayish border-4 border-main-color py-5 px-20 my-10 text-2xl">
                 {t("team")}
             </div>
             {slider ? <Swiper

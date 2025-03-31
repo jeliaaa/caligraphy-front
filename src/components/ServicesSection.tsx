@@ -15,7 +15,11 @@ const ServicesSection = (props: Props) => {
     ];
 
     return (
-        <div className='mt-16 pb-10 w-full p-5 '>
+        // bg-gray-50
+        <div className='flex flex-col items-center  '>
+            <div className="bg-main-color rounded-full z-10 text-grayish border-4 border-main-color py-5 px-20 my-10 text-2xl">
+                {t("services")}
+            </div>
             <div className='flex flex-wrap md:flex-row flex-col gap-y-5 items-center justify-around w-full'>
                 {mockUpData.map((service) => (
                     <Link

@@ -55,37 +55,42 @@ const StatisticSection: React.FC = () => {
     }, [statistics]);
 
     return (
-        <section className="py-16 md:px-32 bg-main-color text-center">
-            <h2 className="text-3xl font-bold text-grayish text-center mb-8">{t("statistic")}</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-                {statistics.map((stat, index) => (
-                    <div className="stat-card" key={index}>
-                        <div className="relative w-32 h-32 mx-auto">
-                            <svg className="absolute top-0 left-0 transform rotate-[-90deg]" width="100%" height="100%" viewBox="0 0 100 100">
-                                <circle cx="50" cy="50" r="45" className="stroke-gray-300" strokeWidth="10" fill="none" />
-                                <circle
-                                    cx="50"
-                                    cy="50"
-                                    r="45"
-                                    className="stroke-main-color"
-                                    strokeWidth="10"
-                                    fill="none"
-                                    style={{
-                                        strokeDasharray: `${282.74 * (1 - gap / 100)}`,
-                                        strokeDashoffset: `${282.74 - (282.74 * progress[index]) / 100}`,
-                                        transition: 'stroke-dashoffset 0.07s ease',
-                                    }}
-                                />
-                            </svg>
-                            <span className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 text-2xl font-bold text-grayish">
-                                {stat.value}
-                            </span>
-                        </div>
-                        <p className="mt-4 text-xl font-semibold text-grayish">{stat.title}</p>
-                    </div>
-                ))}
+        // bg-gray-50 
+        <div className='flex flex-col items-center '>
+            <div className="bg-main-color rounded-full z-10 text-grayish border-4 border-main-color py-5 px-20 my-10 text-2xl">
+                {t("statistic")}
             </div>
-        </section>
+            <div className="py-16 md:px-32 w-full bg-main-color text-center">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+                    {statistics.map((stat, index) => (
+                        <div className="stat-card" key={index}>
+                            <div className="relative w-32 h-32 mx-auto">
+                                <svg className="absolute top-0 left-0 transform rotate-[-90deg]" width="100%" height="100%" viewBox="0 0 100 100">
+                                    <circle cx="50" cy="50" r="45" className="stroke-gray-300" strokeWidth="10" fill="none" />
+                                    <circle
+                                        cx="50"
+                                        cy="50"
+                                        r="45"
+                                        className="stroke-main-color"
+                                        strokeWidth="10"
+                                        fill="none"
+                                        style={{
+                                            strokeDasharray: `${282.74 * (1 - gap / 100)}`,
+                                            strokeDashoffset: `${282.74 - (282.74 * progress[index]) / 100}`,
+                                            transition: 'stroke-dashoffset 0.07s ease',
+                                        }}
+                                    />
+                                </svg>
+                                <span className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 text-2xl font-bold text-grayish">
+                                    {stat.value}
+                                </span>
+                            </div>
+                            <p className="mt-4 text-xl font-semibold text-grayish">{stat.title}</p>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </div>
     );
 };
 

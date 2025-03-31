@@ -130,69 +130,76 @@ export default function ProjectsGallery() {
     const [selectedProject, setSelectedProject] = useState<Project | null>(null);
     const { t } = useTranslation();
     return (
-        <div className="py-10 px-5 w-full mx-auto bg-secondary-color text-grayish">
-            <h2 className="text-3xl font-bold text-center mb-6 w-full">{t('projects')}</h2>
-            <Swiper
-                slidesPerView={1}
-                spaceBetween={20}
-                breakpoints={{
-                    640: { slidesPerView: 4 },
-                    1024: { slidesPerView: 5 },
-                }}
-                pagination={{ clickable: true }}
-                modules={[Pagination, Navigation]}
-                navigation
-                className="w-full"
-            >
-                {projectData.map((project, index) => (
-                    <SwiperSlide key={index} className="flex items-center justify-center">
-                        <div
-                            className="relative flex items-center justify-center w-64 h-80 rounded-xl shadow-lg overflow-hidden cursor-pointer group transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-2xl"
-                            onClick={() => setSelectedProject(project)}
-                        >
-                            {/* Background Image */}
-                            <img
-                                src={project.images[0]}
-                                alt={`Project ${project.area}`}
-                                className="w-full h-full object-cover transition-all duration-300"
-                            />
+        // bg-gray-50
+        <div className='flex flex-col items-center '>
+            <div className="bg-main-color rounded-full text-center z-10 text-grayish border-4 border-main-color py-5 px-20 my-10 text-2xl">
+                {t('projects')}
+            </div>
+            <div className="py-10 sm:px-5 w-full mx-auto bg-secondary-color text-grayish">
+                <Swiper
+                    slidesPerView={1}
+                    spaceBetween={30}
+                    breakpoints={{
+                        640: { slidesPerView: 4 },
+                        1024: { slidesPerView: 5 },
+                    }}
+                    pagination={{ clickable: true }}
+                    modules={[Pagination, Navigation]}
+                    navigation
+                    className="!w-full"
+                >
+                    {projectData.map((project, index) => (
+                        <SwiperSlide key={index} className="flex items-center justify-center">
+                            <div
+                                className="relative flex items-center justify-center w-full h-80 rounded-xl shadow-lg overflow-hidden cursor-pointer group transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-2xl"
+                                onClick={() => setSelectedProject(project)}
+                            >
+                                {/* Background Image */}
+                                <img
+                                    src={project.images[0]}
+                                    alt={`Project ${project.area}`}
+                                    className="w-full h-full object-cover transition-all duration-300"
+                                />
 
-                            {/* Always Visible Title */}
-                            <p className="absolute inset-x-0 block top-4 text-center text-lg font-bold text-main-color group-hover:hidden z-10">
-                                {project.area} m<sup>2</sup>
-                            </p>
+                                {/* Always Visible Title */}
+                                <p className="absolute inset-x-0 block top-4 text-center text-lg font-bold text-main-color group-hover:hidden z-10">
+                                    {project.area} m<sup>2</sup>
+                                </p>
 
-                            {/* Dark Overlay & Information (Visible on Hover) */}
-                            <div className="absolute inset-0 flex flex-col items-center justify-center bg-white bg-opacity-60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-main-color p-6 text-center rounded-xl">
-                                <p className="font-bold text-xl">{project.area} m<sup>2</sup></p>
-                                <p className="text-sm mt-2">{project.type}</p>
+                                {/* Dark Overlay & Information (Visible on Hover) */}
+                                <div className="absolute inset-0 flex flex-col items-center justify-center bg-white bg-opacity-60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-main-color p-6 text-center rounded-xl">
+                                    <p className="font-bold text-xl">{project.area} m<sup>2</sup></p>
+                                    <p className="text-sm mt-2">{project.type}</p>
+                                </div>
                             </div>
+                        </SwiperSlide>
+                    ))}
+                </Swiper>
+                {/* Modal */}
+                {selectedProject && (
+                    <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50 text-main-color">
+                        <div className="bg-white sm:rounded-lg shadow-lg w-full sm:w-[60dvw] h-auto relative">
+                            <div className="absolute z-50 w-full p-4 flex justify-between items-start">
+                                <h3 className="text-2xl font-bold">{selectedProject.area} m<sup>2</sup> - {selectedProject.type}</h3>
+                                <button className="text-xl" onClick={() => setSelectedProject(null)}>&times;</button>
+                            </div>
+                            <Swiper navigation modules={[Navigation]}>
+                                {selectedProject.images.map((image, index) => (
+                                    <SwiperSlide key={index}>
+                                        <img src={image} alt={`${selectedProject.type} ${index + 1}`} className="w-full object-cover h-[350px] md:h-[70dvh] rounded-lg" />
+                                    </SwiperSlide>
+                                ))}
+                            </Swiper>
+                            {/* <h4 className="text-lg font-semibold mb-2">Materials Used</h4>
+                            <ul className="list-disc pl-5">
+                                {selectedProject.materials.map((material, index) => (
+                                    <li key={index}>{material.name}: {material.amount}</li>
+                                ))}
+                            </ul> */}
                         </div>
-                    </SwiperSlide>
-                ))}
-            </Swiper>
-            {/* Modal */}
-            {selectedProject && (
-                <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50 text-main-color">
-                    <div className="bg-white p-6 rounded-lg shadow-lg w-full md:w-[60dvw] h-auto relative">
-                        <button className="absolute top-2 right-2 text-xl" onClick={() => setSelectedProject(null)}>&times;</button>
-                        <h3 className="text-2xl font-bold mb-3">{selectedProject.area} m<sup>2</sup> - {selectedProject.type}</h3>
-                        <Swiper navigation modules={[Navigation]} className="mb-3">
-                            {selectedProject.images.map((image, index) => (
-                                <SwiperSlide key={index}>
-                                    <img src={image} alt={`${selectedProject.type} ${index + 1}`} className="w-full h-[350px] md:h-[70dvh] rounded-lg" />
-                                </SwiperSlide>
-                            ))}
-                        </Swiper>
-                        {/* <h4 className="text-lg font-semibold mb-2">Materials Used</h4>
-                        <ul className="list-disc pl-5">
-                            {selectedProject.materials.map((material, index) => (
-                                <li key={index}>{material.name}: {material.amount}</li>
-                            ))}
-                        </ul> */}
                     </div>
-                </div>
-            )}
+                )}
+            </div>
         </div>
     );
 }

@@ -29,6 +29,11 @@ const ContactModal: React.FC<Props> = ({ setIsModalOpen }) => {
                             placeholder={t("emailPlaceholder")}
                             className="border p-2 rounded focus:outline-main-color"
                         />
+                        <input
+                            type="tel"
+                            placeholder={t("phonePlaceholder")}
+                            className="border p-2 rounded focus:outline-main-color"
+                        />
                         <textarea
                             rows={4}
                             placeholder={t("messagePlaceholder")}

@@ -133,6 +133,7 @@
     "search": "Поиск",
     "namePlaceholder": "Ваше имя",
     "emailPlaceholder": "Ваш Email",
+    "phonePlaceholder": "Ваш Телефон",
     "messagePlaceholder": "Ваше сообщение",
     "sendMessage": "Отправить сообщение",
     "teamMember1": "Дато Чагалидзе",
@@ -163,5 +164,6 @@
     "partner8": "Мебельный дом Лусо",
     "Renders" : "рендери",
     "noAccYet": "У вас нет аккаунта",
-    "photosWillAppearSoon" : "Фото скоро загрузится."
+    "photosWillAppearSoon" : "Фото скоро загрузится.",
+    "conditions": "условия"
 }

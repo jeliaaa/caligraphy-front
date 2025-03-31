@@ -26,8 +26,9 @@ const PartnersSlide = () => {
     ];
 
     return (
-        <div className="w-full flex flex-col items-center px-10 mx-auto my-16">
-            <div className="bg-main-color rounded-full z-10 text-grayish border-4 border-main-color py-5 px-20 mb-10 text-2xl">
+        // bg-gray-50
+        <div className="flex flex-col items-center pb-10">
+            <div className="bg-main-color rounded-full z-10 text-grayish border-4 border-main-color py-5 px-20 my-10 text-2xl">
                 {t("partners")}
             </div>
             <div className="hidden xl:flex flex-wrap gap-x-5 justify-between w-full">

@@ -134,6 +134,7 @@
     "search": "ძიება",
     "namePlaceholder": "თქვენი სახელი",
     "emailPlaceholder": "თქვენი ელ. ფოსტა",
+    "phonePlaceholder": "თქვენი ელ. ნომერი",
     "messagePlaceholder": "თქვენი შეტყობინება",
     "sendMessage": "გაგზავნა",
     "teamMember1": "დათო ჭაღალიძე",
@@ -163,5 +164,6 @@
     "partner7": "ახალი ნათება",
     "partner8": "ავეჯის სახლი ლუსო",
     "noAccYet": "არ გაქვს ანგარიში",
-    "photosWillAppearSoon" : "ფოტო მალე დაემატება"
+    "photosWillAppearSoon" : "ფოტო მალე დაემატება",
+    "conditions": "კონდიციები"
 }
