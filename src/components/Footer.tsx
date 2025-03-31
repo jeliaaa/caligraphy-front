@@ -57,20 +57,29 @@ const Footer = () => {
                 {/* Feedback Section */}
                 <div className="flex flex-col items-center w-full m-0 lg:w-1/3 text-center">
                     <h3 className="font-bold text-xl mb-4">{t("enter_your_email")}</h3>
-                    <input
-                        type="email"
-                        placeholder={t("email")}
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        className="w-full p-2 rounded-md text-black"
-                    />
-                    <textarea className="w-full mt-3 p-2 rounded-md text-black" placeholder={t("comment")}></textarea>
-                    <button
-                        onClick={handleSubscribe}
-                        className="mt-3 bg-grayish px-4 py-2 text-main-color uppercase hover:bg-gray-300"
-                    >
-                        {t("send")}
-                    </button>
+                    <form className="flex flex-col space-y-3 w-full h-full">
+                        <input
+                            type="text"
+                            placeholder={t("namePlaceholder")}
+                            className="border p-2 rounded focus:outline-main-color"
+                        />
+                        <input
+                            type="email"
+                            placeholder={t("emailPlaceholder")}
+                            className="border p-2 rounded focus:outline-main-color"
+                        />
+                        <input
+                            type="tel"
+                            placeholder={t("phonePlaceholder")}
+                            className="border p-2 rounded focus:outline-main-color"
+                        />
+                        <button
+                            type="submit"
+                            className="bg-main-color uppercase text-white py-2 rounded hover:bg-opacity-90 transition-all"
+                        >
+                            {t("submit")}
+                        </button>
+                    </form>
                 </div>
 
                 {/* Logo and Socials */}

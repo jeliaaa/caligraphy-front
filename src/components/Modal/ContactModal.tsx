@@ -34,16 +34,11 @@ const ContactModal: React.FC<Props> = ({ setIsModalOpen }) => {
                             placeholder={t("phonePlaceholder")}
                             className="border p-2 rounded focus:outline-main-color"
                         />
-                        <textarea
-                            rows={4}
-                            placeholder={t("messagePlaceholder")}
-                            className="resize-none border p-2 rounded focus:outline-main-color"
-                        />
                         <button
                             type="submit"
                             className="bg-main-color uppercase text-white py-2 rounded hover:bg-opacity-90 transition-all"
                         >
-                            {t("sendMessage")}
+                            {t("submit")}
                         </button>
                     </form>
                     <img className='hidden md:block w-1/2' src={karkasi} alt='...' />
