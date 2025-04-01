@@ -11,6 +11,7 @@ import nika from "../assets/photos/ნიკაჯიჯავაძე.jpg"
 import { Autoplay, Navigation } from "swiper/modules"
 import { Swiper, SwiperSlide } from "swiper/react"
 import { useTranslation } from "react-i18next"
+import { useEffect, useState } from "react"
 
 
 
@@ -32,6 +33,17 @@ const teamMembers = [
 ];
 const TeamSlider: React.FC<{ slider: boolean }> = ({ slider }) => {
     const { t } = useTranslation();
+    const [isPaginationEnabled, setIsPaginationEnabled] = useState(window.innerWidth < 640);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsPaginationEnabled(window.innerWidth < 640);
+        };
+
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
+    
     return (
         // bg-gray-50 
         <div className="flex flex-col items-center">
@@ -41,7 +53,7 @@ const TeamSlider: React.FC<{ slider: boolean }> = ({ slider }) => {
             {slider ? <Swiper
                 spaceBetween={20}
                 navigation={true}
-                pagination={{ clickable: true }}
+                pagination={!isPaginationEnabled ? { clickable: true } : false}
                 modules={[Navigation, Autoplay]}
                 breakpoints={{
                     320: { slidesPerView: 1 },

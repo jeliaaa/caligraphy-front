@@ -29,6 +29,16 @@ const RendersAndPictures = () => {
     const [selectedImage, setSelectedImage] = useState<string | null>(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [currentIndex, setCurrentIndex] = useState<number>(0);
+    const [isPaginationEnabled, setIsPaginationEnabled] = useState(window.innerWidth < 640);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsPaginationEnabled(window.innerWidth < 640);
+        };
+
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
     const { t } = useTranslation();
     const images = [
         render4, render5, render6, render11,
@@ -95,7 +105,7 @@ const RendersAndPictures = () => {
                         nextEl: '.button-next_renders',
                         prevEl: '.button-prev_renders'
                     }}
-                    pagination={{ clickable: true }}
+                    pagination={!isPaginationEnabled ? { clickable: true } : false}
                     breakpoints={{
                         640: { slidesPerView: 1 },
                         768: { slidesPerView: 2 },
@@ -105,7 +115,7 @@ const RendersAndPictures = () => {
                     className="mb-6"
                 >
                     {images.map((image, index) => (
-                        <SwiperSlide className="mb-10" key={index}>
+                        <SwiperSlide className="mb-4 sm:mb-10" key={index}>
                             <div
                                 className="relative group cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-xl"
                                 onClick={() => openModal(image, index)}

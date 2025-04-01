@@ -11,6 +11,7 @@ import luso from "../assets/partners/WhatsApp Image 2025-02-28 at 18.39.27_f9248
 import grata from "../assets/partners/WhatsApp Image 2025-02-28 at 18.39.36_97d3ff3b.jpg";
 
 import { useTranslation } from 'react-i18next';
+import { useEffect, useState } from 'react';
 
 const PartnersSlide = () => {
     const { t } = useTranslation();
@@ -24,7 +25,16 @@ const PartnersSlide = () => {
         { name: "partner7", image: axalinateba },
         { name: "partner8", image: luso }
     ];
+    const [isPaginationEnabled, setIsPaginationEnabled] = useState(window.innerWidth < 640);
 
+    useEffect(() => {
+        const handleResize = () => {
+            setIsPaginationEnabled(window.innerWidth < 640);
+        };
+
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
     return (
         // bg-gray-50
         <div className="flex flex-col items-center pb-10">
@@ -50,13 +60,13 @@ const PartnersSlide = () => {
                         1024: { slidesPerView: 4 },
                     }}
                     autoplay={{ delay: 3000 }}
-                    pagination={{ clickable: true }}
+                    pagination={!isPaginationEnabled ? { clickable: true } : false}
                     modules={[Pagination, Autoplay]}
-                    className='w-full pb-10'
+                    className='w-full py-2'
                 >
                     {partners.map((partner, index) => (
                         <SwiperSlide key={index}>
-                            <div className="flex-col p-4 rounded-lg shadow-lg flex justify-center items-center">
+                            <div className="flex-col p-4 rounded-lg shadow-top-lg flex justify-center items-center">
                                 <img src={partner.image} alt={partner.name} className="h-16" />
                                 <span className='text-main-color mt-5'>{t(partner.name)}</span>
                             </div>

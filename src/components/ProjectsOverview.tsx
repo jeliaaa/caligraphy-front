@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 import { useTranslation } from "react-i18next";
@@ -129,10 +129,21 @@ const projectData: Project[] = [
 export default function ProjectsGallery() {
     const [selectedProject, setSelectedProject] = useState<Project | null>(null);
     const { t } = useTranslation();
+    const [isPaginationEnabled, setIsPaginationEnabled] = useState(window.innerWidth < 640);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsPaginationEnabled(window.innerWidth < 640);
+        };
+
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
     return (
         // bg-gray-50
-        <div className='flex flex-col items-center '>
-            <div className="bg-main-color rounded-full text-center z-10 text-grayish border-4 border-main-color py-5 px-20 my-10 text-2xl">
+        <div className='flex flex-col items-center'>
+            <div className="bg-main-color rounded-full text-center z-10 text-grayish w-[300px] sm:w-auto border-4 border-main-color py-5 px-10 mb-10 text-2xl">
                 {t('projects')}
             </div>
             <div className="py-10 sm:px-5 w-full mx-auto bg-secondary-color text-grayish">
@@ -143,7 +154,7 @@ export default function ProjectsGallery() {
                         640: { slidesPerView: 4 },
                         1024: { slidesPerView: 5 },
                     }}
-                    pagination={{ clickable: true }}
+                    pagination={!isPaginationEnabled ? { clickable: true } : false}
                     modules={[Pagination, Navigation]}
                     navigation
                     className="!w-full"

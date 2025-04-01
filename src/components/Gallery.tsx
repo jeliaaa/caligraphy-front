@@ -44,7 +44,16 @@ const Gallery = () => {
         image19, image20, image21, image22, image23, image25, image26,
         image28
     ];
+    const [isPaginationEnabled, setIsPaginationEnabled] = useState(window.innerWidth < 640);
 
+    useEffect(() => {
+        const handleResize = () => {
+            setIsPaginationEnabled(window.innerWidth < 640);
+        };
+
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
     const openModal = (image: string, index: number) => {
         setSelectedImage(image);
         setCurrentIndex(index);
@@ -78,7 +87,7 @@ const Gallery = () => {
     }, []);
     return (
         // bg-gray-50
-        <div className="flex flex-col items-center  pb-10">
+        <div className="flex flex-col items-center pb-0 sm:pb-10">
             <div className="bg-main-color rounded-full z-10 text-grayish border-4 border-main-color py-5 px-20 mb-10 sm:my-10 text-2xl">
                 {t("gallery")}
             </div>
@@ -110,7 +119,7 @@ const Gallery = () => {
                         nextEl: '.button-next_gallery',
                         prevEl: '.button-prev_gallery'
                     }}
-                    pagination={{ clickable: true }}
+                    pagination={!isPaginationEnabled ? { clickable: true } : false}
                     breakpoints={{
                         640: { slidesPerView: 1 },
                         768: { slidesPerView: 2 },
@@ -120,7 +129,7 @@ const Gallery = () => {
                 >
 
                     {images.map((image, index) => (
-                        <SwiperSlide className="mb-10" key={index}>
+                        <SwiperSlide className="mb-1 sm:mb-10" key={index}>
                             <div
                                 className="relative group cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-xl"
                                 onClick={() => openModal(image, index)}
