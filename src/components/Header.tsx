@@ -22,7 +22,7 @@ const Header: React.FC = () => {
     }, []);
 
     const navigationList = [
-        { title: "main", to: '/' },
+        // { title: "main", to: '/' },
         { title: "services", to: 'services' },
         // { title: "calculate", to: 'calculate' },
         { title: "myProject", to: 'track/0' },
