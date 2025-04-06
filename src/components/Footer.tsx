@@ -87,7 +87,7 @@ const Footer: React.FC = () => {
                             type="text"
                             name="name"
                             placeholder={t("namePlaceholder")}
-                            className="border p-2 rounded focus:outline-main-color placeholder-main-color"
+                            className="border p-2 rounded focus:outline-main-color placeholder-main-color text-main-color"
                             value={formData.name}
                             onChange={handleChange}
                         />
@@ -95,7 +95,7 @@ const Footer: React.FC = () => {
                             type="email"
                             name="email"
                             placeholder={t("emailPlaceholder")}
-                            className="border p-2 rounded focus:outline-main-color placeholder-main-color"
+                            className="border p-2 rounded focus:outline-main-color placeholder-main-color text-main-color"
                             value={formData.email}
                             onChange={handleChange}
                         />
@@ -103,7 +103,7 @@ const Footer: React.FC = () => {
                             type="tel"
                             name="phone"
                             placeholder={t("phonePlaceholder")}
-                            className="border p-2 rounded focus:outline-main-color placeholder-main-color"
+                            className="border p-2 rounded focus:outline-main-color placeholder-main-color text-main-color"
                             value={formData.phone}
                             onChange={handleChange}
                         />
