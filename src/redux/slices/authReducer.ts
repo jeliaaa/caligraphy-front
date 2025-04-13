@@ -10,6 +10,7 @@ import {
     fetchSendEmailVerify,
     fetchSendPasswordReset,
 } from '../thunks/authThunks';
+import { sendContactInfo } from '../thunks/contactThunk';
 
 interface InitialState {
     data: Customer | null;
@@ -67,6 +68,16 @@ const authSlice = createSlice({
             .addCase(fetchSendPasswordReset.fulfilled, (state) => {
                 state.status = 'succeeded';
             })
+            .addCase(sendContactInfo.pending, (state) => {
+                state.status = 'loading';
+            })
+            .addCase(sendContactInfo.fulfilled, (state) => {
+                state.status = 'succeeded';
+            })
+            .addCase(sendContactInfo.rejected, (state) => {
+                state.status = 'failed';
+            })
+
     }
 });
 

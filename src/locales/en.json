@@ -165,5 +165,7 @@
     "noAccYet": "don't have an account?",
     "photosWillAppearSoon" : "The photo will be uploaded soon.",
     "conditions": "Conditions",
-    "submit": "Submit"
+    "submit": "Submit",
+    "informationSentSuccessfully" : "Information Is Sent Successfully.",
+    "error": "Error. Try again later."
 }

@@ -166,5 +166,7 @@
     "noAccYet": "არ გაქვს ანგარიში",
     "photosWillAppearSoon" : "ფოტო მალე დაემატება",
     "conditions": "კონდიციები",
-    "submit": "გაგზავნა"
+    "submit": "გაგზავნა",
+    "informationSentSuccessfully" : "ინფორმაცია წარმატებით გაიგზავნა.",
+    "error": "დაფიქსირდა შეცდომა, მოგვიანებით სცადეთ."
 }

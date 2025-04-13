@@ -2,10 +2,15 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import logo from "../assets/logos/tetri.png";
 import { useTranslation } from 'react-i18next';
+import { useDispatch, useSelector } from 'react-redux';
+import { sendContactInfo } from '../redux/thunks/contactThunk';
+import { AppDispatch, RootState } from 'redux/store';
+
 
 const Footer: React.FC = () => {
     const { t } = useTranslation();
-
+    const dispatch = useDispatch<AppDispatch>();
+    const status = useSelector((state: RootState) => state.auth.status);
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -17,13 +22,16 @@ const Footer: React.FC = () => {
         setFormData(prev => ({ ...prev, [name]: value }));
     };
 
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         if (formData.name.trim() && formData.email.trim() && formData.phone.trim()) {
-            console.log("Submitted:", formData);
+            await dispatch(sendContactInfo(formData))
+            if (status === "succeeded") {
+                alert(t('informationSentSuccessfully'))
+            } else {
+                alert(t('error'))
+            }
             setFormData({ name: '', email: '', phone: '' });
-        } else {
-            alert(t("please_fill_all_fields"));
         }
     };
 
@@ -90,6 +98,7 @@ const Footer: React.FC = () => {
                             className="border p-2 rounded focus:outline-main-color placeholder-main-color text-main-color"
                             value={formData.name}
                             onChange={handleChange}
+                            required
                         />
                         <input
                             type="email"
@@ -98,6 +107,8 @@ const Footer: React.FC = () => {
                             className="border p-2 rounded focus:outline-main-color placeholder-main-color text-main-color"
                             value={formData.email}
                             onChange={handleChange}
+                            required
+
                         />
                         <input
                             type="tel"
@@ -106,6 +117,8 @@ const Footer: React.FC = () => {
                             className="border p-2 rounded focus:outline-main-color placeholder-main-color text-main-color"
                             value={formData.phone}
                             onChange={handleChange}
+                            required
+
                         />
                         <button
                             type="submit"
