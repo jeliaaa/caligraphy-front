@@ -40,7 +40,7 @@ const Services = () => {
                         </div>
                     </Link>
                     <Link
-                        className='relative flex md:hidden cursor-custom items-center bg-blend-multiply justify-center rounded-lg border-2 border-grayish h-[250px] bg-center bg-cover bg-no-repeat w-[70%] md:w-[30%] hover:border-main-color hover:-translate-y-2 transition-all delay-75'
+                        className='relative flex md:hidden cursor-custom items-center bg-blend-multiply justify-center rounded-lg border-2 border-grayish h-[250px] bg-center bg-cover bg-no-repeat w-[70%] md:w-[30%] hover:border-main-color hover:-translate-y-2 transition-all mb-5 delay-75'
                         to={service.id.toString()}
                         key={service.id}
                         style={{ backgroundImage: `url(${service.serviceImg})`, backgroundColor: 'rgba(0, 0, 0, 0.5)' }}
