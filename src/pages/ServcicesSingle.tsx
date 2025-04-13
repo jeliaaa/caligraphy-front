@@ -56,11 +56,12 @@ const ServcicesSingle = () => {
                             />
                         </SwiperSlide>
                     </Swiper> */}
-                    <img src={services1} className="w-full md:w-1/2 h-full" alt="..." />
+                    <img src={services1} className="w-2/4 hidden md:block h-full" alt="..." />
                     <div className="w-full gap-2 md:w-1/2 flex flex-col justify-start px-10 py-5">
-                        <div className="md:bg-main-color md:rounded-full md:z-10 text-main-color md:text-grayish border-4 border-main-color py-5 px-5 md:px-20 mb-10 md:text-2xl text-center">
+                        <div className="md:bg-main-color md:rounded-full md:z-10 text-main-color md:text-grayish border-4 border-main-color py-5 px-5 mb-10 md:px-20 md:text-2xl text-center">
                             {t("service_0")}
                         </div>
+                        <img src={services1} className="w-full mb-10 md:hidden h-full" alt="..." />
                         <h2 className="text-main-color text-2xl">{t("service_0_option_0")}</h2>
                         <ol className="list-decimal pl-5">
                             <li className="list-inside text-main-color">{t("service_0_option_0_option_0")}</li>
@@ -99,6 +100,7 @@ const ServcicesSingle = () => {
                 <div className="flex mt-5 gap-y-10 md:mt-0 md:flex-row flex-col justify-between">
                     <div className="w-full md:w-1/2 flex flex-col justify-center px-10">
                         <div className="md:bg-main-color md:rounded-full md:z-10 text-main-color md:text-grayish border-4 border-main-color py-5 px-5 md:px-20 mb-10 md:text-2xl text-center">{t("service_1")}</div>
+                        <img src={services1} className="w-full mb-10 md:hidden h-full" alt="..." />
                         <p className="text-main-color text-2xl mb-6">
                             {t("service_1_h2")}
                         </p>
@@ -152,14 +154,14 @@ const ServcicesSingle = () => {
                             />
                         </SwiperSlide>
                     </Swiper> */}
-                    <img src={services2} className="w-full md:w-1/2 h-full" alt="..." />
+                    <img src={services1} className="w-2/4 hidden md:block h-full" alt="..." />
                 </div>
             </Element>
 
             {/* Pricing Section */}
             <Element name="2" className="mt-5">
                 <div className="flex gap-y-10 md:flex-row flex-col-reverse items-center justify-between">
-                    <div className="bg-main-color flex items-center justify-center w-full md:w-1/2 h-[300px] md:h-[500px] text-white text-2xl">
+                    <div className="bg-main-color items-center justify-center hidden w-1/2 md:flex h-[300px] md:h-[500px] text-white text-2xl">
                         {t('photosWillAppearSoon')}
                     </div>
                     {/* <Swiper
@@ -187,6 +189,9 @@ const ServcicesSingle = () => {
                     </Swiper> */}
                     <div className="w-full md:w-1/2 flex flex-col justify-center px-10 mt-5 md:mt-0">
                         <div className="md:bg-main-color md:rounded-full md:z-10 text-main-color md:text-grayish border-4 border-main-color py-5 px-5 md:px-20 mb-10 md:text-2xl text-center">{t("service_3")}</div>
+                        <div className="bg-main-color items-center justify-center flex w-full mb-10 md:hidden h-[300px] md:h-[500px] text-white text-2xl">
+                            {t('photosWillAppearSoon')}
+                        </div>
                         <p className="text-main-color mb-6">
                             {t("service_3_p_1")} <br /> {t("service_3_p_2")}
                         </p>
