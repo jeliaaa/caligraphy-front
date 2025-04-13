@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import logo from "../assets/logos/tetri.png";
 import { useTranslation } from 'react-i18next';
+import toast from 'react-hot-toast';
 
 const Footer: React.FC = () => {
     const { t } = useTranslation();
@@ -19,12 +20,13 @@ const Footer: React.FC = () => {
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        if (formData.name.trim() && formData.email.trim() && formData.phone.trim()) {
-            console.log("Submitted:", formData);
-            setFormData({ name: '', email: '', phone: '' });
-        } else {
-            alert(t("please_fill_all_fields"));
-        }
+        // დროებით
+        toast.error("შეტყობინების გაგზავნა ვერ მოხერხდა სცადეთ მოგვიანებით")
+        // if (formData.name.trim() && formData.email.trim() && formData.phone.trim()) {
+        //     setFormData({ name: '', email: '', phone: '' });
+        // } else {
+        //     alert(t("please_fill_all_fields"));
+        // }
     };
 
     const navigationList = [
@@ -109,7 +111,7 @@ const Footer: React.FC = () => {
                         />
                         <button
                             type="submit"
-                            className="bg-main-color uppercase text-white py-2 rounded hover:bg-opacity-90 transition-all"
+                            className="bg-main-color border border w-fit self-center px-5 uppercase text-white py-2 rounded hover:bg-opacity-90 transition-all"
                         >
                             {t("submit")}
                         </button>

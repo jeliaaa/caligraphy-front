@@ -1,9 +1,10 @@
-import React from 'react'
-
+import { Toaster } from 'react-hot-toast'
+ 
 export default function ToasterContext() {
   return (
-    <div>
-      
-    </div>
+    <Toaster
+      position="top-right"
+      reverseOrder={false}
+    />
   )
 }

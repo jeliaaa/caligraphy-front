@@ -8,6 +8,7 @@ import { Provider } from "react-redux";
 import store from "./redux/store";
 import ModalContext from "./context/ModalContext.tsx";
 import { AuthProvider } from "./context/AuthContext.tsx";
+import ToasterContext from "./context/ToasterContext.tsx";
 
 const RootComponent = () => {
   return (
@@ -15,7 +16,7 @@ const RootComponent = () => {
       <Provider store={store}>
         <AuthProvider>
           <ModalContext />
-          
+          <ToasterContext/>
           <App />
         </AuthProvider>
       </Provider>
