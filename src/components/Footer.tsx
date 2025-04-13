@@ -122,7 +122,7 @@ const Footer: React.FC = () => {
                         />
                         <button
                             type="submit"
-                            className="bg-main-color uppercase text-white py-2 rounded hover:bg-opacity-90 transition-all"
+                            className="bg-main-color border w-fit self-center px-5 uppercase text-white py-2 rounded hover:bg-opacity-90 transition-all"
                         >
                             {t("submit")}
                         </button>

@@ -73,7 +73,7 @@ const App = () => {
       </button>
 
 
-      {/* Contact Form Modal */}
+      {/* Contact Form Modal*/}
       {isModalOpen && (
         <ContactModal setIsModalOpen={setIsModalOpen} />
       )}
