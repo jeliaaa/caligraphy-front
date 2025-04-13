@@ -100,7 +100,7 @@ const ServcicesSingle = () => {
                 <div className="flex mt-5 gap-y-10 md:mt-0 md:flex-row flex-col justify-between">
                     <div className="w-full md:w-1/2 flex flex-col justify-center px-10">
                         <div className="md:bg-main-color md:rounded-full md:z-10 text-main-color md:text-grayish border-4 border-main-color py-5 px-5 md:px-20 mb-10 md:text-2xl text-center">{t("service_1")}</div>
-                        <img src={services1} className="w-full mb-10 md:hidden h-full" alt="..." />
+                        <img src={services2} className="w-full mb-10 md:hidden h-full" alt="..." />
                         <p className="text-main-color text-2xl mb-6">
                             {t("service_1_h2")}
                         </p>
@@ -154,7 +154,7 @@ const ServcicesSingle = () => {
                             />
                         </SwiperSlide>
                     </Swiper> */}
-                    <img src={services1} className="w-2/4 hidden md:block h-full" alt="..." />
+                    <img src={services2} className="w-2/4 hidden md:block h-full" alt="..." />
                 </div>
             </Element>
 
