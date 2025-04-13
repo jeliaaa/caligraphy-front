@@ -161,7 +161,7 @@ const ServcicesSingle = () => {
             {/* Pricing Section */}
             <Element name="2" className="mt-5">
                 <div className="flex gap-y-10 md:flex-row flex-col-reverse items-center justify-between">
-                    <div className="bg-main-color items-center justify-center hidden w-1/2 md:flex h-[300px] md:h-[500px] text-white text-2xl">
+                    <div className="bg-main-color text-center items-center justify-center hidden w-1/2 md:flex h-[300px] md:h-[500px] text-white text-2xl">
                         {t('photosWillAppearSoon')}
                     </div>
                     {/* <Swiper
@@ -189,7 +189,7 @@ const ServcicesSingle = () => {
                     </Swiper> */}
                     <div className="w-full md:w-1/2 flex flex-col justify-center px-10 mt-5 md:mt-0">
                         <div className="md:bg-main-color md:rounded-full md:z-10 text-main-color md:text-grayish border-4 border-main-color py-5 px-5 md:px-20 mb-10 md:text-2xl text-center">{t("service_3")}</div>
-                        <div className="bg-main-color items-center justify-center flex w-full mb-10 md:hidden h-[300px] md:h-[500px] text-white text-2xl">
+                        <div className="bg-main-color  text-center items-center justify-center flex w-full mb-10 md:hidden h-[300px] md:h-[500px] text-white text-2xl">
                             {t('photosWillAppearSoon')}
                         </div>
                         <p className="text-main-color mb-6">
