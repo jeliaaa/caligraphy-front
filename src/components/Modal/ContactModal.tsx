@@ -80,7 +80,6 @@ const ContactModal: React.FC<Props> = ({ setIsModalOpen }) => {
                         />
                         <button
                             type="submit"
-                            onClick={() => onSubmit()}
                             className="bg-main-color uppercase text-white py-2 rounded hover:bg-opacity-90 transition-all"
                         >
                             {t("submit")}
