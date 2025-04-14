@@ -5,7 +5,8 @@ import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { sendContactInfo } from '../redux/thunks/contactThunk';
 import { AppDispatch, RootState } from 'redux/store';
-
+import toast from 'react-hot-toast';
+import axios from 'axios'
 
 const Footer: React.FC = () => {
     const { t } = useTranslation();
@@ -25,12 +26,15 @@ const Footer: React.FC = () => {
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         if (formData.name.trim() && formData.email.trim() && formData.phone.trim()) {
-            await dispatch(sendContactInfo(formData))
-            if (status === "succeeded") {
-                alert(t('informationSentSuccessfully'))
-            } else {
-                alert(t('error'))
-            }
+            axios.post("https://cdesign.ge:8000/en/api/v3/contact/send", {
+                email: formData.email,
+                name: formData.name,
+                phone: formData.phone
+            }).then((res) => {
+                toast.success(t('informationSentSuccessfully'));
+            }).catch((err) => {
+                toast.error(t('error'));
+            })
             setFormData({ name: '', email: '', phone: '' });
         }
     };
