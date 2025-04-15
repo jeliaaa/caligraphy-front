@@ -60,7 +60,7 @@ const ContactModal: React.FC<Props> = ({ setIsModalOpen }) => {
                             type="text"
                             name="name"
                             placeholder={t("namePlaceholder")}
-                            className="border p-2 rounded focus:outline-main-color"
+                            className="border p-2 rounded normal-case focus:outline-main-color"
                             value={formData.name}
                             onChange={handleChange}
                             required
@@ -69,7 +69,7 @@ const ContactModal: React.FC<Props> = ({ setIsModalOpen }) => {
                             type="email"
                             name="email"
                             placeholder={t("emailPlaceholder")}
-                            className="border p-2 rounded focus:outline-main-color"
+                            className="border p-2 rounded normal-case focus:outline-main-color"
                             value={formData.email}
                             onChange={handleChange}
                             required
@@ -78,7 +78,7 @@ const ContactModal: React.FC<Props> = ({ setIsModalOpen }) => {
                             type="tel"
                             name="phone"
                             placeholder={t("phonePlaceholder")}
-                            className="border p-2 rounded focus:outline-main-color"
+                            className="border p-2 rounded normal-case focus:outline-main-color"
                             value={formData.phone}
                             onChange={handleChange}
                             required
