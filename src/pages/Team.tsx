@@ -84,7 +84,7 @@ const TeamSlider: React.FC<{ slider: boolean }> = ({ slider }) => {
 
                 ))}
             </Swiper> :
-                <div className="flex flex-wrap gap-6 justify-center">
+                <div className="flex flex-wrap pb-10 gap-6 justify-center">
                     {teamMembers.map((member, index) => (
                         <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg w-80 flex flex-col justify-between transition-shadow duration-300">
                             <img src={member.imgUrl} alt={member.name} className="w-full h-60 object-cover object-top" />

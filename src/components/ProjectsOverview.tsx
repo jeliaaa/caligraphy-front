@@ -192,7 +192,11 @@ export default function ProjectsGallery() {
                         <div className="bg-white sm:rounded-lg shadow-lg w-full sm:w-[60dvw] h-auto relative">
                             <div className="absolute z-50 w-full p-4 flex justify-between items-start">
                                 <h3 className="text-2xl font-bold">{selectedProject.area} m<sup>2</sup> - {selectedProject.type}</h3>
-                                <button className="text-xl" onClick={() => setSelectedProject(null)}>&times;</button>
+                                <button className="text-4xl font-bold flex items-center rounded-full justify-center bg-white w-10 h-10" onClick={() => setSelectedProject(null)}>
+                                    <svg width={24} height={24} className='rotate-45 fill-main-color ' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                        <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 144L48 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l144 0 0 144c0 17.7 14.3 32 32 32s32-14.3 32-32l0-144 144 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-144 0 0-144z" />
+                                    </svg>
+                                </button>
                             </div>
                             <Swiper navigation modules={[Navigation]}>
                                 {selectedProject.images.map((image, index) => (
