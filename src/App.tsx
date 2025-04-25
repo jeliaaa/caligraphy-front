@@ -20,14 +20,10 @@ import ProjectSingle from './pages/ProjectSingle';
 import { useAuth } from './context/AuthContext';
 import ClientOnly from './components/ClientOnly';
 import Loader from './components/Loader';
-import { axiosV2 } from 'utils/axios';
-
 
 const App = () => {
   const location = useLocation();
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(false);
   useEffect(() => {
     const pathSegments = location.pathname.split('/');
 
@@ -36,18 +32,12 @@ const App = () => {
     }
   }, [location]);
 
-  useEffect(() => {
-    setLoading(true);
-    axiosV2.get(`/content`)
-      .then(res => setData(res.data))
-      .finally(() => setLoading(false))
-  }, [])
 
   const { status } = useAuth();
 
   const isLoading = useMemo(() => status === 'loading', [status]);
 
-  if (isLoading || loading) {
+  if (isLoading) {
     return <Loader />;
   }
 
