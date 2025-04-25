@@ -57,7 +57,7 @@ const Track = () => {
             className="w-full p-3 md:p-5 min-h-[80dvh] flex flex-col items-center gap-y-4 relative bg-cover bg-center"
         >
             {/* Overlay for background opacity */}
-            <div className="absolute inset-0 bg-black/30"></div>
+            {/* <div className="absolute inset-0 bg-black/30"></div> */}
             <h1 className="text-center font-bold mt-2 text-white z-10 inline-block px-10 text-4xl py-5">
                 {t("myProject")} {id !== "0" && `: ${id}`}
             </h1>
@@ -118,8 +118,8 @@ const Track = () => {
                                     <Progress serviceId={data?.service.id} />
                                 } */}
                                 {isAuthenticated && <Link to={'/profile'} className="self-end flex gap-2 text-lg text-main-color">
-                                    {t("details")}
-                                    <svg className="fill-main-color rotate-90" width={20} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l128-128z"/></svg>
+                                    {t("ჩემი კაბინეტი")}
+                                    <svg className="fill-main-color" width={20} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l128-128z"/></svg>
                                 </Link>}
                                 {!isAuthenticated && <p className="text-red-700">დეტალების სანახავად <Link to={'/login'} className="underline">შედით სისტემაში.</Link></p>}
                             </div>
