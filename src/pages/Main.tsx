@@ -35,12 +35,11 @@ const Main: React.FC = () => {
     <div className='relative'>
       {/* <MainSlider /> */}
       <div className='w-full h-[83dvh] relative flex items-center'>
-        <img className='object-[60%] sm:object-[100%] object-cover absolute left-0 top-0 h-full w-full' src={mainBanner} alt='Us' />
+        <img className='object-[60%] sm:object-[100%] object-cover absolute left-0 top-0 h-full w-full' src={data?.quote?.banner ? `${process.env.REACT_APP_URL}${data?.quote?.banner}` : mainBanner} alt='Us' />
         <div className='absolute w-full h-full bg-black bg-opacity-50'></div>
         <div className='flex z-10 justify-center items-center text-white w-full sm:w-[40%] ml-1 md:ml-10 h-fit1 rounded-md text-[30px] md:text-[40px] drop-shadow-lg shadow-grayish font-bold text-left p-5'>
           {/* რემონტს აპირებ? <br /> დაგვიკავშირდი და მიიღე <br/> კომფორტი, რომელსაც იმსახურებ */}
-          {/* {data?.quote.quote} <br /> */}
-          {t("slogan1")}<br />{t("slogan2")}
+          {data?.quote?.slogan1 ? data?.quote?.slogan1 : t("slogan1")} <br /> {data?.quote?.slogan2 ? data?.quote?.slogan2 : t("slogan2")}
         </div>
         {/* // "contactUsComfort": "რემონტს აპირებ? \nდაგვიკავშირდი და მიიღე \nკომფორტი, რომელსაც იმსახურებ" */}
       </div>
