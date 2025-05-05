@@ -174,5 +174,8 @@
     "empty_projects": "Welcome! No project has been assigned to you yet.",
     "start_date": "Start Date",
     "end_date": "End Date",
-    "images_not_found": "Images not found"
+    "images_not_found": "Images not found",
+    "service_not_selected_0": "Service not selected!",
+    "service_not_selected_1": "Please Wait Supervisor",
+    "not_found": "Not Found"
 }

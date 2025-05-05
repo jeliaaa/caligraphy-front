@@ -175,5 +175,8 @@
     "empty_projects": "Добро пожаловать! Для вас ещё не добавлен проект.",
     "start_date": "Дата начала",
     "end_date": "Дата окончания",
-    "images_not_found": "Изображения не найдены"
+    "images_not_found": "Изображения не найдены",
+    "service_not_selected_0": "Сервис не указан!",
+    "service_not_selected_1": "Подождите прораба",
+    "not_found": "Не найдено"
 }

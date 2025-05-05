@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "redux/store";
 import { fetchRenovations } from "../redux/thunks/renovationThunk";
 import clsx from "clsx";
+import RenovationCard from "../components/renovations/RenovationCard";
 
 const projects = [
     { id: 'CQ7YTlkOPilmSmhe', title: "Project A", description: "Description for Project A", path: "/project-a" },
@@ -56,13 +57,7 @@ const Profile = () => {
                     <>
                         {data.length !== 0 
                             ? data.map((project) => (
-                                <Link to={`${project.track}`} key={project.id} className="block border rounded-lg shadow-lg hover:shadow-xl transition">
-                                    <img src={karkasi} alt="..." className="w-full aspect-video bg-gray-300" />
-                                    <div className="w-full bg-white p-4">
-                                        <h3 className="text-lg font-semibold">{project?.track}</h3>
-                                        <p className="text-sm text-gray-600">{project.address}</p>
-                                    </div>
-                                </Link>
+                                <RenovationCard {...project}/>
                             ))
                             : <h2 className="text-center text-xl">{t("empty_projects")}</h2>
                         }
