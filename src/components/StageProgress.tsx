@@ -52,7 +52,7 @@ const StagesProgress = ({
                         return (
                             <button
                                 onClick={() => {
-                                    setData(stage.images)
+                                    setData(stage)
                                     onOpen()
                                 }}
                                 key={i}
