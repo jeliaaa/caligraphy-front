@@ -15,7 +15,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
                 <input
                     ref={ref}
                     value={value || ''} // Ensure value is always defined or fallback to empty string
-                    className="w-full mt-2 px-3 py-2 border border-gray-300 rounded-md text-md text-gray-700 shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                    className="w-full lowercase mt-2 px-3 py-2 border border-gray-300 rounded-md text-md text-gray-700 shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                     {...rest}
                 />
             </div>
