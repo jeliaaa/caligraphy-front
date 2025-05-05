@@ -167,5 +167,12 @@
     "conditions": "Conditions",
     "submit": "Submit",
     "informationSentSuccessfully" : "Information Is Sent Successfully.",
-    "error": "Error. Try again later."
+    "error": "Error. Try again later.",
+    "logout": "Sign out",
+    "profile": "Profile",
+    "signed_in_as": "Signed in as",
+    "empty_projects": "Welcome! No project has been assigned to you yet.",
+    "start_date": "Start Date",
+    "end_date": "End Date",
+    "images_not_found": "Images not found"
 }

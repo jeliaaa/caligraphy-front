@@ -6,6 +6,7 @@ import { useEffect, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "redux/store";
 import { fetchRenovations } from "../redux/thunks/renovationThunk";
+import clsx from "clsx";
 
 const projects = [
     { id: 'CQ7YTlkOPilmSmhe', title: "Project A", description: "Description for Project A", path: "/project-a" },
@@ -47,16 +48,26 @@ const Profile = () => {
             <div className="bg-main-color rounded-full z-10 text-grayish border-4 border-main-color py-5 px-20 mb-10 text-2xl">
                 {t("myProjects")}
             </div>
-            <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                {!isLoading && data.map((project) => (
-                    <Link to={`${project.track}`} key={project.id} className="block border rounded-lg shadow-lg hover:shadow-xl transition">
-                        <img src={karkasi} alt="..." className="w-full aspect-video bg-gray-300" />
-                        <div className="w-full bg-white p-4">
-                            <h3 className="text-lg font-semibold">{project?.track}</h3>
-                            <p className="text-sm text-gray-600">{project.address}</p>
-                        </div>
-                    </Link>
-                ))}
+            <div className={clsx(
+                "w-full grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4",
+                data.length !== 0 ? "grid": "flex justify-center items-center h-[200px]"
+            )}>
+                {!isLoading && (
+                    <>
+                        {data.length !== 0 
+                            ? data.map((project) => (
+                                <Link to={`${project.track}`} key={project.id} className="block border rounded-lg shadow-lg hover:shadow-xl transition">
+                                    <img src={karkasi} alt="..." className="w-full aspect-video bg-gray-300" />
+                                    <div className="w-full bg-white p-4">
+                                        <h3 className="text-lg font-semibold">{project?.track}</h3>
+                                        <p className="text-sm text-gray-600">{project.address}</p>
+                                    </div>
+                                </Link>
+                            ))
+                            : <h2 className="text-center text-xl">{t("empty_projects")}</h2>
+                        }
+                    </>
+                )}
                 {isLoading && new Array(4).fill(0).map((_, i) => (
                     <div key={i} className="block border rounded-lg shadow-lg hover:shadow-xl transition">
                         <div className="w-full animate-pulse aspect-video bg-gray-300" />
@@ -66,9 +77,6 @@ const Profile = () => {
                         </div>
                     </div>
                 ))}
-            </div>
-            <div>
-                <p className="underline text-2xl text-main-color mt-10" onClick={() => logout()}>თქვენი პროფილიდან გასასვლელად დააჭირეთ აქ.</p>
             </div>
         </div>
     );

@@ -10,6 +10,9 @@ const Header: React.FC = () => {
     const [menuOpen, setMenuOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
     const toggleMenu = () => setMenuOpen(!menuOpen);
+    const { user, logout } = useAuth()
+    const [onDropDown, setOnDrowDown] = useState(false)
+
     const { t } = useTranslation();
     const location = useLocation();  // Get the current route
     const { isAuthenticated } = useAuth();
@@ -63,9 +66,34 @@ const Header: React.FC = () => {
                     </Link>
                 ))}
                 <svg className='w-[20px] h-[20px] fill-white' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z" /></svg><Link to='tel:555294040' className='m-0 p-0 text-xl'>+995 555 29 40 40</Link>
-                {!isAuthenticated ? <Link to={'/login'} className='text-xl'>{t('login')}</Link> : <Link to={'/profile'}>
-                    <svg className='w-[20px] h-[20px] fill-white' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z" /></svg>
-                </Link>}
+                {isAuthenticated 
+                    ? 
+                    <div className='relative'>
+                        <button onClick={() => setOnDrowDown(!onDropDown)} className='text-xl'>
+                            <svg className='w-[20px] h-[20px] fill-white' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z" /></svg>
+                        </button> 
+                        {onDropDown && (
+                                <div className="absolute -right-0 z-50">
+                                    <div className="absolute right-0 w-56 mt-2 origin-top-right bg-white border border-gray-200 divide-y divide-gray-100 rounded-md shadow-lg outline-none">
+                                        <div className="px-4 py-3">         
+                                            <p className="text-sm text-gray-500 leading-5">{t("signed_in_as")}</p>
+                                            <p className="text-sm font-medium leading-5 text-gray-900 truncate">{user?.email}</p>
+                                        </div>
+                                        <div className="py-1">
+                                            <Link to={'/profile'} className="text-gray-700 flex justify-between w-full px-4 py-2 text-sm leading-5 text-left"  >{t("profile")}</Link>
+                                        </div>
+                                        <div className="py-1">
+                                            <button onClick={logout} className="text-gray-700 flex justify-between w-full px-4 py-2 text-sm leading-5 text-left"  >{t("logout")}</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            )}
+                    </div>
+                    :
+                    <Link to={'/login'} className='text-xl'>{t('login')}
+                    </Link>
+                }
+                
                 <LanguageDropdown isScrolled={isScrolled} isHomePage={isHomePage} />
             </div>
 
@@ -91,12 +119,33 @@ const Header: React.FC = () => {
                         ))}
                     </div>
 
-                    <div className='flex items-center'>
-                        <svg className='w-[15px] h-[15px] mr-2 fill-white' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z" /></svg><Link to='tel:555294040' className='m-0 p-0'>+995 555 29 40 40</Link>
-                    </div>
-                    {!isAuthenticated ? <Link to={'/login'} className='uppercase'>{t('login')}</Link> : <Link to={'/profile'}>
-                        <svg className='w-[20px] h-[20px] fill-white' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z" /></svg>
-                    </Link>}
+                    {isAuthenticated 
+                        ? 
+                        <div className='relative'>
+                            <button onClick={() => setOnDrowDown(!onDropDown)} className='text-xl'>
+                                <svg className='w-[20px] h-[20px] fill-white' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z" /></svg>
+                            </button> 
+                            {onDropDown && (
+                                <div className="absolute -right-0 z-50">
+                                    <div className="absolute right-0 w-56 mt-2 origin-top-right bg-white border border-gray-200 divide-y divide-gray-100 rounded-md shadow-lg outline-none">
+                                        <div className="px-4 py-3">         
+                                            <p className="text-sm text-gray-500 leading-5">{t("signed_in_as")}</p>
+                                            <p className="text-sm font-medium leading-5 text-gray-900 truncate">{user?.email}</p>
+                                        </div>
+                                        <div className="py-1">
+                                            <Link to={'/profile'} className="text-gray-700 flex justify-between w-full px-4 py-2 text-sm leading-5 text-left"  >{t("profile")}</Link>
+                                        </div>
+                                        <div className="py-1">
+                                            <button onClick={logout} className="text-gray-700 flex justify-between w-full px-4 py-2 text-sm leading-5 text-left"  >{t("logout")}</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            )}
+                        </div>
+                        :
+                        <Link to={'/login'} className='text-xl'>{t('login')}
+                        </Link>
+                    }
                     <LanguageDropdown isScrolled={isScrolled} isHomePage={isHomePage} />
                 </div>
             )}
