@@ -37,3 +37,11 @@ export type Customer = {
     lastname: string;
     email: string; // ISO date string format
 };
+
+export type SafeService = {
+    id: number
+    name: string
+    description: string
+    image: string
+    preview: string
+}
