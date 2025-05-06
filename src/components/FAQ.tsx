@@ -1,5 +1,7 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { axiosV2 } from '../utils/axios';
+import { SafeFaq } from 'types/apiTypes/types';
 
 const FaqAccordion = () => {
     const [openIndex, setOpenIndex] = useState<number | null>(null);
@@ -12,32 +14,19 @@ const FaqAccordion = () => {
         }
     };
 
-    const faqData = [
-        {
-            question: t("faqs_1"),
-            answer: t("faqs_1_answer"),
-        },
-        {
-            question: t("faqs_2"),
-            answer: t("faqs_2_answer"),
-        },
-        {
-            question: t("faqs_3"),
-            answer: t("faqs_3_answer"),
-        },
-        {
-            question: t("faqs_4"),
-            answer: t("faqs_4_answer"),
-        },
-        {
-            question: t("faqs_5"),
-            answer: t("faqs_5_answer")
-        },
-        {
-            question: t("faqs_6"),
-            answer: t("faqs_6_answer")
-        },
-    ];
+    const [faqs, setFaqs] = useState([])
+    const [loading, setLoading] = useState(false)
+
+     useEffect(() => {
+        setLoading(true)
+        axiosV2.get("/faq/view").then((res) => {
+            setFaqs(res.data)
+        }).catch((err) => {
+            console.log(err);  
+        }).finally(() => {
+            setLoading(false)
+        })
+    }, [])
 
     return (
         <section className="w-full h-full py-12 px-1 md:px-20">
@@ -45,7 +34,7 @@ const FaqAccordion = () => {
                 {t('faqs')}
             </h2>
             <div className="max-w-full mx-auto space-y-4">
-                {faqData.map((faq, index) => (
+                {loading ? skeletonItems : faqs.map((faq: SafeFaq, index) => (
                     <div
                         key={index}
                         className={`border-t-2 ${openIndex === index ? 'border-secondary-color' : 'border-main-color'}`}
@@ -68,26 +57,26 @@ const FaqAccordion = () => {
                             </span>
                         </div>
                         <div
-                            className={`overflow-hidden transition-all duration-300 ease-in-out ${openIndex === index
+                            className={`overflow-hidden pl-6 transition-all duration-300 ease-in-out ${openIndex === index
                                 ? 'max-h-[500px] opacity-100 py-4'
                                 : 'max-h-0 opacity-0 py-0'
                                 }`}
                         >
-                            <div className="flex items-center px-6">
-                                <span className="w-2 h-2 bg-secondary-color rounded-full"></span>
-                                <p
-                                    className="text-main-color ml-2"
-                                    dangerouslySetInnerHTML={{ __html: faq.answer }}
-                                />
-                            </div>
+                            <div className='' dangerouslySetInnerHTML={{ __html: faq.answer }}></div>
                         </div>
-                        {/* Add bottom line only for the last FAQ item */}
-                        {index === faqData.length - 1 && <div className="border-b-2 border-main-color"></div>}
+                        {index === faqs.length - 1 && <div className="border-b-2 border-main-color"></div>}
                     </div>
                 ))}
             </div>
         </section>
     );
 };
+
+const skeletonItems = new Array(4).fill(null).map((_, i) => (
+    <div key={i} className="border-t-2 border-gray-300 px-6 py-4 animate-pulse">
+      <div className="h-4 bg-gray-300 rounded w-3/4 mb-2"></div>
+      <div className="h-3 bg-gray-200 rounded w-5/6"></div>
+    </div>
+  ));
 
 export default FaqAccordion;

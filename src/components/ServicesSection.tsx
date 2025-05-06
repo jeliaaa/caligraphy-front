@@ -11,13 +11,17 @@ type Props = {};
 
 const ServicesSection = (props: Props) => {
     const { t } = useTranslation()
-        const [services, setServices] = useState([])
+    const [services, setServices] = useState([])
+    const [loading, setLoading] = useState(false)
 
     useEffect(() => {
+            setLoading(true)
             axiosV2.get("/service/view").then((res) => {
                 setServices(res.data)
             }).catch((err) => {
                 console.log(err);  
+            }).finally(() => {
+                setLoading(false)
             })
     }, [])
 
@@ -28,7 +32,7 @@ const ServicesSection = (props: Props) => {
                 {t("services")}
             </div>
             <div className='flex flex-wrap md:flex-row flex-col gap-y-5 items-center justify-around w-full'>
-                {services.map((service: SafeService) => (
+                {loading ? skeletonCards : services.map((service: SafeService) => (
                     <Link
                     className="relative shadow-lg md:shadow-none cursor-custom odd:self-start even:self-end flex even:flex-row-reverse items-center 
                                justify-center rounded-lg lg:border-2 border-grayish h-[250px] w-full md:w-[30%] 
@@ -63,5 +67,17 @@ const ServicesSection = (props: Props) => {
         </div>
     );
 };
+
+const skeletonCards = new Array(3).fill(null).map((_, i) => (
+    <div
+      key={i}
+      className="relative shadow-lg md:shadow-none cursor-default flex items-center justify-center rounded-lg lg:border-2 border-grayish h-[250px] w-full md:w-[30%] animate-pulse bg-gray-200"
+    >
+      <div className='w-2/4 relative h-full md:w-full bg-gray-300 rounded-lg'></div>
+      <span className='text-gray-400 md:absolute px-4 md:px-14 p-2 w-2/4 md:w-full text-center text-2xl'>
+        &nbsp;
+      </span>
+    </div>
+  ));
 
 export default ServicesSection;

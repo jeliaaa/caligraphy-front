@@ -1,39 +1,28 @@
-// import tornike from "../assets/photos/ფოტომასალაა/თორნიკეჭაღალიძე.jpg"
-import dato from "../assets/photos/დავითჭაღალიძე.jpg"
-import mirza from "../assets/photos/მირზაჭაღალიძე.jpg"
-import dato2 from "../assets/photos/დათოგოგიაშვილი.jpg"
-import natia from "../assets/photos/ნათიათოიძე.jpeg"
-import natia2 from "../assets/photos/ნათიაჩავლეიშვილი.jpg"
-import sofio from "../assets/photos/სოფიოშილაძე.jpg"
-import beso from "../assets/photos/ბესომახაჭაძე.jpg"
-import zviad from "../assets/photos/ზვიადბოლქვაძე.jpg"
-import nika from "../assets/photos/ნიკაჯიჯავაძე.jpg"
 import { Autoplay, Navigation } from "swiper/modules"
 import { Swiper, SwiperSlide } from "swiper/react"
 import { useTranslation } from "react-i18next"
 import { useEffect, useState } from "react"
+import { axiosV2 } from "../utils/axios"
+import { SafeTeam } from "types/apiTypes/types"
 
 
 
-
-const teamMembers = [
-    // { name: "თორნიკე ჭაღალიძე", role: "ფინანსური დირექტორი", imgUrl: tornike },
-    { contact: true, name: "teamMember1", role: "teamMember1Role", imgUrl: dato },
-    { contact: true, name: "teamMember2", role: "teamMember2Role", imgUrl: mirza },
-    { contact: true, name: "teamMember3", role: "teamMember3Role", imgUrl: dato2 },
-    { contact: true, name: "teamMember4", role: "teamMember4Role", imgUrl: natia },
-    { contact: true, name: "teamMember5", role: "teamMember5Role", imgUrl: natia2 },
-    { contact: false, name: "teamMember6", role: "teamMember6Role", imgUrl: sofio },
-    // { name: "რუსლან ჭაღალიძე", role: "შესყიდვების მენეჯერი", imgUrl: "https://picsum.photos/100" },
-    // { name: "ნინო აროშიძე", role: "ოფის მენეჯერი", imgUrl: "" },
-    { contact: false, name: "teamMember7", role: "teamMember7Role", imgUrl: beso },
-    { contact: false, name: "teamMember8", role: "teamMember8Role", imgUrl: nika },
-    { contact: false, name: "teamMember9", role: "teamMember9Role", imgUrl: zviad },
-
-];
 const TeamSlider: React.FC<{ slider: boolean }> = ({ slider }) => {
     const { t } = useTranslation();
     const [isPaginationEnabled, setIsPaginationEnabled] = useState(window.innerWidth < 640);
+    const [team, setTeam] = useState([])
+    const [loading, setLoading] = useState(false)
+
+    useEffect(() => {
+            setLoading(true)
+            axiosV2.get("/team/view").then((res) => {
+                setTeam(res.data)
+            }).catch((err) => {
+                console.log(err);  
+            }).finally(() => {
+                setLoading(false)
+            })
+    }, [])
 
     useEffect(() => {
         const handleResize = () => {
@@ -63,12 +52,18 @@ const TeamSlider: React.FC<{ slider: boolean }> = ({ slider }) => {
                 }}
                 className="w-full"
             >
-                {teamMembers.map((member, index) => (
+                {loading ? 
+                    skeletons.map((_, i) => (
+                        <SwiperSlide key={i}>
+                            {skeletons[i]}
+                        </SwiperSlide>
+                    ))
+                    :team.map((member: SafeTeam, index) => (
                     <SwiperSlide key={index}>
                         <div className="relative rounded-lg h-full overflow-hidden hover:shadow-lg flex flex-col group justify-between duration-300">
                             <img
                                 loading="lazy"
-                                src={member.imgUrl}
+                                src={`${process.env.REACT_APP_URL}/${member.image}`}
                                 alt={member.name}
                                 className="w-full h-[400px] md:h-[500px] object-cover object-top transition-all duration-300"
                             />
@@ -77,7 +72,7 @@ const TeamSlider: React.FC<{ slider: boolean }> = ({ slider }) => {
                 group-hover:opacity-100 group-hover:translate-y-0 
                 transition-all duration-300 ease-in-out">
                                 <h3 className="text-lg md:text-xl font-semibold text-gray-800">{t(member.name)}</h3>
-                                <p className="text-sm md:text-base text-gray-600">{t(member.role)}</p>
+                                <p className="text-sm md:text-base text-gray-600">{t(member.position)}</p>
                             </div>
                         </div>
                     </SwiperSlide>
@@ -85,23 +80,40 @@ const TeamSlider: React.FC<{ slider: boolean }> = ({ slider }) => {
                 ))}
             </Swiper> :
                 <div className="flex flex-wrap pb-10 gap-6 justify-center">
-                    {teamMembers.map((member, index) => (
-                        <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg w-80 flex flex-col justify-between transition-shadow duration-300">
-                            <img src={member.imgUrl} alt={member.name} className="w-full h-60 object-cover object-top" />
-                            <div className="p-4 flex-1">
-                                <h3 className="text-xl font-semibold text-gray-800">{t(member.name)}</h3>
-                                <p className="text-gray-600">{t(member.role)}</p>
+                    {loading ? 
+                        skeletons.map((_, i) => (
+                            skeletons[i]
+                        )) : 
+                        team.map((member: SafeTeam, index) => (
+                            <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg w-80 flex flex-col justify-between transition-shadow duration-300">
+                                <img src={`${process.env.REACT_APP_URL}/${member.image}`} alt={member.name} className="w-full h-60 object-cover object-top" />
+                                <div className="p-4 flex-1">
+                                    <h3 className="text-xl font-semibold text-gray-800">{t(member.name)}</h3>
+                                    <p className="text-gray-600">{t(member.position)}</p>
+                                </div>
+                                {/* <div className="p-4 flex justify-center bg-main-color">
+                                    {member.contact && <a href={`mailto:${member.name}@example.com`} className="text-white">კონტაქტი</a>}
+                                </div> */}
                             </div>
-                            {/* <div className="p-4 flex justify-center bg-main-color">
-                                {member.contact && <a href={`mailto:${member.name}@example.com`} className="text-white">კონტაქტი</a>}
-                            </div> */}
-                        </div>
-                    ))}
+                        ))}
                 </div>
             }
         </div>
     );
 };
+
+const skeletons = new Array(5).fill(null).map((_, i) => (
+    <div
+      key={i}
+      className="bg-gray-200 animate-pulse rounded-lg w-80 h-[500px] flex flex-col justify-end overflow-hidden"
+    >
+      <div className="w-full h-3/4 bg-gray-300" />
+      <div className="p-4">
+        <div className="h-5 w-3/4 bg-gray-400 rounded mb-2" />
+        <div className="h-4 w-1/2 bg-gray-300 rounded" />
+      </div>
+    </div>
+  ));
 
 export default TeamSlider;
 

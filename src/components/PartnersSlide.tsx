@@ -1,31 +1,28 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-import { Autoplay, Navigation, Pagination } from 'swiper/modules';
-import gorgia from "../assets/partners/WhatsApp Image 2025-02-28 at 17.11.31_48f5575f.jpg";
-import axalinateba from "../assets/partners/WhatsApp Image 2025-02-28 at 17.11.31_c9c292c2.jpg";
-import nova from "../assets/partners/WhatsApp Image 2025-02-28 at 17.11.32_1adbdab9.jpg";
-import ideal from "../assets/partners/WhatsApp Image 2025-02-28 at 17.11.32_cd6db0c0.jpg";
-import modusi from "../assets/partners/WhatsApp Image 2025-02-28 at 17.11.32_d8a6cafc.jpg";
-import jaoken from "../assets/partners/WhatsApp Image 2025-02-28 at 17.11.33_fb791d1d.jpg";
-import luso from "../assets/partners/WhatsApp Image 2025-02-28 at 18.39.27_f92482ae.jpg";
-import grata from "../assets/partners/WhatsApp Image 2025-02-28 at 18.39.36_97d3ff3b.jpg";
-
+import { Autoplay, Pagination } from 'swiper/modules';
 import { useTranslation } from 'react-i18next';
 import { useEffect, useState } from 'react';
+import { axiosV2 } from '../utils/axios';
+import { SafePartner } from 'types/apiTypes/types';
+import clsx from 'clsx';
 
 const PartnersSlide = () => {
     const { t } = useTranslation();
-    const partners = [
-        { name: "partner1", image: gorgia },
-        { name: "partner2", image: modusi },
-        { name: "partner3", image: nova },
-        { name: "partner4", image: ideal },
-        { name: "partner5", image: jaoken },
-        { name: "partner6", image: grata },
-        { name: "partner7", image: axalinateba },
-        { name: "partner8", image: luso }
-    ];
     const [isPaginationEnabled, setIsPaginationEnabled] = useState(window.innerWidth < 640);
+    const [loading, setLoading] = useState(false)
+    const [partners, setPartners] = useState([])
+
+    useEffect(() => {
+            setLoading(true)
+            axiosV2.get("/partner/view").then((res) => {
+                setPartners(res.data)
+            }).catch((err) => {
+                console.log(err);  
+            }).finally(() => {
+                setLoading(false)
+            })
+    }, [])
 
     useEffect(() => {
         const handleResize = () => {
@@ -42,9 +39,9 @@ const PartnersSlide = () => {
                 {t("partners")}
             </div>
             <div className="hidden xl:flex flex-wrap gap-x-5 justify-between w-full">
-                {partners.map((partner, index) => (
+                {loading ? skeletonItems : partners.map((partner: SafePartner, index) => (
                     <div key={index} className="mt-8 flex-col p-4 rounded-xl flex items-center">
-                        <img src={partner.image} alt={partner.name} className="h-16" />
+                        <img src={`${process.env.REACT_APP_URL}/${partner.logo}`} alt={partner.name} className="h-16" />
                         <span className='text-main-color mt-5'>{t(partner.name)}</span>
                     </div>
                 ))}
@@ -62,12 +59,18 @@ const PartnersSlide = () => {
                     autoplay={{ delay: 3000 }}
                     pagination={!isPaginationEnabled ? { clickable: true } : false}
                     modules={[Pagination, Autoplay]}
-                    className='w-full py-2'
+                    className={clsx(
+                        'w-full py-2',
+                        !loading && "flex"
+                    )}
                 >
-                    {partners.map((partner, index) => (
+                    {loading ? 
+                    skeletonItems
+                    : 
+                    partners.map((partner: SafePartner, index) => (
                         <SwiperSlide key={index}>
                             <div className="flex-col p-4 rounded-lg shadow-top-lg flex justify-center items-center">
-                                <img src={partner.image} alt={partner.name} className="h-16" />
+                                <img src={`${process.env.REACT_APP_URL}/${partner.logo}`} alt={partner.name} className="h-16" />
                                 <span className='text-main-color mt-5'>{t(partner.name)}</span>
                             </div>
                         </SwiperSlide>
@@ -77,5 +80,12 @@ const PartnersSlide = () => {
         </div>
     );
 };
+
+const skeletonItems = new Array(6).fill(null).map((_, i) => (
+    <div key={i} className="mt-8 flex-col p-4 rounded-xl flex items-center animate-pulse">
+      <div className="bg-gray-300 h-16 w-32 rounded" />
+      <div className="bg-gray-300 h-4 w-24 mt-5 rounded" />
+    </div>
+  ));
 
 export default PartnersSlide;

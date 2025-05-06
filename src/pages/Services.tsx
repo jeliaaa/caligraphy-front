@@ -12,18 +12,23 @@ import clsx from 'clsx';
 const Services = () => {
     const { t } = useTranslation()
     const [services, setServices] = useState([])
+    const [loading, setLoading] = useState(false)
 
     useEffect(() => {
+        setLoading(true)
         axiosV2.get("/service/view").then((res) => {
             setServices(res.data)
         }).catch((err) => {
             console.log(err);  
+        }).finally(() => {
+            setLoading(false)
         })
     }, [])
+    console.log(loading)
 
     return (
         <div className='flex max-w-full items-center flex-col md:flex-row justify-between py-2 md:h-[80dvh]'>
-            {services.map((service: SafeService, index: number) => (
+            {loading ? SkeletonItems : services.map((service: SafeService, index: number) => (
                     <>
                         <Link
                             to={service.id.toString()}
@@ -70,5 +75,13 @@ const Services = () => {
         </div>
     );
 }
+
+
+const SkeletonItems = new Array(3).fill(null).map((_, index) => (
+    <div
+        key={index}
+        className="flex-1 h-24 md:h-full animate-pulse bg-gray-300 rounded-md mx-2 md:flex hidden"
+    />
+));
 
 export default Services;

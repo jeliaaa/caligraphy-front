@@ -77,72 +77,66 @@ import image1 from "../assets/photos/bathroom-kitchen-remodel-plano-texas-dfw-im
 import image2 from "../assets/photos/home_remodeling_myths.jpg";
 import image3 from "../assets/photos/images3.jpg";
 import image4 from "../assets/photos/karkasi.jpeg";
+import { useEffect, useState } from "react";
+import { axiosV2 } from "../utils/axios";
+import { SafeAdvantage } from "types/apiTypes/types";
+import clsx from "clsx";
 
 const ServiceBenefits = () => {
     const { t } = useTranslation()
+    const [advantages, setAdvantages] = useState<SafeAdvantage[]>([])
+    const [loading, setLoading] = useState(false)
+
+    useEffect(() => {
+        setLoading(true)
+        axiosV2.get("/advantage/view").then((res) => {
+            setAdvantages(res.data)
+        }).catch((err) => {
+            console.log(err);  
+        }).finally(() => {
+            setLoading(false)
+        })
+    }, [])
+
+    console.log(advantages)
     return (
         <div className="w-full bg-grayish py-5">
             <div className="h-[100px] flex items-center text-main-color justify-center">
                 <h1 className="uppercase m-0 mb-4 text-3xl text-center">{t("advantages_title")}</h1>
             </div>
-
-            {/* First Section */}
-            <div className="flex gap-y-10 md:flex-row flex-col-reverse items-center justify-between">
-                <div className="w-full md:w-1/2">
-                    <img src={image1} alt={t("all_services_in_one_place")} className="w-full h-full object-cover shadow-lg" />
-                </div>
-                <div className="w-full md:w-1/2 flex flex-col justify-center px-10">
-                    <div className="md:bg-main-color md:rounded-full md:z-10 text-main-color md:text-grayish border-4 border-main-color py-5 px-5 md:px-20 mb-10 md:text-2xl text-center">{t("all_services_in_one_place")}</div>
-                    <p className="text-xl text-main-color mb-6">
-                        {t("all_services_in_one_place_description")}
-                    </p>
-                </div>
-            </div>
-
-            {/* Second Section */}
-            <div className="flex mt-5 gap-y-10 md:mt-0 md:flex-row flex-col items-center justify-between">
-                <div className="w-full md:w-1/2 flex flex-col justify-center px-10">
-                    <div className="md:bg-main-color md:rounded-full md:z-10 text-main-color md:text-grayish border-4 border-main-color py-5 px-5 md:px-20 mb-10 md:text-2xl text-center">{t("affordable_prices")}</div>
-
-                    <p className="text-xl text-main-color mb-6">
-                        {t("affordable_prices_description")}
-                    </p>
-                </div>
-                <div className="w-full md:w-1/2">
-                    <img src={image2} alt={t("affordable_prices")} className="w-full h-full object-cover shadow-lg" />
-                </div>
-            </div>
-
-            {/* Third Section */}
-            <div className="flex mt-5 gap-y-10 md:mt-0 md:flex-row flex-col-reverse items-center justify-between">
-                <div className="w-full md:w-1/2">
-                    <img src={image3} alt={t("fast_and_efficient_work")} className="w-full h-full object-cover shadow-lg" />
-                </div>
-                <div className="w-full md:w-1/2 flex flex-col justify-center px-10">
-                    <div className="md:bg-main-color md:rounded-full md:z-10 text-main-color md:text-grayish border-4 border-main-color py-5 px-5 md:px-20 mb-10 md:text-2xl text-center">{t("fast_and_efficient_work")}</div>
-
-                    <p className="text-xl text-main-color mb-6">
-                        {t("fast_and_efficient_work_description")}
-                    </p>
-                </div>
-            </div>
-
-            {/* Fourth Section */}
-            <div className="flex mt-5 gap-y-10 md:mt-0 md:flex-row flex-col items-center justify-between">
-                <div className="w-full md:w-1/2 flex flex-col justify-center px-10">
-                    <div className="md:bg-main-color md:rounded-full md:z-10 text-main-color md:text-grayish border-4 border-main-color py-5 px-5 md:px-20 mb-10 md:text-2xl text-center">{t("addictional_benefits")}</div>
-
-                    <p className="text-xl text-main-color mb-6">
-                        ●	{t("addictional_benefits_0")} <br />
-                        ●	{t("addictional_benefits_1")} <br />
-                        ●	{t("addictional_benefits_2")} <br />
-                    </p>
-                </div>
-                <div className="w-full md:w-1/2">
-                    <img src={image4} alt="დამატებითი სარგებელი" className="w-full h-full object-cover shadow-lg" />
-                </div>
+            <div className="flex flex-col gap-5">
+                {loading ? skeleton : advantages.map((advantage: SafeAdvantage, i) => (
+                    <div key={i} className={clsx(
+                        "flex gap-y-10 flex-col-reverse items-center justify-between",
+                        i % 2 != 0 ? "md:flex-row-reverse" : "md:flex-row"
+                    )}>
+                        <div className="w-full md:w-1/2">
+                            <img src={`${process.env.REACT_APP_URL}/${advantage.image}`} alt={advantage.title} className="w-full h-full object-cover shadow-lg" />
+                        </div>
+                        <div className="w-full md:w-1/2 flex flex-col justify-center px-10">
+                            <div className="md:bg-main-color md:rounded-full md:z-10 text-main-color md:text-grayish border-4 border-main-color py-5 px-5 md:px-20 mb-10 md:text-2xl text-center">{advantage.title}</div>
+                            <div dangerouslySetInnerHTML={{ __html: advantage?.description }}></div>
+                        </div>
+                    </div>
+                ))}
             </div>
         </div>
     )
 }
+
+
+const skeleton = new Array(5).fill(null).map((_, i) => (
+    <div key={i} className={clsx(
+        "flex flex-col-reverse gap-5 animate-pulse",
+        i % 2 !== 0 ? "md:flex-row-reverse" : "md:flex-row"
+    )}>
+        <div className="w-full md:w-1/2 h-[600px] bg-gray-300 rounded-lg" />
+        <div className="w-full md:w-1/2 flex flex-col justify-center gap-5 px-10">
+            <div className="h-14 w-2/3 bg-main-color self-center rounded-full" />
+            <div className="h-4 w-full bg-gray-300 rounded" />
+            <div className="h-4 w-3/4 bg-gray-300 rounded" />
+            <div className="h-4 w-5/6 bg-gray-300 rounded" />
+        </div>
+    </div>
+))
 export default ServiceBenefits;

@@ -45,3 +45,29 @@ export type SafeService = {
     image: string
     preview: string
 }
+
+export type SafeTeam = {
+    id: number
+    name: string
+    position: string
+    image: string
+}
+
+export type SafePartner = {
+    id: number
+    logo: string
+    name: string
+}
+
+export type SafeFaq = {
+    id: number
+    question: string
+    answer: string
+}
+
+export type SafeAdvantage = {
+    id: number
+    title: string
+    description: string
+    image: string
+}

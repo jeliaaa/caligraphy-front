@@ -13,13 +13,16 @@ import clsx from "clsx";
 const ServcicesSingle = () => {
     const { id } = useParams();
     const [services, setServices] = useState([])
-    
+    const [loading, setLoading] = useState(false)
 
     useEffect(() => {
+        setLoading(true)
         axiosV2.get("/service/view").then((res) => {
             setServices(res.data)
         }).catch((err) => {
             console.log(err);  
+        }).finally(() => {
+            setLoading(false)
         })
     }, [])
 
@@ -45,7 +48,7 @@ const ServcicesSingle = () => {
                         <h1 className="uppercase m-0 mb-4 text-3xl text-center">{t("services")}</h1>
             </div>
             <div className="flex flex-col gap-10">
-                {services.map((service: SafeService, i: number) => (
+                {loading ? skeletonServices : services.map((service: SafeService, i: number) => (
                     <Element name={service?.id.toString()}>
                         <div className={clsx(
                             "flex gap-y-10 justify-between",
@@ -74,5 +77,20 @@ const ServcicesSingle = () => {
         </div>
     );
 };
+
+const skeletonServices = new Array(3).fill(null).map((_, i) => (
+    <div key={i} className={clsx(
+        "flex gap-y-10 justify-between animate-pulse",
+        i % 2 !== 0 ? "md:flex-row-reverse" : "md:flex-row"
+    )}>
+        <div className="w-2/4 aspect-video bg-gray-300 hidden md:block rounded-lg" />
+        <div className="w-full md:w-1/2 flex flex-col justify-start px-10 py-5 gap-5">
+            <div className="h-12 bg-gray-300 rounded-full w-2/3" />
+            <div className="w-full aspect-video bg-gray-300 md:hidden rounded-lg" />
+            <div className="h-6 bg-gray-300 w-1/3 rounded" />
+            <div className="h-24 bg-gray-300 w-full rounded" />
+        </div>
+    </div>
+));
 
 export default ServcicesSingle;
