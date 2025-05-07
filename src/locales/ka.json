@@ -181,5 +181,16 @@
     "not_found": "ვერ მოიძებნა",
     "back": "უკან",
     "stages": "ეტაპები",
-    "noSuchStages": "ეტაპები ვერ მოიძებნა"
+    "noSuchStages": "ეტაპები ვერ მოიძებნა",
+    "resetLinkSent": "პაროლის აღდგენის ბმული გამოიგზავნა თქვენს ელ-ფოსტაზე.",
+  "requestReset": "პაროლის აღდგენა",
+  "passwordResetSuccess": "თქვენი პაროლი წარმატებით განახლდა!",
+  "passwordMinLength": "პაროლი უნდა იყოს მინიმუმ 8 სიმბოლო",
+  "unknownError": "დაფიქსირდა გაუთვალისწინებელი შეცდომა",
+  "newPassword": "ახალი პაროლი",
+  "enterNewPassword": "შეიყვანეთ თქვენი ახალი პაროლი",
+  "repeatPassword": "გამეორეთ პაროლი",
+  "confirmNewPassword": "დაადასტურეთ თქვენი ახალი პაროლი",
+  "resetPassword": "პაროლის აღდგენა",
+  "passwordsDontMatch": "პაროლები არ ემთხვევა"
 }

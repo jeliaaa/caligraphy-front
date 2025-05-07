@@ -20,6 +20,8 @@ import ProjectSingle from './pages/ProjectSingle';
 import { useAuth } from './context/AuthContext';
 import ClientOnly from './components/ClientOnly';
 import Loader from './components/Loader';
+import ResetPassword from './pages/ResetPassword';
+import RequestReset from './pages/RequestReset';
 
 const App = () => {
   const location = useLocation();
@@ -59,6 +61,8 @@ const App = () => {
           <Route path='/calculate' element={<PriceCalculator />} />
           <Route path='/profile' element={<ClientOnly><Profile /></ClientOnly>} />
           <Route path='/profile/:id' element={<ClientOnly><ProjectSingle /></ClientOnly>} />
+          <Route path='/request-reset-password' element={<RequestReset />} />
+          <Route path='/reset-password/:token' element={<ResetPassword />} />
         </Routes>
       </div>
 

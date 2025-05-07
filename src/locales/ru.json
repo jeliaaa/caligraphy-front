@@ -181,5 +181,16 @@
     "not_found": "Не найдено",
     "back": "Назад",
     "stages": "Этапы",
-    "noSuchStages": "Этапы не найдены"
+    "noSuchStages": "Этапы не найдены",
+    "resetLinkSent": "Ссылка для сброса пароля была отправлена на ваш email.",
+  "requestReset": "Запросить сброс пароля",
+  "passwordResetSuccess": "Ваш пароль был успешно сброшен!",
+  "passwordMinLength": "Пароль должен быть не менее 8 символов",
+  "unknownError": "Произошла непредвиденная ошибка",
+  "newPassword": "Новый пароль",
+  "enterNewPassword": "Введите новый пароль",
+  "repeatPassword": "Повторите пароль",
+  "confirmNewPassword": "Подтвердите новый пароль",
+  "resetPassword": "Сбросить пароль",
+  "passwordsDontMatch": "Пароли не совпадают"
 }

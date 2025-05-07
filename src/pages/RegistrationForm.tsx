@@ -132,7 +132,7 @@ const RegistrationForm = () => {
 
                 <div>
                     <button className="bg-main-color text-grayish p-5 w-full" type='submit'>
-                        {t("register")}
+                        {t("registration")}
                     </button>
                 </div>
             </form>
