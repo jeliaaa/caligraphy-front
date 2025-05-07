@@ -178,5 +178,8 @@
     "images_not_found": "სურათები ვერ მოიძებნა",
     "service_not_selected_0": "სერვისი არ არის მითითებული!",
     "service_not_selected_1": "დაელოდეთ პრარაბს",
-    "not_found": "ვერ მოიძებნა"
+    "not_found": "ვერ მოიძებნა",
+    "back": "უკან",
+    "stages": "ეტაპები",
+    "noSuchStages": "ეტაპები ვერ მოიძებნა"
 }

@@ -6,6 +6,7 @@ import { fetchStage } from '../../redux/thunks/stagesThunk'
 import StageCard from './StageCard'
 import StageCardSkeleton from './StageCardSkeleton'
 import useStageModal from '../../hooks/useStageModal'
+import { useTranslation } from 'react-i18next'
 
 interface StageFeedProps {
     serviceId: number | undefined
@@ -18,6 +19,7 @@ function StageFeed({
     const dispatch = useDispatch<AppDispatch>()
     const { onOpen, setData } = useStageModal()
     const loading = useMemo(() => status === 'loading', [status]);
+    const { t } = useTranslation();
 
     const progress = useMemo(() => {
         if (!data || data.length === 0) return 0
@@ -26,7 +28,7 @@ function StageFeed({
     }, [data])
 
     useEffect(() => {
-        if(serviceId){
+        if (serviceId) {
             dispatch(fetchStage(serviceId))
         }
     }, [serviceId])
@@ -42,31 +44,31 @@ function StageFeed({
                     <div
                         className="bg-[#4c583e] h-full transition-all duration-300"
                         style={{ width: `${progress}%` }}
-                    /> 
+                    />
                 </div>
             </div>
-            <h2 className='px-6 text-[#4c583e] rounded-lg font-semibold py-2 bg-white w-fit'>Stages</h2>
+            <h2 className='px-6 text-[#4c583e] rounded-lg font-semibold py-2 bg-white w-fit'>{t('stages')}</h2>
             <div className={clsx(
                 'grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-5 w-full',
                 data?.length !== 0 ? "grid" : "flex justify-center py-5"
             )}>
                 {loading ? (
                     [...Array(4)].map((_, i) => (
-                        <StageCardSkeleton key={i}/>
+                        <StageCardSkeleton key={i} />
                     ))
                 ) : (
-                data.length !== 0 ?
-                (
-                    data?.map((stage) => (
-                        <StageCard onSelectStage={() => {
-                            setData(stage)
-                            onOpen()
-                        }} key={stage.id} {...stage}/>
-                    ))
-                )
-                : (
-                    <h2 className='text-xl text-[#4c583e] font-semibold'>No Such Stages</h2>
-                )
+                    data.length !== 0 ?
+                        (
+                            data?.map((stage) => (
+                                <StageCard onSelectStage={() => {
+                                    setData(stage)
+                                    onOpen()
+                                }} key={stage.id} {...stage} />
+                            ))
+                        )
+                        : (
+                            <h2 className='text-xl text-[#4c583e] font-semibold'>{t('noSuchStages')}</h2>
+                        )
                 )}
             </div>
         </div>

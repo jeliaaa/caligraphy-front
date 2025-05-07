@@ -178,5 +178,8 @@
     "images_not_found": "Изображения не найдены",
     "service_not_selected_0": "Сервис не указан!",
     "service_not_selected_1": "Подождите прораба",
-    "not_found": "Не найдено"
+    "not_found": "Не найдено",
+    "back": "Назад",
+    "stages": "Этапы",
+    "noSuchStages": "Этапы не найдены"
 }

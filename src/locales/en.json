@@ -177,5 +177,8 @@
     "images_not_found": "Images not found",
     "service_not_selected_0": "Service not selected!",
     "service_not_selected_1": "Please Wait Supervisor",
-    "not_found": "Not Found"
+    "not_found": "Not Found",
+    "back": "Back",
+    "stages": "Stages",
+    "noSuchStages": "No such stages"
 }

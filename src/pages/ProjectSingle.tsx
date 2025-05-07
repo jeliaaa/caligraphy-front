@@ -33,7 +33,7 @@ const ProjectSingle = () => {
             <div className="flex items-center gap-1 md:gap-5">
                 <div className="w-full md:w-2/5 flex justify-start items-center">
                     <Link className="px-6 py-2 font-semibold text-[#daded8] bg-[#4c583e] rounded-xl" to={'/profile'}>
-                        Back
+                        {t("back")}
                     </Link>
                 </div>
                 <div className="w-full md:w-1/5 flex justify-center items-center">
