@@ -17,31 +17,6 @@ const ChangePassword = () => {
     const [errorMessage, setErrorMessage] = useState("");
     const { t } = useTranslation();
 
-    const verifyPassword = async () => {
-        setLoading(true);
-        setErrorMessage("");
-
-        try {
-            const currentPassword = watch("currentPassword");
-            if (!currentPassword) {
-                setErrorMessage(t("currentPasswordRequired"));
-                return;
-            }
-
-            const res = await axiosV3.post("/customer/verify-password", { password: currentPassword });
-
-            if (res.data.success) {
-                setIsVerified(true);
-            } else {
-                setErrorMessage(t("incorrectPassword"));
-            }
-        } catch (error) {
-            setErrorMessage(error instanceof Error ? error.message : t("unknownError"));
-        } finally {
-            setLoading(false);
-        }
-    };
-
     const onSubmit: SubmitHandler<IChangeForm> = async (data) => {
         setLoading(true);
         setSuccessMessage("");
@@ -51,12 +26,14 @@ const ChangePassword = () => {
             if (data.newPassword.length < 8) throw new Error(t("passwordMinLength"));
 
             await axiosV3.post("/customer/change-password", {
-                newPassword: data.newPassword,
+                prev_password: data.currentPassword,
+                new_password: data.newPassword,
             });
 
             setSuccessMessage(t("passwordChanged"));
-        } catch (error) {
-            setErrorMessage(error instanceof Error ? error.message : t("unknownError"));
+        } catch (error: any) {
+            setErrorMessage("Credentials is incorrect");
+            // || t("unknownError")
         } finally {
             setLoading(false);
         }
@@ -82,46 +59,32 @@ const ChangePassword = () => {
                 {errors.currentPassword && (
                     <span className="text-red-700 text-sm mt-2">* {t("currentPasswordRequired")}</span>
                 )}
+                <Controller
+                    name="newPassword"
+                    control={control}
+                    rules={{ required: true }}
+                    render={({ field }) => (
+                        <Input
+                            {...field}
+                            label={t("newPassword")}
+                            type="password"
+                            placeholder={t("enterNewPassword")}
+                        />
+                    )}
+                />
+                {errors.newPassword && (
+                    <span className="text-red-700 text-sm mt-2">* {t("passwordMinLength")}</span>
+                )}
 
                 <div>
                     <button
-                        type="button"
-                        onClick={verifyPassword}
+                        type="submit"
                         className="bg-main-color text-white w-full p-3 rounded hover:bg-main-color/25 disabled:opacity-50"
                         disabled={loading}
                     >
-                        {loading ? t("verifying") + "..." : t("verifyCurrentPassword")}
+                        {t("changePassword")}
                     </button>
                 </div>
-
-                {/* NEW PASSWORD */}
-                {isVerified && (
-                    <>
-                        <Controller
-                            name="newPassword"
-                            control={control}
-                            rules={{ required: true, minLength: 8 }}
-                            render={({ field }) => (
-                                <Input
-                                    {...field}
-                                    label={t("newPassword")}
-                                    type="password"
-                                    placeholder={t("enterNewPassword")}
-                                />
-                            )}
-                        />
-                        {errors.newPassword && (
-                            <span className="text-red-700 text-sm mt-2">* {t("passwordMinLength")}</span>
-                        )}
-
-                        <div>
-                            <button className="bg-main-color text-grayish p-5 w-full" type="submit" disabled={loading}>
-                                {loading && <span className="loading loading-spinner"></span>}
-                                {t("changePassword")}
-                            </button>
-                        </div>
-                    </>
-                )}
 
                 {successMessage && <p className="text-green-600 mt-2">{successMessage}</p>}
                 {errorMessage && <p className="text-red-600 mt-2">{errorMessage}</p>}
