@@ -191,5 +191,13 @@
     "repeatPassword": "Repeat Password",
     "confirmNewPassword": "Confirm your new password",
     "resetPassword": "Reset Password",
-    "passwordsDontMatch": "Passwords do not match"
+    "passwordsDontMatch": "Passwords do not match",
+    "changePassword": "Change Password",
+    "forgotPass": "Forgot Password?",
+    "currentPassword": "Current Password",
+    "enterCurrentPassword": "Enter your current password",
+    "verifyCurrentPassword": "Verify Current Password",
+    "verifying": "Verifying",
+    "incorrectPassword": "Incorrect current password",
+    "currentPasswordRequired": "Current password is required"
 }

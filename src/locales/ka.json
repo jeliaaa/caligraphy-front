@@ -192,5 +192,13 @@
   "repeatPassword": "გამეორეთ პაროლი",
   "confirmNewPassword": "დაადასტურეთ თქვენი ახალი პაროლი",
   "resetPassword": "პაროლის აღდგენა",
-  "passwordsDontMatch": "პაროლები არ ემთხვევა"
+  "passwordsDontMatch": "პაროლები არ ემთხვევა",
+  "changePassword": "პაროლის შეცვლა",
+  "forgotPass": "დაგავიწყდა პაროლი?",
+  "currentPassword": "ახლანდელი პაროლი",
+  "enterCurrentPassword": "შეიყვანეთ მიმდინარე პაროლი",
+  "verifyCurrentPassword": "დაადასტურე მიმდინარე პაროლი",
+  "verifying": "ამოწმება",
+  "incorrectPassword": "მიმდინარე პაროლი არასწორია",
+  "currentPasswordRequired": "მიმდინარე პაროლი სავალდებულოა"
 }

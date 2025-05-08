@@ -22,6 +22,7 @@ import ClientOnly from './components/ClientOnly';
 import Loader from './components/Loader';
 import ResetPassword from './pages/ResetPassword';
 import RequestReset from './pages/RequestReset';
+import ChangePassword from './pages/ChangePassword';
 
 const App = () => {
   const location = useLocation();
@@ -63,6 +64,7 @@ const App = () => {
           <Route path='/profile/:id' element={<ClientOnly><ProjectSingle /></ClientOnly>} />
           <Route path='/request-reset-password' element={<RequestReset />} />
           <Route path='/reset-password/:token' element={<ResetPassword />} />
+          <Route path='/change-password' element={<ClientOnly><ChangePassword /></ClientOnly>} />
         </Routes>
       </div>
 

@@ -82,6 +82,9 @@ const Header: React.FC = () => {
                                         <div className="py-1">
                                             <Link to={'/profile'} className="text-gray-700 flex justify-between w-full px-4 py-2 text-sm leading-5 text-left"  >{t("profile")}</Link>
                                         </div>
+                                        <div className='py-1'>
+                                            <Link to={'/change-password'} className="text-gray-700 flex justify-between w-full px-4 py-2 text-sm leading-5 text-left"  >{t("changePassword")}</Link>   
+                                        </div>
                                         <div className="py-1">
                                             <button onClick={logout} className="text-gray-700 flex justify-between w-full px-4 py-2 text-sm leading-5 text-left"  >{t("logout")}</button>
                                         </div>

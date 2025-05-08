@@ -192,5 +192,13 @@
   "repeatPassword": "Повторите пароль",
   "confirmNewPassword": "Подтвердите новый пароль",
   "resetPassword": "Сбросить пароль",
-  "passwordsDontMatch": "Пароли не совпадают"
+  "passwordsDontMatch": "Пароли не совпадают",
+  "changePassword": "Изменить пароль",
+  "forgotPass": "Забыли пароль?",
+  "currentPassword": "Текущий пароль",
+  "enterCurrentPassword": "Введите текущий пароль",
+  "verifyCurrentPassword": "Проверить текущий пароль",
+  "verifying": "Проверка",
+  "incorrectPassword": "Неверный текущий пароль",
+  "currentPasswordRequired": "Текущий пароль обязателен"
 }

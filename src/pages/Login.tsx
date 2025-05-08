@@ -76,6 +76,9 @@ const LoginForm = () => {
             <span className='mt-8'>{t("noAccYet")}?
                 <Link to="/register" className="text-main-color underline ml-2">{t("registration")}</Link>
             </span>
+            <span className='mt-8'>{t("forgotPass")}?
+                <Link to="/request-reset-password" className="text-main-color underline ml-2">{t("resetPassword")}</Link>
+            </span>
         </div>
     );
 };
