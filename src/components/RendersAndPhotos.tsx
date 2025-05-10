@@ -5,28 +5,29 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Navigation, Pagination } from "swiper/modules";
 import { useTranslation } from "react-i18next";
-import render1 from "../assets/renders/design 1/1,,.jpg"
-import render2 from "../assets/renders/design 1/2.jpg"
-import render3 from "../assets/renders/design 1/3.jpg"
-import render4 from "../assets/renders/design 1/4...jpg"
-import render5 from "../assets/renders/design 1/5.jpg"
-import render6 from "../assets/renders/design 1/6...jpg"
-// import render7 from "../assets/renders/design 1/იატაკის სანათის გარეშე.jpg"
-// import render8 from "../assets/renders/design 1/კარადა ჩვეილებრივი.jpg"
-import render11 from "../assets/renders/design 2/0b6ac679-1b74-4636-89cc-e20883190abb.jpg"
-import render12 from "../assets/renders/design 2/14f84845-fa6d-43bb-b706-166a318d05e5.jpg"
-import render13 from "../assets/renders/design 2/3855198a-d84a-4746-9d77-9deac36828ae.jpg"
-import render14 from "../assets/renders/design 2/4d1a32ba-88a7-41a3-bb2f-8612e48a573c.jpg"
-import render15 from "../assets/renders/design 2/76125c3d-20c8-45d0-8f85-3df00f3b6410.jpg"
-import render16 from "../assets/renders/design 2/766e3fb2-69ad-4038-8ea5-d252f5474a94.jpg"
-// import render17 from "../assets/renders/design 2/7c846115-3c72-423a-b73d-f3a2cb38f2b3.jpg"
-import render18 from "../assets/renders/design 2/8fbb7abe-3260-4dbe-930c-5bd317db12dd.jpg"
-import render19 from "../assets/renders/design 2/9389830a-69ae-44fc-9ed0-09ee13ae608f.jpg"
+// import render1 from "../assets/renders/design 1/1,,.jpg"
+// import render2 from "../assets/renders/design 1/2.jpg"
+// import render3 from "../assets/renders/design 1/3.jpg"
+// import render4 from "../assets/renders/design 1/4...jpg"
+// import render5 from "../assets/renders/design 1/5.jpg"
+// import render6 from "../assets/renders/design 1/6...jpg"
+// // import render7 from "../assets/renders/design 1/იატაკის სანათის გარეშე.jpg"
+// // import render8 from "../assets/renders/design 1/კარადა ჩვეილებრივი.jpg"
+// import render11 from "../assets/renders/design 2/0b6ac679-1b74-4636-89cc-e20883190abb.jpg"
+// import render12 from "../assets/renders/design 2/14f84845-fa6d-43bb-b706-166a318d05e5.jpg"
+// import render13 from "../assets/renders/design 2/3855198a-d84a-4746-9d77-9deac36828ae.jpg"
+// import render14 from "../assets/renders/design 2/4d1a32ba-88a7-41a3-bb2f-8612e48a573c.jpg"
+// import render15 from "../assets/renders/design 2/76125c3d-20c8-45d0-8f85-3df00f3b6410.jpg"
+// import render16 from "../assets/renders/design 2/766e3fb2-69ad-4038-8ea5-d252f5474a94.jpg"
+// // import render17 from "../assets/renders/design 2/7c846115-3c72-423a-b73d-f3a2cb38f2b3.jpg"
+// import render18 from "../assets/renders/design 2/8fbb7abe-3260-4dbe-930c-5bd317db12dd.jpg"
+// import render19 from "../assets/renders/design 2/9389830a-69ae-44fc-9ed0-09ee13ae608f.jpg"
+import { Image } from "../types/apiTypes/types";
 
 
 
-const RendersAndPictures = () => {
-    const [selectedImage, setSelectedImage] = useState<string | null>(null);
+const RendersAndPictures = ({ renders }: { renders: Image[] }) => {
+    const [selectedImage, setSelectedImage] = useState<string>('');
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [currentIndex, setCurrentIndex] = useState<number>(0);
     const [isPaginationEnabled, setIsPaginationEnabled] = useState(window.innerWidth < 640);
@@ -40,30 +41,30 @@ const RendersAndPictures = () => {
         return () => window.removeEventListener("resize", handleResize);
     }, []);
     const { t } = useTranslation();
-    const images = [
-        render4, render5, render6, render11,
-        render12, render13, render14, render1, render2, render3, render15, render16, render18, render19
-    ];
+    // const images = [
+    //     render4, render5, render6, render11,
+    //     render12, render13, render14, render1, render2, render3, render15, render16, render18, render19
+    // ];
 
-    const openModal = (image: string, index: number) => {
-        setSelectedImage(image);
-        setCurrentIndex(index);
+    const openModal = (image: Image) => {
+        setSelectedImage(image.url);
+        setCurrentIndex(image.id);
         setIsModalOpen(true);
     };
 
     const closeModal = () => {
         setIsModalOpen(false);
-        setSelectedImage(null);
+        setSelectedImage("");
     };
 
     const nextImage = () => {
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-        setSelectedImage(images[(currentIndex + 1) % images.length]);
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % renders.length);
+        setSelectedImage(renders[(currentIndex + 1) % renders.length].url);
     };
 
     const prevImage = () => {
-        setCurrentIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
-        setSelectedImage(images[(currentIndex - 1 + images.length) % images.length]);
+        setCurrentIndex((prevIndex) => (prevIndex - 1 + renders.length) % renders.length);
+        setSelectedImage(renders[(currentIndex - 1 + renders.length) % renders.length].url);
     };
 
     useEffect(() => {
@@ -114,15 +115,15 @@ const RendersAndPictures = () => {
                     spaceBetween={20}
                     className="mb-6"
                 >
-                    {images.map((image, index) => (
-                        <SwiperSlide className="mb-4 sm:mb-10" key={index}>
+                    {renders?.map((image) => (
+                        <SwiperSlide className="mb-4 sm:mb-10" key={image.id}>
                             <div
                                 className="relative group cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-xl"
-                                onClick={() => openModal(image, index)}
+                                onClick={() => openModal(image)}
                             >
                                 <img
-                                    src={image}
-                                    alt={`gallery-item-${index}`}
+                                    src={process.env.REACT_APP_URL + image.url}
+                                    alt={`gallery-item-${image.id}`}
                                     className="w-full h-full object-cover"
                                 />
                                 <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-all duration-300 flex justify-center items-center">
@@ -147,7 +148,7 @@ const RendersAndPictures = () => {
                             </svg>
                         </button>
                         <img
-                            src={selectedImage || ""}
+                            src={process.env.REACT_APP_URL + selectedImage || ""}
                             alt="Selected"
                             className="w-full h-full object-cover rounded-lg transition-all duration-500"
                         />

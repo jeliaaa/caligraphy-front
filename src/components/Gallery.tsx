@@ -4,46 +4,47 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Navigation, Pagination } from "swiper/modules";
-import image3 from "../assets/photos/ფოტომასალაა/DSC_0025.jpg";
-import image4 from "../assets/photos/ფოტომასალაა/DSC_0054.jpg";
-import image5 from "../assets/photos/ფოტომასალაა/DSC_0078.jpg";
-import image6 from "../assets/photos/ფოტომასალაა/DSC_0084.jpg";
-import image7 from "../assets/photos/ფოტომასალაა/DSC_0105.jpg";
-import image8 from "../assets/photos/ფოტომასალაა/DSC_0120.jpg";
-import image9 from "../assets/photos/ფოტომასალაა/DSC_0124.jpg";
-import image10 from "../assets/photos/ფოტომასალაა/DSC_0135.jpg";
-import image11 from "../assets/photos/ფოტომასალაა/DSC_0138.jpg";
-import image12 from "../assets/photos/ფოტომასალაა/DSC_0143.jpg";
-import image13 from "../assets/photos/ფოტომასალაა/DSC_0149.jpg";
-import image14 from "../assets/photos/ფოტომასალაა/DSC_0151.jpg";
-import image15 from "../assets/photos/ფოტომასალაა/DSC_0156.jpg";
-import image16 from "../assets/photos/ფოტომასალაა/DSC_0163.jpg";
-import image17 from "../assets/renovations/bina5/DSC_0151.jpg"
-import image18 from "../assets/renovations/bina5/DSC_0156.jpg"
-import image19 from "../assets/renovations/bina4/IMG_8722.jpg"
-import image20 from "../assets/renovations/bina4/IMG_8721.jpg"
-import image21 from "../assets/renovations/bina4/IMG_8719.jpg"
-import image22 from "../assets/renovations/bina4/IMG_8718.jpg"
-import image23 from "../assets/renovations/bina4/IMG_8716.jpg"
-// import image24 from "../assets/renovations/bina3/IMG_8709.jpg"
-import image25 from "../assets/renovations/bina3/IMG_8753.jpg"
-import image26 from "../assets/renovations/bina1/IMG_8649.jpg"
-// import image27 from "../assets/renovations/bina1/IMG_8651.jpg"
-import image28 from "../assets/renovations/bina1/IMG_8650.jpg"
+// import image3 from "../assets/photos/ფოტომასალაა/DSC_0025.jpg";
+// import image4 from "../assets/photos/ფოტომასალაა/DSC_0054.jpg";
+// import image5 from "../assets/photos/ფოტომასალაა/DSC_0078.jpg";
+// import image6 from "../assets/photos/ფოტომასალაა/DSC_0084.jpg";
+// import image7 from "../assets/photos/ფოტომასალაა/DSC_0105.jpg";
+// import image8 from "../assets/photos/ფოტომასალაა/DSC_0120.jpg";
+// import image9 from "../assets/photos/ფოტომასალაა/DSC_0124.jpg";
+// import image10 from "../assets/photos/ფოტომასალაა/DSC_0135.jpg";
+// import image11 from "../assets/photos/ფოტომასალაა/DSC_0138.jpg";
+// import image12 from "../assets/photos/ფოტომასალაა/DSC_0143.jpg";
+// import image13 from "../assets/photos/ფოტომასალაა/DSC_0149.jpg";
+// import image14 from "../assets/photos/ფოტომასალაა/DSC_0151.jpg";
+// import image15 from "../assets/photos/ფოტომასალაა/DSC_0156.jpg";
+// import image16 from "../assets/photos/ფოტომასალაა/DSC_0163.jpg";
+// import image17 from "../assets/renovations/bina5/DSC_0151.jpg"
+// import image18 from "../assets/renovations/bina5/DSC_0156.jpg"
+// import image19 from "../assets/renovations/bina4/IMG_8722.jpg"
+// import image20 from "../assets/renovations/bina4/IMG_8721.jpg"
+// import image21 from "../assets/renovations/bina4/IMG_8719.jpg"
+// import image22 from "../assets/renovations/bina4/IMG_8718.jpg"
+// import image23 from "../assets/renovations/bina4/IMG_8716.jpg"
+// // import image24 from "../assets/renovations/bina3/IMG_8709.jpg"
+// import image25 from "../assets/renovations/bina3/IMG_8753.jpg"
+// import image26 from "../assets/renovations/bina1/IMG_8649.jpg"
+// // import image27 from "../assets/renovations/bina1/IMG_8651.jpg"
+// import image28 from "../assets/renovations/bina1/IMG_8650.jpg"
 
 import { useTranslation } from "react-i18next";
+import { Image } from "../types/apiTypes/types";
 
-const Gallery = () => {
-    const [selectedImage, setSelectedImage] = useState<string | null>(null);
+const Gallery = ({ gallery }: { gallery: Image[] | [] }) => {
+    const [selectedImage, setSelectedImage] = useState<string>('');
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [currentIndex, setCurrentIndex] = useState<number>(0);
     const { t } = useTranslation();
-    const images = [
-        image3, image4, image5, image6, image7, image8, image9, image10,
-        image11, image12, image13, image14, image15, image16, image17, image18,
-        image19, image20, image21, image22, image23, image25, image26,
-        image28
-    ];
+    // const images = [
+    //     image3, image4, image5, image6, image7, image8, image9, image10,
+    //     image11, image12, image13, image14, image15, image16, image17, image18,
+    //     image19, image20, image21, image22, image23, image25, image26,
+    //     image28
+    // ];
     const [isPaginationEnabled, setIsPaginationEnabled] = useState(window.innerWidth < 640);
 
     useEffect(() => {
@@ -54,25 +55,27 @@ const Gallery = () => {
         window.addEventListener("resize", handleResize);
         return () => window.removeEventListener("resize", handleResize);
     }, []);
-    const openModal = (image: string, index: number) => {
-        setSelectedImage(image);
-        setCurrentIndex(index);
+    const openModal = (image: Image) => {
+        setSelectedImage(image.url);
+        setCurrentIndex(image.id);
         setIsModalOpen(true);
     };
 
     const closeModal = () => {
         setIsModalOpen(false);
-        setSelectedImage(null);
+        setSelectedImage('');
     };
 
     const nextImage = () => {
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-        setSelectedImage(images[(currentIndex + 1) % images.length]);
+        // if(gallery?.length <= 1) return; 
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % gallery.length);
+        setSelectedImage(gallery[(currentIndex + 1) % gallery.length].url);
     };
 
     const prevImage = () => {
-        setCurrentIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
-        setSelectedImage(images[(currentIndex - 1 + images.length) % images.length]);
+        // if(gallery?.length <= 1) return; 
+        setCurrentIndex((prevIndex) => (prevIndex - 1 + gallery.length) % gallery.length);
+        setSelectedImage(gallery[(currentIndex - 1 + gallery.length) % gallery.length].url);
     };
     useEffect(() => {
         setTimeout(() => {
@@ -128,15 +131,15 @@ const Gallery = () => {
                     className="mb-6"
                 >
 
-                    {images.map((image, index) => (
-                        <SwiperSlide className="mb-1 sm:mb-10" key={index}>
+                    {gallery?.map((image) => (
+                        <SwiperSlide className="mb-1 sm:mb-10" key={image.id}>
                             <div
                                 className="relative group cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-xl"
-                                onClick={() => openModal(image, index)}
+                                onClick={() => openModal(image)}
                             >
                                 <img
-                                    src={image}
-                                    alt={`gallery-item-${index}`}
+                                    src={process.env.REACT_APP_URL + image.url}
+                                    alt={`gallery-item-${image.id}`}
                                     className="w-full h-full object-cover"
                                 />
                                 <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-all duration-300 flex justify-center items-center">
@@ -161,7 +164,7 @@ const Gallery = () => {
                             </svg>
                         </button>
                         <img
-                            src={selectedImage || ""}
+                            src={process.env.REACT_APP_URL + selectedImage || ""}
                             alt="Selected"
                             className="w-full object-cover rounded-lg transition-all duration-500"
                         />

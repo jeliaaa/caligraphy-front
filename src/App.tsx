@@ -9,7 +9,7 @@ import Footer from './components/Footer';
 import LoginForm from './pages/Login';
 import RegistrationForm from './pages/RegistrationForm';
 import TeamPage from './pages/Team';
-import Gallery from './components/Gallery';
+// import Gallery from './components/Gallery';
 import VerifyEmail from './pages/Verify';
 import PriceCalculator from './components/PriceCalc';
 import { animateScroll } from 'react-scroll';
@@ -58,7 +58,7 @@ const App = () => {
           <Route path='/team' element={<TeamPage slider={false} />} />
           <Route path='/advantages' element={<ServiceBenefits />} />
           <Route path='/verify-email' element={<VerifyEmail />} />
-          <Route path='/gallery' element={<Gallery />} />
+          {/* <Route path='/gallery' element={<Gallery />} /> */}
           <Route path='/calculate' element={<PriceCalculator />} />
           <Route path='/profile' element={<ClientOnly><Profile /></ClientOnly>} />
           <Route path='/profile/:id' element={<ClientOnly><ProjectSingle /></ClientOnly>} />

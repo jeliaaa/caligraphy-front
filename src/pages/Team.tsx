@@ -71,8 +71,8 @@ const TeamSlider: React.FC<{ slider: boolean }> = ({ slider }) => {
                 opacity-100 translate-y-0 md:opacity-0 md:translate-y-full 
                 group-hover:opacity-100 group-hover:translate-y-0 
                 transition-all duration-300 ease-in-out">
-                                <h3 className="text-lg md:text-xl font-semibold text-gray-800">{t(member.name)}</h3>
-                                <p className="text-sm md:text-base text-gray-600">{t(member.position)}</p>
+                                <h3 className="text-lg md:text-xl font-semibold text-gray-800">{member.name}</h3>
+                                <p className="text-sm md:text-base text-gray-600">{member.position}</p>
                             </div>
                         </div>
                     </SwiperSlide>

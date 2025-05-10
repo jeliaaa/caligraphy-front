@@ -71,3 +71,33 @@ export type SafeAdvantage = {
     description: string
     image: string
 }
+
+export type CompletedProject = {
+    id: number;
+    m2: number;
+    images: { url: string }[];
+};
+
+type Quote = {
+    slogan1: string;
+    slogan2: string;
+    banner: string;
+};
+export type Image = {
+    id: number;
+    url: string;
+}
+
+export type Stats = {
+    id: number;
+    value: number;
+    name: string;
+}
+
+export type ContentData = {
+    completed_projects: CompletedProject[];
+    gallery: Image[] | [];     // You can replace `any` with a specific type if known
+    statistics: Stats[];  // Same here
+    renders: Image[];     // And here
+    quote: Quote;
+};

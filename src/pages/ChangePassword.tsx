@@ -10,9 +10,8 @@ interface IChangeForm {
 }
 
 const ChangePassword = () => {
-    const { control, handleSubmit, watch, formState: { errors } } = useForm<IChangeForm>();
+    const { control, handleSubmit, formState: { errors } } = useForm<IChangeForm>();
     const [loading, setLoading] = useState(false);
-    const [isVerified, setIsVerified] = useState(false);
     const [successMessage, setSuccessMessage] = useState("");
     const [errorMessage, setErrorMessage] = useState("");
     const { t } = useTranslation();

@@ -15,19 +15,19 @@ import RendersAndPictures from '../components/RendersAndPhotos'
 import { useTranslation } from 'react-i18next'
 import { axiosV2 } from '../utils/axios'
 import Loader from '../components/Loader'
+import { ContentData } from 'types/apiTypes/types'
 
 const Main: React.FC = () => {
 
   const { t } = useTranslation();
   const [loading, setLoading] = useState(false);
-  const [data, setData] = useState<any>(null);
+  const [data, setData] = useState<ContentData>({} as ContentData)
   useEffect(() => {
     setLoading(true);
     axiosV2.get(`/content/`)
       .then(res => setData(res.data))
       .finally(() => setLoading(false))
   }, [])
-
   console.log(data);
 
   if (loading) return <Loader />;
@@ -47,10 +47,10 @@ const Main: React.FC = () => {
 
 
       <ServicesSection />
-      <RendersAndPictures />
-      <Gallery />
-      <ProjectsOverview />
-      <StatisticSection />
+      <RendersAndPictures renders={data?.renders} />
+      <Gallery gallery={data?.gallery} />
+      <ProjectsOverview projects={data?.completed_projects} />
+      <StatisticSection stats={data?.statistics} />
       <TeamSlider slider />
       <PartnersSlider />
       {/* <div className="text-center py-28 flex flex-col items-center space-y-5 h-full bg-third-color mb-3">
